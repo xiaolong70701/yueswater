@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4306040064090497"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在資訊透明化的時代，法律資料的取得與應用變得越來越重要。無論是法律專業人士、學術研究者，還是關心司法議題的公民，都需要方便地獲取並分析判決書等法律文件。今天這篇文章要為大家介紹一個由我搭配 GPT 大神開發的強大工具——「判決書下載器」(Judgment Downloader)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="司法院裁判書查詢與下載系統">
+<meta property="og:url" content="https://www.yueswater.com/judgement-downloader/index.html">
+<meta property="og:site_name" content="岳氏礦泉水">
+<meta property="og:description" content="在資訊透明化的時代，法律資料的取得與應用變得越來越重要。無論是法律專業人士、學術研究者，還是關心司法議題的公民，都需要方便地獲取並分析判決書等法律文件。今天這篇文章要為大家介紹一個由我搭配 GPT 大神開發的強大工具——「判決書下載器」(Judgment Downloader)。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-03-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-31T16:00:00.000Z">
+<meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.yueswater.com/judgement-downloader/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>司法院裁判書查詢與下載系統 | 岳氏礦泉水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">岳氏礦泉水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">泉源思緒，細品人生</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/judgement-downloader/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          司法院裁判書查詢與下載系統
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-01T00:00:00+08:00">2025-04-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B0%88%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">專案</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/judgement-downloader/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/judgement-downloader/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>16 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在資訊透明化的時代，法律資料的取得與應用變得越來越重要。無論是法律專業人士、學術研究者，還是關心司法議題的公民，都需要方便地獲取並分析判決書等法律文件。今天這篇文章要為大家介紹一個由我搭配 GPT 大神開發的強大工具——「<a target="_blank" rel="noopener" href="https://judgment-downloader.streamlit.app/">判決書下載器</a>」(Judgment Downloader)。</p>
+<span id="more"></span>
+
+<h2 id="判決書下載器的誕生背景"><a href="#判決書下載器的誕生背景" class="headerlink" title="判決書下載器的誕生背景"></a>判決書下載器的誕生背景</h2><h3 id="法律資料取得的困境"><a href="#法律資料取得的困境" class="headerlink" title="法律資料取得的困境"></a>法律資料取得的困境</h3><p>在臺灣，司法院雖然已建立「法學資料檢索系統」，提供當事人、律師乃至於司法官查詢過往判決書，但這個系統主要針對單筆查詢設計，對於需要批量下載或分析大量判決的使用者來說並不友善。儘管現在裁判書系統已提供下載 PDF 檔案服務，不過研究人員、法律工作者仍需要花費大量時間手動下載判決書，這不僅費時費神，同時也限制了法律資料的研究深度和廣度。</p>
+<h3 id="開源解決方案的出現"><a href="#開源解決方案的出現" class="headerlink" title="開源解決方案的出現"></a>開源解決方案的出現</h3><p>正是在這樣的背景下，「判決書下載器」應運而生。這是一個基於 <a target="_blank" rel="noopener" href="https://streamlit.io/">Streamlit</a> 開發的網頁，旨在提供一個簡單、直觀且高效的界面，讓使用者能夠根據關鍵字，批量下載臺灣各級法院的判決書。此外，本專案採用開源模式，不僅為使用者提供了便利的工具，也希望為整個法律研究領域與實務注入新的活力。</p>
+<h2 id="功能特色與使用體驗"><a href="#功能特色與使用體驗" class="headerlink" title="功能特色與使用體驗"></a>功能特色與使用體驗</h2><h3 id="直觀的使用者界面"><a href="#直觀的使用者界面" class="headerlink" title="直觀的使用者界面"></a>直觀的使用者界面</h3><p>判決書下載器最引人注目的特點之一就是其簡潔明瞭的使用者界面。Streamlit 的選用使得開發者能夠專注於功能實現，同時為使用者提供流暢的操作體驗。整個界面設計遵循「簡單即是美」的原則，即使是非技術背景的使用者也能輕鬆上手。</p>
+<p>主界面主要分為幾個功能區塊：</p>
+<ul>
+<li>法院及案件類型選擇</li>
+<li>關鍵詞搜尋</li>
+<li>執行狀態顯示</li>
+<li>結果預覽與下載</li>
+</ul>
+<p>這種直觀的設計大大降低了學習成本，使得法律資料的獲取不再是技術門檻高的任務。</p>
+<h3 id="高效的批量下載"><a href="#高效的批量下載" class="headerlink" title="高效的批量下載"></a>高效的批量下載</h3><p>判決書下載器最核心的價值在於批量下載功能。傳統上，使用者可能需要一個個點擊下載按鈕，耗費大量時間。而使用這個工具，只需設定好搜尋條件，系統會自動批量下載符合條件的所有判決書，並整合為易於管理的格式。因此本系統將 PDF 的下載連結先暫存起來，待使用者按下按鈕後，便可一個個下載到暫存資料夾中，最後輸出成壓縮檔案。</p>
+<h2 id="程式碼基本想法與架構設計"><a href="#程式碼基本想法與架構設計" class="headerlink" title="程式碼基本想法與架構設計"></a>程式碼基本想法與架構設計</h2><h3 id="Streamlit-框架"><a href="#Streamlit-框架" class="headerlink" title="Streamlit 框架"></a>Streamlit 框架</h3><p>判決書下載器選用 Streamlit 作為開發框架，雖然這是一個專為資料科學和機器學習應用設計的 Python 框架，但是好用又免費（免費仔的福音 🤣）。Streamlit 使得開發者能夠快速將 Python 程式碼轉換為共享網頁，大幅降低了網頁開發的複雜性。</p>
+<p>在該專案中，Streamlit負責提供直觀的使用者界面，處理使用者輸入，展示下載進度和結果等，從而使得整個應用保持輕量、不複雜，這也是一個網頁開發的核心要求。</p>
+<h3 id="網頁爬蟲技術"><a href="#網頁爬蟲技術" class="headerlink" title="網頁爬蟲技術"></a>網頁爬蟲技術</h3><p>判決書下載器的核心功能—批量下載判決書—依賴於高效的網頁爬蟲技術。專案使用 Python 的 <code>requests</code>、<code>BeautifulSoup</code> 與 <code>Playwright</code> 等套件爬取司法院裁判書查詢系統。</p>
+<p>爬蟲部分的實現考慮了多方面的因素：</p>
+<ul>
+<li><strong>請求頻率控制</strong>：設置合理的請求間隔，避免對目標服務器造成壓力（不然真的會出事）</li>
+<li><strong>錯誤處理與重試機制</strong>：處理網絡波動、服務器響應異常等情況</li>
+<li><strong>會話管理</strong>：維護爬取會話，處理可能的認證和Cookie問題</li>
+</ul>
+<h2 id="應用場景與實際案例"><a href="#應用場景與實際案例" class="headerlink" title="應用場景與實際案例"></a>應用場景與實際案例</h2><h3 id="學術研究中的應用"><a href="#學術研究中的應用" class="headerlink" title="學術研究中的應用"></a>學術研究中的應用</h3><p>當初在開發這個判決書下載器時，我心中最初的想法並非商業化或是單純技術展示，而是期待它能夠為學術研究領域，特別是法學研究，提供一份實質的助力。法律作為一種制度性的規範，其研究過程本身極為繁重，不僅需要閱讀大量的判決文書，還需將這些文本加以分類、歸納、分析，最後再融入法理學與社會脈絡中進行辯證與詮釋。這樣的研究方式，不僅是對資料處理能力的挑戰，更是一場對研究者耐心與邏輯思維的長期考驗。臺灣的判決書公開制度固然已經走在世界前段，然而現行的檢索與取得機制仍有操作上的障礙，從繁瑣的網頁查詢，到無法批次下載的限制，都無形中提高了學術研究的門檻。</p>
+<p>在這樣的背景下，開發這個下載器的初衷，其實就是希望能夠降低法律資料蒐集的技術成本，讓研究者能夠將時間與心力投入在真正重要的分析與辯證工作上。此外，這個專案也受到臺大法律學院黃詩淳教授近年來推廣的「法律與資料科學結合」理念所啟發。黃教授在多次公開演講與論文中提到，未來的法律研究，勢必會走向跨領域數據分析與實證法學的路徑，而不是停留在傳統的條文解釋與案例羅列。因此，我期望這個專案能夠讓更多具備技術背景或對資料科學有興趣的法律學者，能夠投入到這個數位法學的生態系統中，共同為臺灣的司法透明與法學發展做出貢獻。</p>
+<h3 id="法律實務工作者的助手"><a href="#法律實務工作者的助手" class="headerlink" title="法律實務工作者的助手"></a>法律實務工作者的助手</h3><p>除了學術研究，這套判決書下載器對於法律實務工作者來說同樣具有極高的應用價值。對律師、法官、檢察官甚至是法務專員而言，日常工作的重心之一即是「案例檢索」與「法律適用」。每當面對一個棘手的案件，從過往的判決書中尋找相似案例與判決理由，是律師制定訴訟策略、法官進行判斷的重要依據。然而，法院判決書的數量龐大且分散，即便有官方查詢系統，也因為查詢條件限制與介面設計問題，難以快速批量取得需要的判決書檔案，進一步影響案件分析的效率與精準度。</p>
+<p>這套下載器正是為了解決這樣的實務痛點而設計。在實際應用中，已有數間專注於智慧財產權、商業糾紛或刑事訴訟的律師事務所，藉由本工具建立自有的判決書資料庫。例如，有一間專注於專利訴訟的律師事務所，利用下載器系統性地整理了上千份專利侵權相關判決，透過後續的資料清理與分類，他們能夠快速檢索相似案例，並結合案件類型與審理法官的歷史判決資料，提供當事人更精準的風險評估與訴訟建議。對於律師而言，這不僅是工具，更是一種數據化的法律服務資產，能夠提升業務競爭力，並在訴訟過程中取得先機。</p>
+<h3 id="法學教育的教學工具"><a href="#法學教育的教學工具" class="headerlink" title="法學教育的教學工具"></a>法學教育的教學工具</h3><p>從法學教育的角度來看，這個下載器同樣具備潛在的教學價值。判例教學向來是法學院課程中的核心，教師經常需要為學生準備真實且具代表性的案例，用以引導學生進行法律適用與邏輯推理訓練。然而，現行的判決書查詢機制不僅耗時，且資料格式零散，導致教師在備課時需要花費過多時間於資料檢索與整理，無形中削弱了課程的教學重心。藉由判決書下載器，教師可以輕鬆批次取得所需案例，並依課程需求進行分類與標註，大幅縮短教學準備的流程，將重心回歸到案例討論與學生思辨的培養上。</p>
+<p>另一方面，對於法學院學生而言，這套工具同樣是一種學習資源的解放。在法學院的研究課程、判例分析作業乃至於模擬法庭比賽中，學生經常需要蒐集大量的真實案例作為論述依據。以往，這樣的資料搜集工作往往需要耗費數日甚至數週，對於學生而言是一項沉重的負擔。</p>
+<h2 id="結語：拋磚引玉，總得先有一塊磚"><a href="#結語：拋磚引玉，總得先有一塊磚" class="headerlink" title="結語：拋磚引玉，總得先有一塊磚"></a>結語：拋磚引玉，總得先有一塊磚</h2><p>寫到這裡，你可能會以為這個「判決書下載器」已經廣泛應用，成為法律界與學術圈的必備神器。但事實上，直到今天為止，這個工具幾乎沒有人在用，連留言詢問或按讚的人都屈指可數。也許是因為功能還不夠完美，也許是因為這個領域本來就小眾，又或者，只是因為這個系統藏得太深，還沒被需要它的人發現。</p>
+<p>然而，對我來說，這個專案的價值從來不只是「多少人用」的問題，而是它作為一個 示範，證明了一件事——資料科學與法律這兩個看似遙遠的世界，其實可以被橋接起來。無論是研究者、實務工作者，還是法學院的學生，只要願意花一點時間學習工具、打開視野，就有機會用技術幫自己減少重複勞力，把精力放在真正重要的思考與判斷上。</p>
+<p>這個下載器或許不是什麼劃時代的大工程，但它是一塊磚，一塊試圖改變資料取得與應用困境的小磚。如果未來某一天，有學生、研究者或律師無意間點進這個網站，發現它節省了他們兩個小時、五個小時，甚至一個禮拜的工作，那我覺得，這個專案就沒有白做。</p>
+<p>如果你剛好讀到這裡，對這個工具有興趣，也歡迎你試試看，哪怕只是好奇、哪怕只是玩玩看。畢竟，所有技術的價值，從來不是因為它「做得多大」，而是因為它<strong>真的幫助了哪怕一個人</strong>。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/dsra/" rel="prev" title="台語才是愛台灣的象徵嗎？">
+      <i class="fa fa-chevron-left"></i> 台語才是愛台灣的象徵嗎？
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%B1%BA%E6%9B%B8%E4%B8%8B%E8%BC%89%E5%99%A8%E7%9A%84%E8%AA%95%E7%94%9F%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">判決書下載器的誕生背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%95%E5%BE%8B%E8%B3%87%E6%96%99%E5%8F%96%E5%BE%97%E7%9A%84%E5%9B%B0%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">法律資料取得的困境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%8B%E6%BA%90%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88%E7%9A%84%E5%87%BA%E7%8F%BE"><span class="nav-number">1.2.</span> <span class="nav-text">開源解決方案的出現</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%89%B9%E8%89%B2%E8%88%87%E4%BD%BF%E7%94%A8%E9%AB%94%E9%A9%97"><span class="nav-number">2.</span> <span class="nav-text">功能特色與使用體驗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A7%80%E7%9A%84%E4%BD%BF%E7%94%A8%E8%80%85%E7%95%8C%E9%9D%A2"><span class="nav-number">2.1.</span> <span class="nav-text">直觀的使用者界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%95%88%E7%9A%84%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">高效的批量下載</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%9F%BA%E6%9C%AC%E6%83%B3%E6%B3%95%E8%88%87%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88"><span class="nav-number">3.</span> <span class="nav-text">程式碼基本想法與架構設計</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Streamlit-%E6%A1%86%E6%9E%B6"><span class="nav-number">3.1.</span> <span class="nav-text">Streamlit 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B6%B2%E9%A0%81%E7%88%AC%E8%9F%B2%E6%8A%80%E8%A1%93"><span class="nav-number">3.2.</span> <span class="nav-text">網頁爬蟲技術</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%87%89%E7%94%A8%E5%A0%B4%E6%99%AF%E8%88%87%E5%AF%A6%E9%9A%9B%E6%A1%88%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">應用場景與實際案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%B8%E8%A1%93%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E6%87%89%E7%94%A8"><span class="nav-number">4.1.</span> <span class="nav-text">學術研究中的應用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%95%E5%BE%8B%E5%AF%A6%E5%8B%99%E5%B7%A5%E4%BD%9C%E8%80%85%E7%9A%84%E5%8A%A9%E6%89%8B"><span class="nav-number">4.2.</span> <span class="nav-text">法律實務工作者的助手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%95%E5%AD%B8%E6%95%99%E8%82%B2%E7%9A%84%E6%95%99%E5%AD%B8%E5%B7%A5%E5%85%B7"><span class="nav-number">4.3.</span> <span class="nav-text">法學教育的教學工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E6%8B%8B%E7%A3%9A%E5%BC%95%E7%8E%89%EF%BC%8C%E7%B8%BD%E5%BE%97%E5%85%88%E6%9C%89%E4%B8%80%E5%A1%8A%E7%A3%9A"><span class="nav-number">5.</span> <span class="nav-text">結語：拋磚引玉，總得先有一塊磚</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Anthony Sung"
+      src="/images/profile.svg">
+  <p class="site-author-name" itemprop="name">Anthony Sung</p>
+  <div class="site-description" itemprop="description">對生活抱持好奇心的學習者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaolong70701" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaolong70701" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xiaolong70701@gmail.com" title="E-Mail → mailto:xiaolong70701@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yueswater/" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yueswater&#x2F;" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/yues_19_water/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;yues_19_water&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">&copy; Anthony 部落格原站：<a href="https://xiaolong70701.github.io/blog/" target="_blank">Yueswater Blog</a>；若要轉載文章，麻煩請保留原作者名稱與原始連結。
+</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌙',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yueswater.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/judgement-downloader/";
+    this.page.identifier = "/judgement-downloader/";
+    this.page.title = "司法院裁判書查詢與下載系統";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+<script src="/js/injector.js"></script>
+</body>
+</html>

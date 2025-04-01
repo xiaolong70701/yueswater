@@ -1,11 +1,11 @@
-https://www.yueswater.com/what-is-city/
+https://www.yueswater.com/judgement-downloader/
 https://www.yueswater.com/dsra/
 https://www.yueswater.com/dsra/
 https://www.yueswater.com/museum/
 https://www.yueswater.com/on-failure/
 https://www.yueswater.com/persistence/
-https://www.yueswater.com/dsra/
 https://www.yueswater.com/taiwan-edu/
+https://www.yueswater.com/dsra/
 https://www.yueswater.com/404.html
 https://www.yueswater.com/about/index.html
 https://www.yueswater.com/tags/index.html
@@ -15,7 +15,6 @@ https://www.yueswater.com/tags/%E4%BA%BA%E7%94%9F/
 https://www.yueswater.com/tags/%E6%88%90%E9%95%B7/
 https://www.yueswater.com/tags/%E7%94%9F%E5%91%BD%E6%AD%B7%E7%A8%8B/
 https://www.yueswater.com/tags/%E8%BA%AB%E5%BF%83%E9%9A%9C%E7%A4%99/
-https://www.yueswater.com/tags/%E9%83%BD%E5%B8%82%E7%B6%93%E6%BF%9F%E5%AD%B8/
-https://www.yueswater.com/tags/%E7%A9%BA%E9%96%93%E7%B6%93%E6%BF%9F%E5%AD%B8/
+https://www.yueswater.com/tags/Python/
 https://www.yueswater.com/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%A8%98/
-https://www.yueswater.com/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/
+https://www.yueswater.com/categories/%E5%B0%88%E6%A1%88/
