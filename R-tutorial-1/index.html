@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4306040064090497"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="學習 R 語言的第一步！本篇教學介紹如何進行變數賦值、認識資料型別，並實作 R 語言中的基本操作，適合初學者入門。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R 語言教學入門｜從變數賦值到資料型別完整解析【2025版】">
+<meta property="og:url" content="https://www.yueswater.com/R-tutorial-1/index.html">
+<meta property="og:site_name" content="岳氏礦泉水">
+<meta property="og:description" content="學習 R 語言的第一步！本篇教學介紹如何進行變數賦值、認識資料型別，並實作 R 語言中的基本操作，適合初學者入門。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://www.yueswater.com/images/Lec1_confuse.png">
+<meta property="article:published_time" content="2025-04-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-05T16:00:00.000Z">
+<meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="R 語言">
+<meta property="article:tag" content="程式教學">
+<meta property="article:tag" content="資料型別">
+<meta property="article:tag" content="初學者教學">
+<meta property="article:tag" content="R 語言變數">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yueswater.com/images/Lec1_confuse.png">
+
+<link rel="canonical" href="https://www.yueswater.com/R-tutorial-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>R 語言教學入門｜從變數賦值到資料型別完整解析【2025版】 | 岳氏礦泉水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">岳氏礦泉水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">泉源思緒，細品人生</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/R-tutorial-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          R 語言教學入門｜從變數賦值到資料型別完整解析【2025版】
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-04-06 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-06T00:00:00+08:00">2025-04-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R-%E8%AA%9E%E8%A8%80%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">R 語言教學</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R-%E8%AA%9E%E8%A8%80%E6%95%99%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E5%85%A5%E9%96%80/" itemprop="url" rel="index"><span itemprop="name">程式語言入門</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/R-tutorial-1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/R-tutorial-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>8.3k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>41 分鐘</span>
+            </span>
+            <div class="post-description">學習 R 語言的第一步！本篇教學介紹如何進行變數賦值、認識資料型別，並實作 R 語言中的基本操作，適合初學者入門。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>R 語言誕生於1993年，由兩位統計學家 George R. Ihaka 和 Robert C. Gentleman 在奧克蘭大學所開發，從命名簡單取自兩位創始人名字首字母便可看出，R 語言就是一個極簡且具有實用主義精神的程式語言。</p>
+<p>目前幾乎全臺灣各大社會科學領域科系只要有開設統計相關課程，除了傳統的 SPSS、SAS 與 STATA 外，最常被使用的就是 R 語言了。作為一套統計語言，最初只在統計相關領域內流行，但隨著<strong>大數據時代</strong>來臨，R 語言專為數據分析設計的特性便備受青睞。R 語言的運算速度雖說不及Python，但R在統計模型和數據可視化方面仍獨具優勢。從統計教室到科技巨頭的資料科學部門，R已成為數據分析不可或缺的利器。</p>
+<h2 id="R-語言的基礎：賦值-Assign-Values"><a href="#R-語言的基礎：賦值-Assign-Values" class="headerlink" title="R 語言的基礎：賦值(Assign Values)"></a>R 語言的基礎：賦值(Assign Values)</h2><p>日常生活中，各種繁雜的資訊圍繞在我們身邊，有時需要記事本或是記事軟體等工具協助記憶這些資訊，如果沒有這些工具儲存如此複雜與繁瑣的資訊，僅憑腦力很難記住所有內容，且很容易出錯。</p>
+<p>電腦也跟人一樣，需要把龐大的資訊用靈巧的方式記錄下來，「賦值」(assign value)則可以被理解為記錄下來的過程，並且可以給資料取名（變數名稱），在需要時就可以叫出來使用。這個過程就像是你在記事本上寫下「小明的電話：0912-345-678」，之後只需要翻到這一頁，就能找到小明的電話號碼。</p>
+<p>舉例而言，假設小宋的身高是 183 公分，體重 70 公斤。如果我想分別儲存這兩個數值到 <code>height</code> 與 <code>weight</code>，可以這麼做：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">height <span class="operator">&lt;-</span> 183</span><br><span class="line">weight <span class="operator">&lt;-</span> 70</span><br></pre></td></tr></table></figure>
+
+<p>可以注意到，在變數與值之間存在一個箭頭 <code>&lt;-</code> 符號，該符號即是 R 語言中的賦值符號，而不是其他程式語言常用的 <code>=</code>（雖然 <code>=</code> 在 R 中也可以使用）。這個左箭頭符號形象化地表示：將右邊的值「放入」左邊的變數中儲存。</p>
+<p>當我們執行 <code>height &lt;- 183</code> 這行程式碼後，R 在電腦記憶體中就建立了一個名為 <code>height</code> 的空間，並在此空間存入 數字 183，之後便可以使用這個變數名稱來取得或是修改這個值。</p>
+<h3 id="使用變數：印出變數的值"><a href="#使用變數：印出變數的值" class="headerlink" title="使用變數：印出變數的值"></a>使用變數：印出變數的值</h3><p>至於說如何使用變數，先從一個非常簡單的例子開始，就是「印出」變數。印出變數很直觀地來說，就是將變數所儲存的值印出來。賦值是<strong>人類向電腦說話</strong>的過程，要求電腦儲存變數，而印出或是顯示則是<strong>電腦向人類說話</strong>。在 R 語言中，使用 <code>print()</code> 便可以將變數印出，具體操作如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print<span class="punctuation">(</span>height<span class="punctuation">)</span> <span class="comment"># 印出身高</span></span><br><span class="line">print<span class="punctuation">(</span>weight<span class="punctuation">)</span> <span class="comment"># 印出體重</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 183
+[1] 70
+</code></pre>
+<h3 id="使用變數：修改變數的值"><a href="#使用變數：修改變數的值" class="headerlink" title="使用變數：修改變數的值"></a>使用變數：修改變數的值</h3><p>上面也提到，變數空間所存放的值是可以被修改的(modified)，我們只需重新操作一次賦值的動作，即可將變數所儲存的值修改。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">height <span class="operator">&lt;-</span> 170</span><br><span class="line">print<span class="punctuation">(</span>height<span class="punctuation">)</span> <span class="comment"># 印出身高</span></span><br><span class="line"></span><br><span class="line">height <span class="operator">&lt;-</span> 160</span><br><span class="line">print<span class="punctuation">(</span>height<span class="punctuation">)</span> <span class="comment"># 印出身高</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 170
+[1] 160
+</code></pre>
+<h3 id="列出變數與刪除變數"><a href="#列出變數與刪除變數" class="headerlink" title="列出變數與刪除變數"></a>列出變數與刪除變數</h3><p>當在 R 語言中進行了一連串的資料儲存後，可能會好奇：目前記憶體裡到底有哪些變數已經被建立了？這時，就可以使用 <code>ls()</code> 這個指令來列出目前工作環境中所有變數的名稱。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'a'</li><li>'age'</li><li>'course'</li><li>'edu'</li><li>'flag'</li><li>'gender'</li><li>'group'</li><li>'has_data'</li><li>'height'</li><li>'is_student'</li><li>'name'</li><li>'num'</li><li>'school'</li><li>'score'</li><li>'weight'</li><li>'x'</li><li>'y'</li><li>'z'</li></ol>
+
+
+
+<p>假設你之前建立過以下幾個變數：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">height <span class="operator">&lt;-</span> 183</span><br><span class="line">weight <span class="operator">&lt;-</span> 70</span><br></pre></td></tr></table></figure>
+
+<p>執行 <code>ls()</code> 之後，R 會回傳：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;height&quot;</span> <span class="string">&quot;name&quot;</span> <span class="string">&quot;weight&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>這就像打開電腦桌面或是資料夾一樣，能看到目前有哪些資料已經儲存在裡頭，方便我們整理與管理。</p>
+<p>那如果你發現某些變數已經不再需要，為了讓空間更清爽，或是避免變數名稱衝突，就可以使用 <code>rm()</code> 來刪除不需要的變數。比如說：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm<span class="punctuation">(</span>height<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>這樣就會把名為 <code>height</code> 的變數從記憶體中移除。若要一次刪除多個變數，也可以這樣寫：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm<span class="punctuation">(</span>height<span class="punctuation">,</span> weight<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，如果你想要一口氣清空所有變數，可以搭配 <code>ls()</code> 一起使用：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm<span class="punctuation">(</span><span class="built_in">list</span> <span class="operator">=</span> ls<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>這行程式碼會先把所有變數的名字列出來，再把這些變數一次交給 <code>rm()</code> 去刪除，讓目前的工作環境恢復成一個「乾淨的白紙」。需要注意的是，變數一旦被 <code>rm()</code> 刪除，就無法復原，除非你事先儲存過或重新執行建立變數的程式碼。因此在執行刪除操作時，<strong>請務必確認是不是真的不再需要那些變數了</strong></p>
+<h3 id="變數命名規則"><a href="#變數命名規則" class="headerlink" title="變數命名規則"></a>變數命名規則</h3><p>假設有天你在記事本上寫了一條這樣的內容：</p>
+<blockquote>
+<p>adsadadfd 164</p>
+</blockquote>
+<p>然後一個月之後回來看，相信你的反應肯定會跟下面這張圖一樣</p>
+<p><img src="/images/Lec1_confuse.png"></p>
+<p>這就是為什麼我們要好好地「命名變數」。畢竟電腦不像人類能夠憑上下文猜意思，它只能忠實地執行你給的名字與指令。如果你用了毫無意義或看不出邏輯的變數名稱，不但日後維護困難，也容易讓協作的組員或同事看得一頭霧水。</p>
+<p>在 R 語言中，變數命名需要遵守幾個基本原則：</p>
+<ol>
+<li>只能以字母或「<code>.</code>」開頭，不能以數字起頭，例如 <code>1height</code> 就會報錯，而 <code>height1</code> 則是合法的命名。</li>
+<li>只能包含字母、數字、「<code>.</code>」與底線 <code>_</code>，不能包含空格或特殊符號。</li>
+<li>區分大小寫，<code>Height</code> 和 <code>height</code> 是兩個不同的變數。</li>
+<li>避免使用 R 保留字（例如 <code>if</code>、<code>else</code>、<code>for</code>、<code>function</code> 等），雖然技術上可以加上反引號（例如 <code>`if`</code>），但會造成程式難以閱讀與維護。</li>
+<li>盡量取具有語意的變數名，讓閱讀程式碼時像是在讀一段清楚的邏輯說明。例如 <code>age_of_student</code> 比起 <code>aos</code> 更容易讓人理解。</li>
+</ol>
+<p>以命名風格來說，R 語言的使用者普遍偏好使用「小寫加底線」的命名方式，也就是<strong>蛇形命名法</strong>(snake case)，像是 <code>student_height</code> 或 <code>average_score</code>。當然也有人會使用<strong>駝峰式命名</strong>（camel case），像是 <code>studentHeight</code>。</p>
+<p>總之，筆者認為變數命名不是一件小事，而是一種對程式碼<strong>負責任的態度</strong>。好的命名習慣，不但可以提升閱讀性，也能幫助未來的你或其他開發者得以更快速理解整體程式碼的邏輯與架構。畢竟寫程式不只是與電腦溝通，更是與未來的自己對話。</p>
+<h2 id="變數型別：資料的不同形式"><a href="#變數型別：資料的不同形式" class="headerlink" title="變數型別：資料的不同形式"></a>變數型別：資料的不同形式</h2><p>在 R 語言中，變數就像是一個個小盒子，裡頭裝著我們想要儲存的資料。但並不是每個盒子裝的東西都一樣，有些盒子裝的是數字、有些是文字，有些甚至是一整列數據或是表格。為了讓電腦能正確地處理這些資料，我們需要了解<strong>變數型別</strong>(data type)，也就是這些盒子裡的資料到底是什麼形式。</p>
+<ul>
+<li>數值型 (numeric) - 包含整數和小數</li>
+<li>字元型 (character) - 文字或字串</li>
+<li>邏輯型 (logical) - 布林值，即 <code>TRUE</code> 或 <code>FALSE</code></li>
+<li>複數型 (complex) - 數學中的複數</li>
+<li>整數型 (integer) - 明確指定為整數的數值</li>
+<li>因子型 (factor) - 分類變數</li>
+</ul>
+<p>而在接下來的介紹中，我們會使用 <code>class()</code> 來顯示一個變數的型別，讓我們可以清楚地知道這個變數屬於哪一類，從而選擇正確的處理方式。就像是在收納之前先看清楚東西的性質，是書本、衣服還是餐具，才能放進對應的抽屜裡。透過確認型別，我們就能讓 R 準確地幫我們完成各種運算與分析任務。</p>
+<h3 id="數值-Numeric"><a href="#數值-Numeric" class="headerlink" title="數值(Numeric)"></a>數值(Numeric)</h3><p>數值型別是 R 中最常見的資料型別，用來表示各種連續的數字。無論是身高、體重、溫度、收入或任何可以量化的資料，幾乎都會被視為數值。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> 3.14</span><br><span class="line">print<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">y <span class="operator">&lt;-</span> 100</span><br><span class="line">print<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>y<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 3.14
+[1] &quot;numeric&quot;
+[1] 3.14
+[1] &quot;numeric&quot;
+</code></pre>
+<p>即使你寫的是一個整數 100，R 仍會把它視為數值，除非你特別指定它為整數型別，這稍後會提到。</p>
+<h3 id="字串-Character"><a href="#字串-Character" class="headerlink" title="字串(Character)"></a>字串(Character)</h3><p>當資料不是數字，而是「文字」的時候，就屬於字串型別（character）。例如姓名、地址、科系名稱、學校、縣市名稱等，都屬於字串資料。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">name <span class="operator">&lt;-</span> <span class="string">&quot;小明&quot;</span></span><br><span class="line">print<span class="punctuation">(</span>name<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>name<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">school <span class="operator">&lt;-</span> <span class="string">&quot;國立臺灣大學&quot;</span></span><br><span class="line">print<span class="punctuation">(</span>school<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>school<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;小明&quot;
+[1] &quot;character&quot;
+[1] &quot;國立臺灣大學&quot;
+[1] &quot;character&quot;
+</code></pre>
+<p>字串資料在 R 中必須用雙引號（<code>&quot;</code>）或單引號（<code>&#39;</code>）包起來，否則 R 會以為你是在呼叫變數而不是輸入文字。</p>
+<h3 id="布林值-Logical"><a href="#布林值-Logical" class="headerlink" title="布林值 (Logical)"></a>布林值 (Logical)</h3><p>布林值(logical)是資料科學與邏輯運算中不可或缺的型別，只會有兩種可能的值：<code>TRUE</code> 或 <code>FALSE</code>，分別代表「真」與「假」、「是」與「不是」。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">is_student <span class="operator">&lt;-</span> <span class="literal">TRUE</span></span><br><span class="line">print<span class="punctuation">(</span>is_student<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>is_student<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">has_data <span class="operator">&lt;-</span> <span class="literal">FALSE</span></span><br><span class="line">print<span class="punctuation">(</span>has_data<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>has_data<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] TRUE
+[1] &quot;logical&quot;
+[1] FALSE
+[1] &quot;logical&quot;
+</code></pre>
+<p>R 中的布林值是全大寫 <code>TRUE</code> 與 <code>FALSE</code>，雖然你可以用 <code>T</code> 或 <code>F</code> 代替，但為了避免混淆，還是<strong>建議使用完整拼法</strong>。</p>
+<h3 id="整數-Integer"><a href="#整數-Integer" class="headerlink" title="整數(Integer)"></a>整數(Integer)</h3><p>雖然我們在 R 中輸入 100，預設會是數值型別，但有時候我們想要明確定義資料是「整數」，可以在數字後面加上 <code>L</code>。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a <span class="operator">&lt;-</span> 100L</span><br><span class="line">print<span class="punctuation">(</span>a<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>a<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 100
+[1] &quot;integer&quot;
+</code></pre>
+<p>整數在資料處理時有時能節省記憶體，特別是在處理大量離散變數（如年齡、人數）時會使用。</p>
+<h3 id="複數-Complex"><a href="#複數-Complex" class="headerlink" title="複數(Complex)"></a>複數(Complex)</h3><p>R 也支援複數資料，雖然在一般的資料分析裡比較少用到，但在某些工程或數學應用中仍然重要，所以在這邊還是作簡單的介紹。例如我們定義一個複數 $z \in \mathbb{C}$ 為 $z &#x3D; 3 + 2i$，其中 $i &#x3D; \sqrt{-1}$。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">z <span class="operator">&lt;-</span> 3 <span class="operator">+</span> <span class="number">2i</span></span><br><span class="line">print<span class="punctuation">(</span>z<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>z<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 3+2i
+[1] &quot;complex&quot;
+</code></pre>
+<h3 id="因子-Factor"><a href="#因子-Factor" class="headerlink" title="因子(Factor)"></a>因子(Factor)</h3><p>在社會科學與統計分析中，最常見的一類資料就是<strong>類別資料</strong>(categorical data)，像是性別（男、女）、年級（大一、大二、大三、大四）、地區（北部、中部、南部、東部）等等。這類資料乍看之下像是字串，但其實有明確的「分類結構」，這時候就可以用「因子」(factor)來表示。在迴歸分析或是做交叉表時，因子變數可以讓 R 正確處理類別型資料，而不是誤以為這些資料可以做數值運算。</p>
+<p>使用 <code>factor()</code> 函數可以將一組文字轉換為因子型別，並且自動幫你識別有哪些不同的「層級」（levels），也就是固定幾種選項的文字資料。在底下的例子中，<code>factor()</code> 會掃描整個向量，找出有哪些不重複的值，然後建立層級，而 R 預設會根據字母順序來排序這些層級，所以「女」會排在「男」之前。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gender <span class="operator">&lt;-</span> factor<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;男&quot;</span><span class="punctuation">,</span> <span class="string">&quot;女&quot;</span><span class="punctuation">,</span> <span class="string">&quot;女&quot;</span><span class="punctuation">,</span> <span class="string">&quot;男&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>gender<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>gender<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>levels<span class="punctuation">(</span>gender<span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># 印出層級</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 男 女 女 男
+Levels: 女 男
+[1] &quot;factor&quot;
+[1] &quot;女&quot; &quot;男&quot;
+</code></pre>
+<p>如果資料是有順序的(ordered)，那麼我們可以試定順序性：有些類別變數是有「順序」的，例如教育程度（國中 &lt; 高中 &lt; 大學 &lt; 研究所），這種情況下可以使用 <code>ordered = TRUE</code> 參數來建立有順序的因子。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">edu <span class="operator">&lt;-</span> factor<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;大學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;高中&quot;</span><span class="punctuation">,</span> <span class="string">&quot;研究所&quot;</span><span class="punctuation">,</span> <span class="string">&quot;高中&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">              levels <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;國中&quot;</span><span class="punctuation">,</span> <span class="string">&quot;高中&quot;</span><span class="punctuation">,</span> <span class="string">&quot;大學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;研究所&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">              ordered <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">print<span class="punctuation">(</span>edu<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>edu<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>levels<span class="punctuation">(</span>edu<span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># 印出層級</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 大學   高中   研究所 高中  
+Levels: 國中 &lt; 高中 &lt; 大學 &lt; 研究所
+[1] &quot;ordered&quot; &quot;factor&quot; 
+[1] &quot;國中&quot;   &quot;高中&quot;   &quot;大學&quot;   &quot;研究所&quot;
+</code></pre>
+<h3 id="如何檢查變數的型別？"><a href="#如何檢查變數的型別？" class="headerlink" title="如何檢查變數的型別？"></a>如何檢查變數的型別？</h3><p>當我們在 R 語言中建立或載入變數時，掌握每個變數的資料型別是非常重要的一步。因為 R 的函數與運算，往往會根據變數的型別來決定如何處理資料。例如：某些統計模型只能處理數值型資料，而某些分類分析則要求類別型資料。如果我們不清楚變數的型別，就很容易在分析過程中遇到錯誤、報錯訊息或是出現不合理的結果。</p>
+<p>為了協助使用者更方便地檢查與判斷變數的型別，R 語言內建了一組非常實用的函數。這些函數可以分成兩類用途：<strong>取得變數的型別資訊</strong>以及<strong>判斷變數是否為特定型別</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>函數名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>class(x)</code></td>
+<td>顯示變數 <code>x</code> 的「主要類別」，這是最常用來辨識型別的函數。</td>
+</tr>
+<tr>
+<td><code>typeof(x)</code></td>
+<td>顯示變數的底層儲存形式，比 <code>class()</code> 更技術性，可看出最底層記憶體型別。</td>
+</tr>
+<tr>
+<td><code>is.numeric(x)</code></td>
+<td>回傳 <code>TRUE</code> 或 <code>FALSE</code>，用來判斷 <code>x</code> 是否為數值型變數（包含整數與小數）。</td>
+</tr>
+<tr>
+<td><code>is.character(x)</code></td>
+<td>判斷 <code>x</code> 是否為文字型（字串）變數。</td>
+</tr>
+<tr>
+<td><code>is.logical(x)</code></td>
+<td>判斷 <code>x</code> 是否為布林值（TRUE&#x2F;FALSE）。</td>
+</tr>
+<tr>
+<td><code>is.factor(x)</code></td>
+<td>判斷 <code>x</code> 是否為因子（factor）。因子主要用來表示分類資料。</td>
+</tr>
+</tbody></table>
+<h4 id="class-x-：快速判斷變數是什麼"><a href="#class-x-：快速判斷變數是什麼" class="headerlink" title="class(x)：快速判斷變數是什麼"></a><code>class(x)</code>：快速判斷變數是什麼</h4><p>這是最常見也是最直覺的函數。<code>class()</code> 會告訴你這個變數在 R 中被歸類為哪一種資料型別，不過前面已經提過，在此便不多作贅述。不過 <code>class()</code> 的核心概念即是 R 幫你貼上的「資料型別標籤」，讓你在進行分析之前，先確定這些變數該怎麼使用。</p>
+<h4 id="typeof-x-：深入了解變數的底層型別"><a href="#typeof-x-：深入了解變數的底層型別" class="headerlink" title="typeof(x)：深入了解變數的底層型別"></a><code>typeof(x)</code>：深入了解變數的底層型別</h4><p>雖然 <code>class()</code> 是我們最常用的函數，但它顯示的是變數的「表面型別」，也就是 R 認為這個變數是什麼。然而，有些時候我們需要知道變數的底層資料儲存方式，這時可以使用 <code>typeof()</code> 函數，目的是在處理記憶體改善或進階資料結構時會很有幫助。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> 42</span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span>  <span class="comment"># R 儲儲存為數值型別</span></span><br><span class="line">print<span class="punctuation">(</span>typeof<span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># 底層儲存為浮點數</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;numeric&quot;
+[1] &quot;double&quot;
+</code></pre>
+<p>在這個例子中，我們看到 <code>x</code> 是數值型別，但底層實際上是 <code>double</code>，也就是雙精度浮點數。</p>
+<h4 id="is-numeric-、is-character-、is-logical-：判斷型別用的布林函數"><a href="#is-numeric-、is-character-、is-logical-：判斷型別用的布林函數" class="headerlink" title="is.numeric()、is.character()、is.logical()：判斷型別用的布林函數"></a><code>is.numeric()</code>、<code>is.character()</code>、<code>is.logical()</code>：判斷型別用的布林函數</h4><p>這些函數的功能非常直觀，就是檢查某個變數是否屬於某一個特定型別。如果是，就會回傳 <code>TRUE</code>；如果不是，則回傳 <code>FALSE</code>。</p>
+<p>這些函數在撰寫條件式或是做資料清理（data cleaning）時非常有用。例如你可以在資料前處理階段用 <code>is.character()</code> 篩選出所有字串欄位，再進一步轉換或處理。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">score <span class="operator">&lt;-</span> 85</span><br><span class="line">print<span class="punctuation">(</span>score<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">is.numeric</span><span class="punctuation">(</span>score<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">course <span class="operator">&lt;-</span> <span class="string">&quot;資料分析&quot;</span></span><br><span class="line">print<span class="punctuation">(</span>course<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">is.character</span><span class="punctuation">(</span>course<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">flag <span class="operator">&lt;-</span> <span class="literal">TRUE</span></span><br><span class="line">print<span class="punctuation">(</span>flag<span class="punctuation">)</span> <span class="comment"># 此處印出的 TRUE 是 flag 儲存的值</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">is.logical</span><span class="punctuation">(</span>flag<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 85
+[1] TRUE
+[1] &quot;資料分析&quot;
+[1] TRUE
+[1] TRUE
+[1] TRUE
+</code></pre>
+<h4 id="is-factor-：辨別分類變數的好幫手"><a href="#is-factor-：辨別分類變數的好幫手" class="headerlink" title="is.factor()：辨別分類變數的好幫手"></a><code>is.factor()</code>：辨別分類變數的好幫手</h4><p>文章前面已經提到，在社會科學領域十分常遇到類別資料，我們可以用 <code>is.factor()</code> 來判斷它是否已經是因子型別，對於後續的統計模型十分重要，因為某些模型會根據是否為 factor 來套用不同處理邏輯。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">group <span class="operator">&lt;-</span> factor<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;B&quot;</span><span class="punctuation">,</span> <span class="string">&quot;A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;C&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>is.factor<span class="punctuation">(</span>group<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] TRUE
+</code></pre>
+<h3 id="型別轉換：讓資料用對的形式說話"><a href="#型別轉換：讓資料用對的形式說話" class="headerlink" title="型別轉換：讓資料用對的形式說話"></a>型別轉換：讓資料用對的形式說話</h3><p>當每個變數被建立時，都會自動被賦予一個型別，這些型別就像是 R 對資料的「理解方式」，而我們在寫程式時，必須讓電腦能正確「理解」我們的資料。</p>
+<p>但現實世界的資料，常常不會乖乖地照著我們希望的格式來。例如從 Excel 或 CSV 匯入的數字，可能會變成字串；問卷資料中的選項看起來是文字，但其實應該要當作類別資料來分析。這時候，我們就需要使用「型別轉換」的工具，讓資料以正確的形式存在於記憶體中。</p>
+<table>
+<thead>
+<tr>
+<th>函數名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>as.numeric()</code></td>
+<td>轉換為數值型</td>
+</tr>
+<tr>
+<td><code>as.integer()</code></td>
+<td>轉換為整數型</td>
+</tr>
+<tr>
+<td><code>as.character()</code></td>
+<td>轉換為字串型（文字）</td>
+</tr>
+<tr>
+<td><code>as.logical()</code></td>
+<td>轉換為布林值（TRUE &#x2F; FALSE）</td>
+</tr>
+<tr>
+<td><code>as.factor()</code></td>
+<td>轉換為因子型（分類變數）</td>
+</tr>
+</tbody></table>
+<h4 id="實際範例"><a href="#實際範例" class="headerlink" title="實際範例"></a>實際範例</h4><p>有時我們從外部資料讀進來的數字，其實是以字串儲存的。這在 CSV 或 Excel 特別常見，因為這些格式的欄位格式不總是固定。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">age <span class="operator">&lt;-</span> <span class="string">&quot;25&quot;</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>age<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">age <span class="operator">&lt;-</span> <span class="built_in">as.numeric</span><span class="punctuation">(</span>age<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>age<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;character&quot;
+[1] &quot;numeric&quot;
+</code></pre>
+<p>這樣我們就可以把 <code>&quot;25&quot;</code> 從純文字變成數字 25，並能進行加減乘除等運算。另一個例子是將字串轉換成類別資料，問卷資料最常見的欄位是像「性別」、「教育程度」、「滿意度」這類資料，表面看起來是字串，其實應該視為類別資料，這時就可以轉換成因子。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">edu <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;大學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;高中&quot;</span><span class="punctuation">,</span> <span class="string">&quot;研究所&quot;</span><span class="punctuation">,</span> <span class="string">&quot;高中&quot;</span><span class="punctuation">)</span></span><br><span class="line">edu <span class="operator">&lt;-</span> as.factor<span class="punctuation">(</span>edu<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>edu<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;factor&quot;
+</code></pre>
+<h4 id="不是所有資料都能順利轉型"><a href="#不是所有資料都能順利轉型" class="headerlink" title="不是所有資料都能順利轉型"></a>不是所有資料都能順利轉型</h4><p>型別轉換雖然方便，但不是萬能的。首先，文字無法轉成數字：這種情況會產生警告，並將結果設為 <code>NA</code>（缺失值），代表 R 嘗試轉型失敗。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="string">&quot;apple&quot;</span></span><br><span class="line"><span class="built_in">as.numeric</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Warning message:
+“NAs introduced by coercion”
+</code></pre>
+<p>&lt;NA&gt;</p>
+<p>另外一個則是布林值轉成數值，雖說這樣轉換是合法的，<code>TRUE</code> 被視為 1，<code>FALSE</code> 被視為 0。但在統計分析中必須小心，<strong>切勿讓模型誤以為這是數值大小的比較</strong>。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="literal">TRUE</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">as.numeric</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">y <span class="operator">&lt;-</span> <span class="literal">FALSE</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">as.numeric</span><span class="punctuation">(</span>y<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 1
+[1] 0
+</code></pre>
+<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>在 R 語言中，資料型別決定了變數能進行哪些操作、適用哪些函數、甚至影響統計模型的推論結果。因此，不論是初學者還是進階使用者，都應該養成「隨時檢查變數型別」的好習慣。</p>
+<p>當你每次從外部匯入資料（如 CSV、Excel、資料庫）或執行前處理時，建議都先用 <code>class()</code>、<code>typeof()</code>、<code>is.xxx()</code> 這些工具一一檢查每個變數的型別，再進一步決定是否需要轉型（如 <code>as.numeric(</code>)、<code>as.factor()</code> 等），這樣可以大幅減少錯誤的機率，也能讓你的資料分析流程更順暢。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/R-%E8%AA%9E%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> R 語言</a>
+              <a href="/tags/%E7%A8%8B%E5%BC%8F%E6%95%99%E5%AD%B8/" rel="tag"><i class="fa fa-tag"></i> 程式教學</a>
+              <a href="/tags/%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5/" rel="tag"><i class="fa fa-tag"></i> 資料型別</a>
+              <a href="/tags/%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8/" rel="tag"><i class="fa fa-tag"></i> 初學者教學</a>
+              <a href="/tags/R-%E8%AA%9E%E8%A8%80%E8%AE%8A%E6%95%B8/" rel="tag"><i class="fa fa-tag"></i> R 語言變數</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/judgement-downloader/" rel="prev" title="司法院裁判書查詢與下載系統">
+      <i class="fa fa-chevron-left"></i> 司法院裁判書查詢與下載系統
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#R-%E8%AA%9E%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A4%8E%EF%BC%9A%E8%B3%A6%E5%80%BC-Assign-Values"><span class="nav-number">1.</span> <span class="nav-text">R 語言的基礎：賦值(Assign Values)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%AE%8A%E6%95%B8%EF%BC%9A%E5%8D%B0%E5%87%BA%E8%AE%8A%E6%95%B8%E7%9A%84%E5%80%BC"><span class="nav-number">1.1.</span> <span class="nav-text">使用變數：印出變數的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%AE%8A%E6%95%B8%EF%BC%9A%E4%BF%AE%E6%94%B9%E8%AE%8A%E6%95%B8%E7%9A%84%E5%80%BC"><span class="nav-number">1.2.</span> <span class="nav-text">使用變數：修改變數的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%87%BA%E8%AE%8A%E6%95%B8%E8%88%87%E5%88%AA%E9%99%A4%E8%AE%8A%E6%95%B8"><span class="nav-number">1.3.</span> <span class="nav-text">列出變數與刪除變數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E5%91%BD%E5%90%8D%E8%A6%8F%E5%89%87"><span class="nav-number">1.4.</span> <span class="nav-text">變數命名規則</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E5%9E%8B%E5%88%A5%EF%BC%9A%E8%B3%87%E6%96%99%E7%9A%84%E4%B8%8D%E5%90%8C%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">變數型別：資料的不同形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B8%E5%80%BC-Numeric"><span class="nav-number">2.1.</span> <span class="nav-text">數值(Numeric)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2-Character"><span class="nav-number">2.2.</span> <span class="nav-text">字串(Character)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E6%9E%97%E5%80%BC-Logical"><span class="nav-number">2.3.</span> <span class="nav-text">布林值 (Logical)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E6%95%B8-Integer"><span class="nav-number">2.4.</span> <span class="nav-text">整數(Integer)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A4%87%E6%95%B8-Complex"><span class="nav-number">2.5.</span> <span class="nav-text">複數(Complex)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%A0%E5%AD%90-Factor"><span class="nav-number">2.6.</span> <span class="nav-text">因子(Factor)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%AA%A2%E6%9F%A5%E8%AE%8A%E6%95%B8%E7%9A%84%E5%9E%8B%E5%88%A5%EF%BC%9F"><span class="nav-number">2.7.</span> <span class="nav-text">如何檢查變數的型別？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#class-x-%EF%BC%9A%E5%BF%AB%E9%80%9F%E5%88%A4%E6%96%B7%E8%AE%8A%E6%95%B8%E6%98%AF%E4%BB%80%E9%BA%BC"><span class="nav-number">2.7.1.</span> <span class="nav-text">class(x)：快速判斷變數是什麼</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typeof-x-%EF%BC%9A%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E8%AE%8A%E6%95%B8%E7%9A%84%E5%BA%95%E5%B1%A4%E5%9E%8B%E5%88%A5"><span class="nav-number">2.7.2.</span> <span class="nav-text">typeof(x)：深入了解變數的底層型別</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#is-numeric-%E3%80%81is-character-%E3%80%81is-logical-%EF%BC%9A%E5%88%A4%E6%96%B7%E5%9E%8B%E5%88%A5%E7%94%A8%E7%9A%84%E5%B8%83%E6%9E%97%E5%87%BD%E6%95%B8"><span class="nav-number">2.7.3.</span> <span class="nav-text">is.numeric()、is.character()、is.logical()：判斷型別用的布林函數</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#is-factor-%EF%BC%9A%E8%BE%A8%E5%88%A5%E5%88%86%E9%A1%9E%E8%AE%8A%E6%95%B8%E7%9A%84%E5%A5%BD%E5%B9%AB%E6%89%8B"><span class="nav-number">2.7.4.</span> <span class="nav-text">is.factor()：辨別分類變數的好幫手</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%8B%E5%88%A5%E8%BD%89%E6%8F%9B%EF%BC%9A%E8%AE%93%E8%B3%87%E6%96%99%E7%94%A8%E5%B0%8D%E7%9A%84%E5%BD%A2%E5%BC%8F%E8%AA%AA%E8%A9%B1"><span class="nav-number">2.8.</span> <span class="nav-text">型別轉換：讓資料用對的形式說話</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%A6%E9%9A%9B%E7%AF%84%E4%BE%8B"><span class="nav-number">2.8.1.</span> <span class="nav-text">實際範例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E6%98%AF%E6%89%80%E6%9C%89%E8%B3%87%E6%96%99%E9%83%BD%E8%83%BD%E9%A0%86%E5%88%A9%E8%BD%89%E5%9E%8B"><span class="nav-number">2.8.2.</span> <span class="nav-text">不是所有資料都能順利轉型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">2.9.</span> <span class="nav-text">小結</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Anthony Sung"
+      src="/images/profile.svg">
+  <p class="site-author-name" itemprop="name">Anthony Sung</p>
+  <div class="site-description" itemprop="description">對生活抱持好奇心的學習者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaolong70701" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaolong70701" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xiaolong70701@gmail.com" title="E-Mail → mailto:xiaolong70701@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yueswater/" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yueswater&#x2F;" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/yues_19_water/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;yues_19_water&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">&copy; Anthony 部落格原站：<a href="https://xiaolong70701.github.io/blog/" target="_blank">Yueswater Blog</a>；若要轉載文章，麻煩請保留原作者名稱與原始連結。
+</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌙',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yueswater.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/R-tutorial-1/";
+    this.page.identifier = "/R-tutorial-1/";
+    this.page.title = "R 語言教學入門｜從變數賦值到資料型別完整解析【2025版】";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+<script src="/js/injector.js"></script>
+</body>
+</html>
