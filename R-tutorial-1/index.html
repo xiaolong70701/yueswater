@@ -540,9 +540,10 @@ Levels: 國中 &lt; 高中 &lt; 大學 &lt; 研究所
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="string">&quot;apple&quot;</span></span><br><span class="line"><span class="built_in">as.numeric</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <pre><code>Warning message:
-“NAs introduced by coercion”
+&quot;NAs introduced by coercion&quot;
+
+&lt;NA&gt;
 </code></pre>
-<p>&lt;NA&gt;</p>
 <p>另外一個則是布林值轉成數值，雖說這樣轉換是合法的，<code>TRUE</code> 被視為 1，<code>FALSE</code> 被視為 0。但在統計分析中必須小心，<strong>切勿讓模型誤以為這是數值大小的比較</strong>。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="literal">TRUE</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">as.numeric</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">y <span class="operator">&lt;-</span> <span class="literal">FALSE</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">as.numeric</span><span class="punctuation">(</span>y<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
