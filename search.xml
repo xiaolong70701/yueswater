@@ -26,7 +26,7 @@
       </tags>
   </entry>
   <entry>
-    <title>R 語言教學入門｜從變數賦值到資料型別完整解析【2025版】</title>
+    <title>R 語言教學入門｜從變數賦值到資料型別</title>
     <url>//R-tutorial-1/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>R 語言誕生於1993年，由兩位統計學家 George R. Ihaka 和 Robert C. Gentleman 在奧克蘭大學所開發，從命名簡單取自兩位創始人名字首字母便可看出，R 語言就是一個極簡且具有實用主義精神的程式語言。</p>
 <p>目前幾乎全臺灣各大社會科學領域科系只要有開設統計相關課程，除了傳統的 SPSS、SAS 與 STATA 外，最常被使用的就是 R 語言了。作為一套統計語言，最初只在統計相關領域內流行，但隨著<strong>大數據時代</strong>來臨，R 語言專為數據分析設計的特性便備受青睞。R 語言的運算速度雖說不及Python，但R在統計模型和數據可視化方面仍獨具優勢。從統計教室到科技巨頭的資料科學部門，R已成為數據分析不可或缺的利器。</p>
@@ -276,8 +276,233 @@ Levels: 國中 &lt; 高中 &lt; 大學 &lt; 研究所
 <pre><code>[1] 1
 [1] 0
 </code></pre>
-<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>在 R 語言中，資料型別決定了變數能進行哪些操作、適用哪些函數、甚至影響統計模型的推論結果。因此，不論是初學者還是進階使用者，都應該養成「隨時檢查變數型別」的好習慣。</p>
-<p>當你每次從外部匯入資料（如 CSV、Excel、資料庫）或執行前處理時，建議都先用 <code>class()</code>、<code>typeof()</code>、<code>is.xxx()</code> 這些工具一一檢查每個變數的型別，再進一步決定是否需要轉型（如 <code>as.numeric(</code>)、<code>as.factor()</code> 等），這樣可以大幅減少錯誤的機率，也能讓你的資料分析流程更順暢。</p>
+<h2 id="運算子：資料處理的基本工具"><a href="#運算子：資料處理的基本工具" class="headerlink" title="運算子：資料處理的基本工具"></a>運算子：資料處理的基本工具</h2><p>在我們學會如何設定變數與了解變數型別之後，接下來就該學習如何操作這些變數。就像我們日常生活中需要計算費用、比較價格、判斷條件一樣，在 R 語言中，我們也需要各種運算子來處理和分析。運算子就像是數據分析的基本工具，讓我們能夠進行計算、比較與邏輯判斷，是從簡單報表到複雜模型所有操作的基礎。</p>
+<p>在 R 語言中，運算子大致可以分為三大類：</p>
+<ul>
+<li>算術運算子 - 進行各種數學計算</li>
+<li>比較運算子 - 比較不同值之間的關係</li>
+<li>邏輯運算子 - 組合多個條件進行判斷</li>
+</ul>
+<p>了解這些運算子不僅能幫助我們進行基本的資料處理，還能在資料篩選、條件式程式設計和統計分析中發揮重要作用。就像廚師需要切菜刀、炒菜鍋一樣，資料分析師需要熟練掌握各種運算子，才能靈活地處理各種資料分析問題。</p>
+<h3 id="算術運算子：數值的基本計算"><a href="#算術運算子：數值的基本計算" class="headerlink" title="算術運算子：數值的基本計算"></a>算術運算子：數值的基本計算</h3><p>算術運算子是最基本的運算工具，就像我們從小學開始學習的加減乘除一樣直觀。在 R 語言中，這些運算子的使用方式跟我們的數學習慣很接近，讓初學者能夠快速上手。</p>
+<table>
+<thead>
+<tr>
+<th>運算子</th>
+<th>說明</th>
+<th>範例</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>+</code></td>
+<td>加法</td>
+<td><code>5 + 3</code></td>
+<td><code>8</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>減法</td>
+<td><code>5 - 3</code></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>乘法</td>
+<td><code>5 * 3</code></td>
+<td><code>15</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>除法</td>
+<td><code>5 / 3</code></td>
+<td><code>1.666667</code></td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>次方</td>
+<td><code>5 ^ 3</code></td>
+<td><code>125</code></td>
+</tr>
+<tr>
+<td><code>%%</code></td>
+<td>取餘數</td>
+<td><code>5 %% 3</code></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>%/%</code></td>
+<td>整數除法</td>
+<td><code>5 %/% 3</code></td>
+<td><code>1</code></td>
+</tr>
+</tbody></table>
+<p>讓我們用一些實際例子來看看這些運算子的使用：</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 基本加減乘除</span></span><br><span class="line">a <span class="operator">&lt;-</span> 10</span><br><span class="line">b <span class="operator">&lt;-</span> 3</span><br><span class="line"></span><br><span class="line">print<span class="punctuation">(</span>a <span class="operator">+</span> b<span class="punctuation">)</span>  <span class="comment"># 加法</span></span><br><span class="line">print<span class="punctuation">(</span>a <span class="operator">-</span> b<span class="punctuation">)</span>  <span class="comment"># 減法</span></span><br><span class="line">print<span class="punctuation">(</span>a <span class="operator">*</span> b<span class="punctuation">)</span>  <span class="comment"># 乘法</span></span><br><span class="line">print<span class="punctuation">(</span>a <span class="operator">/</span> b<span class="punctuation">)</span>  <span class="comment"># 除法 (會有小數)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 13
+[1] 7
+[1] 30
+[1] 3.333333
+</code></pre>
+<p>特別值得一提的是次方、取餘數與整數除法這三個運算子，它們在特定情境中特別有用：</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 次方運算 (5的3次方)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="number">5</span> <span class="operator">^</span> <span class="number">3</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取餘數 (10除以3的餘數)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="number">10</span> <span class="operator">%%</span> <span class="number">3</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 整數除法 (10除以3的整數部分)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="number">10</span> <span class="operator">%/%</span> <span class="number">3</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 125
+[1] 1
+[1] 3
+</code></pre>
+<p>在資料分析中，這些運算子可以幫助我們進行各種計算，例如：計算平均值、標準差、增長率、比例等等。尤其是 <code>%%</code> 和 <code>%/%</code> 這兩個運算子，在處理時間數據（例如每週循環、每月循環）或是需要將連續數值分組時非常有用。</p>
+<h3 id="比較運算子：值之間的關係判斷"><a href="#比較運算子：值之間的關係判斷" class="headerlink" title="比較運算子：值之間的關係判斷"></a>比較運算子：值之間的關係判斷</h3><p>比較運算子用於比較兩個值之間的關係，結果永遠是布林值 <code>TRUE</code> 或 <code>FALSE</code>。這些運算子在資料篩選、條件式程式設計中扮演著關鍵角色，讓我們能夠根據特定條件來處理資料。</p>
+<table>
+<thead>
+<tr>
+<th>運算子</th>
+<th>說明</th>
+<th>範例</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;</code></td>
+<td>小於</td>
+<td><code>5 &lt; 3</code></td>
+<td><code>FALSE</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>小於等於</td>
+<td><code>5 &lt;= 5</code></td>
+<td><code>TRUE</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>大於</td>
+<td><code>5 &gt; 3</code></td>
+<td><code>TRUE</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>大於等於</td>
+<td><code>5 &gt;= 6</code></td>
+<td><code>FALSE</code></td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td>等於</td>
+<td><code>5 == 5</code></td>
+<td><code>TRUE</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>不等於</td>
+<td><code>5 != 3</code></td>
+<td><code>TRUE</code></td>
+</tr>
+</tbody></table>
+<p>讓我們透過實際例子來理解這些比較運算子的用法：</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> 7</span><br><span class="line">y <span class="operator">&lt;-</span> 5</span><br><span class="line"></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">&lt;</span> y<span class="punctuation">)</span>   <span class="comment"># x 小於 y?</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">&lt;=</span> y<span class="punctuation">)</span>  <span class="comment"># x 小於等於 y?</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">&gt;</span> y<span class="punctuation">)</span>   <span class="comment"># x 大於 y?</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">&gt;=</span> y<span class="punctuation">)</span>  <span class="comment"># x 大於等於 y?</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">==</span> y<span class="punctuation">)</span>  <span class="comment"># x 等於 y?</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">!=</span> y<span class="punctuation">)</span>  <span class="comment"># x 不等於 y?</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] FALSE
+[1] FALSE
+[1] TRUE
+[1] TRUE
+[1] FALSE
+[1] TRUE
+</code></pre>
+<p>在實際的數據分析中，比較運算子通常用於：</p>
+<ul>
+<li>篩選符合條件的資料（例如：年齡大於 18 的樣本）</li>
+<li>建立分組變數（例如：依照成績高低分組）</li>
+<li>檢查資料是否符合預期（例如：確認沒有負數值）</li>
+</ul>
+<p>比較運算子看似簡單，但它們是構建複雜條件和邏輯的基石，在資料清理與前處理階段尤其重要。</p>
+<h3 id="邏輯運算子：組合多個條件"><a href="#邏輯運算子：組合多個條件" class="headerlink" title="邏輯運算子：組合多個條件"></a>邏輯運算子：組合多個條件</h3><p>當我們需要同時考慮多個條件時，就需要用到邏輯運算子。邏輯運算子能夠組合多個布林值（<code>TRUE</code> 或 <code>FALSE</code>），產生新的布林結果，讓我們能夠表達更複雜的條件判斷。</p>
+<table>
+<thead>
+<tr>
+<th>運算子</th>
+<th>說明</th>
+<th>範例</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&amp;</code></td>
+<td>邏輯與 (AND)</td>
+<td><code>TRUE &amp; FALSE</code></td>
+<td><code>FALSE</code></td>
+</tr>
+<tr>
+<td>&#96;</td>
+<td>&#96;</td>
+<td>邏輯或 (OR)</td>
+<td>&#96;TRUE</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>邏輯非 (NOT)</td>
+<td><code>!TRUE</code></td>
+<td><code>FALSE</code></td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>短路邏輯與</td>
+<td><code>expr1 &amp;&amp; expr2</code></td>
+<td>只有當 expr1 為 <code>TRUE</code> 時才會評估 expr2</td>
+</tr>
+<tr>
+<td>&#96;</td>
+<td></td>
+<td>&#96;</td>
+<td>短路邏輯或</td>
+</tr>
+</tbody></table>
+<p>讓我們用幾個例子來理解這些邏輯運算子：</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">a <span class="operator">&lt;-</span> <span class="literal">TRUE</span></span><br><span class="line">b <span class="operator">&lt;-</span> <span class="literal">FALSE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 邏輯與：兩者皆為TRUE才會回傳TRUE</span></span><br><span class="line">print<span class="punctuation">(</span>a <span class="operator">&amp;</span> b<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="literal">TRUE</span> <span class="operator">&amp;</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 邏輯或：只要有一者為TRUE就會回傳TRUE</span></span><br><span class="line">print<span class="punctuation">(</span>a <span class="operator">|</span> b<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="literal">FALSE</span> <span class="operator">|</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 邏輯非：將布林值反轉</span></span><br><span class="line">print<span class="punctuation">(</span><span class="operator">!</span>a<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="operator">!</span>b<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] FALSE
+[1] TRUE
+[1] TRUE
+[1] FALSE
+[1] FALSE
+[1] TRUE
+</code></pre>
+<p>需要特別說明的是 <code>&amp;</code> 與 <code>&amp;&amp;</code>、<code>|</code> 與 <code>||</code> 的區別：</p>
+<ul>
+<li><code>&amp;</code> 和 <code>|</code> 是「向量化」的運算子，會對兩個向量的每個元素進行比較</li>
+<li><code>&amp;&amp;</code> 和 <code>||</code> 是「短路」運算子，只考慮向量的第一個元素，且在某些條件下不會評估第二個表達式</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 向量化運算</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="literal">TRUE</span><span class="punctuation">,</span> <span class="literal">FALSE</span><span class="punctuation">,</span> <span class="literal">TRUE</span><span class="punctuation">)</span> <span class="operator">&amp;</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="literal">TRUE</span><span class="punctuation">,</span> <span class="literal">TRUE</span><span class="punctuation">,</span> <span class="literal">FALSE</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 短路運算</span></span><br><span class="line">x <span class="operator">&lt;-</span> 5</span><br><span class="line">print<span class="punctuation">(</span><span class="punctuation">(</span>x <span class="operator">&gt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="operator">&amp;&amp;</span> <span class="punctuation">(</span><span class="built_in">log</span><span class="punctuation">(</span>x<span class="punctuation">)</span> <span class="operator">&gt;</span> <span class="number">0</span><span class="punctuation">)</span><span class="punctuation">)</span>  <span class="comment"># 因為 x &gt; 0 為 TRUE，才會計算 log(x) &gt; 0</span></span><br><span class="line"></span><br><span class="line">y <span class="operator">&lt;-</span> <span class="operator">-</span><span class="number">5</span></span><br><span class="line">print<span class="punctuation">(</span><span class="punctuation">(</span>y <span class="operator">&gt;</span> <span class="number">0</span><span class="punctuation">)</span> <span class="operator">&amp;&amp;</span> <span class="punctuation">(</span><span class="built_in">log</span><span class="punctuation">(</span>y<span class="punctuation">)</span> <span class="operator">&gt;</span> <span class="number">0</span><span class="punctuation">)</span><span class="punctuation">)</span>  <span class="comment"># 因為 y &gt; 0 為 FALSE，不會計算 log(y) &gt; 0，避免錯誤</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1]  TRUE FALSE FALSE
+
+
+[1] TRUE
+[1] FALSE
+</code></pre>
+<p>邏輯運算子在實際的資料分析中有許多應用：</p>
+<ul>
+<li>複雜的資料篩選（例如：年齡在 18-65 之間且收入大於 3 萬的樣本）</li>
+<li>條件式資料處理（例如：對不同群組套用不同的計算方法）</li>
+<li>異常值檢測（例如：找出超出正常範圍的數據點）</li>
+</ul>
+<h3 id="運算子的優先順序"><a href="#運算子的優先順序" class="headerlink" title="運算子的優先順序"></a>運算子的優先順序</h3><p>就像數學計算有優先順序（先乘除後加減）一樣，R 語言中的運算子也有其優先順序，決定了複雜表達式的計算順序。</p>
+<p>以下是 R 語言中運算子的優先順序（由高到低）：</p>
+<ol>
+<li><code>^</code> (次方)</li>
+<li><code>* / %% %/%</code> (乘法、除法、取餘數、整數除法)</li>
+<li><code>+ -</code> (加法、減法)</li>
+<li><code>&lt; &lt;= &gt; &gt;= == !=</code> (比較運算子)</li>
+<li><code>!</code> (邏輯非)</li>
+<li><code>&amp;</code> (邏輯與)</li>
+<li><code>|</code> (邏輯或)</li>
+<li><code>&lt;-</code> (賦值)</li>
+</ol>
+<p>當表達式複雜時，為了避免混淆和潛在錯誤，建議使用括號 <code>()</code> 明確指定運算順序，這不只能讓程式碼更清晰易讀，也能避免因為優先順序問題導致的錯誤。</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 不使用括號，可能造成混淆</span></span><br><span class="line">result <span class="operator">&lt;-</span> 2 <span class="operator">+</span> <span class="number">3</span> <span class="operator">*</span> <span class="number">4</span> <span class="operator">&gt;</span> <span class="number">10</span> <span class="operator">&amp;</span> <span class="number">5</span> <span class="operator">+</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">7</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用括號，更加清晰</span></span><br><span class="line">result <span class="operator">&lt;-</span> <span class="punctuation">(</span><span class="punctuation">(</span><span class="number">2</span> <span class="operator">+</span> <span class="punctuation">(</span><span class="number">3</span> <span class="operator">*</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">&gt;</span> <span class="number">10</span><span class="punctuation">)</span> <span class="operator">&amp;</span> <span class="punctuation">(</span><span class="punctuation">(</span><span class="number">5</span> <span class="operator">+</span> <span class="number">2</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="number">7</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>在 R 語言中，資料型別決定了變數能進行哪些操作、適用哪些函數、甚至影響統計模型的推論結果。因此，不論是初學者還是進階使用者，都應該養成「隨時檢查變數型別」的好習慣。當你每次從外部匯入資料（如 CSV、Excel、資料庫）或執行前處理時，建議都先用 <code>class()</code>、<code>typeof()</code>、<code>is.xxx()</code> 這些工具一一檢查每個變數的型別，再進一步決定是否需要轉型（如 <code>as.numeric(</code>)、<code>as.factor()</code> 等），這樣可以大幅減少錯誤的機率，也能讓你的資料分析流程更順暢。此外，熟悉運算子的優先順序，但不要過度依賴它，適當使用括號可以讓程式碼更可讀(readable)。</p>
 ]]></content>
       <categories>
         <category>R 語言教學</category>
@@ -334,6 +559,32 @@ Levels: 國中 &lt; 高中 &lt; 大學 &lt; 研究所
       </tags>
   </entry>
   <entry>
+    <title>做這件事好累，我撐不住了...但別說我沒毅力好嗎？</title>
+    <url>//persistence/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>常常聽到許多人說，做任何事情都要有毅力才能成功，或是沒有毅力就代表你不重視這件事。但事實真的是這樣嗎？我就直截了當的說，我們都「毅力」這個字框架住，認為只有透過這種方式才能成功。然而，毅力這個字的定義，如同前篇提及「努力」一詞時一般，十分模糊，無法理清他的輪廓。 </p>
+<span id="more"></span>
+
+<p>由 Angela Duckworth 所撰《恆毅力：人生成功的究極能力》一書中，對於恆毅力(grit)有這樣的定義：「心理學中一種正向的特質，是追求長期目標的熱情與毅力，為了達成特定目標的強大動機。」這個定義背後隱含的，不僅僅是「恆心」與「毅力」，更代表著在進行任務時必須透過強大的心理素質面對一切的挫折與苦難─如同《奧德賽》(Odyssey)中的奧底休斯(Odysseus)一樣，歷經20年的風雨，無畏艱難的通過諸神賜予其的各種挑戰，最終返回家鄉。</p>
+<p>因此有不少人會認為，那些「不成功」（依據他們自己的定義）人，肯定是缺乏恆心與毅力，才沒有辦法達到一定的成就。但事實卻跟這些評論者甚有差距。</p>
+<p>以我身邊的朋友（以下稱為A）舉例。</p>
+<p>A從小被醫生診斷患有注意力不足過動症(ADHD)，也就是俗稱的過動兒。在幼年時期，A常常因為專注力不足，而無法在一定的時間內完成老師或是家長所指派的作業、任務，以致於A常因此受責備，並被視為是一個「沒有毅力」的孩子。在國高中時期，A也是因為該症狀而無法準時或是有效率的讀完書，最終並沒有考上理想的大學。不意外的，任何知道A目前就讀學校不甚理想的人，都會為其冠上「不成功」的稱號，認為A未來沒有前途。</p>
+<p>但知道A症狀的我，並不這麼認為。</p>
+<p>與A讀過幾次書，我發現他並非不會讀書，也不是一個愚笨的人；相反地，他有好多好多的想法，而這些想法都是建構在他的知識架構上，絕非憑空杜撰或天馬行空的想法。所以說要認定A是一個失敗者，我認為過早下定論了（而且失敗跟成功是相對的，絕不能以某人的身分或社經地位作為唯一的評斷標準）。 回到今天的主題：毅力。</p>
+<p>該說A沒有毅力嗎？這題的答案事實上只有他自己知道，但跟A相處許久，我認為A是有毅力與恆心的，只是礙於纏身的生理疾病，致使A在學習上有一定程度的障礙。曾聽A說過，在高中時期，許多老師對其並不抱持著正面、積極的態度，認為A就是一個不認真的學生。依我的觀點而言，毅力這件事不能單以表象觀之─有太多人僅以外表就評斷一個人，這無疑是落入所謂「以貌取人」的窠臼。</p>
+<p>毅力，不過只是成功者對於其努力過程及結果所得出之定義罷了，普遍認為只有認真才能成功，的確是這樣沒錯，但不能排除有些人是真的有心想要學習，但卻遭逢某些心理（如過動症、憂鬱症、躁鬱症）、生理障礙（肢體障礙等），導致其無法同一般人一樣。因此，我對於毅力的定義是：「在心理層面上，抱持著積極的態度，想方設法解決問題的特質。」這邊所稱的積極的態度，指涉的是「具有想要釐清並試圖解決問題」，因此並不一定要有樂觀的態度，對於評估自身能力後，認為無法達成的事項，當然可以做出悲觀的結論。</p>
+<p>最後，我所想要傳遞的，並非呼籲大家不要往前進。本文的宗旨是提醒大家，切勿以自身的觀點，將自己所認為的價值觀加諸在別人身上；或許你能夠保持專注力好幾個小時，但對於像A一樣的人而言，完成這項任務是一件極為困難的事。面對這樣的人，我們無須對其做出過度的批評，也無須投以過分的憐憫之情（顯得做作並不會對他們有太大的助益），而是在自己能力所及範圍內，盡可能的鼓勵他們，適時地給予獎勵（口頭或實際行動均可），讓他們在完成專注這個任務上，具有一定的成就感。如此一步步地走下去，便會在他們心中產生正向的能量，進而提高他們完成任務的動機。</p>
+<p>把價值觀收在心底，別妄想你可以改變別人，否則你所做的一切都是「律他」而非「律己」。</p>
+]]></content>
+      <categories>
+        <category>心情日記</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+        <tag>成長</tag>
+        <tag>生命歷程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>聊聊失敗這件事</title>
     <url>//on-failure/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>失敗僅是過程，從過程中汲取教訓才能夠被稱為成功。這篇文章則是我根據最近的事情，以及自身過往的經驗撰寫。</p>
@@ -352,32 +603,6 @@ Levels: 國中 &lt; 高中 &lt; 大學 &lt; 研究所
 <p>相信每個人都有面臨失敗與挫折的經歷，但最重要的是要怎樣定義失敗。對我而言，失敗只是過程的一小部分，追逐還在持續，而夢想尚在遠方，我所企及的是在過程中能夠得到的任何東西，作為滋養我這個人的養分。</p>
 <p>願每個身在考試、挫折的人能夠正視自己所面對的難題，慢慢琢磨解決方法。</p>
 <p>在黎明來臨前，我們總有個療傷的夜晚。</p>
-]]></content>
-      <categories>
-        <category>心情日記</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-        <tag>成長</tag>
-        <tag>生命歷程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>做這件事好累，我撐不住了...但別說我沒毅力好嗎？</title>
-    <url>//persistence/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>常常聽到許多人說，做任何事情都要有毅力才能成功，或是沒有毅力就代表你不重視這件事。但事實真的是這樣嗎？我就直截了當的說，我們都「毅力」這個字框架住，認為只有透過這種方式才能成功。然而，毅力這個字的定義，如同前篇提及「努力」一詞時一般，十分模糊，無法理清他的輪廓。 </p>
-<span id="more"></span>
-
-<p>由 Angela Duckworth 所撰《恆毅力：人生成功的究極能力》一書中，對於恆毅力(grit)有這樣的定義：「心理學中一種正向的特質，是追求長期目標的熱情與毅力，為了達成特定目標的強大動機。」這個定義背後隱含的，不僅僅是「恆心」與「毅力」，更代表著在進行任務時必須透過強大的心理素質面對一切的挫折與苦難─如同《奧德賽》(Odyssey)中的奧底休斯(Odysseus)一樣，歷經20年的風雨，無畏艱難的通過諸神賜予其的各種挑戰，最終返回家鄉。</p>
-<p>因此有不少人會認為，那些「不成功」（依據他們自己的定義）人，肯定是缺乏恆心與毅力，才沒有辦法達到一定的成就。但事實卻跟這些評論者甚有差距。</p>
-<p>以我身邊的朋友（以下稱為A）舉例。</p>
-<p>A從小被醫生診斷患有注意力不足過動症(ADHD)，也就是俗稱的過動兒。在幼年時期，A常常因為專注力不足，而無法在一定的時間內完成老師或是家長所指派的作業、任務，以致於A常因此受責備，並被視為是一個「沒有毅力」的孩子。在國高中時期，A也是因為該症狀而無法準時或是有效率的讀完書，最終並沒有考上理想的大學。不意外的，任何知道A目前就讀學校不甚理想的人，都會為其冠上「不成功」的稱號，認為A未來沒有前途。</p>
-<p>但知道A症狀的我，並不這麼認為。</p>
-<p>與A讀過幾次書，我發現他並非不會讀書，也不是一個愚笨的人；相反地，他有好多好多的想法，而這些想法都是建構在他的知識架構上，絕非憑空杜撰或天馬行空的想法。所以說要認定A是一個失敗者，我認為過早下定論了（而且失敗跟成功是相對的，絕不能以某人的身分或社經地位作為唯一的評斷標準）。 回到今天的主題：毅力。</p>
-<p>該說A沒有毅力嗎？這題的答案事實上只有他自己知道，但跟A相處許久，我認為A是有毅力與恆心的，只是礙於纏身的生理疾病，致使A在學習上有一定程度的障礙。曾聽A說過，在高中時期，許多老師對其並不抱持著正面、積極的態度，認為A就是一個不認真的學生。依我的觀點而言，毅力這件事不能單以表象觀之─有太多人僅以外表就評斷一個人，這無疑是落入所謂「以貌取人」的窠臼。</p>
-<p>毅力，不過只是成功者對於其努力過程及結果所得出之定義罷了，普遍認為只有認真才能成功，的確是這樣沒錯，但不能排除有些人是真的有心想要學習，但卻遭逢某些心理（如過動症、憂鬱症、躁鬱症）、生理障礙（肢體障礙等），導致其無法同一般人一樣。因此，我對於毅力的定義是：「在心理層面上，抱持著積極的態度，想方設法解決問題的特質。」這邊所稱的積極的態度，指涉的是「具有想要釐清並試圖解決問題」，因此並不一定要有樂觀的態度，對於評估自身能力後，認為無法達成的事項，當然可以做出悲觀的結論。</p>
-<p>最後，我所想要傳遞的，並非呼籲大家不要往前進。本文的宗旨是提醒大家，切勿以自身的觀點，將自己所認為的價值觀加諸在別人身上；或許你能夠保持專注力好幾個小時，但對於像A一樣的人而言，完成這項任務是一件極為困難的事。面對這樣的人，我們無須對其做出過度的批評，也無須投以過分的憐憫之情（顯得做作並不會對他們有太大的助益），而是在自己能力所及範圍內，盡可能的鼓勵他們，適時地給予獎勵（口頭或實際行動均可），讓他們在完成專注這個任務上，具有一定的成就感。如此一步步地走下去，便會在他們心中產生正向的能量，進而提高他們完成任務的動機。</p>
-<p>把價值觀收在心底，別妄想你可以改變別人，否則你所做的一切都是「律他」而非「律己」。</p>
 ]]></content>
       <categories>
         <category>心情日記</category>
