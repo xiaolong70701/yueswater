@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4306040064090497"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="學習 R 語言的資料結構重點！本篇深入介紹向量這一核心概念，包含建立方法、索引技巧、算術與邏輯操作，以及處理缺失值與類別資料的實用技巧，讓你輕鬆掌握 R 語言資料分析的基礎。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R 語言教學入門｜向量操作與資料結構基礎">
+<meta property="og:url" content="https://www.yueswater.com/R-tutorial-2/index.html">
+<meta property="og:site_name" content="岳氏礦泉水">
+<meta property="og:description" content="學習 R 語言的資料結構重點！本篇深入介紹向量這一核心概念，包含建立方法、索引技巧、算術與邏輯操作，以及處理缺失值與類別資料的實用技巧，讓你輕鬆掌握 R 語言資料分析的基礎。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-04-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-06T16:00:00.000Z">
+<meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="R 語言">
+<meta property="article:tag" content="程式教學">
+<meta property="article:tag" content="資料分析">
+<meta property="article:tag" content="向量操作">
+<meta property="article:tag" content="資料結構">
+<meta property="article:tag" content="索引技巧">
+<meta property="article:tag" content="缺失值處理">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.yueswater.com/R-tutorial-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>R 語言教學入門｜向量操作與資料結構基礎 | 岳氏礦泉水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">岳氏礦泉水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">泉源思緒，細品人生</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/R-tutorial-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          R 語言教學入門｜向量操作與資料結構基礎
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-07T00:00:00+08:00">2025-04-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R-%E8%AA%9E%E8%A8%80%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">R 語言教學</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R-%E8%AA%9E%E8%A8%80%E6%95%99%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E5%85%A5%E9%96%80/" itemprop="url" rel="index"><span itemprop="name">程式語言入門</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/R-tutorial-2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/R-tutorial-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>14k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1:12</span>
+            </span>
+            <div class="post-description">學習 R 語言的資料結構重點！本篇深入介紹向量這一核心概念，包含建立方法、索引技巧、算術與邏輯操作，以及處理缺失值與類別資料的實用技巧，讓你輕鬆掌握 R 語言資料分析的基礎。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在 R 語言中，「向量」(vector) 是最基本也最常見的資料結構。如果說資料分析是一場廚藝比賽，那麼向量就像是你手上的食材，沒了它，什麼料理也做不出來。無論你要分析學生的分數、病人的年齡，或是某家公司的每日股價，這些資料幾乎都會以向量的形式存在。</p>
+<h2 id="向量基本觀念"><a href="#向量基本觀念" class="headerlink" title="向量基本觀念"></a>向量基本觀念</h2><p>在數學裡面，向量就是一列數字組成的集合，而這些數字可以是整數、小數、甚至是複數。舉例來說：<br>$$<br>\vec{v} &#x3D;<br>\begin{bmatrix}<br>1\<br>2\<br>3<br>\end{bmatrix}<br>$$<br>這是一個三維的列向量，裡面包含三個數值。我們也可以把它視為「一排有順序的資料」，每一個位置都有一個對應的值，而這樣的資料結構，在資料分析與統計學中非常常見。至於說為什麼向量這麼重要？R 是一門以統計為核心的語言，而統計的本質就是「資料的集合」。從最簡單的平均數、中位數，到複雜的迴歸分析、主成分分析，幾乎每一個步驟都在處理一組一組的資料——這些資料，基本上就是向量。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">score <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">80</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">,</span> <span class="number">90</span><span class="punctuation">,</span> <span class="number">95</span><span class="punctuation">,</span> <span class="number">100</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>score<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1]  80  85  90  95 100
+</code></pre>
+<p>這串數字，就是一個數值型的向量，其中包含 5 個元素，分別是 80、85、90、95 和 100。我們使用 <code>c()</code> 函數建立了這個向量，c 是 <strong><a target="_blank" rel="noopener" href="https://dictionary.cambridge.org/zht/%E8%A9%9E%E5%85%B8/%E8%8B%B1%E8%AA%9E-%E6%BC%A2%E8%AA%9E-%E7%B9%81%E9%AB%94/concatenate">concatenate</a></strong> 的縮寫，代表將這些資料「合併」成一個向量。其實不只是數字，像是文字也可以變成向量。例如紀錄學生的姓名：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;小明&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小美&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小強&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>name<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;小明&quot; &quot;小美&quot; &quot;小強&quot;
+</code></pre>
+<p>這是一個由字串組成的向量。重點在於：向量裡的元素，型別必須一致。必須注意的是，向量不是清單，也不是表格，有些初學者會把向量與之後才會提到的資料表(data frame)搞混。舉例來說，如果你同時有一個人的姓名、年齡與分數：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;小明&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小美&quot;</span><span class="punctuation">)</span></span><br><span class="line">age <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">18</span><span class="punctuation">,</span> <span class="number">19</span><span class="punctuation">)</span></span><br><span class="line">score <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">90.2</span><span class="punctuation">,</span> <span class="number">85.3</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>這三個向量分別記錄了三種資料，但它們彼此是平行的，還不是一個「資料表」。資料表是更複雜的結構，我們後面會講。但在這之前，我們要先把向量的概念掌握清楚。回憶<a href="https://www.yueswater.com/R-tutorial-1/">上一篇</a>檢查型別的工具，我們仍可以應用 <code>class()</code> 來檢查向量屬於哪一種型別，也就是整坨向量裡面的型別是什麼。此外，我們也可以使用 <code>length()</code> 來看有多少個元素。以上面的三個變數 <code>name</code>、<code>age</code> 與 <code>score</code> 為例，我們可以逐一檢查型別與裡面含有多少元素。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 檢查 name</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>name<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>name<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 檢查 age</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>age<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>age<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 檢查 score</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>score<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>score<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;character&quot;
+[1] 2
+[1] &quot;numeric&quot;
+[1] 2
+[1] &quot;numeric&quot;
+[1] 2
+</code></pre>
+<p>這兩個函數是我們日常資料處理的好幫手，任何一個向量拿到手，第一件事就該是檢查它的型別與長度，幫助我們知道該怎麼處理它。另外，若想知道向量的「內容與結構」，則可用 <code>str()</code> 函數來處理：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print<span class="punctuation">(</span>str<span class="punctuation">(</span>name<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code> chr [1:2] &quot;小明&quot; &quot;小美&quot;
+NULL
+</code></pre>
+<h2 id="向量基本資料類型"><a href="#向量基本資料類型" class="headerlink" title="向量基本資料類型"></a>向量基本資料類型</h2><p>在上一節我們提到，R 語言中的向量是由「相同型別的資料」所組成的一串資料。這裡的「相同型別」，其實就是向量的基本資料型別。也就是說，不論是數字、文字還是布林值，一旦它們被放進向量中，就必須保持一致，這是 R 語言處理資料的基本規則之一。</p>
+<h3 id="數值型"><a href="#數值型" class="headerlink" title="數值型"></a>數值型</h3><p>數值型資料就是最直觀的數字資料，例如溫度、分數、收入、距離等等。這類型是最常用的向量型別：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">height <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">160</span><span class="punctuation">,</span> <span class="number">170</span><span class="punctuation">,</span> <span class="number">180</span><span class="punctuation">,</span> <span class="number">190</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>height<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>height<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 160 170 180 190
+[1] &quot;numeric&quot;
+</code></pre>
+<p>你會注意到，就算是整數，R 還是預設將它們視為 numeric（數值型），也就是所謂的雙精度浮點數(double precision)。如果真的需要整數型別，在上一篇文章提到可以在數字後面加上 <code>L</code>。</p>
+<h3 id="字串型"><a href="#字串型" class="headerlink" title="字串型"></a>字串型</h3><p>當把名字、地址、國家名稱這類資料存進向量時，它們會被當作文字資料，也就是字串向量。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">country <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Taiwan&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Japan&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Korea&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>country<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>country<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;Taiwan&quot; &quot;Japan&quot;  &quot;Korea&quot; 
+[1] &quot;character&quot;
+</code></pre>
+<p>再次提醒：所有的字串都必須加上雙引號 <code>&quot;</code> 或單引號 <code>&#39;</code>，否則 R 會誤以為你是要引用一個變數名稱。</p>
+<h3 id="布林值"><a href="#布林值" class="headerlink" title="布林值"></a>布林值</h3><p>向量也可以存布林值，也就是 <code>TRUE</code> 或 <code>FALSE</code>。這在資料分析中非常重要，例如用來標示是否符合某條件、是否遺失、是否為男性等：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pass <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="literal">TRUE</span><span class="punctuation">,</span> <span class="literal">FALSE</span><span class="punctuation">,</span> <span class="literal">TRUE</span><span class="punctuation">,</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>pass<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>pass<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1]  TRUE FALSE  TRUE  TRUE
+[1] &quot;logical&quot;
+</code></pre>
+<h3 id="型別自動轉換-Type-Coercion"><a href="#型別自動轉換-Type-Coercion" class="headerlink" title="型別自動轉換(Type Coercion)"></a>型別自動轉換(Type Coercion)</h3><p>那如果你不小心把不同型別的資料放在同一個向量裡，會發生什麼事？</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mixed <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="literal">TRUE</span><span class="punctuation">,</span> <span class="string">&quot;apple&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>mixed<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>mixed<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;1&quot;     &quot;TRUE&quot;  &quot;apple&quot;
+[1] &quot;character&quot;
+</code></pre>
+<p>可以看到，R 自動將所有元素提升為字串，因為這是向量內部保持「同型別」的策略。在混合型別時，R 會依照以下規則做「型別轉換」：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logical &lt; numeric &lt; character</span><br></pre></td></tr></table></figure>
+
+<p>也就是說，一旦有字串出現，其他資料都會轉成字串；有數值但也有邏輯值，邏輯值就會變成數字（TRUE → 1，FALSE → 0）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">num_logic <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="literal">TRUE</span><span class="punctuation">,</span> <span class="number">3.5</span><span class="punctuation">,</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>num_logic<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>num_logic<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 1.0 3.5 0.0
+[1] &quot;numeric&quot;
+</code></pre>
+<p>這種「隱性轉換」有時候是好事，能讓程式自動運作；但有時也可能導致錯誤或分析失真。因此，在寫程式時要有意識地檢查向量的型別，避免錯誤發生。而如果我們需要檢查整個向量是否為特定型別，一樣可以用 <code>is.xxx()</code> 函數來確認，這點與檢查變數的方法一致，故不在此贅述。</p>
+<h2 id="向量產生函式-c"><a href="#向量產生函式-c" class="headerlink" title="向量產生函式 c()"></a>向量產生函式 <code>c()</code></h2><p>生活中，我們經常會做出「列清單」這件事。舉例來說，你去超市買東西前，可能會先寫下購物清單：</p>
+<blockquote>
+<p>牛奶、雞蛋、吐司、蘋果</p>
+</blockquote>
+<p>這張清單就是一個典型的「向量」：一組有順序、性質一致（都屬於購物項目）的資料。而在 R 裡，我們產生這種資料清單的工具，就是一個簡單卻非常強大的函數：c()。你可以想像它是一把膠水，把你提供的資料一個個黏在一起，組成一條向量。雖然上一小節已經給出簡單的範例，但畢竟關於 <code>c()</code> 的用法還有很多，因此會多花一點篇幅做講解。</p>
+<h3 id="建立數值向量"><a href="#建立數值向量" class="headerlink" title="建立數值向量"></a>建立數值向量</h3><p>假設我們正在記錄一組分數，例如某學生五次小考的成績，我們可以用 <code>c()</code> 來產生一個數值向量：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scores <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">90</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">,</span> <span class="number">88</span><span class="punctuation">,</span> <span class="number">92</span><span class="punctuation">,</span> <span class="number">87</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>scores<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 90 85 88 92 87
+</code></pre>
+<p>我們也可以建立一個分數組成的向量，例如令向量 $x$ 為一個實數向量，即 $x \in \mathbb{R}$，其中 $x$ 定義為：<br>$$<br>x &#x3D; \left\{\frac{1}{k}, k &#x3D; 1, 2, \cdots, 10\right\}<br>$$<br>我們可以這樣建立：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">/</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">/</span><span class="number">2</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">/</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">/</span><span class="number">4</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">/</span><span class="number">5</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">/</span><span class="number">6</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">/</span><span class="number">7</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">/</span><span class="number">8</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">/</span><span class="number">9</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">/</span><span class="number">10</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code> [1] 1.0000000 0.5000000 0.3333333 0.2500000 0.2000000 0.1666667 0.1428571
+ [8] 0.1250000 0.1111111 0.1000000
+</code></pre>
+<h3 id="建立整數向量"><a href="#建立整數向量" class="headerlink" title="建立整數向量"></a>建立整數向量</h3><p>如果你很在意資料是否為整數（例如你在算人數、樓層數），那麼可以在數字後面加上 <code>L</code> 來強制設定為整數型：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">floors <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">1L</span><span class="punctuation">,</span> <span class="number">2L</span><span class="punctuation">,</span> <span class="number">3L</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>floors<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 1 2 3
+</code></pre>
+<p>這樣 R 就會把這些值存為 integer 而非 float。</p>
+<h3 id="建立字串向量"><a href="#建立字串向量" class="headerlink" title="建立字串向量"></a>建立字串向量</h3><p>建立一個字串向量方法與數值向量差不多，只是把裡面的元素替換成字串而已。例如可以建立一個變數 <code>student_name</code>，裡面存放學生的名字，有 Anthony、Mason、Hsin、Jason。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">student_name <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Anthony&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Mason&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Hsin&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Jason&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>student_name<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;Anthony&quot; &quot;Mason&quot;   &quot;Hsin&quot;    &quot;Jason&quot;  
+</code></pre>
+<p>字串向量經常會作為後續比對、分類、或是文字探勘分析的依據。舉例來說，可以用字串向量來檢查一段文章裡面是否有特定字詞不斷地重複出現，進而做出詞頻分析，又或者是情緒分析等。</p>
+<h3 id="建立邏輯向量"><a href="#建立邏輯向量" class="headerlink" title="建立邏輯向量"></a>建立邏輯向量</h3><p>邏輯向量最常被使用的地方就是進行篩選。由於邏輯向量裡的元素全部都是邏輯值，因此可以透過「是」、「否」的特性，將資料中的特定內容選出來或是排除掉，在資料分析、資料前處理或是報表產出時非常有用。舉一個生活化的例子來說明：你最近開始記帳，並想追蹤哪些日子花了超過 100 元。你先記錄下連續五天的支出情況：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spending <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">80</span><span class="punctuation">,</span> <span class="number">120</span><span class="punctuation">,</span> <span class="number">95</span><span class="punctuation">,</span> <span class="number">150</span><span class="punctuation">,</span> <span class="number">60</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>接下來，你想標示出哪些日子是「超過 100 元」，這就可以透過條件判斷產生一個邏輯向量：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">overspent <span class="operator">&lt;-</span> spending <span class="operator">&gt;</span> <span class="number">100</span></span><br><span class="line">print<span class="punctuation">(</span>overspent<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] FALSE  TRUE FALSE  TRUE FALSE
+</code></pre>
+<p>這個 <code>overspent</code> 向量的每個位置，就對應 <code>spending</code> 中的每一筆資料。「超過 100」的那天會是 <code>TRUE</code>，其他則是 <code>FALSE</code>。</p>
+<h3 id="向量連接"><a href="#向量連接" class="headerlink" title="向量連接"></a>向量連接</h3><p>有時候，我們並不是一次就擁有所有資料，而是一天一天慢慢累積、一件事一件事慢慢記錄。這時候，你就會發現 c() 函數的另一個強大用途：向量可以不斷擴充、一直接下去。來看看這個例子：你想記錄最近每次喝咖啡的花費，但不是一次輸入完，而是每次消費後就更新一次資料。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coffee_spend <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">80</span><span class="punctuation">)</span>  <span class="comment"># 第一天喝咖啡，花了 80 元</span></span><br></pre></td></tr></table></figure>
+
+<p>第二天你又喝了一杯，這次花了 65 元，可以這樣更新：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coffee_spend <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>coffee_spend<span class="punctuation">,</span> <span class="number">65</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>接下來幾天：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coffee_spend <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>coffee_spend<span class="punctuation">,</span> <span class="number">70</span><span class="punctuation">,</span> <span class="number">90</span><span class="punctuation">,</span> <span class="number">60</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>現在我們來看看整體花費紀錄：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print<span class="punctuation">(</span>coffee_spend<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 80 65 70 90 60
+</code></pre>
+<p>每一次你使用 <code>c(舊資料, 新資料)</code>，就像是把一個新項目貼在日記本的最後一頁，日積月累，就成了一份有價值的生活紀錄。</p>
+<h2 id="向量基本操作"><a href="#向量基本操作" class="headerlink" title="向量基本操作"></a>向量基本操作</h2><p>日常生活中，我們經常在腦中進行各種運算，例如：拿著發票比對中獎號碼、看著天氣預報推測明天會不會下雨、比較今天與昨天的股價變化等。這些都是一種「比較」或「運算」的邏輯思維。而在程式語言中，這種運算邏輯也有一套清楚且一致的語法來進行描述，R 語言當然也不例外。上一篇提到對於變數的基本操作，同樣也可以應用在向量上，不過會比變數的操作更多、功能更廣。</p>
+<h3 id="索引-Indexing"><a href="#索引-Indexing" class="headerlink" title="索引(Indexing)"></a>索引(Indexing)</h3><p>在 R 語言中，索引是操作資料的核心技巧之一，讓我們能夠從資料中選取特定位置的元素。索引可以想像成超市貨架上的編號標籤，透過這些「標籤」，我們才能準確拿到自己要的商品。對向量進行索引時，最常見的方式就是用中括號 <code>[]</code>，像這樣：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">10</span><span class="punctuation">,</span> <span class="number">20</span><span class="punctuation">,</span> <span class="number">30</span><span class="punctuation">,</span> <span class="number">40</span><span class="punctuation">,</span> <span class="number">50</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>x<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">)</span>    <span class="comment"># 取出第二個元素：20</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 20
+</code></pre>
+<p>R 的索引是從 1 開始的（不像 Python 是從 0 開始），這點非常重要。如果你想一次取出多個位置的元素，可以給一個向量：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print<span class="punctuation">(</span>x<span class="punctuation">[</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span>   <span class="comment"># 取出第1、3、5個元素</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 10 30 50
+</code></pre>
+<p>當然，也可以取出某標籤至某標籤的元素，像是：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print<span class="punctuation">(</span>x<span class="punctuation">[</span><span class="number">1</span><span class="operator">:</span><span class="number">3</span><span class="punctuation">]</span><span class="punctuation">)</span>   <span class="comment"># 取出第1個至第3個元素</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 10 20 30
+</code></pre>
+<p>如果想要刪掉特定元素，可以用在索引值前加上負號，而如果想要一次移除多個元素，可以用 <code>c()</code> 進行處理</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print<span class="punctuation">(</span>x<span class="punctuation">[</span><span class="operator">-</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span>   <span class="comment"># 移除第1個元素</span></span><br><span class="line">print<span class="punctuation">(</span>x<span class="punctuation">[</span><span class="built_in">c</span><span class="punctuation">(</span><span class="operator">-</span><span class="number">2</span><span class="punctuation">,</span> <span class="operator">-</span><span class="number">3</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span>   <span class="comment"># 移除第2個與第3個元素</span></span><br><span class="line">print<span class="punctuation">(</span>x<span class="punctuation">[</span><span class="operator">-</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span>    <span class="comment"># 移除第2個與第3個元素</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 20 30 40 50
+[1] 10 40 50
+[1] 10 40 50
+</code></pre>
+<h3 id="向量算數操作"><a href="#向量算數操作" class="headerlink" title="向量算數操作"></a>向量算數操作</h3><p>最直覺的運算莫過於數學四則運算，而在 R 中也幾乎與我們平常的筆算方式完全一致。這些符號既可以對「純數字」進行運算，也可應用在「向量」上，值得一提的是，R 中的運算是<strong>向量化</strong>(vectorized)的，表示你可以直接對整個向量進行運算，不需要像某些語言那樣寫迴圈來逐一處理，這是 R 的一大優勢。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">+</span> <span class="number">1</span><span class="punctuation">)</span>        <span class="comment"># 每個元素都加 1</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">*</span> <span class="number">2</span><span class="punctuation">)</span>        <span class="comment"># 每個元素都乘 2</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">^</span> <span class="number">2</span><span class="punctuation">)</span>        <span class="comment"># 每個元素平方</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">%%</span> <span class="number">2</span><span class="punctuation">)</span>       <span class="comment"># 每個元素除以 2 的餘數</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 2 3 4 5
+[1] 2 4 6 8
+[1]  1  4  9 16
+[1] 1 0 1 0
+</code></pre>
+<h3 id="向量關係操作"><a href="#向量關係操作" class="headerlink" title="向量關係操作"></a>向量關係操作</h3><p>當我們想比較某個值是否大於、等於、或不等於某個值時，就需要使用關係運算子。這類運算的結果會產生「布林值」（<code>TRUE</code> 或 <code>FALSE</code>），方便我們在後續進行條件判斷或篩選。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">%%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span><span class="punctuation">)</span>   <span class="comment"># 符合偶數的條件</span></span><br></pre></td></tr></table></figure>
+
+<pre><code> [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE
+</code></pre>
+<p>可以注意到在上面的例子中，我們用 <code>:</code> 建立一個 1 到 10 的向量，這樣建立向量既快速又不容易出錯，只要在冒號前加上起始值，後面放上結束值即可。含有布林值的向量非常適合用在資料篩選上，例如想找出所有成績超過 60 分的學生：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">score <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">55</span><span class="punctuation">,</span> <span class="number">67</span><span class="punctuation">,</span> <span class="number">45</span><span class="punctuation">,</span> <span class="number">90</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>score<span class="punctuation">[</span>score <span class="operator">&gt;</span> <span class="number">60</span><span class="punctuation">]</span><span class="punctuation">)</span>   <span class="comment"># 取出大於 60 分的元素</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 67 90
+</code></pre>
+<h3 id="向量邏輯運算"><a href="#向量邏輯運算" class="headerlink" title="向量邏輯運算"></a>向量邏輯運算</h3><p>除了比較大小，我們還可以對邏輯向量進行操作，在處理多條件判斷時，邏輯運算特別實用，例如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> 1<span class="operator">:</span><span class="number">5</span></span><br><span class="line">y <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">print<span class="punctuation">(</span><span class="punctuation">(</span>x <span class="operator">&gt;</span> <span class="number">2</span><span class="punctuation">)</span> <span class="operator">&amp;</span> <span class="punctuation">(</span>y <span class="operator">&lt;</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span>   <span class="comment"># 將兩個條件交集比對</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] FALSE FALSE FALSE FALSE  TRUE
+</code></pre>
+<p>結果會是一個邏輯向量，說明每個元素是否同時滿足兩個條件。這在資料篩選或模型指定時都非常重要。需要特別小心的是：<code>&amp;</code> 與 <code>&amp;&amp;</code>、<code>|</code> 與 <code>||</code> 雖然長得很像，但行為其實很不一樣。簡單來說：</p>
+<ul>
+<li><code>&amp;</code> 與 <code>|</code>：<strong>逐一比對向量所有元素</strong>。</li>
+<li><code>&amp;&amp;</code> 與 <code>||</code>：<strong>只比對第一個元素</strong>，多用於 <code>if</code> 條件語句。</li>
+</ul>
+<p>💻 小試身手</p>
+<p>小明經營一家水果店，這週他銷售了以下數量的水果（每種水果一天賣出一個數字）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apple <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">10</span><span class="punctuation">,</span> <span class="number">12</span><span class="punctuation">,</span> <span class="number">8</span><span class="punctuation">,</span> <span class="number">15</span><span class="punctuation">,</span> <span class="number">9</span><span class="punctuation">)</span>     <span class="comment"># 每天賣出的蘋果數量（週一到週五）</span></span><br><span class="line">banana <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">)</span>       <span class="comment"># 每天賣出的香蕉數量</span></span><br></pre></td></tr></table></figure>
+
+<p>蘋果一顆賣 20 元，香蕉一根賣 12 元。請你完成以下幾個小任務：</p>
+<ol>
+<li>計算每天蘋果的銷售金額（每顆 20 元）；</li>
+<li>計算每天香蕉的銷售金額（每根 12 元）；</li>
+<li>計算每天的總營業額（蘋果 + 香蕉）；</li>
+<li>請問哪一天營業額超過了 300 元？</li>
+</ol>
+<details>
+<summary>點我看答案</summary>
+
+<p>首先我們先定義蘋果與香蕉的數量：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apple <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">10</span><span class="punctuation">,</span> <span class="number">12</span><span class="punctuation">,</span> <span class="number">8</span><span class="punctuation">,</span> <span class="number">15</span><span class="punctuation">,</span> <span class="number">9</span><span class="punctuation">)</span>     <span class="comment"># 每天賣出的蘋果數量（週一到週五）</span></span><br><span class="line">banana <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">)</span>       <span class="comment"># 每天賣出的香蕉數量</span></span><br></pre></td></tr></table></figure>
+
+<p>R 語言的向量特性讓我們可以「一次算完一整週的金額」，而不需要使用 for 迴圈。</p>
+<ul>
+<li>蘋果一顆賣 20 元 → apple * 20</li>
+<li>香蕉一根賣 12 元 → banana * 12</li>
+</ul>
+<p>這樣就能得到每一天的營業額（蘋果與香蕉分開算）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apple_revenue <span class="operator">&lt;-</span> apple <span class="operator">*</span> <span class="number">20</span></span><br><span class="line">print<span class="punctuation">(</span>apple_revenue<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">banana_revenue <span class="operator">&lt;-</span> banana <span class="operator">*</span> <span class="number">12</span></span><br><span class="line">print<span class="punctuation">(</span>banana_revenue<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 200 240 160 300 180
+[1] 60 72 84 48 36
+</code></pre>
+<p>蘋果的營收向量加上香蕉的營收向量，就是每天的總營業額：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">total_revenue <span class="operator">&lt;-</span> apple_revenue <span class="operator">+</span> banana_revenue</span><br><span class="line">print<span class="punctuation">(</span>total_revenue<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 260 312 244 348 216
+</code></pre>
+<p>我們要判斷「哪些天總營業額超過 300 元」，這時候就用邏輯比較運算符號 <code>&gt;</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print<span class="punctuation">(</span>total_revenue <span class="operator">&gt;</span> <span class="number">300</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] FALSE  TRUE FALSE  TRUE FALSE
+</code></pre>
+<p>由此可以看出第二天與第四天營業額超過 300 元。</p>
+</details>
+
+<h3 id="其他向量特殊操作"><a href="#其他向量特殊操作" class="headerlink" title="其他向量特殊操作"></a>其他向量特殊操作</h3><p>在 R 中還有一些符號非常常見但容易忽略，例如：</p>
+<ul>
+<li><code>%in%</code>：用來測試一個元素是否包含在某個集合中</li>
+<li><code>is.na()</code>：判斷是否為缺失值</li>
+<li><code>any()</code> &#x2F; <code>all()</code>：用來測試布林向量中是否有任何或全部為 <code>TRUE</code></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">%in%</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">2</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">)</span>   <span class="comment"># 判斷向量 x 的元素有哪些在 [2, 4] 這個向量中</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] FALSE  TRUE FALSE  TRUE FALSE
+</code></pre>
+<h2 id="向量元素命名與進階索引技巧"><a href="#向量元素命名與進階索引技巧" class="headerlink" title="向量元素命名與進階索引技巧"></a>向量元素命名與進階索引技巧</h2><p>在 R 的世界裡，向量是一切的起點，而命名與索引，就是讓這些數值資料變得「有意義」、「可操作」的兩把鑰匙。這一節我們將從命名說起，然後一路帶到索引的各種方式與技巧。學會這一節，你不只能「看得懂資料」，還能「選得到你想要的資料」。</p>
+<h3 id="給向量加上名字"><a href="#給向量加上名字" class="headerlink" title="給向量加上名字"></a>給向量加上名字</h3><p>我們可以把向量想成是一排排沒有名字的箱子，每個箱子裡放了一個數字。雖然可以透過位置（也就是索引）去找資料，但如果箱子上有標籤，我們會不會更容易辨識？這就是「向量元素命名」的目的。命名的方法有兩種，第一種是在建立向量時直接命名：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">student_A <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>age <span class="operator">=</span> <span class="number">50</span><span class="punctuation">,</span> height <span class="operator">=</span> <span class="number">183</span><span class="punctuation">,</span> weight <span class="operator">=</span> <span class="number">70</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>student_A<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>   age height weight 
+    50    183     70 
+</code></pre>
+<p>每個元素不再只是第 1、2、3 個數，而是有了明確的「意義」標籤，如此命名對於資料語意化、分析變數對應特別重要。第二種方式則是事後使用 <code>names()</code> 指定命名：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">student_A <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">25</span><span class="punctuation">,</span> <span class="number">183</span><span class="punctuation">,</span> <span class="number">70</span><span class="punctuation">)</span></span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>student_A<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;age&quot;</span><span class="punctuation">,</span> <span class="string">&quot;height&quot;</span><span class="punctuation">,</span> <span class="string">&quot;weight&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>student_A<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>   age height weight 
+    25    183     70 
+</code></pre>
+<p>這種方式可以應用在需要將一組資料標上「欄位名稱」時，非常直觀且<strong>彈性高</strong>。不過有時候不想要名字了，怎麼辦？我們可以透過兩種方式處理：用 <code>unname()</code> 回傳不含名稱的純向量，或是用 <code>names()</code> 指定向量的名字為 <code>NULL</code>。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一</span></span><br><span class="line">print<span class="punctuation">(</span>unname<span class="punctuation">(</span>student_A<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二</span></span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>student_A<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="literal">NULL</span></span><br><span class="line">print<span class="punctuation">(</span>student_A<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1]  25 183  70
+[1]  25 183  70
+</code></pre>
+<p>另外，如果今天有另一筆向量，其元素的順序與既有的向量欄位名稱吻合，則可以對齊兩筆資料的欄位名稱：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">student_A <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>age <span class="operator">=</span> <span class="number">50</span><span class="punctuation">,</span> height <span class="operator">=</span> <span class="number">183</span><span class="punctuation">,</span> weight <span class="operator">=</span> <span class="number">70</span><span class="punctuation">)</span> <span class="comment"># 先定義 student A</span></span><br><span class="line">student_B <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">28</span><span class="punctuation">,</span> <span class="number">175</span><span class="punctuation">,</span> <span class="number">80</span><span class="punctuation">)</span>                         <span class="comment"># 再定義 student B</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>student_B<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">names</span><span class="punctuation">(</span>student_A<span class="punctuation">)</span>                <span class="comment"># 直接用 student A 的欄位名稱</span></span><br><span class="line">print<span class="punctuation">(</span>student_B<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>   age height weight 
+    28    175     80 
+</code></pre>
+<h3 id="字串索引"><a href="#字串索引" class="headerlink" title="字串索引"></a>字串索引</h3><p>前面我們提到，向量可以透過數字進行索引，但如果今天向量已經有欄位了，那麼就可以直接用欄位名稱作為索引值。因此必須要搭配前面介紹的命名功能，才可以用名稱來選資料，而不用記得是哪個位置：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scores <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">93.2</span><span class="punctuation">,</span> <span class="number">34.4</span><span class="punctuation">,</span> <span class="number">54.6</span><span class="punctuation">,</span> <span class="number">73.7</span><span class="punctuation">)</span></span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>scores<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Anthony&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Mason&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Hsin&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Jason&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">print<span class="punctuation">(</span>scores<span class="punctuation">[</span><span class="string">&quot;Mason&quot;</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>scores<span class="punctuation">[</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Anthony&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Hsin&quot;</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Mason 
+ 34.4 
+Anthony    Hsin 
+   93.2    54.6 
+</code></pre>
+<h3 id="邏輯索引"><a href="#邏輯索引" class="headerlink" title="邏輯索引"></a>邏輯索引</h3><p>我們可以用條件篩選資料，這是資料篩選中最實用的技巧之一。搭配布林判斷，便可以選出「符合條件」的元素：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">price_change <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="literal">NA</span><span class="punctuation">,</span> <span class="number">0.31</span><span class="punctuation">,</span> <span class="operator">-</span><span class="number">0.42</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">,</span> <span class="number">0.53</span><span class="punctuation">,</span> <span class="operator">-</span><span class="number">0.9</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">print<span class="punctuation">(</span>price_change<span class="punctuation">[</span><span class="operator">!</span><span class="built_in">is.na</span><span class="punctuation">(</span>price_change<span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span>                        <span class="comment"># 去除缺失值</span></span><br><span class="line">print<span class="punctuation">(</span>price_change<span class="punctuation">[</span>price_change <span class="operator">&gt;</span> <span class="number">0</span> <span class="operator">&amp;</span> <span class="operator">!</span><span class="built_in">is.na</span><span class="punctuation">(</span>price_change<span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span>     <span class="comment"># 篩選大於 0 且非 NA 的資料</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1]  0.31 -0.42  0.53 -0.90
+[1] 0.31 0.53
+</code></pre>
+<p>甚至可以搭配其他邏輯條件使用：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">price_change.clear <span class="operator">&lt;-</span> price_change<span class="punctuation">[</span><span class="operator">!</span><span class="built_in">is.na</span><span class="punctuation">(</span>price_change<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">print<span class="punctuation">(</span>price_change.clear<span class="punctuation">[</span>price_change.clear <span class="operator">&lt;</span> <span class="number">0</span><span class="punctuation">]</span><span class="punctuation">)</span>                 <span class="comment"># 取出小於 0 的非缺失值</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] -0.42 -0.90
+</code></pre>
+<h2 id="處理缺失值"><a href="#處理缺失值" class="headerlink" title="處理缺失值"></a>處理缺失值</h2><p>在現實世界中，我們很少能遇到完美無缺的資料。問卷可能有漏填，感測器可能失靈，匯入資料時也可能因格式問題導致部分欄位缺值。這些<strong>缺失值</strong>(missing values)在 R 中有一套明確的表示方式與處理邏輯。這個小節將從三種常見「不可用值」開始講解，進而學會怎麼判斷、處理與清理這些值。不過這邊有個小觀念：在資料分析的世界裡，「缺失值」本身也是一種資訊。有時候，缺失的背後有其脈絡（如問卷不願回答、機器讀不到數據），我們不能一律刪掉，而是要根據研究目的決定處理方式。</p>
+<h3 id="R-中三種常見「無效值」"><a href="#R-中三種常見「無效值」" class="headerlink" title="R 中三種常見「無效值」"></a>R 中三種常見「無效值」</h3><table>
+<thead>
+<tr>
+<th>名稱</th>
+<th>表示</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>NA</code></td>
+<td>Not Available</td>
+<td>表示「缺失資料」，通常是資料來源本身沒有提供數值</td>
+</tr>
+<tr>
+<td><code>NaN</code></td>
+<td>Not a Number</td>
+<td>表示「非數值結果」，通常是數學運算結果無意義（如 0&#x2F;0）</td>
+</tr>
+<tr>
+<td><code>NULL</code></td>
+<td></td>
+<td>表示「完全不存在」，連空格都沒有（長度為 0 的物件）</td>
+</tr>
+</tbody></table>
+<p>如果看了不是很懂，我們來簡單說明一下這三個無效值的意義是什麼：</p>
+<ul>
+<li><code>NA</code> 是「有這個欄位，但不知道內容是什麼」；</li>
+<li><code>NaN</code> 是「運算過程中產生無意義結果」；</li>
+<li><code>NULL</code> 是「連欄位都沒有，直接不存在」。</li>
+</ul>
+<p>首先我們來說明算數運算與 <code>NA</code>。只要某個元素是 <code>NA</code>，那麼 <code>NA</code> 會傳染整個運算，任何運算只要經過這個位置，結果就會變成 <code>NA</code>。R 無法推論「未知值 + 已知值 &#x3D; 什麼」，所以保守地回傳 <code>NA</code>。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">10</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">,</span> <span class="number">30</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>x <span class="operator">+</span> <span class="number">5</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 15 NA 35
+</code></pre>
+<p>我們可以使用 <code>is.na()</code> 來檢查哪些位置是缺失值，回傳一個邏輯向量：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">98.6</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">,</span> <span class="number">101.3</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">is.na</span><span class="punctuation">(</span>temp<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] FALSE  TRUE FALSE
+</code></pre>
+<p>而 <code>NaN</code> 則是表示數學錯誤結果，例如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sqrt</span><span class="punctuation">(</span><span class="operator">-</span><span class="number">1</span><span class="punctuation">)</span>      <span class="comment"># 複數，回傳 NaN</span></span><br><span class="line"><span class="built_in">log</span><span class="punctuation">(</span><span class="operator">-</span><span class="number">10</span><span class="punctuation">)</span>      <span class="comment"># 回傳 NaN（因 log 負數無意義）</span></span><br><span class="line"><span class="number">0</span> <span class="operator">/</span> <span class="number">0</span>         <span class="comment"># 回傳 NaN</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Warning message in sqrt(-1):
+“NaNs produced”
+</code></pre>
+<p>NaN</p>
+<pre><code>Warning message in log(-10):
+“NaNs produced”
+</code></pre>
+<p>NaN</p>
+<p>NaN</p>
+<p>而 <code>NaN</code> 是特殊的一種 <code>NA</code>，用 <code>is.nan()</code> 可以特別挑出：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">score <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">88</span><span class="punctuation">,</span> <span class="number">100</span><span class="punctuation">,</span> <span class="number">0</span><span class="operator">/</span><span class="number">0</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">is.na</span><span class="punctuation">(</span>score<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">is.nan</span><span class="punctuation">(</span>score<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] FALSE FALSE  TRUE
+[1] FALSE FALSE  TRUE
+</code></pre>
+<p>這表示 NaN 同時也會被 is.na() 偵測到。最後，<code>NULL</code> 常出現在<strong>資料還沒初始化</strong>或是<strong>函數沒有回傳值</strong>時，與 <code>NA</code> 不同，它連容器都不存在，因此無法參與任何向量化操作。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x <span class="operator">&lt;-</span> <span class="literal">NULL</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 0
+</code></pre>
+<h3 id="處理缺失值的基本技巧"><a href="#處理缺失值的基本技巧" class="headerlink" title="處理缺失值的基本技巧"></a>處理缺失值的基本技巧</h3><p>上面我們已經提過向量可以透過邏輯值進行篩選，而 <code>is.na()</code> 又可以回傳邏輯值，結合這兩個概念，我們就可以用「是 <code>NA</code> 值」的反敘述「不是 <code>NA</code> 值」來進行過濾，也就是 <code>!is.na()</code>，這是最常見的方式，從而保留非 <code>NA</code> 的資料。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">weight <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">65</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">,</span> <span class="number">72</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">,</span> <span class="number">80</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">is.na</span><span class="punctuation">(</span>weight<span class="punctuation">)</span><span class="punctuation">)</span>             <span class="comment"># 回傳邏輯向量</span></span><br><span class="line">print<span class="punctuation">(</span>weight<span class="punctuation">[</span><span class="operator">!</span><span class="built_in">is.na</span><span class="punctuation">(</span>weight<span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span>    <span class="comment"># 用邏輯向量篩選</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] FALSE  TRUE FALSE  TRUE FALSE
+[1] 65 72 80
+</code></pre>
+<p>此外，我們也可以用 <code>complete.cases()</code> 同時清理多個向量，這招適用於需要同時清除「任一欄為 NA 的資料列」的情境，是資料框前處理的核心技能。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">height <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">170</span><span class="punctuation">,</span> <span class="number">165</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">,</span> <span class="number">180</span><span class="punctuation">)</span></span><br><span class="line">gender <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;M&quot;</span><span class="punctuation">,</span> <span class="string">&quot;F&quot;</span><span class="punctuation">,</span> <span class="string">&quot;F&quot;</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">valid <span class="operator">&lt;-</span> complete.cases<span class="punctuation">(</span>height<span class="punctuation">,</span> gender<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>height<span class="punctuation">[</span>valid<span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>gender<span class="punctuation">[</span>valid<span class="punctuation">]</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 170 165
+[1] &quot;M&quot; &quot;F&quot;
+</code></pre>
+<p>如果要一勞永逸，則可以直接用 <code>na.omit()</code> 一口氣清掉缺值，<code>na.omit()</code> 可以直接從向量或資料框中移除所有含 <code>NA</code> 的觀測值，其回傳結果是一個「已刪除缺值」的物件，並附註刪除哪些列。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">income <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">32000</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">,</span> <span class="number">45000</span><span class="punctuation">,</span> <span class="number">39000</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>na.omit<span class="punctuation">(</span>income<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 32000 45000 39000
+attr(,&quot;na.action&quot;)
+[1] 2 5
+attr(,&quot;class&quot;)
+[1] &quot;omit&quot;
+</code></pre>
+<h2 id="類別資料：進階用法"><a href="#類別資料：進階用法" class="headerlink" title="類別資料：進階用法"></a>類別資料：進階用法</h2><p>在上一篇我們已經初步認識何謂類別資料，以及類別資料的型別是因子，也就是 <code>factor</code>，接下來我們可以結合向量與因子型別，深入了解在 R 中如何處理、標示與轉換這類資料。</p>
+<h3 id="類別資料複習"><a href="#類別資料複習" class="headerlink" title="類別資料複習"></a>類別資料複習</h3><p>在統計學中，類別資料(categorical data)是指將觀察結果歸類為不同的群組或標籤。例如：</p>
+<ul>
+<li>性別：男 &#x2F; 女</li>
+<li>教育程度：小學 &#x2F; 國中 &#x2F; 高中 &#x2F; 大學</li>
+<li>健康狀態：良好 &#x2F; 一般 &#x2F; 不佳</li>
+</ul>
+<p>這類資料的重點在於「所屬類別」而非「數值大小」，因此需要不同於數值資料的處理方式。而類別資料可依照「類別之間是否具備順序」分為兩類，一是名目變數(nominal variable)，表示類別之間沒有順序關係，例如血型、城市等，我們無法陳述「A 型大於 B 型」。二是有序變數(ordinal variable)，類別之間具備明確順序，但數值之間的間距無意義，例如：滿意度、疼痛指數等。即使我們給「輕度」標記為 1、「重度」標記為 3，這個數字只是方便排序，並不表示「重度比輕度多兩倍」。</p>
+<h3 id="為什麼-R-需要因子型別？"><a href="#為什麼-R-需要因子型別？" class="headerlink" title="為什麼 R 需要因子型別？"></a>為什麼 R 需要因子型別？</h3><p>雖然可以用字串向量或數值向量來表示類別資料，但這些型別無法正確反映「分類資訊」的本質。例如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">symptom <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;mild&quot;</span><span class="punctuation">,</span> <span class="string">&quot;severe&quot;</span><span class="punctuation">,</span> <span class="string">&quot;mild&quot;</span><span class="punctuation">,</span> <span class="string">&quot;moderate&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>symptom<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;character&quot;
+</code></pre>
+<p>這雖然可以列出內容，但並不代表它是「一組分類」，而且 R 也不會知道「moderate 比 mild 嚴重」。為此，R 引入因子型別，來專門處理類別資料。這類資料除了儲存每筆觀測值外，還會記錄所有可能的「類別水準」。</p>
+<h3 id="建立因子物件"><a href="#建立因子物件" class="headerlink" title="建立因子物件"></a>建立因子物件</h3><p>如上一篇所提到的，我們可以使用 <code>factor()</code> 建立無序因子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">survey <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;agree&quot;</span><span class="punctuation">,</span> <span class="string">&quot;disagree&quot;</span><span class="punctuation">,</span> <span class="string">&quot;agree&quot;</span><span class="punctuation">,</span> <span class="string">&quot;neutral&quot;</span><span class="punctuation">)</span></span><br><span class="line">response <span class="operator">&lt;-</span> factor<span class="punctuation">(</span>survey<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>response<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>response<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] agree    disagree agree    neutral 
+Levels: agree disagree neutral
+[1] &quot;factor&quot;
+</code></pre>
+<p>這就是一個標準的「名目變數」，沒有大小關係，只有歸屬分類。有時候我們希望控制水準的排序方式或改變顯示的標籤名稱，就可以指定 <code>levels</code> 順序與 <code>labels</code> 標籤，這對輸出報表、資料視覺化特別重要，可以確保結果按照邏輯順序排列。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">status <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;mid&quot;</span><span class="punctuation">,</span> <span class="string">&quot;low&quot;</span><span class="punctuation">,</span> <span class="string">&quot;high&quot;</span><span class="punctuation">,</span> <span class="string">&quot;low&quot;</span><span class="punctuation">,</span> <span class="string">&quot;mid&quot;</span><span class="punctuation">)</span></span><br><span class="line">status.f <span class="operator">&lt;-</span> factor<span class="punctuation">(</span>status<span class="punctuation">,</span> levels <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;low&quot;</span><span class="punctuation">,</span> <span class="string">&quot;mid&quot;</span><span class="punctuation">,</span> <span class="string">&quot;high&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">levels<span class="punctuation">(</span>status.f<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Low&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Medium&quot;</span><span class="punctuation">,</span> <span class="string">&quot;High&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>status.f<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] Medium Low    High   Low    Medium
+Levels: Low Medium High
+</code></pre>
+<p>當類別具有「等級感」，例如疼痛、教育程度、病情輕重等，我們可以設定 <code>ordered = TRUE</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pain <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;none&quot;</span><span class="punctuation">,</span> <span class="string">&quot;mild&quot;</span><span class="punctuation">,</span> <span class="string">&quot;moderate&quot;</span><span class="punctuation">,</span> <span class="string">&quot;severe&quot;</span><span class="punctuation">,</span> <span class="string">&quot;mild&quot;</span><span class="punctuation">)</span></span><br><span class="line">pain.levels <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;none&quot;</span><span class="punctuation">,</span> <span class="string">&quot;mild&quot;</span><span class="punctuation">,</span> <span class="string">&quot;moderate&quot;</span><span class="punctuation">,</span> <span class="string">&quot;severe&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">pain.f <span class="operator">&lt;-</span> factor<span class="punctuation">(</span>pain<span class="punctuation">,</span> levels <span class="operator">=</span> pain.levels<span class="punctuation">,</span> ordered <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>pain.f<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] none     mild     moderate severe   mild    
+Levels: none &lt; mild &lt; moderate &lt; severe
+</code></pre>
+<p>這樣一來，<code>pain.f</code> 不僅是因子，還是一個有順序的因子物件，可以用來比較，這是無序因子所無法做到的功能。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print<span class="punctuation">(</span>pain.f<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span> <span class="operator">&lt;</span> pain.f<span class="punctuation">[</span><span class="number">3</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] TRUE
+</code></pre>
+<p>不過亂設 <code>levels</code> 可能會出現一些問題。以下是錯誤示範，會導致對應錯位：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">score <span class="operator">&lt;-</span> factor<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;medium&quot;</span><span class="punctuation">,</span> <span class="string">&quot;high&quot;</span><span class="punctuation">,</span> <span class="string">&quot;low&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">levels<span class="punctuation">(</span>score<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Low&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Medium&quot;</span><span class="punctuation">,</span> <span class="string">&quot;High&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>score<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] High   Low    Medium
+Levels: Low Medium High
+</code></pre>
+<p>此例中，原始值為 “medium”、”high”、”low”，但設定 levels 的順序錯誤，導致原值與顯示對應混亂。正確方式應在 <code>factor()</code> 時就指定 <code>levels</code> 順序：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">score <span class="operator">&lt;-</span> factor<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;medium&quot;</span><span class="punctuation">,</span> <span class="string">&quot;high&quot;</span><span class="punctuation">,</span> <span class="string">&quot;low&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                levels <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;low&quot;</span><span class="punctuation">,</span> <span class="string">&quot;medium&quot;</span><span class="punctuation">,</span> <span class="string">&quot;high&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">levels<span class="punctuation">(</span>score<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Low&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Medium&quot;</span><span class="punctuation">,</span> <span class="string">&quot;High&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>score<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] Medium High   Low   
+Levels: Low Medium High
+</code></pre>
+<h3 id="處理缺失值與排除特定類別"><a href="#處理缺失值與排除特定類別" class="headerlink" title="處理缺失值與排除特定類別"></a>處理缺失值與排除特定類別</h3><p><code>factor()</code> 有 <code>exclude</code> 參數，可用來排除某些類別或將 <code>NA</code> 當成一種水準：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">result <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;pass&quot;</span><span class="punctuation">,</span> <span class="string">&quot;fail&quot;</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">,</span> <span class="string">&quot;pass&quot;</span><span class="punctuation">,</span> <span class="string">&quot;fail&quot;</span><span class="punctuation">)</span></span><br><span class="line">result.f <span class="operator">&lt;-</span> factor<span class="punctuation">(</span>result<span class="punctuation">,</span> exclude <span class="operator">=</span> <span class="literal">NULL</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>levels<span class="punctuation">(</span>result.f<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;fail&quot; &quot;pass&quot; NA    
+</code></pre>
+<p>若希望排除某一類，這在需要忽略某些觀測值時相當方便。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result.f2 <span class="operator">&lt;-</span> factor<span class="punctuation">(</span>result<span class="punctuation">,</span> exclude <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;fail&quot;</span><span class="punctuation">,</span> <span class="literal">NA</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>result.f2<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] pass &lt;NA&gt; &lt;NA&gt; pass &lt;NA&gt;
+Levels: pass
+</code></pre>
+<h3 id="重新設定參考水準"><a href="#重新設定參考水準" class="headerlink" title="重新設定參考水準"></a>重新設定參考水準</h3><p>在進行統計建模（如 Logistic 回歸）時，因子的第一個水準會被預設為參考水準(reference level)。使用 <code>relevel()</code> 則可改變參考基準。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">edu <span class="operator">&lt;-</span> factor<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;junior high&quot;</span><span class="punctuation">,</span> <span class="string">&quot;college&quot;</span><span class="punctuation">,</span> <span class="string">&quot;master&quot;</span><span class="punctuation">,</span> <span class="string">&quot;college&quot;</span><span class="punctuation">,</span> <span class="string">&quot;elementary&quot;</span><span class="punctuation">,</span> <span class="string">&quot;senior high&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">edu <span class="operator">&lt;-</span> relevel<span class="punctuation">(</span>edu<span class="punctuation">,</span> ref <span class="operator">=</span> <span class="string">&quot;college&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>levels<span class="punctuation">(</span>edu<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;college&quot;     &quot;elementary&quot;  &quot;junior high&quot; &quot;master&quot;      &quot;senior high&quot;
+</code></pre>
+<h3 id="將因子轉換成整數與文字"><a href="#將因子轉換成整數與文字" class="headerlink" title="將因子轉換成整數與文字"></a>將因子轉換成整數與文字</h3><p>使用 <code>as.integer()</code> 可將因子轉換為對應的整數編碼，但這個編碼僅表示位置，<strong>數字本身無意義</strong>，不能直接進行加減乘除。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grade <span class="operator">&lt;-</span> factor<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;B&quot;</span><span class="punctuation">,</span> <span class="string">&quot;A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;C&quot;</span><span class="punctuation">,</span> <span class="string">&quot;A&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">as.integer</span><span class="punctuation">(</span>grade<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 2 1 3 1
+</code></pre>
+<p>若需轉換回文字，使用 <code>as.character()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print<span class="punctuation">(</span><span class="built_in">as.character</span><span class="punctuation">(</span>grade<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;B&quot; &quot;A&quot; &quot;C&quot; &quot;A&quot;
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/R-%E8%AA%9E%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> R 語言</a>
+              <a href="/tags/%E7%A8%8B%E5%BC%8F%E6%95%99%E5%AD%B8/" rel="tag"><i class="fa fa-tag"></i> 程式教學</a>
+              <a href="/tags/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 資料分析</a>
+              <a href="/tags/%E5%90%91%E9%87%8F%E6%93%8D%E4%BD%9C/" rel="tag"><i class="fa fa-tag"></i> 向量操作</a>
+              <a href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/" rel="tag"><i class="fa fa-tag"></i> 資料結構</a>
+              <a href="/tags/%E7%B4%A2%E5%BC%95%E6%8A%80%E5%B7%A7/" rel="tag"><i class="fa fa-tag"></i> 索引技巧</a>
+              <a href="/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC%E8%99%95%E7%90%86/" rel="tag"><i class="fa fa-tag"></i> 缺失值處理</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/R-tutorial-1/" rel="prev" title="R 語言教學入門｜從變數賦值到資料型別">
+      <i class="fa fa-chevron-left"></i> R 語言教學入門｜從變數賦值到資料型別
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">向量基本觀念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E5%9F%BA%E6%9C%AC%E8%B3%87%E6%96%99%E9%A1%9E%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">向量基本資料類型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B8%E5%80%BC%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">數值型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">字串型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E6%9E%97%E5%80%BC"><span class="nav-number">2.3.</span> <span class="nav-text">布林值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%8B%E5%88%A5%E8%87%AA%E5%8B%95%E8%BD%89%E6%8F%9B-Type-Coercion"><span class="nav-number">2.4.</span> <span class="nav-text">型別自動轉換(Type Coercion)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%94%A2%E7%94%9F%E5%87%BD%E5%BC%8F-c"><span class="nav-number">3.</span> <span class="nav-text">向量產生函式 c()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%95%B8%E5%80%BC%E5%90%91%E9%87%8F"><span class="nav-number">3.1.</span> <span class="nav-text">建立數值向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%95%B4%E6%95%B8%E5%90%91%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">建立整數向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E5%AD%97%E4%B8%B2%E5%90%91%E9%87%8F"><span class="nav-number">3.3.</span> <span class="nav-text">建立字串向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E9%82%8F%E8%BC%AF%E5%90%91%E9%87%8F"><span class="nav-number">3.4.</span> <span class="nav-text">建立邏輯向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E9%80%A3%E6%8E%A5"><span class="nav-number">3.5.</span> <span class="nav-text">向量連接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">向量基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95-Indexing"><span class="nav-number">4.1.</span> <span class="nav-text">索引(Indexing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%AE%97%E6%95%B8%E6%93%8D%E4%BD%9C"><span class="nav-number">4.2.</span> <span class="nav-text">向量算數操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E9%97%9C%E4%BF%82%E6%93%8D%E4%BD%9C"><span class="nav-number">4.3.</span> <span class="nav-text">向量關係操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E9%82%8F%E8%BC%AF%E9%81%8B%E7%AE%97"><span class="nav-number">4.4.</span> <span class="nav-text">向量邏輯運算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%90%91%E9%87%8F%E7%89%B9%E6%AE%8A%E6%93%8D%E4%BD%9C"><span class="nav-number">4.5.</span> <span class="nav-text">其他向量特殊操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E5%85%83%E7%B4%A0%E5%91%BD%E5%90%8D%E8%88%87%E9%80%B2%E9%9A%8E%E7%B4%A2%E5%BC%95%E6%8A%80%E5%B7%A7"><span class="nav-number">5.</span> <span class="nav-text">向量元素命名與進階索引技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%A6%E5%90%91%E9%87%8F%E5%8A%A0%E4%B8%8A%E5%90%8D%E5%AD%97"><span class="nav-number">5.1.</span> <span class="nav-text">給向量加上名字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2%E7%B4%A2%E5%BC%95"><span class="nav-number">5.2.</span> <span class="nav-text">字串索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%8F%E8%BC%AF%E7%B4%A2%E5%BC%95"><span class="nav-number">5.3.</span> <span class="nav-text">邏輯索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%95%E7%90%86%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="nav-number">6.</span> <span class="nav-text">處理缺失值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#R-%E4%B8%AD%E4%B8%89%E7%A8%AE%E5%B8%B8%E8%A6%8B%E3%80%8C%E7%84%A1%E6%95%88%E5%80%BC%E3%80%8D"><span class="nav-number">6.1.</span> <span class="nav-text">R 中三種常見「無效值」</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%95%E7%90%86%E7%BC%BA%E5%A4%B1%E5%80%BC%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8A%80%E5%B7%A7"><span class="nav-number">6.2.</span> <span class="nav-text">處理缺失值的基本技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%9E%E5%88%A5%E8%B3%87%E6%96%99%EF%BC%9A%E9%80%B2%E9%9A%8E%E7%94%A8%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">類別資料：進階用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%9E%E5%88%A5%E8%B3%87%E6%96%99%E8%A4%87%E7%BF%92"><span class="nav-number">7.1.</span> <span class="nav-text">類別資料複習</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC-R-%E9%9C%80%E8%A6%81%E5%9B%A0%E5%AD%90%E5%9E%8B%E5%88%A5%EF%BC%9F"><span class="nav-number">7.2.</span> <span class="nav-text">為什麼 R 需要因子型別？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E5%9B%A0%E5%AD%90%E7%89%A9%E4%BB%B6"><span class="nav-number">7.3.</span> <span class="nav-text">建立因子物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%95%E7%90%86%E7%BC%BA%E5%A4%B1%E5%80%BC%E8%88%87%E6%8E%92%E9%99%A4%E7%89%B9%E5%AE%9A%E9%A1%9E%E5%88%A5"><span class="nav-number">7.4.</span> <span class="nav-text">處理缺失值與排除特定類別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E8%A8%AD%E5%AE%9A%E5%8F%83%E8%80%83%E6%B0%B4%E6%BA%96"><span class="nav-number">7.5.</span> <span class="nav-text">重新設定參考水準</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%87%E5%9B%A0%E5%AD%90%E8%BD%89%E6%8F%9B%E6%88%90%E6%95%B4%E6%95%B8%E8%88%87%E6%96%87%E5%AD%97"><span class="nav-number">7.6.</span> <span class="nav-text">將因子轉換成整數與文字</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Anthony Sung"
+      src="/images/profile.svg">
+  <p class="site-author-name" itemprop="name">Anthony Sung</p>
+  <div class="site-description" itemprop="description">對生活抱持好奇心的學習者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaolong70701" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaolong70701" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xiaolong70701@gmail.com" title="E-Mail → mailto:xiaolong70701@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yueswater/" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yueswater&#x2F;" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/yues_19_water/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;yues_19_water&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">&copy; Anthony 部落格原站：<a href="https://xiaolong70701.github.io/blog/" target="_blank">Yueswater Blog</a>；若要轉載文章，麻煩請保留原作者名稱與原始連結。
+</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌙',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yueswater.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/R-tutorial-2/";
+    this.page.identifier = "/R-tutorial-2/";
+    this.page.title = "R 語言教學入門｜向量操作與資料結構基礎";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+<script src="/js/injector.js"></script>
+</body>
+</html>
