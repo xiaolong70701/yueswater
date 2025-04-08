@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4306040064090497"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="學習 R 語言的多維資料結構！本篇深入介紹矩陣，包含建立方法、命名系統、索引技巧、合併操作，以及基本與進階的矩陣運算，讓你掌握 R 語言中處理二維資料的關鍵技能，為統計分析與資料科學打下堅實基礎。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R 語言教學入門｜矩陣操作與二維資料結構">
+<meta property="og:url" content="https://www.yueswater.com/R-tutorial-3/index.html">
+<meta property="og:site_name" content="岳氏礦泉水">
+<meta property="og:description" content="學習 R 語言的多維資料結構！本篇深入介紹矩陣，包含建立方法、命名系統、索引技巧、合併操作，以及基本與進階的矩陣運算，讓你掌握 R 語言中處理二維資料的關鍵技能，為統計分析與資料科學打下堅實基礎。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-04-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-07T16:00:00.000Z">
+<meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="R 語言">
+<meta property="article:tag" content="程式教學">
+<meta property="article:tag" content="資料分析">
+<meta property="article:tag" content="索引技巧">
+<meta property="article:tag" content="矩陣操作">
+<meta property="article:tag" content="二維資料結構">
+<meta property="article:tag" content="矩陣運算">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.yueswater.com/R-tutorial-3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>R 語言教學入門｜矩陣操作與二維資料結構 | 岳氏礦泉水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">岳氏礦泉水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">泉源思緒，細品人生</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/R-tutorial-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          R 語言教學入門｜矩陣操作與二維資料結構
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-04-08 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-08T00:00:00+08:00">2025-04-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R-%E8%AA%9E%E8%A8%80%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">R 語言教學</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R-%E8%AA%9E%E8%A8%80%E6%95%99%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E5%85%A5%E9%96%80/" itemprop="url" rel="index"><span itemprop="name">程式語言入門</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/R-tutorial-3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/R-tutorial-3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>19k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1:35</span>
+            </span>
+            <div class="post-description">學習 R 語言的多維資料結構！本篇深入介紹矩陣，包含建立方法、命名系統、索引技巧、合併操作，以及基本與進階的矩陣運算，讓你掌握 R 語言中處理二維資料的關鍵技能，為統計分析與資料科學打下堅實基礎。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在 R 語言中，我們已經認識了向量這個基礎資料結構，它像是一條直線，能夠儲存一系列相同型別的資料。但隨著資料分析的複雜度增加，單純的一維結構往往不敷使用。這時候，矩陣(matrix)便成為我們必須掌握的工具。如果說向量是一條線，那麼矩陣就像是一張表格，讓我們能夠以更有條理的方式組織與分析資料。</p>
+<h2 id="矩陣初探：從一維到二維的跨越"><a href="#矩陣初探：從一維到二維的跨越" class="headerlink" title="矩陣初探：從一維到二維的跨越"></a>矩陣初探：從一維到二維的跨越</h2><p>碰到矩陣的第一個疑問是：「為何我們需要多一個維度？」想像你正在分析一所學校三個班級、五個學生的數學考試成績。如果使用向量，你可能需要多個向量來儲存：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class1_scores <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">85</span><span class="punctuation">,</span> <span class="number">90</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">,</span> <span class="number">92</span><span class="punctuation">,</span> <span class="number">88</span><span class="punctuation">)</span></span><br><span class="line">class2_scores <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">76</span><span class="punctuation">,</span> <span class="number">82</span><span class="punctuation">,</span> <span class="number">91</span><span class="punctuation">,</span> <span class="number">64</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">)</span></span><br><span class="line">class3_scores <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">92</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">,</span> <span class="number">90</span><span class="punctuation">,</span> <span class="number">73</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>管理這麼多向量不僅繁瑣，還容易出錯。矩陣則提供了一個更優雅的解決方案：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">all_scores <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">85</span><span class="punctuation">,</span> <span class="number">90</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">,</span> <span class="number">92</span><span class="punctuation">,</span> <span class="number">88</span><span class="punctuation">,</span></span><br><span class="line">                        <span class="number">76</span><span class="punctuation">,</span> <span class="number">82</span><span class="punctuation">,</span> <span class="number">91</span><span class="punctuation">,</span> <span class="number">64</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">,</span></span><br><span class="line">                        <span class="number">92</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">,</span> <span class="number">90</span><span class="punctuation">,</span> <span class="number">73</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                     nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>all_scores<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]   85   90   78   92   88
+[2,]   76   82   91   64   85
+[3,]   92   78   85   90   73
+</code></pre>
+<p>這樣，我們就將三個班級的成績整合到一個矩陣中，每一列代表一個班級，每一行代表班級中的某位學生。資料的組織變得更加直觀與系統化。在數學上，矩陣是一個由數字排列成的長方形陣列，其中的元素按照行與列整齊排列。通常以下列形式表示：<br>$$<br>A &#x3D; \begin{bmatrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}\\<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}\\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\<br>a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}<br>\end{bmatrix}<br>$$</p>
+<p>這個表示法中：</p>
+<ul>
+<li>$A$ 是矩陣的名稱</li>
+<li>$a_{ij}$ 表示位於第 $i$ 列第 $j$ 行的元素</li>
+<li>$m$ 是矩陣的列數(rows)</li>
+<li>$n$ 是矩陣的行數(columns)</li>
+</ul>
+<p>我們通常會說 $A$ 是一個 $m \times n$ 矩陣（念作「$m$ by $n$」矩陣），表示它有 $m$ 列和 $n$ 行。在 R 語言中，矩陣同樣遵循這一定義，但有幾個重要特性需要特別注意：</p>
+<ul>
+<li>同質性(homogeneity)：矩陣中的所有元素必須屬於相同的資料型別，無論是數值型、字元型還是邏輯型。</li>
+<li>二維結構：矩陣有兩個維度 — 列與欄。</li>
+<li>有序性：矩陣中的每個元素都有明確的位置，可以通過行索引與列索引來定位。</li>
+</ul>
+<p>有了這些好的特性，矩陣便成為處理表格式資料的理想結構，尤其是當資料具有數值性質且需要進行數學運算時。</p>
+<h2 id="矩陣建立：matrix-函數的魔法"><a href="#矩陣建立：matrix-函數的魔法" class="headerlink" title="矩陣建立：matrix() 函數的魔法"></a>矩陣建立：<code>matrix()</code> 函數的魔法</h2><p>建立矩陣是進入二維資料分析的第一步，而在 R 語言中，<code>matrix()</code> 函數就像是一個變形金剛，能將一維向量轉變為井然有序的二維結構。無論你是需要整理實驗數據、分析問卷結果，還是進行複雜的統計運算，掌握 <code>matrix()</code> 的使用方法都是不可或缺的基本技能。</p>
+<h3 id="矩陣建立的基本語法"><a href="#矩陣建立的基本語法" class="headerlink" title="矩陣建立的基本語法"></a>矩陣建立的基本語法</h3><p>在 R 語言中，建立矩陣的最基本方法是使用 matrix() 函數。其基本語法如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix<span class="punctuation">(</span>data <span class="operator">=</span> <span class="literal">NA</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">1</span><span class="punctuation">,</span> ncol <span class="operator">=</span> <span class="number">1</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">,</span> <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="literal">NULL</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>這裡的參數分別代表：</p>
+<ul>
+<li>data：用來填充矩陣的資料，通常是一個向量</li>
+<li>nrow：矩陣的列數</li>
+<li>ncol：矩陣的行數</li>
+<li>byrow：資料填充方式，預設為 FALSE（按列填充）</li>
+<li>dimnames：矩陣的維度名稱（行名和列名）</li>
+</ul>
+<p>讓我們從最簡單的例子開始，建立一個 $2 \times 3$ 的矩陣：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m1 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">6</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">,</span> ncol <span class="operator">=</span> <span class="number">3</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>m1<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+</code></pre>
+<p>可以看到，R 預設是按照「列」的方向填充資料（即先填滿第一列，再填第二列…）。這與我們平常閱讀的習慣（從左到右，從上到下）有些不同，因此在建立矩陣時需要特別注意。</p>
+<h3 id="元素填充的藝術：byrow-參數的秘密"><a href="#元素填充的藝術：byrow-參數的秘密" class="headerlink" title="元素填充的藝術：byrow 參數的秘密"></a>元素填充的藝術：<code>byrow</code> 參數的秘密</h3><p>如果想改變填充方式，使其符合我們習慣的閱讀順序（先填滿第一列，再往下），可以設定 <code>byrow = TRUE</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m2 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">6</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">,</span> ncol <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>m2<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+</code></pre>
+<p>這樣一來，資料就按照我們熟悉的方式排列了。在實際應用中，選擇哪種填充方式取決於你的資料結構和分析需求。例如，當處理時間序列資料時，可能希望每一列代表一個時間點的不同觀測值；而分析問卷資料時，可能希望每一列代表一位受訪者的所有回答。</p>
+<h3 id="維度設計：塑造矩陣的形狀"><a href="#維度設計：塑造矩陣的形狀" class="headerlink" title="維度設計：塑造矩陣的形狀"></a>維度設計：塑造矩陣的形狀</h3><p>在建立矩陣時，你只需要指定 <code>nrow</code> 或 <code>ncol</code> 中的一個，R 會自動計算另一個維度。例如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只指定列數</span></span><br><span class="line">m3 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>m3<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 只指定行數</span></span><br><span class="line">m4 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> ncol <span class="operator">=</span> <span class="number">5</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>m4<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    3    5    7    9
+[2,]    2    4    6    8   10
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    3    5    7    9
+[2,]    2    4    6    8   10
+</code></pre>
+<p>可以發現兩者的結果其實是相同的。然而，需要注意的是，如果向量長度不是列數和行數的乘積，R 會重複使用向量中的元素來填滿矩陣，並可能發出警告訊息。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m5 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">5</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> ncol <span class="operator">=</span> <span class="number">4</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>m5<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Warning message in matrix(1:5, nrow = 3, ncol = 4):
+“data length [5] is not a sub-multiple or multiple of the number of rows [3]”
+
+
+     [,1] [,2] [,3] [,4]
+[1,]    1    4    2    5
+[2,]    2    5    3    1
+[3,]    3    1    4    2
+</code></pre>
+<p>此時 R 會顯示警告：「資料長度 <code>[5]</code> 不是行數 <code>[3]</code> 與列數 <code>[4]</code> 的乘積」，並循環使用資料來填滿矩陣。雖然程式不會報錯，但這種情況可能導致資料誤解，因此在實際應用中應盡量避免。</p>
+<h3 id="從現有資料建立矩陣"><a href="#從現有資料建立矩陣" class="headerlink" title="從現有資料建立矩陣"></a>從現有資料建立矩陣</h3><p>除了從頭建立矩陣外，也可以將現有的向量轉換為矩陣：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 三個班級的數學、英文、自然考試分數</span></span><br><span class="line">math <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">85</span><span class="punctuation">,</span> <span class="number">76</span><span class="punctuation">,</span> <span class="number">92</span><span class="punctuation">)</span></span><br><span class="line">english <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">90</span><span class="punctuation">,</span> <span class="number">82</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">)</span></span><br><span class="line">science <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">78</span><span class="punctuation">,</span> <span class="number">91</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 合併成一個矩陣，每列代表一個班級，每行代表一個科目</span></span><br><span class="line">scores <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>math<span class="punctuation">,</span> english<span class="punctuation">,</span> science<span class="punctuation">)</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>scores<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3]
+[1,]   85   90   78
+[2,]   76   82   91
+[3,]   92   78   85
+</code></pre>
+<p>這裡每一列代表一個班級，每一行代表一個科目。但這樣的排列方式並不直觀，如果希望每列代表一個科目，可以使用 <code>byrow = TRUE</code> 或者更簡單的方法——轉置矩陣(transpose matrix)：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scores_t <span class="operator">&lt;-</span> t<span class="punctuation">(</span>scores<span class="punctuation">)</span>  <span class="comment"># t() 函數用於矩陣轉置</span></span><br><span class="line">print<span class="punctuation">(</span>scores_t<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3]
+[1,]   85   76   92
+[2,]   90   82   78
+[3,]   78   91   85
+</code></pre>
+<p>現在每列代表一個科目，每行代表一個班級，資料的組織方式更加符合我們的直覺。</p>
+<h3 id="常見矩陣創建陷阱與解決方案"><a href="#常見矩陣創建陷阱與解決方案" class="headerlink" title="常見矩陣創建陷阱與解決方案"></a>常見矩陣創建陷阱與解決方案</h3><p>在使用 <code>matrix()</code> 函數時，有幾個常見的陷阱需要注意。首先是資料型別混合，矩陣只能包含同一種資料型別。如果混合不同型別的資料，R 會自動轉換成最通用的型別：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mixed <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="string">&quot;3&quot;</span><span class="punctuation">,</span> <span class="literal">TRUE</span><span class="punctuation">)</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>mixed<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>mixed<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2]  
+[1,] &quot;1&quot;  &quot;3&quot;   
+[2,] &quot;2&quot;  &quot;TRUE&quot;
+[1] &quot;character&quot;
+</code></pre>
+<p>可以看到，所有元素都被轉換成了字元型。另一個則是維度不匹配，前面已經提到，如果資料長度不是列數和行數的乘積，R 會重複使用資料並發出警告。為避免這種情況，可以事先確認資料長度是否匹配，或者使用 <code>rep()</code> 函數有意識地複製資料。最後一個則是填充順序混淆，預設的 <code>byrow = FALSE</code> 可能與我們的直覺不符。解決方法是養成習慣，明確指定 <code>byrow</code> 參數，或者在建立後使用 <code>t()</code> 函數轉置矩陣。<br>效率。</p>
+<h2 id="矩陣的命名系統：為數字賦予意義"><a href="#矩陣的命名系統：為數字賦予意義" class="headerlink" title="矩陣的命名系統：為數字賦予意義"></a>矩陣的命名系統：為數字賦予意義</h2><p>在資料分析的過程中，我們不僅需要關注數字本身，更需要理解這些數字背後的含義。就像一張街道地圖需要標明道路名稱才能幫助人們找到目的地，矩陣中的資料也需要適當的標籤才能讓我們清楚地解讀其中的資訊。在 R 語言中，我們可以透過行列命名，讓矩陣從單純的數字陣列轉變為具有明確語意的資料結構。</p>
+<h3 id="行列有名：讓數據說故事"><a href="#行列有名：讓數據說故事" class="headerlink" title="行列有名：讓數據說故事"></a>行列有名：讓數據說故事</h3><p>想像你正在分析不同城市的氣象資料，有溫度、濕度和降雨量三種指標。如果將這些資料放入一個無標籤的矩陣中，每次讀取資料時都需要記住「第一行是台北、第二行是高雄、第一列是溫度、第二列是濕度…」，這不僅容易出錯，還會增加認知負擔。透過行列命名，我們可以讓矩陣變得更加直觀：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立原始矩陣：3個城市的3種氣象指標</span></span><br><span class="line">weather_data <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">25</span><span class="punctuation">,</span> <span class="number">28</span><span class="punctuation">,</span> <span class="number">23</span><span class="punctuation">,</span>  <span class="comment"># 溫度（攝氏度）</span></span><br><span class="line">                         <span class="number">78</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">,</span> <span class="number">80</span><span class="punctuation">,</span>  <span class="comment"># 濕度（百分比）</span></span><br><span class="line">                         <span class="number">10</span><span class="punctuation">,</span> <span class="number">15</span><span class="punctuation">,</span> <span class="number">20</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="comment"># 降雨量（毫米）</span></span><br><span class="line">                      nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 為行列命名</span></span><br><span class="line">rownames<span class="punctuation">(</span>weather_data<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;溫度&quot;</span><span class="punctuation">,</span> <span class="string">&quot;濕度&quot;</span><span class="punctuation">,</span> <span class="string">&quot;降雨量&quot;</span><span class="punctuation">)</span></span><br><span class="line">colnames<span class="punctuation">(</span>weather_data<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;台北&quot;</span><span class="punctuation">,</span> <span class="string">&quot;高雄&quot;</span><span class="punctuation">,</span> <span class="string">&quot;台中&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">print<span class="punctuation">(</span>weather_data<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>       台北 高雄 台中
+溫度     25   28   23
+濕度     78   85   80
+降雨量   10   15   20
+</code></pre>
+<p>如此一來，矩陣不僅是一堆數字，而是一個承載著明確意義的資料結構。我們可以直觀地看出台北的溫度是25度，高雄的濕度是85%，而不需要靠記憶位置來辨識資料。</p>
+<h3 id="dimnames-、rownames-與-colnames-的巧妙運用"><a href="#dimnames-、rownames-與-colnames-的巧妙運用" class="headerlink" title="dimnames()、rownames() 與 colnames() 的巧妙運用"></a><code>dimnames()</code>、<code>rownames()</code> 與 <code>colnames()</code> 的巧妙運用</h3><p>在 R 中，為矩陣命名有多種方法，最常用的是 <code>rownames()</code>、<code>colnames()</code> 和 <code>dimnames()</code> 這三個函數。</p>
+<ul>
+<li><code>rownames()</code> 用於設定或獲取矩陣的列名</li>
+<li><code>colnames()</code> 用於設定或獲取矩陣的行名</li>
+<li><code>dimnames()</code> 則可以同時設定列名和行名</li>
+</ul>
+<p>我們可以在建立矩陣時直接指定名稱：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 dimnames 參數直接命名</span></span><br><span class="line">student_scores <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">85</span><span class="punctuation">,</span> <span class="number">90</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">,</span></span><br><span class="line">                           <span class="number">76</span><span class="punctuation">,</span> <span class="number">82</span><span class="punctuation">,</span> <span class="number">91</span><span class="punctuation">,</span></span><br><span class="line">                           <span class="number">92</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                        nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span></span><br><span class="line">                        <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;小明&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小華&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小美&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                                        <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;數學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;英文&quot;</span><span class="punctuation">,</span> <span class="string">&quot;自然&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     數學 英文 自然
+小明   85   90   78
+小華   76   82   91
+小美   92   78   85
+</code></pre>
+<p>或者在建立矩陣後再設定名稱：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先建立矩陣</span></span><br><span class="line">sales_data <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">150</span><span class="punctuation">,</span> <span class="number">200</span><span class="punctuation">,</span> <span class="number">300</span><span class="punctuation">,</span></span><br><span class="line">                       <span class="number">120</span><span class="punctuation">,</span> <span class="number">220</span><span class="punctuation">,</span> <span class="number">250</span><span class="punctuation">,</span></span><br><span class="line">                       <span class="number">180</span><span class="punctuation">,</span> <span class="number">230</span><span class="punctuation">,</span> <span class="number">270</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                     nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 再設定名稱</span></span><br><span class="line"><span class="built_in">dimnames</span><span class="punctuation">(</span>sales_data<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;1月&quot;</span><span class="punctuation">,</span> <span class="string">&quot;2月&quot;</span><span class="punctuation">,</span> <span class="string">&quot;3月&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                            <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;產品A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;產品B&quot;</span><span class="punctuation">,</span> <span class="string">&quot;產品C&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>sales_data<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>    產品A 產品B 產品C
+1月   150   200   300
+2月   120   220   250
+3月   180   230   270
+</code></pre>
+<p>另外，如果只想查看或修改某一維度的名稱，可以分別使用 <code>rownames()</code> 或 <code>colnames()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看列名</span></span><br><span class="line">print<span class="punctuation">(</span>rownames<span class="punctuation">(</span>sales_data<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改行名</span></span><br><span class="line">colnames<span class="punctuation">(</span>sales_data<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;手機&quot;</span><span class="punctuation">,</span> <span class="string">&quot;筆電&quot;</span><span class="punctuation">,</span> <span class="string">&quot;平板&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>sales_data<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] &quot;1月&quot; &quot;2月&quot; &quot;3月&quot;
+    手機 筆電 平板
+1月  150  200  300
+2月  120  220  250
+3月  180  230  270
+</code></pre>
+<h3 id="命名對資料解讀的幫助"><a href="#命名對資料解讀的幫助" class="headerlink" title="命名對資料解讀的幫助"></a>命名對資料解讀的幫助</h3><p>良好的行列命名不僅讓資料更易讀，還能大幅提升資料分析的效率與準確性。第一個好處就是能夠直觀選取資料，有了名稱，我們可以直接用名字而非索引來選取資料，程式碼更加清晰易懂：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用名稱選取特定元素</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="string">&quot;小明&quot;</span><span class="punctuation">,</span> <span class="string">&quot;數學&quot;</span><span class="punctuation">]</span><span class="punctuation">)</span>  <span class="comment"># 小明的數學成績</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 選取特定列或行</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="string">&quot;小華&quot;</span><span class="punctuation">,</span> <span class="punctuation">]</span><span class="punctuation">)</span>  <span class="comment"># 小華的所有成績</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="punctuation">,</span> <span class="string">&quot;英文&quot;</span><span class="punctuation">]</span><span class="punctuation">)</span>  <span class="comment"># 所有人的英文成績</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 85
+數學 英文 自然 
+  76   82   91 
+小明 小華 小美 
+  90   82   78 
+</code></pre>
+<p>另一個就是不用花時間寫一大堆註解，直接用名稱，程式碼就能自我解釋：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">january_tablet_sales <span class="operator">&lt;-</span> sales_data<span class="punctuation">[</span><span class="string">&quot;1月&quot;</span><span class="punctuation">,</span> <span class="string">&quot;平板&quot;</span><span class="punctuation">]</span></span><br><span class="line">print<span class="punctuation">(</span>january_tablet_sales<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 300
+</code></pre>
+<p>再來，當矩陣有名稱後，當需要合併或比較不同矩陣的資料時，名稱可作為對齊的依據：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 上半年與下半年的銷售資料</span></span><br><span class="line">sales_h1 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">150</span><span class="punctuation">,</span> <span class="number">200</span><span class="punctuation">,</span> <span class="number">300</span><span class="punctuation">,</span></span><br><span class="line">                     <span class="number">120</span><span class="punctuation">,</span> <span class="number">220</span><span class="punctuation">,</span> <span class="number">250</span><span class="punctuation">,</span></span><br><span class="line">                     <span class="number">180</span><span class="punctuation">,</span> <span class="number">230</span><span class="punctuation">,</span> <span class="number">270</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                  nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span></span><br><span class="line">                  <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;1月&quot;</span><span class="punctuation">,</span> <span class="string">&quot;2月&quot;</span><span class="punctuation">,</span> <span class="string">&quot;3月&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                                 <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;手機&quot;</span><span class="punctuation">,</span> <span class="string">&quot;筆電&quot;</span><span class="punctuation">,</span> <span class="string">&quot;平板&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">sales_h2 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">160</span><span class="punctuation">,</span> <span class="number">210</span><span class="punctuation">,</span> <span class="number">280</span><span class="punctuation">,</span></span><br><span class="line">                     <span class="number">140</span><span class="punctuation">,</span> <span class="number">230</span><span class="punctuation">,</span> <span class="number">260</span><span class="punctuation">,</span></span><br><span class="line">                     <span class="number">190</span><span class="punctuation">,</span> <span class="number">240</span><span class="punctuation">,</span> <span class="number">290</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                  nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span></span><br><span class="line">                  <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;7月&quot;</span><span class="punctuation">,</span> <span class="string">&quot;8月&quot;</span><span class="punctuation">,</span> <span class="string">&quot;9月&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                                 <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;手機&quot;</span><span class="punctuation">,</span> <span class="string">&quot;筆電&quot;</span><span class="punctuation">,</span> <span class="string">&quot;平板&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 合併矩陣（將行名相同的資料垂直合併）</span></span><br><span class="line">annual_sales <span class="operator">&lt;-</span> rbind<span class="punctuation">(</span>sales_h1<span class="punctuation">,</span> sales_h2<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>annual_sales<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>    手機 筆電 平板
+1月  150  200  300
+2月  120  220  250
+3月  180  230  270
+7月  160  210  280
+8月  140  230  260
+9月  190  240  290
+</code></pre>
+<h2 id="矩陣索引技巧"><a href="#矩陣索引技巧" class="headerlink" title="矩陣索引技巧"></a>矩陣索引技巧</h2><p>在介紹向量時已經提過，利用索引，我們可以將所需要的資料從向量中提取出來。矩陣也不例外，讓我們能夠在這個數字表格中定位並取出特定的元素、列或行。</p>
+<h3 id="矩陣定位的藝術：-列-欄-系統"><a href="#矩陣定位的藝術：-列-欄-系統" class="headerlink" title="矩陣定位的藝術：[列, 欄] 系統"></a>矩陣定位的藝術：<code>[列, 欄]</code> 系統</h3><p>R 語言中的矩陣索引遵循 [列, 欄] 的格式，這與我們日常使用的座標系統有些類似，只是順序是先「列」再「欄」。這種順序設計是因為在統計分析中，我們通常將每一列視為一個獨立的觀測單位，而列的優先順序符合這種思維方式。最基本的索引方式是使用數字位置：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立一個矩陣</span></span><br><span class="line">m <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">12</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>m<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 選取第 2 列第 3 欄的元素</span></span><br><span class="line">print<span class="punctuation">(</span>m<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 選取第 1 列的所有元素</span></span><br><span class="line">print<span class="punctuation">(</span>m<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span> <span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 選取第 4 欄的所有元素</span></span><br><span class="line">print<span class="punctuation">(</span>m<span class="punctuation">[</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    1    2    3    4
+[2,]    5    6    7    8
+[3,]    9   10   11   12
+[1] 7
+[1] 1 2 3 4
+[1]  4  8 12
+</code></pre>
+<p>注意，當我們只選取一個列或一個行時，R 預設會將結果簡化為一個向量。如果希望保持矩陣結構，可以使用 <code>drop = FALSE</code> 參數：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保持矩陣結構</span></span><br><span class="line">print<span class="punctuation">(</span>m<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span> <span class="punctuation">,</span> drop <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    1    2    3    4
+</code></pre>
+<h3 id="靈活選取：單元素、整列、整欄的擷取方法"><a href="#靈活選取：單元素、整列、整欄的擷取方法" class="headerlink" title="靈活選取：單元素、整列、整欄的擷取方法"></a>靈活選取：單元素、整列、整欄的擷取方法</h3><p>矩陣索引的強大之處在於它的靈活性。我們可以一次選取多個元素、多列或多欄，甚至是不連續的部分。使用向量作為索引，可以實現這種靈活選取：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立一個有名稱的矩陣</span></span><br><span class="line">student_scores <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">85</span><span class="punctuation">,</span> <span class="number">90</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">,</span> <span class="number">92</span><span class="punctuation">,</span></span><br><span class="line">                           <span class="number">76</span><span class="punctuation">,</span> <span class="number">82</span><span class="punctuation">,</span> <span class="number">91</span><span class="punctuation">,</span> <span class="number">88</span><span class="punctuation">,</span></span><br><span class="line">                           <span class="number">92</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">,</span> <span class="number">95</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                        nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span></span><br><span class="line">                        <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;小明&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小華&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小美&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                                       <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;數學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;英文&quot;</span><span class="punctuation">,</span> <span class="string">&quot;自然&quot;</span><span class="punctuation">,</span> <span class="string">&quot;社會&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 選取小明和小美的數學和自然成績</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;小明&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小美&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;數學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;自然&quot;</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 選取所有學生的英文成績</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="punctuation">,</span> <span class="string">&quot;英文&quot;</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 選取小華的所有成績</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="string">&quot;小華&quot;</span><span class="punctuation">,</span> <span class="punctuation">]</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     數學 英文 自然 社會
+小明   85   90   78   92
+小華   76   82   91   88
+小美   92   78   85   95
+     數學 自然
+小明   85   78
+小美   92   85
+小明 小華 小美 
+  90   82   78 
+數學 英文 自然 社會 
+  76   82   91   88 
+</code></pre>
+<p>甚至可以使用負號來排除特定的列或行：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 排除小華的成績</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="operator">-</span><span class="number">2</span><span class="punctuation">,</span> <span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 排除英文和社會科目</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="punctuation">,</span> <span class="operator">-</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">2</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     數學 英文 自然 社會
+小明   85   90   78   92
+小美   92   78   85   95
+     數學 自然
+小明   85   78
+小華   76   91
+小美   92   85
+</code></pre>
+<h3 id="條件式索引：以邏輯向量篩選矩陣資料"><a href="#條件式索引：以邏輯向量篩選矩陣資料" class="headerlink" title="條件式索引：以邏輯向量篩選矩陣資料"></a>條件式索引：以邏輯向量篩選矩陣資料</h3><p>矩陣索引的另一個強大功能是可以使用邏輯條件進行篩選。這讓我們能夠提取符合特定條件的資料，非常適合用於資料分析中的篩選與子集選取。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找出所有大於 85 分的成績</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores <span class="operator">&gt;</span> <span class="number">85</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 將大於 85 分的成績標記為「優」，其餘標記為「良」</span></span><br><span class="line">result <span class="operator">&lt;-</span> ifelse<span class="punctuation">(</span>student_scores <span class="operator">&gt;</span> <span class="number">85</span><span class="punctuation">,</span> <span class="string">&quot;優&quot;</span><span class="punctuation">,</span> <span class="string">&quot;良&quot;</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>result<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>      數學  英文  自然 社會
+小明 FALSE  TRUE FALSE TRUE
+小華 FALSE FALSE  TRUE TRUE
+小美  TRUE FALSE FALSE TRUE
+     數學 英文 自然 社會
+小明 &quot;良&quot; &quot;優&quot; &quot;良&quot; &quot;優&quot;
+小華 &quot;良&quot; &quot;良&quot; &quot;優&quot; &quot;優&quot;
+小美 &quot;優&quot; &quot;良&quot; &quot;良&quot; &quot;優&quot;
+</code></pre>
+<p>我們也可以使用邏輯條件直接提取符合條件的元素：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提取所有大於 85 分的成績</span></span><br><span class="line">high_scores <span class="operator">&lt;-</span> student_scores<span class="punctuation">[</span>student_scores <span class="operator">&gt;</span> <span class="number">85</span><span class="punctuation">]</span></span><br><span class="line">print<span class="punctuation">(</span>high_scores<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 92 90 91 92 88 95
+</code></pre>
+<p>需要注意的是，使用這種方式提取的結果是一個向量，而不是矩陣，因為它只保留了符合條件的單個元素，而不是行或列。</p>
+<h3 id="命名索引：用欄位名稱導航"><a href="#命名索引：用欄位名稱導航" class="headerlink" title="命名索引：用欄位名稱導航"></a>命名索引：用欄位名稱導航</h3><p>如果矩陣已經有了行列名稱，我們可以直接使用這些名稱進行索引，這比使用數字位置更直觀，也更不容易出錯：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用名稱索引選取特定學生的特定科目</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="string">&quot;小華&quot;</span><span class="punctuation">,</span> <span class="string">&quot;自然&quot;</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 選取多個學生的多個科目</span></span><br><span class="line">print<span class="punctuation">(</span>student_scores<span class="punctuation">[</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;小明&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小美&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;數學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;社會&quot;</span><span class="punctuation">)</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] 91
+     數學 社會
+小明   85   92
+小美   92   95
+</code></pre>
+<p>名稱索引的一個優勢是，即使矩陣的結構發生變化（如行列順序調整），只要名稱不變，程式碼仍然能正確執行。這在處理動態變化的資料時特別有用。</p>
+<h3 id="矩陣進階索引技巧"><a href="#矩陣進階索引技巧" class="headerlink" title="矩陣進階索引技巧"></a>矩陣進階索引技巧</h3><p>當然還有一些更進階的索引技巧，可以在複雜的資料分析場景中更有效地處理矩陣。首先是使用 <code>which()</code> 函數找出特定位置：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找出所有大於 90 分的成績位置</span></span><br><span class="line">high_positions <span class="operator">&lt;-</span> which<span class="punctuation">(</span>student_scores <span class="operator">&gt;</span> <span class="number">90</span><span class="punctuation">,</span> arr.ind <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>high_positions<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     row col
+小美   3   1
+小華   2   3
+小明   1   4
+小美   3   4
+</code></pre>
+<p>另一個是使用 <code>apply()</code> 函式進行行或列操作，apply() 函式可以對矩陣的行或列應用指定函數，與索引結合使用，能夠實現更複雜的批次處理：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 計算每個學生的平均分數</span></span><br><span class="line">student_means <span class="operator">&lt;-</span> apply<span class="punctuation">(</span>student_scores<span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">,</span> mean<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>student_means<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 找出哪些學生的平均分數超過 85</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">names</span><span class="punctuation">(</span>student_means<span class="punctuation">[</span>student_means <span class="operator">&gt;</span> <span class="number">85</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code> 小明  小華  小美 
+86.25 84.25 87.50 
+[1] &quot;小明&quot; &quot;小美&quot;
+</code></pre>
+<p>對於方陣（行列數相等的矩陣），<code>diag()</code> 函式可以提取或設定對角線元素：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立一個方陣</span></span><br><span class="line">square_matrix <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">9</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>square_matrix<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取對角線元素</span></span><br><span class="line">print<span class="punctuation">(</span>diag<span class="punctuation">(</span>square_matrix<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 將對角線元素設為 0</span></span><br><span class="line">diag<span class="punctuation">(</span>square_matrix<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="number">0</span></span><br><span class="line">print<span class="punctuation">(</span>square_matrix<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+[1] 1 5 9
+     [,1] [,2] [,3]
+[1,]    0    4    7
+[2,]    2    0    8
+[3,]    3    6    0
+</code></pre>
+<h2 id="矩陣的合縱連橫：rbind-與-cbind-的應用"><a href="#矩陣的合縱連橫：rbind-與-cbind-的應用" class="headerlink" title="矩陣的合縱連橫：rbind() 與 cbind() 的應用"></a>矩陣的合縱連橫：<code>rbind()</code> 與 <code>cbind()</code> 的應用</h2><p>在實際的資料分析過程中，我們經常需要將多個資料集合併或擴展現有的資料結構。就像拼圖一樣，有時候需要橫向添加新的片段，有時候需要縱向增加新的行列。而在 R 語言中，<code>rbind()</code> 和 <code>cbind()</code> 這兩個函式就像是巧妙的拼接工具，讓我們能夠靈活地組合和擴展矩陣資料。</p>
+<h3 id="橫向擴展：以-cbind-添加新欄位"><a href="#橫向擴展：以-cbind-添加新欄位" class="headerlink" title="橫向擴展：以 cbind() 添加新欄位"></a>橫向擴展：以 <code>cbind()</code> 添加新欄位</h3><p><code>cbind()</code> 函式的名稱源自<strong>行合併</strong>(column bind)，它可以將多個向量或矩陣「橫向」合併，也就是增加新的行（欄位）。這在需要為現有資料添加新變數或特徵時尤其有用。基本用法如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立初始矩陣：學生的數學和英文成績</span></span><br><span class="line">scores <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">85</span><span class="punctuation">,</span> <span class="number">76</span><span class="punctuation">,</span> <span class="number">92</span><span class="punctuation">,</span></span><br><span class="line">                   <span class="number">90</span><span class="punctuation">,</span> <span class="number">82</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                   nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">,</span></span><br><span class="line">                   <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;小明&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小華&quot;</span><span class="punctuation">,</span> <span class="string">&quot;小美&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;數學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;英文&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>scores<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 新增一科自然成績</span></span><br><span class="line">science <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">78</span><span class="punctuation">,</span> <span class="number">91</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">)</span></span><br><span class="line">new_scores <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>scores<span class="punctuation">,</span> `自然` <span class="operator">=</span> science<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>new_scores<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     數學 英文
+小明   85   90
+小華   76   82
+小美   92   78
+
+
+     數學 英文 自然
+小明   85   90   78
+小華   76   82   91
+小美   92   78   85
+</code></pre>
+<p>注意到，我們在 <code>cbind()</code> 中直接使用了 <code>自然 = science</code> 的語法，這不僅合併了資料，還同時為新增的欄位命名，使結果更加直觀。<code>cbind()</code> 也可以一次合併多個向量或矩陣：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一次性新增自然和社會兩科成績</span></span><br><span class="line">science <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">78</span><span class="punctuation">,</span> <span class="number">91</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">)</span></span><br><span class="line">social <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">92</span><span class="punctuation">,</span> <span class="number">88</span><span class="punctuation">,</span> <span class="number">95</span><span class="punctuation">)</span></span><br><span class="line">comprehensive_scores <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>scores<span class="punctuation">,</span> 自然 <span class="operator">=</span> science<span class="punctuation">,</span> 社會 <span class="operator">=</span> social<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>comprehensive_scores<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     數學 英文 自然 社會
+小明   85   90   78   92
+小華   76   82   91   88
+小美   92   78   85   95
+</code></pre>
+<h3 id="縱向成長：用-rbind-增加新資料列"><a href="#縱向成長：用-rbind-增加新資料列" class="headerlink" title="縱向成長：用 rbind() 增加新資料列"></a>縱向成長：用 <code>rbind()</code> 增加新資料列</h3><p>與 <code>cbind()</code> 相對，<code>rbind()</code> 函式來源於<strong>列合併</strong>(row bind)，用於將多個向量或矩陣「縱向」合併，也就是增加新的列（觀測值）。這在需要合併多個資料集或隨時間積累新資料時特別實用。基本用法如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 繼續使用上面的學生成績矩陣</span></span><br><span class="line">print<span class="punctuation">(</span>scores<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 新增一位學生的成績</span></span><br><span class="line">new_student <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">88</span><span class="punctuation">,</span> <span class="number">94</span><span class="punctuation">)</span></span><br><span class="line">updated_scores <span class="operator">&lt;-</span> rbind<span class="punctuation">(</span>scores<span class="punctuation">,</span> 小強 <span class="operator">=</span> new_student<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>updated_scores<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     數學 英文
+小明   85   90
+小華   76   82
+小美   92   78
+     數學 英文
+小明   85   90
+小華   76   82
+小美   92   78
+小強   88   94
+</code></pre>
+<p>和 <code>cbind()</code> 類似，<code>rbind()</code> 也可以在合併時直接命名，並可一次合併多個向量或矩陣：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一次性新增兩位學生的成績</span></span><br><span class="line">student1 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">88</span><span class="punctuation">,</span> <span class="number">94</span><span class="punctuation">)</span></span><br><span class="line">student2 <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">79</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">)</span></span><br><span class="line">more_scores <span class="operator">&lt;-</span> rbind<span class="punctuation">(</span>scores<span class="punctuation">,</span> 小強 <span class="operator">=</span> student1<span class="punctuation">,</span> 小雯 <span class="operator">=</span> student2<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>more_scores<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     數學 英文
+小明   85   90
+小華   76   82
+小美   92   78
+小強   88   94
+小雯   79   85
+</code></pre>
+<h3 id="合併的藝術：確保維度一致性"><a href="#合併的藝術：確保維度一致性" class="headerlink" title="合併的藝術：確保維度一致性"></a>合併的藝術：確保維度一致性</h3><p>使用 <code>rbind()</code> 和 <code>cbind()</code> 進行合併時，必須確保矩陣的維度是匹配的：</p>
+<ul>
+<li>對於 <code>rbind()</code>，所有要合併的矩陣或向量必須有相同的列數（<strong>欄位數一致</strong>）</li>
+<li>對於 <code>cbind()</code>，所有要合併的矩陣或向量必須有相同的行數（<strong>觀測值數量一致</strong>）</li>
+</ul>
+<p>如果維度不匹配，R 會嘗試自動調整（如循環使用較短的向量），但這可能導致不符合預期的結果或錯誤。例如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 嘗試添加維度不匹配的資料</span></span><br><span class="line">scores <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">85</span><span class="punctuation">,</span> <span class="number">76</span><span class="punctuation">,</span> <span class="number">92</span><span class="punctuation">,</span></span><br><span class="line">                   <span class="number">90</span><span class="punctuation">,</span> <span class="number">82</span><span class="punctuation">,</span> <span class="number">78</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 維度匹配：3x2 矩陣與長度為 3 的向量</span></span><br><span class="line">matching <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>scores<span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">78</span><span class="punctuation">,</span> <span class="number">91</span><span class="punctuation">,</span> <span class="number">85</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>matching<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 維度不匹配：3x2 矩陣與長度為 2 的向量</span></span><br><span class="line">non_matching <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>scores<span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">78</span><span class="punctuation">,</span> <span class="number">91</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>non_matching<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3]
+[1,]   85   90   78
+[2,]   76   82   91
+[3,]   92   78   85
+
+
+Warning message in cbind(scores, c(78, 91)):
+“number of rows of result is not a multiple of vector length (arg 2)”
+
+
+     [,1] [,2] [,3]
+[1,]   85   90   78
+[2,]   76   82   91
+[3,]   92   78   78
+</code></pre>
+<p>在第二個例子中，由於向量長度 <code>(2)</code> 小於矩陣的列數 <code>(3)</code>，R 自動循環使用向量的元素來填充，導致最後一個元素是重複的 78，這可能不是我們想要的結果。</p>
+<h3 id="矩陣合併的注意事項"><a href="#矩陣合併的注意事項" class="headerlink" title="矩陣合併的注意事項"></a>矩陣合併的注意事項</h3><p>在使用 <code>rbind()</code> 和 <code>cbind()</code> 進行矩陣合併時，有幾點需要特別注意。第一個仍是資料型別必須具有一致性，矩陣中的所有元素必須是相同型別。如果合併的資料型別不一致，R 會自動將所有元素轉換為最通用的型別：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 合併不同型別的資料</span></span><br><span class="line">numeric_matrix <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">4</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span></span><br><span class="line">mixed <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>numeric_matrix<span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;a&quot;</span><span class="punctuation">,</span> <span class="string">&quot;b&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>mixed<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>mixed<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3]
+[1,] &quot;1&quot;  &quot;3&quot;  &quot;a&quot; 
+[2,] &quot;2&quot;  &quot;4&quot;  &quot;b&quot; 
+[1] &quot;character&quot;
+</code></pre>
+<p>可以看到，原本的數值被轉換成了字元型，這在後續的數值計算中可能會造成問題。第二個則是維度匹配與名稱保留，由於 <code>rbind()</code> 和 <code>cbind()</code> 會盡可能保留原始矩陣的行列名稱，如果合併的矩陣都有名稱，且名稱不衝突，這些名稱會被保留：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">matrix1 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">4</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">,</span> </span><br><span class="line">                 <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;B&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;X&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Y&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">matrix2 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">5</span><span class="operator">:</span><span class="number">8</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">,</span> </span><br><span class="line">                 <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;C&quot;</span><span class="punctuation">,</span> <span class="string">&quot;D&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Z&quot;</span><span class="punctuation">,</span> <span class="string">&quot;W&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 合併兩個有命名的矩陣</span></span><br><span class="line">combined_rows <span class="operator">&lt;-</span> rbind<span class="punctuation">(</span>matrix1<span class="punctuation">,</span> matrix2<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>combined_rows<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">combined_cols <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>matrix1<span class="punctuation">,</span> matrix2<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>combined_cols<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>  X Y
+A 1 3
+B 2 4
+C 5 7
+D 6 8
+  X Y Z W
+A 1 3 5 7
+B 2 4 6 8
+</code></pre>
+<p>但如果有名稱衝突，後面的矩陣名稱可能會覆蓋前面的：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">matrix3 <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">5</span><span class="operator">:</span><span class="number">8</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">,</span> </span><br><span class="line">                 <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;E&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Y&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Z&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">conflict <span class="operator">&lt;-</span> rbind<span class="punctuation">(</span>matrix1<span class="punctuation">,</span> matrix3<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>conflict<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>  X Y
+A 1 3
+B 2 4
+A 5 7
+E 6 8
+</code></pre>
+<p>這種情況下，需要特別注意資料的正確對應。</p>
+<p>💻 小試身手</p>
+<p>小明是一家健身房的數據分析師，他需要對會員資料進行整理與分析。請協助他完成以下任務：</p>
+<ol>
+<li><p>請建立三個向量記錄健身房三個分店的基本資訊：</p>
+<ul>
+<li><code>branch_names</code>：分店名稱（<code>&quot;信義店&quot;</code>、<code>&quot;士林店&quot;</code>、<code>&quot;中壢店&quot;</code>）</li>
+<li><code>monthly_revenue</code>：各分店的月營收（單位：萬元）（<code>120.5</code>、<code>98.3</code>、<code>105.7</code>）</li>
+<li><code>member_counts</code>：各分店的會員人數（<code>350</code>、<code>280</code>、<code>310</code>）</li>
+</ul>
+</li>
+<li><p>請計算：</p>
+<ul>
+<li>各分店的每位會員平均貢獻營收（月營收&#x2F;會員人數）</li>
+<li>三家分店的總營收與總會員數</li>
+<li>哪一家分店的會員平均貢獻營收最高？（提示：使用邏輯運算）</li>
+</ul>
+</li>
+<li><p>請將三個月（1-3月）的會員資料整理成一個矩陣 <code>member_matrix</code>，其中列代表不同分店，行代表不同月份的會員數，請設定適當的行名與列名，並計算每家分店的平均會員數。</p>
+</li>
+<li><p>現在健身房又開了一家<code>&quot;永和店&quot;</code>，三個月的會員數分別是 <code>260</code>、<code>275</code>、<code>290</code> 人。請使用 <code>rbind()</code> 將這家新店的資料加入<code> member_matrix</code>。</p>
+</li>
+<li><p>小明想要計算各分店的會員成長率。請新增一個欄位 <code>&quot;成長率&quot;</code>，計算方法如下，並找出哪家分店的成長率最高。<br>$$<br>\text{成長率} &#x3D; \dfrac{\text{3月會員數} - \text{1月會員數}}{\text{1月會員數}} \times 100\%<br>$$</p>
+</li>
+</ol>
+<details>
+<summary><b>點我看答案</b></summary>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 建立向量記錄健身房三個分店的基本資訊</span></span><br><span class="line">branch_names <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;信義店&quot;</span><span class="punctuation">,</span> <span class="string">&quot;士林店&quot;</span><span class="punctuation">,</span> <span class="string">&quot;中壢店&quot;</span><span class="punctuation">)</span></span><br><span class="line">monthly_revenue <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">120.5</span><span class="punctuation">,</span> <span class="number">98.3</span><span class="punctuation">,</span> <span class="number">105.7</span><span class="punctuation">)</span></span><br><span class="line">member_counts <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">350</span><span class="punctuation">,</span> <span class="number">280</span><span class="punctuation">,</span> <span class="number">310</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 計算基本統計資料</span></span><br><span class="line"><span class="comment"># 計算各分店的每位會員平均貢獻營收</span></span><br><span class="line">revenue_per_member <span class="operator">&lt;-</span> monthly_revenue <span class="operator">/</span> member_counts</span><br><span class="line"><span class="built_in">names</span><span class="punctuation">(</span>revenue_per_member<span class="punctuation">)</span> <span class="operator">&lt;-</span> branch_names</span><br><span class="line">print<span class="punctuation">(</span>revenue_per_member<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 計算三家分店的總營收與總會員數</span></span><br><span class="line">total_revenue <span class="operator">&lt;-</span> <span class="built_in">sum</span><span class="punctuation">(</span>monthly_revenue<span class="punctuation">)</span></span><br><span class="line">total_members <span class="operator">&lt;-</span> <span class="built_in">sum</span><span class="punctuation">(</span>member_counts<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>paste<span class="punctuation">(</span><span class="string">&quot;總營收:&quot;</span><span class="punctuation">,</span> total_revenue<span class="punctuation">,</span> <span class="string">&quot;萬元&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>paste<span class="punctuation">(</span><span class="string">&quot;總會員數:&quot;</span><span class="punctuation">,</span> total_members<span class="punctuation">,</span> <span class="string">&quot;人&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 找出哪一家分店的會員平均貢獻營收最高</span></span><br><span class="line">max_revenue_branch <span class="operator">&lt;-</span> branch_names<span class="punctuation">[</span>which.max<span class="punctuation">(</span>revenue_per_member<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">print<span class="punctuation">(</span>paste<span class="punctuation">(</span><span class="string">&quot;會員平均貢獻營收最高的分店是:&quot;</span><span class="punctuation">,</span> max_revenue_branch<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 整理三個月的會員資料成矩陣</span></span><br><span class="line"><span class="comment"># 假設會員資料如下：</span></span><br><span class="line">member_jan <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">330</span><span class="punctuation">,</span> <span class="number">270</span><span class="punctuation">,</span> <span class="number">290</span><span class="punctuation">)</span>  <span class="comment"># 1月</span></span><br><span class="line">member_feb <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">350</span><span class="punctuation">,</span> <span class="number">280</span><span class="punctuation">,</span> <span class="number">310</span><span class="punctuation">)</span>  <span class="comment"># 2月 (即之前的member_counts)</span></span><br><span class="line">member_mar <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">365</span><span class="punctuation">,</span> <span class="number">295</span><span class="punctuation">,</span> <span class="number">325</span><span class="punctuation">)</span>  <span class="comment"># 3月</span></span><br><span class="line"></span><br><span class="line">member_matrix <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>member_jan<span class="punctuation">,</span> member_feb<span class="punctuation">,</span> member_mar<span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                        nrow <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> byrow <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">,</span></span><br><span class="line">                        <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>branch_names<span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;1月&quot;</span><span class="punctuation">,</span> <span class="string">&quot;2月&quot;</span><span class="punctuation">,</span> <span class="string">&quot;3月&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>member_matrix<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 計算每家分店的平均會員數</span></span><br><span class="line">branch_avg_members <span class="operator">&lt;-</span> rowMeans<span class="punctuation">(</span>member_matrix<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>branch_avg_members<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 加入永和店的資料</span></span><br><span class="line">new_branch <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">260</span><span class="punctuation">,</span> <span class="number">275</span><span class="punctuation">,</span> <span class="number">290</span><span class="punctuation">)</span>  <span class="comment"># 永和店三個月的會員數</span></span><br><span class="line">member_matrix <span class="operator">&lt;-</span> rbind<span class="punctuation">(</span>member_matrix<span class="punctuation">,</span> <span class="string">&quot;永和店&quot;</span> <span class="operator">=</span> new_branch<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>member_matrix<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 計算各分店的會員成長率</span></span><br><span class="line">growth_rate <span class="operator">&lt;-</span> <span class="punctuation">(</span>member_matrix<span class="punctuation">[</span><span class="punctuation">,</span> <span class="string">&quot;3月&quot;</span><span class="punctuation">]</span> <span class="operator">-</span> member_matrix<span class="punctuation">[</span><span class="punctuation">,</span> <span class="string">&quot;1月&quot;</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="operator">/</span> member_matrix<span class="punctuation">[</span><span class="punctuation">,</span> <span class="string">&quot;1月&quot;</span><span class="punctuation">]</span> <span class="operator">*</span> <span class="number">100</span></span><br><span class="line"><span class="comment"># 加入成長率欄位</span></span><br><span class="line">member_matrix <span class="operator">&lt;-</span> cbind<span class="punctuation">(</span>member_matrix<span class="punctuation">,</span> <span class="string">&quot;成長率&quot;</span> <span class="operator">=</span> growth_rate<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>member_matrix<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 找出成長率最高的分店</span></span><br><span class="line">max_growth_branch <span class="operator">&lt;-</span> rownames<span class="punctuation">(</span>member_matrix<span class="punctuation">)</span><span class="punctuation">[</span>which.max<span class="punctuation">(</span>growth_rate<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">print<span class="punctuation">(</span>paste<span class="punctuation">(</span><span class="string">&quot;成長率最高的分店是:&quot;</span><span class="punctuation">,</span> max_growth_branch<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>   信義店    士林店    中壢店 
+0.3442857 0.3510714 0.3409677 
+[1] &quot;總營收: 324.5 萬元&quot;
+[1] &quot;總會員數: 940 人&quot;
+[1] &quot;會員平均貢獻營收最高的分店是: 士林店&quot;
+       1月 2月 3月
+信義店 330 350 365
+士林店 270 280 295
+中壢店 290 310 325
+  信義店   士林店   中壢店 
+348.3333 281.6667 308.3333 
+       1月 2月 3月
+信義店 330 350 365
+士林店 270 280 295
+中壢店 290 310 325
+永和店 260 275 290
+       1月 2月 3月    成長率
+信義店 330 350 365 10.606061
+士林店 270 280 295  9.259259
+中壢店 290 310 325 12.068966
+永和店 260 275 290 11.538462
+[1] &quot;成長率最高的分店是: 中壢店&quot;
+</code></pre>
+</details>
+
+<h2 id="矩陣運算：數學操作的向量化力量"><a href="#矩陣運算：數學操作的向量化力量" class="headerlink" title="矩陣運算：數學操作的向量化力量"></a>矩陣運算：數學操作的向量化力量</h2><p>矩陣不僅是儲存與組織資料的容器，更是進行複雜數學運算的強大工具。從最簡單的加減乘除，到進階的線性代數運算，矩陣運算在統計分析、機器學習和數據科學中都扮演著十分關鍵角色。如果有學過統計學或是計量經濟學的讀者，應該對矩陣<strong>無所不在</strong>(omnipresent)這句話不會持有懷疑 🤣 以下並不會詳細介紹矩陣運算背後的原理，如果有興趣的讀者可以參考 Spence 等人所著的 <a target="_blank" rel="noopener" href="https://www.amazon.com/Linear-Algebra-4th-Stephen-Friedberg/dp/0130084514"><em>Linear Algebra</em></a> 一書。</p>
+<h3 id="基本算術：矩陣的加減乘除"><a href="#基本算術：矩陣的加減乘除" class="headerlink" title="基本算術：矩陣的加減乘除"></a>基本算術：矩陣的加減乘除</h3><p>就像向量一樣，矩陣也支援基本的算術運算，但有著特定的數學規則和意義。</p>
+<h4 id="矩陣加法與減法"><a href="#矩陣加法與減法" class="headerlink" title="矩陣加法與減法"></a>矩陣加法與減法</h4><p>對於兩個<strong>維度相同</strong>的矩陣 $A$ 和 $B$，其中 $A &#x3D; [a_{ij}]$ 和 $B &#x3D; [b_{ij}]$，它們的加法定義為：<br>$$<br>C &#x3D; A + B &#x3D; [a_{ij} + b_{ij}]<br>$$<br>同理，減法定義為：<br>$$<br>D &#x3D; A - B &#x3D; [a_{ij} - b_{ij}]<br>$$</p>
+<p>這意味著加法和減法是<strong>元素對應</strong>(element-wise)的操作，要求<strong>兩個矩陣的維度必須完全相同</strong>。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立兩個矩陣</span></span><br><span class="line">A <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span></span><br><span class="line">B <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">8</span><span class="punctuation">)</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 矩陣加法</span></span><br><span class="line">C <span class="operator">&lt;-</span> A <span class="operator">+</span> B</span><br><span class="line">print<span class="punctuation">(</span>C<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 矩陣減法</span></span><br><span class="line">D <span class="operator">&lt;-</span> A <span class="operator">-</span> B</span><br><span class="line">print<span class="punctuation">(</span>D<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2]
+[1,]    6   10
+[2,]    8   12
+     [,1] [,2]
+[1,]   -4   -4
+[2,]   -4   -4
+</code></pre>
+<h4 id="矩陣的標量運算"><a href="#矩陣的標量運算" class="headerlink" title="矩陣的標量運算"></a>矩陣的標量運算</h4><p>若 $A &#x3D; [a_{ij}]$ 是一個矩陣，$c$ 是一個標量（單一數值），則：<br>$$<br>cA &#x3D; [c \cdot a_{ij}]<br>$$</p>
+<p>代表矩陣每個元素都乘以該標量。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 矩陣乘以標量</span></span><br><span class="line">E <span class="operator">&lt;-</span> 2 <span class="operator">*</span> A</span><br><span class="line">print<span class="punctuation">(</span>E<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 矩陣除以標量</span></span><br><span class="line"><span class="built_in">F</span> <span class="operator">&lt;-</span> A <span class="operator">/</span> <span class="number">2</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">F</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2]
+[1,]    2    6
+[2,]    4    8
+     [,1] [,2]
+[1,]  0.5  1.5
+[2,]  1.0  2.0
+</code></pre>
+<h4 id="矩陣的元素對應運算"><a href="#矩陣的元素對應運算" class="headerlink" title="矩陣的元素對應運算"></a>矩陣的元素對應運算</h4><p>對於兩個<strong>維度相同</strong>的矩陣 $A &#x3D; [a_{ij}]$ 和 $B &#x3D; [b_{ij}]$，它們的元素對應乘法，或稱為哈達瑪乘積(Hadamard product)定義為：<br>$$<br>C &#x3D; A \odot B &#x3D; [a_{ij} \cdot b_{ij}]<br>$$</p>
+<p>元素對應除法也類似定義。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 元素對應乘法</span></span><br><span class="line">G <span class="operator">&lt;-</span> A <span class="operator">*</span> B  <span class="comment"># 注意這不是矩陣乘法</span></span><br><span class="line">print<span class="punctuation">(</span>G<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 元素對應除法</span></span><br><span class="line">H <span class="operator">&lt;-</span> A <span class="operator">/</span> B</span><br><span class="line">print<span class="punctuation">(</span>H<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2]
+[1,]    5   21
+[2,]   12   32
+
+
+          [,1]      [,2]
+[1,] 0.2000000 0.4285714
+[2,] 0.3333333 0.5000000
+</code></pre>
+<h4 id="矩陣乘法：-運算子的奧秘"><a href="#矩陣乘法：-運算子的奧秘" class="headerlink" title="矩陣乘法：%*% 運算子的奧秘"></a>矩陣乘法：<code>%*%</code> 運算子的奧秘</h4><p>對於矩陣 $A$ 的維度為 $m \times n$，矩陣 $B$ 的維度為 $n \times p$，它們的矩陣乘法定義為：<br>$$<br>C &#x3D; A \times B &#x3D; [c_{ij}]<br>$$<br>其中<br>$$<br>c_{ij} &#x3D; \sum_{k&#x3D;1}^{n} a_{ik} \cdot b_{kj}<br>$$</p>
+<p>簡單來說，$C$ 的第 $i$ 行第 $j$ 列的元素，等於 $A$ 的第 $i$ 行與 $B$ 的第 $j$ 列的內積。矩陣乘法要求 $A$ 的列數必須等於 $B$ 的行數。在 R 中，矩陣乘法使用 <code>%*%</code> 運算子，而不是 <code>*</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 矩陣乘法</span></span><br><span class="line">A <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">)</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span>  <span class="comment"># 2x2 矩陣</span></span><br><span class="line">B <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">5</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">8</span><span class="punctuation">)</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span>  <span class="comment"># 2x2 矩陣</span></span><br><span class="line">C <span class="operator">&lt;-</span> A <span class="operator">%*%</span> B</span><br><span class="line">print<span class="punctuation">(</span>C<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 不同維度的矩陣乘法</span></span><br><span class="line">D <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">)</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">1</span><span class="punctuation">)</span>  <span class="comment"># 1x3 矩陣</span></span><br><span class="line">E <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">4</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">)</span><span class="punctuation">,</span> ncol <span class="operator">=</span> <span class="number">1</span><span class="punctuation">)</span>  <span class="comment"># 3x1 矩陣</span></span><br><span class="line"><span class="built_in">F</span> <span class="operator">&lt;-</span> D <span class="operator">%*%</span> E  <span class="comment"># 1x1 矩陣（內積）</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">F</span><span class="punctuation">)</span></span><br><span class="line">G <span class="operator">&lt;-</span> E <span class="operator">%*%</span> D  <span class="comment"># 3x3 矩陣（外積）</span></span><br><span class="line">print<span class="punctuation">(</span>G<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2]
+[1,]   23   31
+[2,]   34   46
+     [,1]
+[1,]   32
+     [,1] [,2] [,3]
+[1,]    4    8   12
+[2,]    5   10   15
+[3,]    6   12   18
+</code></pre>
+<h3 id="轉置、逆矩陣與其他重要變換"><a href="#轉置、逆矩陣與其他重要變換" class="headerlink" title="轉置、逆矩陣與其他重要變換"></a>轉置、逆矩陣與其他重要變換</h3><h4 id="矩陣轉置"><a href="#矩陣轉置" class="headerlink" title="矩陣轉置"></a>矩陣轉置</h4><p>轉置矩陣的數學定義如下：給定一個 $m \times n$ 的矩陣 $A$，其轉置矩陣 $A^{\top}$ 是一個 $n \times m$ 的矩陣，其中 $A^{\top}$ 的元素滿足：</p>
+<p>$$<br>a^{\top}_{ji} &#x3D; a_{ij}<br>$$</p>
+<p>對於所有的 $1 \leq i \leq m$ 和 $1 \leq j \leq n$。換句話說，轉置矩陣是透過將原矩陣的行變成列、列變成行而得到的新矩陣。例如，如果矩陣 $A$ 為：</p>
+<p>$$<br>A &#x3D;<br>\begin{bmatrix}<br>a_{11} &amp; a_{12} &amp; a_{13} \\<br>a_{21} &amp; a_{22} &amp; a_{23} \\<br>\end{bmatrix}<br>$$</p>
+<p>則其轉置矩陣 $A^{\top}$ 為：</p>
+<p>$$<br>A^{\top} &#x3D;<br>\begin{bmatrix}<br>a_{11} &amp; a_{21} \\<br>a_{12} &amp; a_{22} \\<br>a_{13} &amp; a_{23} \\<br>\end{bmatrix}<br>$$</p>
+<p>在 R 語言中，可以使用 <code>t()</code> 函數來進行矩陣轉置操作。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 矩陣轉置</span></span><br><span class="line">A <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">6</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>A<span class="punctuation">)</span></span><br><span class="line">A_transpose <span class="operator">&lt;-</span> t<span class="punctuation">(</span>A<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>A_transpose<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6
+</code></pre>
+<h4 id="逆矩陣"><a href="#逆矩陣" class="headerlink" title="逆矩陣"></a>逆矩陣</h4><p>對於方陣 $A$，若存在矩陣 $A^{-1}$ 使得 $A \times A^{-1} &#x3D; A^{-1} \times A &#x3D; I$（其中 $I$ 是單位矩陣），則 $A^{-1}$ 稱為 $A$ 的逆矩陣(inverse matrix)。請注意，<strong>只有方陣才有逆矩陣</strong>，也就是行列的數量必須相同。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 矩陣的逆</span></span><br><span class="line">A <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>A<span class="punctuation">)</span></span><br><span class="line">A_inverse <span class="operator">&lt;-</span> solve<span class="punctuation">(</span>A<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>A_inverse<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 驗證：A * A^-1 = I</span></span><br><span class="line">print<span class="punctuation">(</span>A <span class="operator">%*%</span> A_inverse<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>     [,1] [,2]
+[1,]    3    2
+[2,]    2    1
+     [,1] [,2]
+[1,]   -1    2
+[2,]    2   -3
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+</code></pre>
+<h4 id="矩陣的行列式"><a href="#矩陣的行列式" class="headerlink" title="矩陣的行列式"></a>矩陣的行列式</h4><p>對於 $n \times n$ 方陣 $A$，其行列式記為 $\det(A)$ 或 $|A|$，是一個標量值，可透過多種方法計算。對於一般的 $n \times n$ 矩陣，其行列式可以通過以下方式計算：</p>
+<p>$$<br>\det(A) &#x3D; \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i&#x3D;1}^{n} a_{i,\sigma(i)}<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$S_n$ 是集合 ${1, 2, \ldots, n}$ 的所有排列的集合</li>
+<li>$\sigma$ 是一個排列</li>
+<li>$\text{sgn}(\sigma)$ 是排列 $\sigma$ 的符號（+1 或 -1，取決於排列中的逆序數的奇偶性）</li>
+<li>$\prod_{i&#x3D;1}^{n} a_{i,\sigma(i)}$ 表示乘積 $a_{1,\sigma(1)} \cdot a_{2,\sigma(2)} \cdot \ldots \cdot a_{n,\sigma(n)}$</li>
+</ul>
+<p>另一種計算方法是通過展開的方法：</p>
+<p>$$<br>\det(A) &#x3D; \sum_{j&#x3D;1}^{n} (-1)^{i+j} a_{ij} M_{ij}<br>$$</p>
+<p>其中 $M_{ij}$ 是元素 $a_{ij}$ 的剩餘部分，即刪除矩陣 $A$ 的第 $i$ 行和第 $j$ 列後得到的 $(n-1) \times (n-1)$ 子矩陣的行列式。以 $2 \times 2$ 矩陣為例，其行列式較為簡單：<br>$$<br>\det\begin{pmatrix} a &amp; b \ c &amp; d \end{pmatrix} &#x3D; ad - bc<br>$$</p>
+<p>而對於 $3 \times 3$ 矩陣，行列式計算為：</p>
+<p>$$<br>\det<br>\begin{pmatrix}<br>a_{11} &amp; a_{12} &amp; a_{13} \\<br>a_{21} &amp; a_{22} &amp; a_{23} \\<br>a_{31} &amp; a_{32} &amp; a_{33} \\<br>\end{pmatrix} &#x3D;<br>a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})<br>$$</p>
+<p>也可以表示為：</p>
+<p>$$\det(A) &#x3D; a_{11}M_{11} - a_{12}M_{12} + a_{13}M_{13}$$</p>
+<p>其中 $M_{ij}$ 是相應的剩餘部分。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 計算行列式</span></span><br><span class="line">A <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">,</span> nrow <span class="operator">=</span> <span class="number">2</span><span class="punctuation">)</span></span><br><span class="line">det_A <span class="operator">&lt;-</span> det<span class="punctuation">(</span>A<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>det_A<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[1] -1
+</code></pre>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>矩陣是 R 語言中的核心資料結構，為資料分析提供了強大的二維儲存與運算能力。透過 <code>matrix()</code> 函數，我們能將向量轉換為具有行列結構的矩陣，並可使用 <code>byrow</code> 參數控制資料填充方向。矩陣的行列命名系統（<code>rownames()</code>、<code>colnames()</code>、<code>dimnames()</code>）讓資料更具可讀性，使用 <code>[列,欄]</code> 的索引系統則能精確擷取所需資料。矩陣的合併可透過 <code>rbind()</code> 和 <code>cbind()</code> 函數實現橫向與縱向擴展，但須留意維度匹配與資料型別一致性。在數學運算方面，矩陣支援加減乘除等基本算術，以及轉置、逆矩陣和行列式等進階操作，這些功能使矩陣成為統計分析、機器學習等領域不可或缺的工具。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/R-%E8%AA%9E%E8%A8%80/" rel="tag"><i class="fa fa-tag"></i> R 語言</a>
+              <a href="/tags/%E7%A8%8B%E5%BC%8F%E6%95%99%E5%AD%B8/" rel="tag"><i class="fa fa-tag"></i> 程式教學</a>
+              <a href="/tags/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 資料分析</a>
+              <a href="/tags/%E7%B4%A2%E5%BC%95%E6%8A%80%E5%B7%A7/" rel="tag"><i class="fa fa-tag"></i> 索引技巧</a>
+              <a href="/tags/%E7%9F%A9%E9%99%A3%E6%93%8D%E4%BD%9C/" rel="tag"><i class="fa fa-tag"></i> 矩陣操作</a>
+              <a href="/tags/%E4%BA%8C%E7%B6%AD%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/" rel="tag"><i class="fa fa-tag"></i> 二維資料結構</a>
+              <a href="/tags/%E7%9F%A9%E9%99%A3%E9%81%8B%E7%AE%97/" rel="tag"><i class="fa fa-tag"></i> 矩陣運算</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/R-tutorial-2/" rel="prev" title="R 語言教學入門｜向量操作與資料結構基礎">
+      <i class="fa fa-chevron-left"></i> R 語言教學入門｜向量操作與資料結構基礎
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E5%88%9D%E6%8E%A2%EF%BC%9A%E5%BE%9E%E4%B8%80%E7%B6%AD%E5%88%B0%E4%BA%8C%E7%B6%AD%E7%9A%84%E8%B7%A8%E8%B6%8A"><span class="nav-number">1.</span> <span class="nav-text">矩陣初探：從一維到二維的跨越</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E5%BB%BA%E7%AB%8B%EF%BC%9Amatrix-%E5%87%BD%E6%95%B8%E7%9A%84%E9%AD%94%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">矩陣建立：matrix() 函數的魔法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E5%BB%BA%E7%AB%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AA%9E%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">矩陣建立的基本語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E5%A1%AB%E5%85%85%E7%9A%84%E8%97%9D%E8%A1%93%EF%BC%9Abyrow-%E5%8F%83%E6%95%B8%E7%9A%84%E7%A7%98%E5%AF%86"><span class="nav-number">2.2.</span> <span class="nav-text">元素填充的藝術：byrow 參數的秘密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B6%AD%E5%BA%A6%E8%A8%AD%E8%A8%88%EF%BC%9A%E5%A1%91%E9%80%A0%E7%9F%A9%E9%99%A3%E7%9A%84%E5%BD%A2%E7%8B%80"><span class="nav-number">2.3.</span> <span class="nav-text">維度設計：塑造矩陣的形狀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%9E%E7%8F%BE%E6%9C%89%E8%B3%87%E6%96%99%E5%BB%BA%E7%AB%8B%E7%9F%A9%E9%99%A3"><span class="nav-number">2.4.</span> <span class="nav-text">從現有資料建立矩陣</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A6%8B%E7%9F%A9%E9%99%A3%E5%89%B5%E5%BB%BA%E9%99%B7%E9%98%B1%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"><span class="nav-number">2.5.</span> <span class="nav-text">常見矩陣創建陷阱與解決方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%9A%84%E5%91%BD%E5%90%8D%E7%B3%BB%E7%B5%B1%EF%BC%9A%E7%82%BA%E6%95%B8%E5%AD%97%E8%B3%A6%E4%BA%88%E6%84%8F%E7%BE%A9"><span class="nav-number">3.</span> <span class="nav-text">矩陣的命名系統：為數字賦予意義</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E6%9C%89%E5%90%8D%EF%BC%9A%E8%AE%93%E6%95%B8%E6%93%9A%E8%AA%AA%E6%95%85%E4%BA%8B"><span class="nav-number">3.1.</span> <span class="nav-text">行列有名：讓數據說故事</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dimnames-%E3%80%81rownames-%E8%88%87-colnames-%E7%9A%84%E5%B7%A7%E5%A6%99%E9%81%8B%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">dimnames()、rownames() 與 colnames() 的巧妙運用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E5%B0%8D%E8%B3%87%E6%96%99%E8%A7%A3%E8%AE%80%E7%9A%84%E5%B9%AB%E5%8A%A9"><span class="nav-number">3.3.</span> <span class="nav-text">命名對資料解讀的幫助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%B4%A2%E5%BC%95%E6%8A%80%E5%B7%A7"><span class="nav-number">4.</span> <span class="nav-text">矩陣索引技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E5%AE%9A%E4%BD%8D%E7%9A%84%E8%97%9D%E8%A1%93%EF%BC%9A-%E5%88%97-%E6%AC%84-%E7%B3%BB%E7%B5%B1"><span class="nav-number">4.1.</span> <span class="nav-text">矩陣定位的藝術：[列, 欄] 系統</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%88%E6%B4%BB%E9%81%B8%E5%8F%96%EF%BC%9A%E5%96%AE%E5%85%83%E7%B4%A0%E3%80%81%E6%95%B4%E5%88%97%E3%80%81%E6%95%B4%E6%AC%84%E7%9A%84%E6%93%B7%E5%8F%96%E6%96%B9%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">靈活選取：單元素、整列、整欄的擷取方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%9D%E4%BB%B6%E5%BC%8F%E7%B4%A2%E5%BC%95%EF%BC%9A%E4%BB%A5%E9%82%8F%E8%BC%AF%E5%90%91%E9%87%8F%E7%AF%A9%E9%81%B8%E7%9F%A9%E9%99%A3%E8%B3%87%E6%96%99"><span class="nav-number">4.3.</span> <span class="nav-text">條件式索引：以邏輯向量篩選矩陣資料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E7%B4%A2%E5%BC%95%EF%BC%9A%E7%94%A8%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1%E5%B0%8E%E8%88%AA"><span class="nav-number">4.4.</span> <span class="nav-text">命名索引：用欄位名稱導航</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E9%80%B2%E9%9A%8E%E7%B4%A2%E5%BC%95%E6%8A%80%E5%B7%A7"><span class="nav-number">4.5.</span> <span class="nav-text">矩陣進階索引技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%9A%84%E5%90%88%E7%B8%B1%E9%80%A3%E6%A9%AB%EF%BC%9Arbind-%E8%88%87-cbind-%E7%9A%84%E6%87%89%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">矩陣的合縱連橫：rbind() 與 cbind() 的應用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A9%AB%E5%90%91%E6%93%B4%E5%B1%95%EF%BC%9A%E4%BB%A5-cbind-%E6%B7%BB%E5%8A%A0%E6%96%B0%E6%AC%84%E4%BD%8D"><span class="nav-number">5.1.</span> <span class="nav-text">橫向擴展：以 cbind() 添加新欄位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B8%B1%E5%90%91%E6%88%90%E9%95%B7%EF%BC%9A%E7%94%A8-rbind-%E5%A2%9E%E5%8A%A0%E6%96%B0%E8%B3%87%E6%96%99%E5%88%97"><span class="nav-number">5.2.</span> <span class="nav-text">縱向成長：用 rbind() 增加新資料列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E4%BD%B5%E7%9A%84%E8%97%9D%E8%A1%93%EF%BC%9A%E7%A2%BA%E4%BF%9D%E7%B6%AD%E5%BA%A6%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-number">5.3.</span> <span class="nav-text">合併的藝術：確保維度一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E5%90%88%E4%BD%B5%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85"><span class="nav-number">5.4.</span> <span class="nav-text">矩陣合併的注意事項</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E9%81%8B%E7%AE%97%EF%BC%9A%E6%95%B8%E5%AD%B8%E6%93%8D%E4%BD%9C%E7%9A%84%E5%90%91%E9%87%8F%E5%8C%96%E5%8A%9B%E9%87%8F"><span class="nav-number">6.</span> <span class="nav-text">矩陣運算：數學操作的向量化力量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%AE%97%E8%A1%93%EF%BC%9A%E7%9F%A9%E9%99%A3%E7%9A%84%E5%8A%A0%E6%B8%9B%E4%B9%98%E9%99%A4"><span class="nav-number">6.1.</span> <span class="nav-text">基本算術：矩陣的加減乘除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E5%8A%A0%E6%B3%95%E8%88%87%E6%B8%9B%E6%B3%95"><span class="nav-number">6.1.1.</span> <span class="nav-text">矩陣加法與減法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%9A%84%E6%A8%99%E9%87%8F%E9%81%8B%E7%AE%97"><span class="nav-number">6.1.2.</span> <span class="nav-text">矩陣的標量運算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%9A%84%E5%85%83%E7%B4%A0%E5%B0%8D%E6%87%89%E9%81%8B%E7%AE%97"><span class="nav-number">6.1.3.</span> <span class="nav-text">矩陣的元素對應運算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E4%B9%98%E6%B3%95%EF%BC%9A-%E9%81%8B%E7%AE%97%E5%AD%90%E7%9A%84%E5%A5%A7%E7%A7%98"><span class="nav-number">6.1.4.</span> <span class="nav-text">矩陣乘法：%*% 運算子的奧秘</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%89%E7%BD%AE%E3%80%81%E9%80%86%E7%9F%A9%E9%99%A3%E8%88%87%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E8%AE%8A%E6%8F%9B"><span class="nav-number">6.2.</span> <span class="nav-text">轉置、逆矩陣與其他重要變換</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E8%BD%89%E7%BD%AE"><span class="nav-number">6.2.1.</span> <span class="nav-text">矩陣轉置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%86%E7%9F%A9%E9%99%A3"><span class="nav-number">6.2.2.</span> <span class="nav-text">逆矩陣</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">6.2.3.</span> <span class="nav-text">矩陣的行列式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">7.</span> <span class="nav-text">小結</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Anthony Sung"
+      src="/images/profile.svg">
+  <p class="site-author-name" itemprop="name">Anthony Sung</p>
+  <div class="site-description" itemprop="description">對生活抱持好奇心的學習者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaolong70701" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaolong70701" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xiaolong70701@gmail.com" title="E-Mail → mailto:xiaolong70701@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yueswater/" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yueswater&#x2F;" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/yues_19_water/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;yues_19_water&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">&copy; Anthony 部落格原站：<a href="https://xiaolong70701.github.io/blog/" target="_blank">Yueswater Blog</a>；若要轉載文章，麻煩請保留原作者名稱與原始連結。
+</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌙',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yueswater.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/R-tutorial-3/";
+    this.page.identifier = "/R-tutorial-3/";
+    this.page.title = "R 語言教學入門｜矩陣操作與二維資料結構";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+<script src="/js/injector.js"></script>
+</body>
+</html>
