@@ -574,14 +574,14 @@ div.hcb-content.hcb-cards-content.active {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>65k</span>
+              <span>68k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>5:27</span>
+              <span>5:39</span>
             </span>
             <div class="post-description">學習 R 語言的第一步！本篇教學介紹如何進行變數賦值、認識資料型別，並實作 R 語言中的基本操作，適合初學者入門。</div>
 
@@ -594,7 +594,83 @@ div.hcb-content.hcb-cards-content.active {
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>R 語言誕生於1993年，由兩位統計學家 George R. Ihaka 和 Robert C. Gentleman 在奧克蘭大學所開發，從命名簡單取自兩位創始人名字首字母便可看出，R 語言就是一個極簡且具有實用主義精神的程式語言。</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><style>
+  .unicode-converter {
+      max-width: 100%;
+      margin: 20px 0;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #f9f9f9;
+  }
+  .unicode-converter-title {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: left;
+  }
+  .unicode-input-section {
+      margin-bottom: 15px;
+  }
+  .unicode-label-container {
+      text-align: left;
+      margin-bottom: 5px;
+      white-space: nowrap;
+      display: block;
+  }
+  .unicode-input {
+      width: 100%;
+      height: 50px;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      resize: none;
+      box-sizing: border-box;
+  }
+  .unicode-button {
+      background-color: #333333;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+  }
+  .unicode-button:hover {
+      background-color: #666666;
+  }
+  .unicode-result {
+      margin-top: 15px;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 4px;
+      background-color: #fff;
+      min-height: 50px;
+  }
+  .unicode-character-item {
+      margin-bottom: 8px;
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+  }
+  .unicode-original {
+      font-size: 1.2em;
+      margin-right: 10px;
+      font-weight: bold;
+  }
+  .unicode-code {
+      color: #0066cc;
+      font-family: monospace;
+  }
+  .unicode-hex {
+      color: #cc6600;
+      font-family: monospace;
+  }
+</style>
+
+<p>R 語言誕生於1993年，由兩位統計學家 George R. Ihaka 和 Robert C. Gentleman 在奧克蘭大學所開發，從命名簡單取自兩位創始人名字首字母便可看出，R 語言就是一個極簡且具有實用主義精神的程式語言。</p>
 <p>目前幾乎全臺灣各大社會科學領域科系只要有開設統計相關課程，除了傳統的 SPSS、SAS 與 STATA 外，最常被使用的就是 R 語言了。作為一套統計語言，最初只在統計相關領域內流行，但隨著<strong>大數據時代</strong>來臨，R 語言專為數據分析設計的特性便備受青睞。R 語言的運算速度雖說不及Python，但R在統計模型和數據可視化方面仍獨具優勢。從統計教室到科技巨頭的資料科學部門，R已成為數據分析不可或缺的利器。</p>
 <h2 id="R-語言的基礎：賦值-Assign-Values"><a href="#R-語言的基礎：賦值-Assign-Values" class="headerlink" title="R 語言的基礎：賦值(Assign Values)"></a>R 語言的基礎：賦值(Assign Values)</h2><p>日常生活中，各種繁雜的資訊圍繞在我們身邊，有時需要記事本或是記事軟體等工具協助記憶這些資訊，如果沒有這些工具儲存如此複雜與繁瑣的資訊，僅憑腦力很難記住所有內容，且很容易出錯。</p>
 <p>電腦也跟人一樣，需要把龐大的資訊用靈巧的方式記錄下來，「賦值」(assign value)則可以被理解為記錄下來的過程，並且可以給資料取名（變數名稱），在需要時就可以叫出來使用。這個過程就像是你在記事本上寫下「小明的電話：0912-345-678」，之後只需要翻到這一頁，就能找到小明的電話號碼。</p>
@@ -721,6 +797,25 @@ Levels: 女 男
 [1] &quot;factor&quot;
 [1] &quot;女&quot; &quot;男&quot;
 </code></pre>
+<p>至於為何是以「女」在「男」前面做排序，是因為 R 語言使用 Unicode 編碼系統將字符進行排序。在 Unicode 中，中文漢字根據其編碼值來排序，而不是根據中文字的拼音或筆劃。使用以下的小功能查詢「女」和「男」的 Unicode 編碼可以發現：</p>
+<ul>
+<li>「女」的 Unicode 編碼是 U+5973（十進位: 22899）</li>
+<li>「男」的 Unicode 編碼是 U+7537（十進位: 30007）</li>
+</ul>
+<p>因為「女」的 Unicode 編碼值（22899）小於「男」的編碼值（30007），所以在 R 語言中使用 <code>factor()</code> 函數時，若未明確指定排序方式，R 會根據字符的 Unicode 編碼值自動進行排序，導致「女」會被排在「男」之前。因此這只是一個純粹的技術排序結果，與性別本身無關，僅僅反映了這些字符在 Unicode 編碼標準中的相對位置。</p>
+<div class="unicode-converter">  
+  <div class="unicode-input-section">
+      <div class="unicode-label-container">請輸入中文字：</div>
+      <textarea id="unicodeInputText" class="unicode-input" placeholder="在此輸入中文字..."></textarea>
+      <button id="unicodeConvertBtn" class="unicode-button">查看 Unicode 編碼</button>
+  </div>
+  
+  <div id="unicodeResult" class="unicode-result">
+      <p>轉換結果將在這裡顯示...</p>
+  </div>
+</div>
+
+
 <p>如果資料是有順序的(ordered)，那麼我們可以試定順序性：有些類別變數是有「順序」的，例如教育程度（國中 &lt; 高中 &lt; 大學 &lt; 研究所），這種情況下可以使用 <code>ordered = TRUE</code> 參數來建立有順序的因子。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">edu <span class="operator">&lt;-</span> factor<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;大學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;高中&quot;</span><span class="punctuation">,</span> <span class="string">&quot;研究所&quot;</span><span class="punctuation">,</span> <span class="string">&quot;高中&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">              levels <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;國中&quot;</span><span class="punctuation">,</span> <span class="string">&quot;高中&quot;</span><span class="punctuation">,</span> <span class="string">&quot;大學&quot;</span><span class="punctuation">,</span> <span class="string">&quot;研究所&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">              ordered <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">print<span class="punctuation">(</span>edu<span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span><span class="built_in">class</span><span class="punctuation">(</span>edu<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">print<span class="punctuation">(</span>levels<span class="punctuation">(</span>edu<span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># 印出層級</span></span><br></pre></td></tr></table></figure>
 
@@ -2106,7 +2201,54 @@ Built: R 4.4.0; ; 2024-04-23 11:40:42 UTC; unix
 
 
 <h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>在 R 語言中，資料型別決定了變數能進行哪些操作、適用哪些函數、甚至影響統計模型的推論結果。因此，不論是初學者還是進階使用者，都應該養成「隨時檢查變數型別」的好習慣。當你每次從外部匯入資料（如 CSV、Excel、資料庫）或執行前處理時，建議都先用 <code>class()</code>、<code>typeof()</code>、<code>is.xxx()</code> 這些工具一一檢查每個變數的型別，再進一步決定是否需要轉型（如 <code>as.numeric(</code>)、<code>as.factor()</code> 等），這樣可以大幅減少錯誤的機率，也能讓你的資料分析流程更順暢。此外，熟悉運算子的優先順序，但不要過度依賴它，適當使用括號可以讓程式碼更可讀(readable)。</p>
-
+<script>
+    (function() {
+        // 使用立即執行函數來避免全局污染
+        function convertToUnicode() {
+            const inputText = document.getElementById('unicodeInputText').value;
+            const resultDiv = document.getElementById('unicodeResult');
+            
+            if (!inputText.trim()) {
+                resultDiv.innerHTML = '<p>請輸入中文字進行轉換。</p>';
+                return;
+            }
+            
+            let result = '';
+            for (let i = 0; i < inputText.length; i++) {
+                const char = inputText.charAt(i);
+                const codePoint = char.codePointAt(0);
+                const hexCode = codePoint.toString(16).toUpperCase();
+                
+                result += `<div class="unicode-character-item">
+                    <span class="unicode-original">${char}</span>
+                    <span class="unicode-code">U+${hexCode}</span>
+                    <span class="unicode-hex">(十進位: ${codePoint})</span>
+                </div>`;
+            }
+            
+            resultDiv.innerHTML = result;
+        }
+        
+        // 初始化按鈕監聽器
+        document.addEventListener('DOMContentLoaded', function() {
+            const convertBtn = document.getElementById('unicodeConvertBtn');
+            const inputArea = document.getElementById('unicodeInputText');
+            
+            if (convertBtn) {
+                convertBtn.addEventListener('click', convertToUnicode);
+            }
+            
+            if (inputArea) {
+                inputArea.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter' && !event.shiftKey) {
+                        event.preventDefault();
+                        convertToUnicode();
+                    }
+                });
+            }
+        });
+    })();
+</script>
     </div>
 
     
