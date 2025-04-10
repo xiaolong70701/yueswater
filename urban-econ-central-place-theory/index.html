@@ -563,14 +563,14 @@ div.hcb-content.hcb-cards-content.active {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>2.2k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>11 分鐘</span>
+              <span>16 分鐘</span>
             </span>
 
         </div>
@@ -587,7 +587,7 @@ div.hcb-content.hcb-cards-content.active {
 
 <blockquote>
 <ul>
-<li>為什麼城市間會有大小與距離的差異？又</li>
+<li>為什麼城市間會有大小與距離的差異？</li>
 <li>為什麼大城市比較少，小城市比較多？</li>
 <li>如何安排城市的分佈，才能達到「成本最低」的社會最適狀態？</li>
 </ul>
@@ -613,19 +613,16 @@ div.hcb-content.hcb-cards-content.active {
 <h3 id="模型設定"><a href="#模型設定" class="headerlink" title="模型設定"></a>模型設定</h3><p>為了簡化模型，假設整個空間是一條無限延長的直線，即整條實數線 $\mathbb{R}$，如此一來便可避免左右邊界造成不對稱的問題。沿著此線上，有無限多的消費者<strong>均勻分佈</strong>(uniformly distributed)，每單位長度的密度設定為 $d$。</p>
 <h4 id="消費者需求"><a href="#消費者需求" class="headerlink" title="消費者需求"></a>消費者需求</h4><p>每個消費者對商品有固定需求。我們將商品視為一個區間 $[0, z_{1}]$ 上的連續點，也就是每個數字 $y \in [0, z_{1}]$ 均代表一種商品，越靠近 $z_{1}$ 等級越高。每人每天都需要一單位的每種商品，需求不受價格影響，即完全無彈性，且無論城市設在哪裡，總需求都是一樣的。</p>
 <h4 id="商品與生產成本"><a href="#商品與生產成本" class="headerlink" title="商品與生產成本"></a>商品與生產成本</h4><p>廠商生產每一種商品 $y$ 都需要支付一筆固定成本 $\phi(y)$，且商品等級越高，成本就越高，亦即 $\phi^{\prime}(y) &gt; 0$，且如果不生產產品，則 $\phi(0) &#x3D; 0$。邊際生產成本為常數 $c$，但後續分析會被忽略，因為對每個人而言是固定的，不影響最終決策。<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="因為每個消費者都會消費 $z_{1}$ 單位的商品，邊際成本乘上所有消費者的需求量，會是一個固定數。因不論城市怎麼安排、商品從哪裡送，總變動成本加總起來都一樣。舉例來說，舉辦一場活動共有 100 名與會者，每個人需要吃一個 100 元的便當，總成本就是 10,000 元。因此無論叫哪一家便當店做，這 100 個便當的成本就是 10,000 元。如果現在要比較的是「是不是要開兩個取餐點讓大家走近一點？」以及「還是只開一個、但讓大家走遠一點？」，實際上在意的點是交通成本、動線安排這些變動的部分，而不是那 10,000 元便當費，因為那是固定、改變不了的。">[2]</span></a></sup>既然生產過程中有固定成本，那麼該生產活動就會具有規模經濟(scale of economies)，原因是因為規模經濟的定義是隨著產量增加，平均成本降低。<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="你可以想像一下，為何便當店總是會寫「超過幾份就提供外送服務」，原因就是如果一次只送一份餐點，油錢 50 元，平均每趟成本就是 50 元。但是如果一次送 10 份，油錢還是 50 元，平均成本變成 5 元。">[3]</span></a></sup>根據上面的假設，廠商生產 $q$ 單位的總成本為<br>$$<br>TC(q) &#x3D; \phi(q) + c \cdot q<br>$$<br>則平均成本為<br>$$<br>AC (q) &#x3D; \dfrac{\phi(q) + c \cdot q}{q}<br>$$<br>可以發現當 $q$ 越大，$\phi &#x2F; q$ 越小，整體的平均成本就會越低。簡言之，只要有固定成本，只要生產越多單位，就越能平均分攤這筆固定開銷，平均成本就會下降，因此會產生規模經濟。另外，模型假設若商品要運送給消費者，每單位距離每單位商品的運費是常數 $t$。因此，距離越遠，成本就越高。</p>
-<h4 id="層級性原則"><a href="#層級性原則" class="headerlink" title="層級性原則"></a>層級性原則</h4><p>每個生產地點（即一個城市）如果要生產某個商品 $z$，那麼它必須也生產所有 $y &lt; z$ 的商品，因此每個城市所提供的商品集合包在一個連續區間 $[0, z]$，不能有斷點存在。</p>
+<h4 id="層級性原則"><a href="#層級性原則" class="headerlink" title="層級性原則"></a>層級性原則</h4><p>每個生產地點（即一個城市）如果要生產某個高等級商品 $z$，那麼它必須也生產所有比其低等級的商品 $y &lt; z$<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="如果某座城市有醫院（假設醫院是高等級商品），那它也一定要有便利商店、診所、文具店（低等級商品）。不可能一個城市有百貨公司但連便利商店都沒有。">[4]</span></a></sup>。此外，每個城市所提供的商品一定是從最基本的 0 開始，一直到某個等級 $z$ 為止，是一個連續區間 $[0, z]$，不會跳過任何商品。所以我們只要知道它能生產哪個「最頂」的商品 $z$，就知道它的整個商品清單是 $[0,z]$。如果一座城市最高能提供商品 5，那就代表它一定也有 0 至 4 號商品。我們就叫它一座「$z&#x3D;5$ 的城市」，簡稱「5-city」。</p>
 <div style="text-align:center">
   <img src="/images/Urban Economics/urban-econ-2-hierarchy.png" width="430" height="300" alt="層級性原則">
   <p style="font-size: 0.8em; color: #999999;">圖 2：層級性原則<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Hsu, W. T., Holmes, T. J., & Morgan, F. (2014). Optimal city hierarchy: A dynamic programming approach to central place theory. *Journal of Economic Theory*, 154, 245-273.">[1]</span></a></sup></p>
 </div>
 
-
-
-
-
-
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Hsu, W. T., Holmes, T. J., &amp; Morgan, F. (2014). Optimal city hierarchy: A dynamic programming approach to central place theory. <em>Journal of Economic Theory</em>, 154, 245-273.<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">因為每個消費者都會消費 $z_{1}$ 單位的商品，邊際成本乘上所有消費者的需求量，會是一個固定數。因不論城市怎麼安排、商品從哪裡送，總變動成本加總起來都一樣。舉例來說，舉辦一場活動共有 100 名與會者，每個人需要吃一個 100 元的便當，總成本就是 10,000 元。因此無論叫哪一家便當店做，這 100 個便當的成本就是 10,000 元。如果現在要比較的是「是不是要開兩個取餐點讓大家走近一點？」以及「還是只開一個、但讓大家走遠一點？」，實際上在意的點是交通成本、動線安排這些變動的部分，而不是那 10,000 元便當費，因為那是固定、改變不了的。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">你可以想像一下，為何便當店總是會寫「超過幾份就提供外送服務」，原因就是如果一次只送一份餐點，油錢 50 元，平均每趟成本就是 50 元。但是如果一次送 10 份，油錢還是 50 元，平均成本變成 5 元。<a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
+<p>如果城市如果要提供從 0 到 $z$ 的所有商品，那它要承擔的總固定成本（蓋工廠、設施）就是把每種商品的固定成本 $\phi(y)$ 從 0 加總到 $z$ 為止，即是<br>$$<br>\Phi(z) &#x3D; \int_{0}^{z} \phi(y) dy<br>$$<br>另外，前面假設 $\phi(y)$ 是遞增的，代表越高階商品固定成本越高，根據微積分基本定理，可得到 $\Phi(z)$ 的一階與二階條件如下：<br>$$<br>\Phi^{\prime}(z) &#x3D; \phi(z) &gt; 0, \quad \Phi^{\prime\prime}(z) &#x3D; \phi^{\prime}(z) &gt; 0<br>$$<br>要成為「高階城市」成本很高，越高越貴，<strong>這就是現實中為什麼只有少數幾個大都市能提供最頂級的服務</strong>。</p>
+<h3 id="社會規劃者問題"><a href="#社會規劃者問題" class="headerlink" title="社會規劃者問題"></a>社會規劃者問題</h3><p>根據前述討論，由於每個人消費相同的東西，消費量也一樣，因此模型可以忽略變動成本，僅考慮固定成本 $\Phi(z)$ 與運輸成本 $t$。現在要從「上帝視角」安排整個空間上的城市，這個社會規劃者負責決定每個城市的位置與距離，<strong>目標是讓所有消費者的平均成本最低</strong>。</p>
+<p>由於消費者平均分佈在空間上，因此不管在哪一段距離，需求都是相同的，最有效率的安排方式就是把城市<strong>平均分配在空間上</strong>，這些城市都是最大城市，即生產所有商品 $z_{1}$ 的城市，稱為 $z_{1}$-city。現在要來計算兩個 $z_{1}$-city 中間那一段距離上，平均每個人為了拿到商品，要付出多少運費？假設兩座城市距離為 $\ell$，每個人都會去最近的城市購買商品，所以一個城市的<strong>服務半徑</strong>是 $\ell&#x2F;2$。因為消費者平均分佈，密度為 $d$，每人運費距離 $x$ 乘上每公里成本 $t$，因此把 $0$ 到 $\ell&#x2F;2$ 的所有運費加總就得到<br>$$<br>2d \int_{0}^{\ell&#x2F;2} tx dx &#x3D; \dfrac{dt\ell^{2}}{4}<br>$$</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Hsu, W. T., Holmes, T. J., &amp; Morgan, F. (2014). Optimal city hierarchy: A dynamic programming approach to central place theory. <em>Journal of Economic Theory</em>, 154, 245-273.<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">因為每個消費者都會消費 $z_{1}$ 單位的商品，邊際成本乘上所有消費者的需求量，會是一個固定數。因不論城市怎麼安排、商品從哪裡送，總變動成本加總起來都一樣。舉例來說，舉辦一場活動共有 100 名與會者，每個人需要吃一個 100 元的便當，總成本就是 10,000 元。因此無論叫哪一家便當店做，這 100 個便當的成本就是 10,000 元。如果現在要比較的是「是不是要開兩個取餐點讓大家走近一點？」以及「還是只開一個、但讓大家走遠一點？」，實際上在意的點是交通成本、動線安排這些變動的部分，而不是那 10,000 元便當費，因為那是固定、改變不了的。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">你可以想像一下，為何便當店總是會寫「超過幾份就提供外送服務」，原因就是如果一次只送一份餐點，油錢 50 元，平均每趟成本就是 50 元。但是如果一次送 10 份，油錢還是 50 元，平均成本變成 5 元。<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">如果某座城市有醫院（假設醫院是高等級商品），那它也一定要有便利商店、診所、文具店（低等級商品）。不可能一個城市有百貨公司但連便利商店都沒有。<a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>
     </div>
 
     
@@ -714,7 +711,7 @@ div.hcb-content.hcb-cards-content.active {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%95%E8%AC%82%E4%B8%AD%E5%9C%B0%E7%90%86%E8%AB%96%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">何謂中地理論？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8F%BE%E4%BB%A3%E4%B8%AD%E5%9C%B0%E7%90%86%E8%AB%96"><span class="nav-number">2.</span> <span class="nav-text">現代中地理論</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.1.</span> <span class="nav-text">模型設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E8%B2%BB%E8%80%85%E9%9C%80%E6%B1%82"><span class="nav-number">2.1.1.</span> <span class="nav-text">消費者需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%95%86%E5%93%81%E8%88%87%E7%94%9F%E7%94%A2%E6%88%90%E6%9C%AC"><span class="nav-number">2.1.2.</span> <span class="nav-text">商品與生產成本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%A4%E7%B4%9A%E6%80%A7%E5%8E%9F%E5%89%87"><span class="nav-number">2.1.3.</span> <span class="nav-text">層級性原則</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%95%E8%AC%82%E4%B8%AD%E5%9C%B0%E7%90%86%E8%AB%96%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">何謂中地理論？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8F%BE%E4%BB%A3%E4%B8%AD%E5%9C%B0%E7%90%86%E8%AB%96"><span class="nav-number">2.</span> <span class="nav-text">現代中地理論</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.1.</span> <span class="nav-text">模型設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E8%B2%BB%E8%80%85%E9%9C%80%E6%B1%82"><span class="nav-number">2.1.1.</span> <span class="nav-text">消費者需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%95%86%E5%93%81%E8%88%87%E7%94%9F%E7%94%A2%E6%88%90%E6%9C%AC"><span class="nav-number">2.1.2.</span> <span class="nav-text">商品與生產成本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%A4%E7%B4%9A%E6%80%A7%E5%8E%9F%E5%89%87"><span class="nav-number">2.1.3.</span> <span class="nav-text">層級性原則</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BE%E6%9C%83%E8%A6%8F%E5%8A%83%E8%80%85%E5%95%8F%E9%A1%8C"><span class="nav-number">2.2.</span> <span class="nav-text">社會規劃者問題</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
