@@ -319,17 +319,24 @@ div.hcb-content.hcb-cards-content.active {
     var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="對生活抱持好奇心的學習者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="岳氏礦泉水">
-<meta property="og:url" content="https://www.yueswater.com/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/index.html">
+  <meta name="description" content="系統化整理資料庫管理系統的基礎概念，包括三層架構、CRUD 操作、資料模型與 ER 模型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資料庫筆記 | 資料庫管理系統 (Database Management System)">
+<meta property="og:url" content="https://www.yueswater.com/dbms/index.html">
 <meta property="og:site_name" content="岳氏礦泉水">
-<meta property="og:description" content="對生活抱持好奇心的學習者">
+<meta property="og:description" content="系統化整理資料庫管理系統的基礎概念，包括三層架構、CRUD 操作、資料模型與 ER 模型。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://www.yueswater.com/images/database-learning/intro-dbms.png">
+<meta property="article:published_time" content="2025-07-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-24T16:00:00.000Z">
 <meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="資料庫">
+<meta property="article:tag" content="資料庫管理系統">
+<meta property="article:tag" content="增刪查改">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yueswater.com/images/database-learning/intro-dbms.png">
 
-<link rel="canonical" href="https://www.yueswater.com/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/">
+<link rel="canonical" href="https://www.yueswater.com/dbms/">
 
 
 <script id="page-configurations">
@@ -337,12 +344,12 @@ div.hcb-content.hcb-cards-content.active {
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>標籤: 資料結構 | 岳氏礦泉水</title>
+  <title>資料庫筆記 | 資料庫管理系統 (Database Management System) | 岳氏礦泉水</title>
   
 
 
@@ -490,57 +497,368 @@ div.hcb-content.hcb-cards-content.active {
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/dbms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          資料庫筆記 | 資料庫管理系統 (Database Management System)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-07-25 00:00:00" itemprop="dateCreated datePublished" datetime="2025-07-25T00:00:00+08:00">2025-07-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">程式語言筆記</span></a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">資料結構
-          <small>標籤</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/dbms/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/dbms/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>13 分鐘</span>
+            </span>
+            <div class="post-description">系統化整理資料庫管理系統的基礎概念，包括三層架構、CRUD 操作、資料模型與 ER 模型。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><div style="text-align:center">
+  <img src="/images/database-learning/intro-dbms.png" width="430" height="300" alt="資料庫管理系統">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：資料庫管理系統</p>
+</div>
+
+<h2 id="資料庫管理系統-Database-Management-System"><a href="#資料庫管理系統-Database-Management-System" class="headerlink" title="資料庫管理系統 (Database Management System)"></a>資料庫管理系統 (Database Management System)</h2><p>資料庫管理系統（Database Management System, 簡稱 <strong>DBMS</strong>）是一套<strong>軟體系統</strong>，用來<strong>建立、管理、查詢與維護資料庫</strong>。它的目的是讓使用者能夠有效地儲存、檢索與操作資料，同時確保資料的<strong>安全性、一致性與完整性</strong>。以 ATM 為例，當插入卡片之後，ATM 會開始讀取晶片資料，並嘗試從資料庫中抓取帳戶、餘額等所需資訊，並提供使用者進行提款、存款、轉帳等動作。</p>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><p>一個資料庫主要的功能是<strong>儲存 (store)</strong> 與<strong>提取 (retrieve)</strong> 資料，並且可以進行<strong>增 (Create)、刪 (Delete)、查 (Read)、改 (Update)</strong> 四種主要操作（稱為 CRUD）。</p>
+<h3 id="常見的-DBMS-種類"><a href="#常見的-DBMS-種類" class="headerlink" title="常見的 DBMS 種類"></a>常見的 DBMS 種類</h3><table>
+<thead>
+<tr>
+<th>分類</th>
+<th>例子</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>關聯式資料庫 (RDBMS)</strong></td>
+<td>MySQL, PostgreSQL, SQLite, Oracle, SQL Server</td>
+<td>資料以「表格（table）」方式儲存，支援 SQL 語言</td>
+</tr>
+<tr>
+<td><strong>非關聯式資料庫 (NoSQL)</strong></td>
+<td>MongoDB（文件型）, Redis（鍵值型）, Neo4j（圖型）</td>
+<td>適合儲存彈性結構或高效率存取的資料</td>
+</tr>
+<tr>
+<td><strong>嵌入式資料庫</strong></td>
+<td>SQLite</td>
+<td>常用於手機 App 或單機應用</td>
+</tr>
+</tbody></table>
+<h3 id="資料、資訊、資料庫與中繼資料"><a href="#資料、資訊、資料庫與中繼資料" class="headerlink" title="資料、資訊、資料庫與中繼資料"></a>資料、資訊、資料庫與中繼資料</h3><table>
+<thead>
+<tr>
+<th>名詞</th>
+<th>定義</th>
+<th>特性</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data</strong></td>
+<td>原始、未處理的事實（raw facts）</td>
+<td>沒有上下文、無意義、通常是文字或數字片段</td>
+<td><code>25</code>, <code>Raghav</code>, <code>Nagpur</code></td>
+</tr>
+<tr>
+<td><strong>Information</strong></td>
+<td>經過處理後有意義的資料</td>
+<td>有上下文、能用來判斷或溝通、帶有解釋性</td>
+<td><code>Raghav is 25 years old and lives in Nagpur.</code></td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>有關聯的資料集合</td>
+<td>結構化、各資料彼此相關、可用 DBMS 管理與查詢</td>
+<td>銀行系統、圖書館管理系統、鐵路訂票系統</td>
+</tr>
+<tr>
+<td><strong>Meta-data</strong></td>
+<td>描述其他資料的資料（資料的資料）</td>
+<td>非實際內容、描述檔案屬性、便於管理與搜尋</td>
+<td><code>作者</code>, <code>建立日期</code>, <code>修改日期</code>, <code>檔案大小</code></td>
+</tr>
+</tbody></table>
+<h3 id="三層式架構-Three-Tier-Architecture"><a href="#三層式架構-Three-Tier-Architecture" class="headerlink" title="三層式架構 (Three Tier Architecture)"></a>三層式架構 (Three Tier Architecture)</h3><p>三層式架構是資料庫系統的分層設計方法，將應用系統劃分為三個邏輯層次，每一層各自負責不同的功能，以達成模組化、易於管理與擴充。</p>
+<table>
+<thead>
+<tr>
+<th>層級</th>
+<th>功能說明</th>
+<th>舉例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表示層 (Presentation Tier)</td>
+<td>使用者介面，負責與終端使用者互動</td>
+<td>瀏覽器、App、Web 表單、GUI</td>
+</tr>
+<tr>
+<td>邏輯層 (Logic Tier)</td>
+<td>處理業務邏輯、規則與計算，負責處理使用者請求與資料邏輯運算</td>
+<td>應用程式、API、伺服器端程式（如 Flask、Node.js）</td>
+</tr>
+<tr>
+<td>資料層 (Data Tier)</td>
+<td>負責實際資料的儲存與管理，處理資料的 CRUD 操作</td>
+<td>MySQL、PostgreSQL、Oracle、MongoDB</td>
+</tr>
+</tbody></table>
+<h3 id="資料庫架構與抽象化設計"><a href="#資料庫架構與抽象化設計" class="headerlink" title="資料庫架構與抽象化設計"></a>資料庫架構與抽象化設計</h3><p>為了讓使用者不用知道資料庫的所有細節，也能順利操作資料，需要將資料進行<strong>抽象化 (abstraction)</strong>。舉例來說，作為一個圖書館的讀者只需知道借還書，不用知道：</p>
+<ul>
+<li>書籍實際儲存在哪個書架（物理位置）</li>
+<li>系統如何記錄借書紀錄（資料結構）</li>
+<li>資料儲存在硬碟的哪個磁區（物理儲存細節）</li>
+</ul>
+<p>言下之意，將複雜的底層細節隱藏起來，只顯示出使用者需要的資訊。</p>
+<table>
+<thead>
+<tr>
+<th>層級</th>
+<th>說明與職責</th>
+<th>使用者類型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>外部層 (External Level)</td>
+<td>個別使用者看到的資料視圖（部分資料）</td>
+<td>一般使用者</td>
+</tr>
+<tr>
+<td>邏輯層 (Logical Level)</td>
+<td>描述整個資料庫的結構與關聯</td>
+<td>資料庫設計者、工程師</td>
+</tr>
+<tr>
+<td>內部層 (Internal Level)</td>
+<td>資料實際儲存在磁碟的方式與細節</td>
+<td>系統工程師、DBMS本身</td>
+</tr>
+</tbody></table>
+<h3 id="綱要-Schema-與實例-Instance"><a href="#綱要-Schema-與實例-Instance" class="headerlink" title="綱要 (Schema) 與實例 (Instance)"></a>綱要 (Schema) 與實例 (<strong>Instance</strong>)</h3><p>在資料庫的世界中，<strong>結構</strong>與<strong>內容</strong>是兩件不同的事。這就像寫程式時會區分「變數的型別」與「變數的值」，資料庫也一樣：</p>
+<table>
+<thead>
+<tr>
+<th>名稱</th>
+<th>特性</th>
+<th>定義</th>
+<th>舉例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Schema</strong></td>
+<td>靜態</td>
+<td>資料庫的<strong>結構定義</strong>，描述資料的型態與關聯</td>
+<td>表格的欄位名稱、資料型別、主鍵與外鍵等設定</td>
+</tr>
+<tr>
+<td><strong>Instance</strong></td>
+<td>動態</td>
+<td>資料庫中<strong>目前的資料內容</strong>，是 Schema 的具體化</td>
+<td>某筆顯示在資料表中的實際記錄資料</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Schema</strong>：是一種資料庫結構的藍圖或設計圖，定義一個資料庫有哪些資料表、欄位，以及每個欄位的型別、哪些是主鍵與外鍵，甚至是欄位之間的邏輯關聯。</li>
+<li><strong>Instance</strong>：是資料庫狀態的一種<strong>具體表現 (database state)</strong>，在某一特定時刻，資料庫中實際儲存的資料內容。換句話說，是依照 schema 結構填進去的資料。而實例會隨時間變化，因為資料會新增、刪除、修改。</li>
+</ul>
+<p>例如以下語法定義 <code>Student</code> 資料表，共三個欄位，並分別設定每個欄位的型別：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> Student (</span><br><span class="line">    ID <span class="type">INT</span> <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">    Name <span class="type">VARCHAR</span>(<span class="number">100</span>),</span><br><span class="line">    Age <span class="type">INT</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>當使用者進行查找時，會看到以下資訊，即是 instance：</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Alice</td>
+<td>21</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Raghav</td>
+<td>25</td>
+</tr>
+</tbody></table>
+<p>如果刪除 Alice 或新增 Bob，那麼 instance 就變了，但 schema 不會動。</p>
+<h3 id="資料模型-Data-Model"><a href="#資料模型-Data-Model" class="headerlink" title="資料模型 (Data Model)"></a>資料模型 (Data Model)</h3><p>資料模型是一套描述資料、資料結構與資料之間關係的規則與邏輯。不只定義資料的型別與欄位，還定義了資料之間的關聯方式、完整性規則、操作方式等。</p>
+<table>
+<thead>
+<tr>
+<th>模型名稱</th>
+<th>說明</th>
+<th>舉例／關鍵概念</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hierarchical Model</td>
+<td>資料以「樹狀結構」儲存，一對多階層關係</td>
+<td>一個公司有多個部門，每部門有多員工</td>
+</tr>
+<tr>
+<td>Network Model</td>
+<td>資料以「圖結構」儲存，支援多對多關係</td>
+<td>一位學生修多門課程、一門課有多位學生</td>
+</tr>
+<tr>
+<td>Relational Model</td>
+<td>資料以表格方式儲存，是現代主流模型</td>
+<td>MySQL、PostgreSQL、SQL Server 等皆使用此模型</td>
+</tr>
+<tr>
+<td>Object-Oriented Model</td>
+<td>結合物件導向概念</td>
+<td>資料與行為一起被封裝為物件，少數 DBMS 採用</td>
+</tr>
+</tbody></table>
+<h3 id="實體關係模型-Entity-Relationship-Model-ER-Model"><a href="#實體關係模型-Entity-Relationship-Model-ER-Model" class="headerlink" title="實體關係模型 (Entity Relationship Model, ER Model)"></a>實體關係模型 (Entity Relationship Model, ER Model)</h3><p>ER 模型是一種概念資料模型，用來：</p>
+<ul>
+<li><strong>表示現實世界的資料結構與其之間的關聯</strong></li>
+<li>為關聯式資料庫  (Relational DB) 設計資料表之前的「藍圖」</li>
+</ul>
+<p>ER 模型的產物就是 ER 圖 (ER Diagram)，即是用圖形方式表示有哪些實體、有哪些關係、有哪些屬性。</p>
+<table>
+<thead>
+<tr>
+<th>概念名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>實體 (entity)</td>
+<td>現實世界中可以獨立存在的事物（人、物、地點、事件等）</td>
+</tr>
+<tr>
+<td>屬性 (Attribute)</td>
+<td>實體的特徵資訊（例如學生的姓名、學號、生日）</td>
+</tr>
+<tr>
+<td>鍵 (Key)</td>
+<td>能唯一識別一個實體的屬性（通常稱為主鍵）</td>
+</tr>
+<tr>
+<td>關係 (Relationship)</td>
+<td>實體與實體之間的邏輯連結，例如選修、管理、屬於</td>
+</tr>
+<tr>
+<td>基數 (Cardinality)</td>
+<td>關係的數量型態，如一對一、一對多、多對多</td>
+</tr>
+</tbody></table>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-04-07T00:00:00+08:00"
-              content="2025-04-07">
-          04-07
-        </time>
-      </div>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%B3%87%E6%96%99%E5%BA%AB/" rel="tag"><i class="fa fa-tag"></i> 資料庫</a>
+              <a href="/tags/%E8%B3%87%E6%96%99%E5%BA%AB%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1/" rel="tag"><i class="fa fa-tag"></i> 資料庫管理系統</a>
+              <a href="/tags/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9/" rel="tag"><i class="fa fa-tag"></i> 增刪查改</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/R-tutorial-2/" itemprop="url">
-            <span itemprop="name">R 語言教學入門｜向量操作與資料結構基礎</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/urban-econ-central-place-theory/" rel="prev" title="都市經濟學與政策 | 中地理論">
+      <i class="fa fa-chevron-left"></i> 都市經濟學與政策 | 中地理論
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
   
 
   
-
-
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -587,6 +905,7 @@ div.hcb-content.hcb-cards-content.active {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E5%BA%AB%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1-Database-Management-System"><span class="nav-number">1.</span> <span class="nav-text">資料庫管理系統 (Database Management System)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="nav-number">1.1.</span> <span class="nav-text">主要功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A6%8B%E7%9A%84-DBMS-%E7%A8%AE%E9%A1%9E"><span class="nav-number">1.2.</span> <span class="nav-text">常見的 DBMS 種類</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E3%80%81%E8%B3%87%E8%A8%8A%E3%80%81%E8%B3%87%E6%96%99%E5%BA%AB%E8%88%87%E4%B8%AD%E7%B9%BC%E8%B3%87%E6%96%99"><span class="nav-number">1.3.</span> <span class="nav-text">資料、資訊、資料庫與中繼資料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%B1%A4%E5%BC%8F%E6%9E%B6%E6%A7%8B-Three-Tier-Architecture"><span class="nav-number">1.4.</span> <span class="nav-text">三層式架構 (Three Tier Architecture)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E5%BA%AB%E6%9E%B6%E6%A7%8B%E8%88%87%E6%8A%BD%E8%B1%A1%E5%8C%96%E8%A8%AD%E8%A8%88"><span class="nav-number">1.5.</span> <span class="nav-text">資料庫架構與抽象化設計</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B6%B1%E8%A6%81-Schema-%E8%88%87%E5%AF%A6%E4%BE%8B-Instance"><span class="nav-number">1.6.</span> <span class="nav-text">綱要 (Schema) 與實例 (Instance)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B-Data-Model"><span class="nav-number">1.7.</span> <span class="nav-text">資料模型 (Data Model)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%A6%E9%AB%94%E9%97%9C%E4%BF%82%E6%A8%A1%E5%9E%8B-Entity-Relationship-Model-ER-Model"><span class="nav-number">1.8.</span> <span class="nav-text">實體關係模型 (Entity Relationship Model, ER Model)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -764,6 +1083,27 @@ darkmode.showWidget();
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/dbms/";
+    this.page.identifier = "/dbms/";
+    this.page.title = "資料庫筆記 | 資料庫管理系統 (Database Management System)";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 <div class="moon-menu">
   <div class="moon-menu-items">
