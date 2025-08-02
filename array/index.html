@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4306040064090497"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <style type="text/css">
+
+div.hcb-content.hcb-block.hcbnote, details.hcb-content.box.hcbnote,div.hcb-content.hcb-block.hcbabstract, details.hcb-content.box.hcbabstract,div.hcb-content.hcb-block.hcbinfo, details.hcb-content.box.hcbinfo,div.hcb-content.hcb-block.hcbtip, details.hcb-content.box.hcbtip,div.hcb-content.hcb-block.hcbsuccess, details.hcb-content.box.hcbsuccess,div.hcb-content.hcb-block.hcbquestion, details.hcb-content.box.hcbquestion,div.hcb-content.hcb-block.hcbwarning, details.hcb-content.box.hcbwarning,div.hcb-content.hcb-block.hcbfailure, details.hcb-content.box.hcbfailure,div.hcb-content.hcb-block.hcbdanger, details.hcb-content.box.hcbdanger,div.hcb-content.hcb-block.hcbbug, details.hcb-content.box.hcbbug,div.hcb-content.hcb-block.hcbexample, details.hcb-content.box.hcbexample,div.hcb-content.hcb-block.hcbquote, details.hcb-content.box.hcbquote {
+  border: .05rem solid #448aff;
+  border-radius: .2rem;
+  font-size: 0.96rem;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  transition: box-shadow 250ms;
+}
+div.hcb-content.hcb-block.hcbnote, details.hcb-content.box.hcbnote {
+  border-color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbabstract, details.hcb-content.box.hcbabstract {
+  border-color: #00b0ff;
+}
+div.hcb-content.hcb-block.hcbinfo, details.hcb-content.box.hcbinfo {
+  border-color: #00b8d4;
+}
+div.hcb-content.hcb-block.hcbtip, details.hcb-content.box.hcbtip {
+  border-color: #00bfa5;
+}
+div.hcb-content.hcb-block.hcbsuccess, details.hcb-content.box.hcbsuccess {
+  border-color: #00c853;
+}
+div.hcb-content.hcb-block.hcbquestion, details.hcb-content.box.hcbquestion {
+  border-color: #64dd17;
+}
+div.hcb-content.hcb-block.hcbwarning, details.hcb-content.box.hcbwarning {
+  border-color: #ff9100;
+}
+div.hcb-content.hcb-block.hcbfailure, details.hcb-content.box.hcbfailure {
+  border-color: #ff5252;
+}
+div.hcb-content.hcb-block.hcbdanger, details.hcb-content.box.hcbdanger {
+  border-color: #ff1744;
+}
+div.hcb-content.hcb-block.hcbbug, details.hcb-content.box.hcbbug {
+  border-color: #f50057;
+}
+div.hcb-content.hcb-block.hcbexample, details.hcb-content.box.hcbexample {
+  border-color: #7c4dff;
+}
+div.hcb-content.hcb-block.hcbquote, details.hcb-content.box.hcbquote {
+  border-color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbnote:focus-within, details.hcb-content.box.hcbnote:focus-within {
+  box-shadow: 0 0 0 .2rem #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbabstract:focus-within, details.hcb-content.box.hcbabstract:focus-within {
+  box-shadow: 0 0 0 .2rem #00b0ff1a;
+}
+div.hcb-content.hcb-block.hcbinfo:focus-within, details.hcb-content.box.hcbinfo:focus-within {
+  box-shadow: 0 0 0 .2rem #00b8d41a;
+}
+div.hcb-content.hcb-block.hcbtip:focus-within, details.hcb-content.box.hcbtip:focus-within {
+  box-shadow: 0 0 0 .2rem #00bfa51a;
+}
+div.hcb-content.hcb-block.hcbsuccess:focus-within, details.hcb-content.box.hcbsuccess:focus-within {
+  box-shadow: 0 0 0 .2rem #00c8531a;
+}
+div.hcb-content.hcb-block.hcbquestion:focus-within, details.hcb-content.box.hcbquestion:focus-within {
+  box-shadow: 0 0 0 .2rem #64dd171a;
+}
+div.hcb-content.hcb-block.hcbwarning:focus-within, details.hcb-content.box.hcbwarning:focus-within {
+  box-shadow: 0 0 0 .2rem #ff91001a;
+}
+div.hcb-content.hcb-block.hcbfailure:focus-within, details.hcb-content.box.hcbfailure:focus-within {
+  box-shadow: 0 0 0 .2rem #ff52521a;
+}
+div.hcb-content.hcb-block.hcbdanger:focus-within, details.hcb-content.box.hcbdanger:focus-within {
+  box-shadow: 0 0 0 .2rem #ff17441a;
+}
+div.hcb-content.hcb-block.hcbbug:focus-within, details.hcb-content.box.hcbbug:focus-within {
+  box-shadow: 0 0 0 .2rem #f500571a;
+}
+div.hcb-content.hcb-block.hcbexample:focus-within, details.hcb-content.box.hcbexample:focus-within {
+  box-shadow: 0 0 0 .2rem #7c4dff1a;
+}
+div.hcb-content.hcb-block.hcbquote:focus-within, details.hcb-content.box.hcbquote:focus-within {
+  box-shadow: 0 0 0 .2rem #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbnote *, details.hcb-content.box.hcbnote *,div.hcb-content.hcb-block.hcbabstract *, details.hcb-content.box.hcbabstract *,div.hcb-content.hcb-block.hcbinfo *, details.hcb-content.box.hcbinfo *,div.hcb-content.hcb-block.hcbtip *, details.hcb-content.box.hcbtip *,div.hcb-content.hcb-block.hcbsuccess *, details.hcb-content.box.hcbsuccess *,div.hcb-content.hcb-block.hcbquestion *, details.hcb-content.box.hcbquestion *,div.hcb-content.hcb-block.hcbwarning *, details.hcb-content.box.hcbwarning *,div.hcb-content.hcb-block.hcbfailure *, details.hcb-content.box.hcbfailure *,div.hcb-content.hcb-block.hcbdanger *, details.hcb-content.box.hcbdanger *,div.hcb-content.hcb-block.hcbbug *, details.hcb-content.box.hcbbug *,div.hcb-content.hcb-block.hcbexample *, details.hcb-content.box.hcbexample *,div.hcb-content.hcb-block.hcbquote *, details.hcb-content.box.hcbquote * {
+  box-sizing: border-box;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbnote > summary,div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbabstract > summary,div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbinfo > summary,div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbtip > summary,div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbsuccess > summary,div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquestion > summary,div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbwarning > summary,div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbfailure > summary,div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbdanger > summary,div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbbug > summary,div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbexample > summary,div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquote > summary {
+  border-top-right-radius: 0.1rem;
+  border-top-left-radius: 0.1rem;
+  border-left-width: 0.2rem;
+  display: block;
+  min-height: 1rem;
+  border: none;
+  font-weight: 700;
+  margin: 0 -1.2rem 1rem;
+  padding: 0.4rem 0.6rem;
+  position: relative;
+  outline: none;
+}
+details.hcb-content.box.hcbnote > summary,details.hcb-content.box.hcbabstract > summary,details.hcb-content.box.hcbinfo > summary,details.hcb-content.box.hcbtip > summary,details.hcb-content.box.hcbsuccess > summary,details.hcb-content.box.hcbquestion > summary,details.hcb-content.box.hcbwarning > summary,details.hcb-content.box.hcbfailure > summary,details.hcb-content.box.hcbdanger > summary,details.hcb-content.box.hcbbug > summary,details.hcb-content.box.hcbexample > summary,details.hcb-content.box.hcbquote > summary {
+  cursor: pointer;
+}
+details.hcb-content.box.hcbnote:not([open]) > summary,details.hcb-content.box.hcbabstract:not([open]) > summary,details.hcb-content.box.hcbinfo:not([open]) > summary,details.hcb-content.box.hcbtip:not([open]) > summary,details.hcb-content.box.hcbsuccess:not([open]) > summary,details.hcb-content.box.hcbquestion:not([open]) > summary,details.hcb-content.box.hcbwarning:not([open]) > summary,details.hcb-content.box.hcbfailure:not([open]) > summary,details.hcb-content.box.hcbdanger:not([open]) > summary,details.hcb-content.box.hcbbug:not([open]) > summary,details.hcb-content.box.hcbexample:not([open]) > summary,details.hcb-content.box.hcbquote:not([open]) > summary {
+  margin-bottom: 0;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbnote > summary {
+  background-color: #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbabstract > summary {
+  background-color: #00b0ff1a;
+}
+div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbinfo > summary {
+  background-color: #00b8d41a;
+}
+div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbtip > summary {
+  background-color: #00bfa51a;
+}
+div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbsuccess > summary {
+  background-color: #00c8531a;
+}
+div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquestion > summary {
+  background-color: #64dd171a;
+}
+div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbwarning > summary {
+  background-color: #ff91001a;
+}
+div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbfailure > summary {
+  background-color: #ff52521a;
+}
+div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbdanger > summary {
+  background-color: #ff17441a;
+}
+div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbbug > summary {
+  background-color: #f500571a;
+}
+div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbexample > summary {
+  background-color: #7c4dff1a;
+}
+div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquote > summary {
+  background-color: #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbnote > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbabstract > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00b0ff;
+}
+div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbinfo > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00b8d4;
+}
+div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbtip > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00bfa5;
+}
+div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbsuccess > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00c853;
+}
+div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbquestion > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #64dd17;
+}
+div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbwarning > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff9100;
+}
+div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbfailure > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff5252;
+}
+div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbdanger > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff1744;
+}
+div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbbug > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #f50057;
+}
+div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbexample > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #7c4dff;
+}
+div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbquote > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #9e9e9e;
+}
+details.hcb-content.box.hcbnote > summary > div.hcb-box-open-button,details.hcb-content.box.hcbabstract > summary > div.hcb-box-open-button,details.hcb-content.box.hcbinfo > summary > div.hcb-box-open-button,details.hcb-content.box.hcbtip > summary > div.hcb-box-open-button,details.hcb-content.box.hcbsuccess > summary > div.hcb-box-open-button,details.hcb-content.box.hcbquestion > summary > div.hcb-box-open-button,details.hcb-content.box.hcbwarning > summary > div.hcb-box-open-button,details.hcb-content.box.hcbfailure > summary > div.hcb-box-open-button,details.hcb-content.box.hcbdanger > summary > div.hcb-box-open-button,details.hcb-content.box.hcbbug > summary > div.hcb-box-open-button,details.hcb-content.box.hcbexample > summary > div.hcb-box-open-button,details.hcb-content.box.hcbquote > summary > div.hcb-box-open-button {
+  float: right;
+}
+details.hcb-content.box.hcbnote > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbabstract > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbinfo > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbtip > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbsuccess > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbquestion > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbwarning > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbfailure > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbdanger > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbbug > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbexample > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbquote > summary > div.hcb-box-open-button > i {
+  margin: 0 0.6rem 0 0.6rem;
+  font-size: 0.7rem;
+  transition: transform 250ms
+}
+details.hcb-content.box.hcbnote:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbabstract:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbinfo:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbtip:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbsuccess:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquestion:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbwarning:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbfailure:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbdanger:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbbug:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbexample:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquote:not([open]) > summary > div.hcb-box-open-button i {
+  transform: rotate(270deg);
+}
+details.hcb-content.box.hcbnote[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbabstract[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbinfo[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbtip[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbsuccess[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquestion[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbwarning[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbfailure[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbdanger[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbbug[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbexample[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquote[open] > summary > div.hcb-box-open-button i {
+  transform: rotate(180deg);
+}
+details.hcb-content.box.hcbnote summary div.hcb-box-open-button i {
+  color: #9e9e9e;
+}
+details.hcb-content.box.hcbabstract summary div.hcb-box-open-button i {
+  color: #00b0ff;
+}
+details.hcb-content.box.hcbinfo summary div.hcb-box-open-button i {
+  color: #00b8d4;
+}
+details.hcb-content.box.hcbtip summary div.hcb-box-open-button i {
+  color: #00bfa5;
+}
+details.hcb-content.box.hcbsuccess summary div.hcb-box-open-button i {
+  color: #00c853;
+}
+details.hcb-content.box.hcbquestion summary div.hcb-box-open-button i {
+  color: #64dd17;
+}
+details.hcb-content.box.hcbwarning summary div.hcb-box-open-button i {
+  color: #ff9100;
+}
+details.hcb-content.box.hcbfailure summary div.hcb-box-open-button i {
+  color: #ff5252;
+}
+details.hcb-content.box.hcbdanger summary div.hcb-box-open-button i {
+  color: #ff1744;
+}
+details.hcb-content.box.hcbbug summary div.hcb-box-open-button i {
+  color: #f50057;
+}
+details.hcb-content.box.hcbexample summary div.hcb-box-open-button i {
+  color: #7c4dff;
+}
+details.hcb-content.box.hcbquote summary div.hcb-box-open-button i {
+  color: #9e9e9e;
+}
+div.hcb-content.hcb-cards * {
+  box-sizing: border-box;
+}
+input.hcb-content.hcb-cards-input {
+  display: none;
+}
+div.hcb-content.hcb-cards-labels {
+  position: relative;
+  box-shadow: 0 -0.05rem #00000012 inset;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+div.hcb-content.hcb-cards-labels:before {
+  background: var(--cards-color);
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: translateX(var(--md-indicator-x));
+  transition: width 225ms, transform 250ms;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  width: var(--md-indicator-width);
+}
+label.hcb-content.hcb-cards-label {
+  border-bottom: 0.1rem solid #0000;
+  border-radius: 0.1rem 0.1rem 0 0;
+  cursor: pointer;
+  color: #0000008a;
+  font-size: 0.92em;
+  font-weight: 700;
+  padding: 0 1.25rem 0.625rem;
+  transition: color 250ms;
+}
+label.hcb-content.hcb-cards-label.active, label.hcb-content.hcb-cards-label:hover {
+  color: var(--cards-color);
+}
+div.hcb-content.hcb-cards-content {
+  display: none;
+}
+div.hcb-content.hcb-cards-content.active {
+  display: block;
+}
+</style>
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="陣列是一種能儲存相同資料型別、固定大小、並使用連續記憶體空間的資料結構。每個元素透過索引 (index) 可以快速存取資料。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資料結構與演算法筆記 | 陣列 (Array)">
+<meta property="og:url" content="https://www.yueswater.com/array/index.html">
+<meta property="og:site_name" content="岳氏礦泉水">
+<meta property="og:description" content="陣列是一種能儲存相同資料型別、固定大小、並使用連續記憶體空間的資料結構。每個元素透過索引 (index) 可以快速存取資料。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-07-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-01T16:00:00.000Z">
+<meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="陣列">
+<meta property="article:tag" content="矩陣">
+<meta property="article:tag" content="一維陣列">
+<meta property="article:tag" content="二維陣列">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.yueswater.com/array/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>資料結構與演算法筆記 | 陣列 (Array) | 岳氏礦泉水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">岳氏礦泉水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">泉源思緒，細品人生</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          資料結構與演算法筆記 | 陣列 (Array)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2025-07-29T00:00:00+08:00">2025-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2025-08-02 00:00:00" itemprop="dateModified" datetime="2025-08-02T00:00:00+08:00">2025-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">程式語言筆記</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/%E6%BC%94%E7%AE%97%E6%B3%95%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">演算法筆記</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/array/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/array/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>6.5k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>33 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>陣列是一種能儲存<strong>相同資料型別</strong>、<strong>固定大小</strong>、並使用<strong>連續記憶體</strong>空間的資料結構。每個元素透過<strong>索引 (index)</strong> 可以快速存取資料。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>舉例而言，陣列可以比喻成一條街，街上的每個住戶都是一個值，其門牌號則是索引。郵局若要送信，只需知道門牌即可正確送達。</p>
+</blockquote>
+<p>不過 Python 的陣列與傳統的陣列有些許不同：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>傳統陣列（如 C）</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>資料型別</td>
+<td>同類型（int, float）</td>
+<td>可混合（int, str）</td>
+</tr>
+<tr>
+<td>記憶體配置</td>
+<td>連續</td>
+<td>背後用動態 array 實作</td>
+</tr>
+<tr>
+<td>大小是否固定</td>
+<td>是</td>
+<td>否，會自動擴充</td>
+</tr>
+<tr>
+<td>插入與刪除效率</td>
+<td>慢（需位移）</td>
+<td>同樣是 $\mathcal{O}(n)$</td>
+</tr>
+</tbody></table>
+<h2 id="宣告方式"><a href="#宣告方式" class="headerlink" title="宣告方式"></a>宣告方式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">k = <span class="number">5</span>                      <span class="comment"># 陣列個數</span></span><br><span class="line">arr: <span class="built_in">list</span>[<span class="built_in">int</span>] = [<span class="number">0</span>] * k   <span class="comment"># 宣告陣列</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 賦予元素值</span></span><br><span class="line">arr[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">2</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="number">3</span></span><br><span class="line">arr[<span class="number">3</span>] = <span class="number">4</span></span><br><span class="line">arr[<span class="number">4</span>] = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr: <span class="built_in">list</span>[<span class="built_in">int</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"><span class="comment"># [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="array-模組"><a href="#array-模組" class="headerlink" title="array 模組"></a>array 模組</h2><p>雖然 Python 的陣列可以混合不同型別的資料，但實際上可以使用 <code>array</code> 模組進行操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> array <span class="keyword">import</span> array</span><br><span class="line">arr = array(<span class="string">&quot;i&quot;</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br></pre></td></tr></table></figure>
+
+<p>結果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"><span class="comment"># array(&#x27;i&#x27;, [1, 2, 3, 4])</span></span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>&#39;i&#39;</code> 是 <strong>型別碼 (type code)</strong>，也就是指定陣列的資料型別，目的是為了達到與傳統陣列相同的功能。</p>
+<table>
+<thead>
+<tr>
+<th>Type code</th>
+<th>C Type</th>
+<th>Python Type</th>
+<th>Minimum size (bytes)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&#39;b&#39;</code></td>
+<td>signed char</td>
+<td>int</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>&#39;B&#39;</code></td>
+<td>unsigned char</td>
+<td>int</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>&#39;u&#39;</code></td>
+<td>wchar_t</td>
+<td>Unicode character</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>&#39;w&#39;</code></td>
+<td>Py_UCS4</td>
+<td>Unicode character</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>&#39;h&#39;</code></td>
+<td>signed short</td>
+<td>int</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>&#39;H&#39;</code></td>
+<td>unsigned short</td>
+<td>int</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>&#39;i&#39;</code></td>
+<td>signed int</td>
+<td>int</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>&#39;I&#39;</code></td>
+<td>unsigned int</td>
+<td>int</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>&#39;l&#39;</code></td>
+<td>signed long</td>
+<td>int</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>&#39;L&#39;</code></td>
+<td>unsigned long</td>
+<td>int</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>&#39;q&#39;</code></td>
+<td>signed long long</td>
+<td>int</td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>&#39;Q&#39;</code></td>
+<td>unsigned long long</td>
+<td>int</td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>&#39;f&#39;</code></td>
+<td>float</td>
+<td>float</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>&#39;d&#39;</code></td>
+<td>double</td>
+<td>float</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<h2 id="陣列的底層原理與效能"><a href="#陣列的底層原理與效能" class="headerlink" title="陣列的底層原理與效能"></a>陣列的底層原理與效能</h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>靜態陣列 (Static Array)</th>
+<th>動態陣列 (Dynamic Array)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>記憶體配置</td>
+<td>一開始就分配固定大小</td>
+<td>根據需求動態擴充記憶體</td>
+</tr>
+<tr>
+<td>資料型別</td>
+<td>通常需相同（如 C 語言）</td>
+<td>依實作而定，Python 允許混合型別</td>
+</tr>
+<tr>
+<td>空間效率</td>
+<td>高（不需搬移記憶體）</td>
+<td>可能有多次搬移與浪費空間</td>
+</tr>
+<tr>
+<td>增加元素效率</td>
+<td>不允許超出原始容量</td>
+<td>可以持續增加（但可能重新配置）</td>
+</tr>
+<tr>
+<td>代表語言&#x2F;結構</td>
+<td>C&#x2F;C++ 陣列、Python <code>array.array</code></td>
+<td>Python <code>list</code>、Java <code>ArrayList</code></td>
+</tr>
+</tbody></table>
+<h3 id="動態陣列與-Python-list"><a href="#動態陣列與-Python-list" class="headerlink" title="動態陣列與 Python list"></a>動態陣列與 Python list</h3><p>上面提到 Python 的 <code>list</code> 是個可無限擴充的容器，雖然背後仍使用連續的記憶體空間，但底層邏輯其實是動態陣列：每次 <code>append()</code> 資料時，並不會分配新空間，除非空間不足，才會配置更大一塊記憶體（通常是<strong>倍增</strong>），將原本的資料放進去，再加入新元素。因此，在 Python 中，<code>list.append(x)</code> 時最壞的效率是 $\mathcal{O}(n)$，平均而言是 $\mathcal{O}(1)$。</p>
+<h3 id="空間擴充策略：為什麼倍增？"><a href="#空間擴充策略：為什麼倍增？" class="headerlink" title="空間擴充策略：為什麼倍增？"></a>空間擴充策略：為什麼倍增？</h3><blockquote>
+<p>如果不是倍增，而是每次只多分配一格記憶體給新資料，會發生什麼事？</p>
+</blockquote>
+<p>假設有個陣列，每次 <code>append()</code> 新資料都是建立新陣列，大小為舊的陣列長度 $+1$，接著複製原本所有元素過去，再加上新元素，這樣總成本是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">加第 1 個元素：複製 0 個</span><br><span class="line">加第 2 個元素：複製 1 個</span><br><span class="line">加第 3 個元素：複製 2 個</span><br><span class="line">...</span><br><span class="line">加第 n 個元素：複製 n-1 個</span><br></pre></td></tr></table></figure>
+
+<p>總複製次數會是：</p>
+<p>$$<br>0 + 1 + 2 + \cdots + (n - 1) &#x3D; \mathcal{O}(n^{2})<br>$$</p>
+<p>用程式碼實際執行一次，可以建立一個 <code>DynamicArray</code> 類別，然後紀錄複製次數。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DynamicArray</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.capacity = <span class="number">1</span></span><br><span class="line">        <span class="variable language_">self</span>.size = <span class="number">0</span></span><br><span class="line">        <span class="variable language_">self</span>.data = [<span class="literal">None</span>] * <span class="variable language_">self</span>.capacity</span><br><span class="line">        <span class="variable language_">self</span>.copy_count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">append</span>(<span class="params">self, value</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.size == <span class="variable language_">self</span>.capacity:</span><br><span class="line">            old_data = <span class="variable language_">self</span>.data</span><br><span class="line">            <span class="variable language_">self</span>.capacity += <span class="number">1</span></span><br><span class="line">            <span class="variable language_">self</span>.data = [<span class="literal">None</span>] * <span class="variable language_">self</span>.capacity</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="variable language_">self</span>.size):</span><br><span class="line">                <span class="variable language_">self</span>.data[i] = old_data[i]</span><br><span class="line">                <span class="variable language_">self</span>.copy_count += <span class="number">1</span></span><br><span class="line">        <span class="variable language_">self</span>.data[<span class="variable language_">self</span>.size] = value</span><br><span class="line">        <span class="variable language_">self</span>.size += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>接著初始化陣列，然後加 $1000$ 次：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr = DynamicArray()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">    arr.append(i)</span><br></pre></td></tr></table></figure>
+
+<p>印出結果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;最終容量：&quot;</span>, arr.capacity)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;實際資料長度：&quot;</span>, arr.size)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;總共複製次數：&quot;</span>, arr.copy_count)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最終容量： 1000</span></span><br><span class="line"><span class="comment"># 實際資料長度： 1000</span></span><br><span class="line"><span class="comment"># 總共複製次數： 499500</span></span><br></pre></td></tr></table></figure>
+
+<p>但如果改為倍增，每次的成本會是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">加第 1 個元素：複製 1 個</span><br><span class="line">加第 2 個元素：複製 2 個</span><br><span class="line">加第 3 個元素：複製 4 個</span><br><span class="line">...</span><br><span class="line">加第 n 個元素：複製 n/2 個</span><br></pre></td></tr></table></figure>
+
+<p>總複製次數會是：</p>
+<p>$$<br>1 + 2 + 4 + \cdots + \dfrac{n}{2} \simeq 2n &#x3D; \mathcal{O}(n)<br>$$</p>
+<p>將上面的 <code>DynamicArray</code> 類別中容量擴充的邏輯改為 <code>self.capacity *= 2</code> ，並執行結果後</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;最終容量：&quot;</span>, arr.capacity)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;實際資料長度：&quot;</span>, arr.size)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;總共複製次數：&quot;</span>, arr.copy_count)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最終容量： 1024</span></span><br><span class="line"><span class="comment"># 實際資料長度： 1000</span></span><br><span class="line"><span class="comment"># 總共複製次數： 1023</span></span><br></pre></td></tr></table></figure>
+
+<p>可以驚人的發現，複製次數竟然比原本的還少！上面的這個現象，其實可以歸結成：若每次僅增加一格，每次新增元素時就必須複製 $n - 1$ 次；改為倍增後，雖然每次都需要擴充兩倍的空間，但是只有在空間不夠的時候才需要搬移。</p>
+<h2 id="一維陣列-1-D-Array"><a href="#一維陣列-1-D-Array" class="headerlink" title="一維陣列 (1-D Array)"></a>一維陣列 (1-D Array)</h2><p>一維陣列是一種線性資料結構，可以視為一串排列成一列的值，每個元素都有對應的索引。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>範例程式碼</th>
+<th>時間複雜度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查詢</td>
+<td><code>x = arr[i]</code></td>
+<td>$\mathcal{O}(1)$</td>
+</tr>
+<tr>
+<td>修改</td>
+<td><code>arr[i] = x</code></td>
+<td>$\mathcal{O}(1)$</td>
+</tr>
+<tr>
+<td>插入</td>
+<td><code>arr.insert(i, x)</code></td>
+<td>$\mathcal{O}(n)$</td>
+</tr>
+<tr>
+<td>刪除</td>
+<td><code>arr.pop(i)</code></td>
+<td>$\mathcal{O}(n)$</td>
+</tr>
+<tr>
+<td>走訪陣列</td>
+<td><code>for x in arr:</code></td>
+<td>$\mathcal{O}(n)$</td>
+</tr>
+</tbody></table>
+<p>查詢、修改與走訪的時間複雜度很好理解，但是為何插入與刪除是 $\mathcal{O}(n)$ 呢？</p>
+<h3 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h3><p>假設一個陣列 <code>arr = [1, 2, 3, 4, 5]</code> ，我們想要在索引 <code>2</code> 與 <code>3</code> 中間插入 <code>8</code>，變成 <code>[1, 2, 3, 8, 4, 5]</code> ，也就是原本 <code>arr[3]</code> 的值變成 <code>8</code>。順序是：</p>
+<ul>
+<li>在 <code>arr</code> 尾巴 <code>append(0)</code> ，用於移動資料</li>
+<li>將索引值為 <code>3</code> 之後的所有元素都往後移動一格</li>
+<li>令 <code>arr[3] = 8</code></li>
+</ul>
+<p>實際操作如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">arr: <span class="built_in">list</span>[<span class="built_in">int</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">k = <span class="number">3</span>                   <span class="comment"># 插入索引值</span></span><br><span class="line">N = <span class="number">8</span>                   <span class="comment"># 插入值</span></span><br><span class="line"></span><br><span class="line">arr.append(<span class="number">0</span>)           <span class="comment"># 尾部補 0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(arr) - <span class="number">1</span>, k, -<span class="number">1</span>):</span><br><span class="line">    arr[i] = arr[i - <span class="number">1</span>] <span class="comment"># 插入位置後向後移動</span></span><br><span class="line"></span><br><span class="line">arr[k] = N              <span class="comment"># 取代 arr[k] 為 N</span></span><br></pre></td></tr></table></figure>
+
+<p>執行結果為：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"><span class="comment"># [1, 2, 3, 8, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="刪除元素"><a href="#刪除元素" class="headerlink" title="刪除元素"></a>刪除元素</h3><p>刪除元素與插入元素相似，只是不需要在尾部補上空格，而是要將最後一個元素刪除。假設我們要刪除索引 <code>2</code>，順序如下：</p>
+<ul>
+<li>從目標索引開始，將後面的元素移動到前面</li>
+<li>刪除最後一個元素</li>
+</ul>
+<p>實際操作如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">arr: <span class="built_in">list</span>[<span class="built_in">int</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">k = <span class="number">2</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k, <span class="built_in">len</span>(arr) - <span class="number">1</span>):</span><br><span class="line">    arr[i] = arr[i + <span class="number">1</span>] <span class="comment"># 插入位置後向後移動</span></span><br><span class="line"></span><br><span class="line">arr.pop(-<span class="number">1</span>)             <span class="comment"># 丟掉最後一個元素</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"><span class="comment"># [1, 2, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<p>執行結果為：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"><span class="comment"># [1, 2, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h3><div class="tabs" id="練習題"><ul class="nav-tabs"><li class="tab active"><a href="#練習題-1">練習題 1</a></li><li class="tab"><a href="#練習題-2">練習題 2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="練習題-1"><p><strong>移除指定值</strong></p>
+<p>給一個整數陣列 <code>nums</code>，與一個整數 <code>val</code>，請就地 (in-place) 移除所有等於 val 的元素，並返回移除後的陣列長度。不需要維持原本順序，也不需要回傳新的陣列。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">輸入: nums = [3, 2, 2, 3], val = 3</span><br><span class="line">輸出: 2</span><br><span class="line">原因: 移除兩個 3，剩下 [2, 2]</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>解答</summary>
+
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeNum</span>(<span class="params">self, nums: <span class="built_in">list</span>[<span class="built_in">int</span>], val: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        write: <span class="built_in">int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> read <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[read] != val:</span><br><span class="line">                nums[write] = nums[read]</span><br><span class="line">                write += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> write</span><br></pre></td></tr></table></figure>
+</details>
+<br></div><div class="tab-pane" id="練習題-2"><p><strong>將所有 0 移到最後</strong></p>
+<p>給定一個整數陣列 <code>nums</code>，請將所有數值為 0 的元素「移動到陣列末端」，但保持非 0 元素的相對順序不變。</p>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>必須「就地 (in-place)」修改陣列</li>
+<li>不可以建立新陣列或使用內建 <code>sort</code>&#x2F;<code>remove</code> 等函式</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">輸入: nums = [0, 1, 0, 3, 12]</span><br><span class="line">輸出: [1, 3, 12, 0, 0]</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>解答</summary>
+    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">moveZeroToEnd</span>(<span class="params">self, nums: <span class="built_in">list</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">list</span>[<span class="built_in">int</span>]:</span><br><span class="line">    write = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> read <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">        <span class="keyword">if</span> nums[read] != <span class="number">0</span>:</span><br><span class="line">            nums[write] = nums[read]</span><br><span class="line">            write += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(write, <span class="built_in">len</span>(nums)):</span><br><span class="line">        nums[i] = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> nums</span><br></pre></td></tr></table></figure>
+</details>
+<br></div></div></div>
+
+<h2 id="二維陣列-2-D-Array"><a href="#二維陣列-2-D-Array" class="headerlink" title="二維陣列 (2-D Array)"></a>二維陣列 (2-D Array)</h2><p>二維陣列可以視為<strong>陣列的陣列</strong>，每個元素本身也是一個陣列，其結構視覺上看起來就是一個表格或矩陣，包含<strong>列 (row)與欄 (column)</strong>。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [<span class="meta">1, 2, 3</span>],</span><br><span class="line">  [<span class="meta">4, 5, 6</span>],</span><br><span class="line">  [<span class="meta">7, 8, 9</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一層是列（外層 <code>list</code>）</li>
+<li>第二層是欄（內層 <code>list</code>）</li>
+</ul>
+<p>實務上多以 <code>arr[i][j]</code> 表示第 <code>i</code> 列第 <code>j</code> 欄的元素。</p>
+<h3 id="宣告方式-1"><a href="#宣告方式-1" class="headerlink" title="宣告方式"></a>宣告方式</h3><p>在 Python 中可以使用 list comprehension 建立一個 $m \times n$ 的二維陣列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rows = <span class="number">3</span></span><br><span class="line">cols = <span class="number">4</span></span><br><span class="line">matrix: <span class="built_in">list</span>[<span class="built_in">list</span>[<span class="built_in">int</span>]] = [[<span class="number">0</span>] * cols <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(rows)]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"><span class="comment"># [</span></span><br><span class="line"><span class="comment">#   [0, 0, 0, 0],</span></span><br><span class="line"><span class="comment">#   [0, 0, 0, 0],</span></span><br><span class="line"><span class="comment">#   [0, 0, 0, 0]</span></span><br><span class="line"><span class="comment"># ]</span></span><br></pre></td></tr></table></figure>
+
+<p>事實上這個二維陣列在數學上就是一個 $3 \times 4$ 矩陣：</p>
+<p>$$<br>M_{3 \times 4} &#x3D;<br>\begin{bmatrix}<br>0 &amp; 0 &amp; 0 &amp; 0\\<br>0 &amp; 0 &amp; 0 &amp; 0\\<br>0 &amp; 0 &amp; 0 &amp; 0\\<br>\end{bmatrix}<br>$$</p>
+<p>但請注意，不能寫成這樣：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix = [[<span class="number">0</span>] * cols] * rows  <span class="comment"># 錯誤：會建立重複參照的列</span></span><br></pre></td></tr></table></figure>
+
+<p>這樣做會讓所有列指向同一個物件，<strong>修改其中一列的元素時，其他列也會改變</strong>。除了使用 list comprehension，如果知道二維陣列的長相，也可以直接宣告，例如以下建立一個 $4 \times 4$ 的單位矩陣：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I = [[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">     [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">     [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">     [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(I)</span><br><span class="line"><span class="comment"># [[1, 0, 0, 0],</span></span><br><span class="line"><span class="comment">#  [0, 1, 0, 0],</span></span><br><span class="line"><span class="comment">#  [0, 0, 1, 0],</span></span><br><span class="line"><span class="comment">#  [0, 0, 0, 1]]</span></span><br></pre></td></tr></table></figure>
+
+<p>數學上的寫法則是：</p>
+<p>$$<br>I_{4} &#x3D;<br>\begin{bmatrix}<br>1 &amp; 0 &amp; 0 &amp; 0\\<br>0 &amp; 1 &amp; 0 &amp; 0\\<br>0 &amp; 0 &amp; 1 &amp; 0\\<br>0 &amp; 0 &amp; 0 &amp; 1\\<br>\end{bmatrix}<br>$$</p>
+<h3 id="元素存取與操作"><a href="#元素存取與操作" class="headerlink" title="元素存取與操作"></a>元素存取與操作</h3><p>二維陣列的元素存取與修改與一維陣列相似，只是今天多了一個維度需要考慮。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>範例程式碼</th>
+<th>時間複雜度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查詢</td>
+<td><code>x = arr[i][j]</code></td>
+<td>$\mathcal{O}(1)$</td>
+</tr>
+<tr>
+<td>修改</td>
+<td><code>arr[i][j] = x</code></td>
+<td>$\mathcal{O}(1)$</td>
+</tr>
+<tr>
+<td>插入列</td>
+<td><code>arr.insert(i, new_row)</code></td>
+<td>$\mathcal{O}(n)$</td>
+</tr>
+<tr>
+<td>插入欄</td>
+<td><code>for row in arr: row.insert(j, x)</code></td>
+<td>$\mathcal{O}(m)$</td>
+</tr>
+<tr>
+<td>刪除列</td>
+<td><code>arr.pop(i)</code></td>
+<td>$\mathcal{O}(n)$</td>
+</tr>
+<tr>
+<td>刪除欄</td>
+<td><code>for row in arr: row.pop(j)</code></td>
+<td>$\mathcal{O}(m)$</td>
+</tr>
+<tr>
+<td>走訪全部</td>
+<td><code>for i in range(m): for j in range(n): arr[i][j]</code></td>
+<td>$\mathcal{O}(m \times n)$</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">matrix[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">10</span>     <span class="comment"># 修改第 0 列第 1 欄的值為 10</span></span><br><span class="line">value = matrix[<span class="number">2</span>][<span class="number">3</span>]  <span class="comment"># 取得第 2 列第 3 欄的值</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想走訪二維陣列，就需要使用巢狀迴圈，但請注意順序：<strong>先走訪列，再走訪欄</strong>。原因就是宣告陣列時，外層表示的是列，內層則是欄。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(matrix)):         <span class="comment"># 列</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(matrix[<span class="number">0</span>])):  <span class="comment"># 欄</span></span><br><span class="line">        matrix[i][j]</span><br></pre></td></tr></table></figure>
+
+<p>更簡潔的寫法是善用 <code>enumerate</code> 函式，同時得到索引與值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i, val <span class="keyword">in</span> <span class="built_in">enumerate</span>(matrix):</span><br><span class="line">    <span class="keyword">for</span> j, val <span class="keyword">in</span> <span class="built_in">enumerate</span>(row):</span><br><span class="line">        matrix[i][j]</span><br></pre></td></tr></table></figure>
+
+<h3 id="練習題-1"><a href="#練習題-1" class="headerlink" title="練習題"></a>練習題</h3><div class="tabs" id="練習題"><ul class="nav-tabs"><li class="tab active"><a href="#練習題-1">練習題 1</a></li><li class="tab"><a href="#練習題-2">練習題 2</a></li><li class="tab"><a href="#練習題-3">練習題 3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="練習題-1"><p><strong>總和矩陣</strong></p>
+<p>給一個 $m \times n$ 的整數矩陣 <code>matrix</code>，計算所有元素的總和。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">輸入: </span><br><span class="line">matrix = [</span><br><span class="line">    [1, 2, 3],</span><br><span class="line">    [4, 5, 6]</span><br><span class="line">]</span><br><span class="line">輸出: 21</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>解答</summary>
+
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">sumOfMatrix</span>(<span class="params">self, matrix: <span class="built_in">list</span>[<span class="built_in">list</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        result = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> matrix:</span><br><span class="line">            <span class="keyword">for</span> val <span class="keyword">in</span> row:</span><br><span class="line">                result +=  val</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+</details>
+<br></div><div class="tab-pane" id="練習題-2"><p><strong>主對角線總和</strong></p>
+<p>給一個 $m \times n$ 的整數矩陣 <code>matrix</code>，計算主對角線（從左上到右下）的總和。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">輸入: </span><br><span class="line">matrix = [</span><br><span class="line">    [1, 0, 0],</span><br><span class="line">    [0, 5, 0],</span><br><span class="line">    [0, 0, 9]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">輸出: 15</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>解答</summary>
+    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">diagonalSum</span>(<span class="params">self, matrix: <span class="built_in">list</span>[<span class="built_in">list</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        diag_sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(matrix)):</span><br><span class="line">            diag_sum += matrix[i][i]</span><br><span class="line">        <span class="keyword">return</span> diag_sum</span><br></pre></td></tr></table></figure>
+</details>
+<br></div><div class="tab-pane" id="練習題-3"><p><strong>反轉列元素</strong></p>
+<p>給一個 $m \times n$ 的整數矩陣 <code>matrix</code>，就地反轉每一列的元素順序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">輸入: </span><br><span class="line">matrix = [</span><br><span class="line">    [1, 2, 3],</span><br><span class="line">    [4, 5, 6]</span><br><span class="line">]</span><br><span class="line">輸出:</span><br><span class="line">[</span><br><span class="line">    [3, 2, 1],</span><br><span class="line">    [6, 5, 4]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>解答</summary>
+    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reverseRowElement</span>(<span class="params">self, matrix: <span class="built_in">list</span>[<span class="built_in">list</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(matrix)):</span><br><span class="line">            row = matrix[i]</span><br><span class="line">            n = <span class="built_in">len</span>(row)</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n // <span class="number">2</span>):</span><br><span class="line">                row[j], row[n - j - <span class="number">1</span>] = row[n - j - <span class="number">1</span>], row[j]</span><br></pre></td></tr></table></figure>
+</details>
+<br></div></div></div>
+
+</aside>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E9%99%A3%E5%88%97/" rel="tag"><i class="fa fa-tag"></i> 陣列</a>
+              <a href="/tags/%E7%9F%A9%E9%99%A3/" rel="tag"><i class="fa fa-tag"></i> 矩陣</a>
+              <a href="/tags/%E4%B8%80%E7%B6%AD%E9%99%A3%E5%88%97/" rel="tag"><i class="fa fa-tag"></i> 一維陣列</a>
+              <a href="/tags/%E4%BA%8C%E7%B6%AD%E9%99%A3%E5%88%97/" rel="tag"><i class="fa fa-tag"></i> 二維陣列</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/dbms/" rel="prev" title="資料庫筆記 | 資料庫管理系統 (Database Management System)">
+      <i class="fa fa-chevron-left"></i> 資料庫筆記 | 資料庫管理系統 (Database Management System)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A3%E5%91%8A%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">宣告方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#array-%E6%A8%A1%E7%B5%84"><span class="nav-number">2.</span> <span class="nav-text">array 模組</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E7%9A%84%E5%BA%95%E5%B1%A4%E5%8E%9F%E7%90%86%E8%88%87%E6%95%88%E8%83%BD"><span class="nav-number">3.</span> <span class="nav-text">陣列的底層原理與效能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8B%95%E6%85%8B%E9%99%A3%E5%88%97%E8%88%87-Python-list"><span class="nav-number">3.1.</span> <span class="nav-text">動態陣列與 Python list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%96%93%E6%93%B4%E5%85%85%E7%AD%96%E7%95%A5%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E5%80%8D%E5%A2%9E%EF%BC%9F"><span class="nav-number">3.2.</span> <span class="nav-text">空間擴充策略：為什麼倍增？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%B6%AD%E9%99%A3%E5%88%97-1-D-Array"><span class="nav-number">4.</span> <span class="nav-text">一維陣列 (1-D Array)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0"><span class="nav-number">4.1.</span> <span class="nav-text">插入元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%AA%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">4.2.</span> <span class="nav-text">刪除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B7%B4%E7%BF%92%E9%A1%8C"><span class="nav-number">4.3.</span> <span class="nav-text">練習題</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E7%B6%AD%E9%99%A3%E5%88%97-2-D-Array"><span class="nav-number">5.</span> <span class="nav-text">二維陣列 (2-D Array)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A3%E5%91%8A%E6%96%B9%E5%BC%8F-1"><span class="nav-number">5.1.</span> <span class="nav-text">宣告方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E5%AD%98%E5%8F%96%E8%88%87%E6%93%8D%E4%BD%9C"><span class="nav-number">5.2.</span> <span class="nav-text">元素存取與操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B7%B4%E7%BF%92%E9%A1%8C-1"><span class="nav-number">5.3.</span> <span class="nav-text">練習題</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Anthony Sung"
+      src="/images/profile.svg">
+  <p class="site-author-name" itemprop="name">Anthony Sung</p>
+  <div class="site-description" itemprop="description">對生活抱持好奇心的學習者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaolong70701" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaolong70701" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xiaolong70701@gmail.com" title="E-Mail → mailto:xiaolong70701@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yueswater/" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yueswater&#x2F;" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/yues_19_water/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;yues_19_water&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">&copy; Anthony 部落格原站：<a href="https://xiaolong70701.github.io/blog/" target="_blank">Yueswater Blog</a>；若要轉載文章，麻煩請保留原作者名稱與原始連結。
+</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌙',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yueswater.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/array/";
+    this.page.identifier = "/array/";
+    this.page.title = "資料結構與演算法筆記 | 陣列 (Array)";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+<script src="/js/injector.js"></script>
+</body>
+</html>
