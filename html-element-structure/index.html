@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4306040064090497"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <style type="text/css">
+
+div.hcb-content.hcb-block.hcbnote, details.hcb-content.box.hcbnote,div.hcb-content.hcb-block.hcbabstract, details.hcb-content.box.hcbabstract,div.hcb-content.hcb-block.hcbinfo, details.hcb-content.box.hcbinfo,div.hcb-content.hcb-block.hcbtip, details.hcb-content.box.hcbtip,div.hcb-content.hcb-block.hcbsuccess, details.hcb-content.box.hcbsuccess,div.hcb-content.hcb-block.hcbquestion, details.hcb-content.box.hcbquestion,div.hcb-content.hcb-block.hcbwarning, details.hcb-content.box.hcbwarning,div.hcb-content.hcb-block.hcbfailure, details.hcb-content.box.hcbfailure,div.hcb-content.hcb-block.hcbdanger, details.hcb-content.box.hcbdanger,div.hcb-content.hcb-block.hcbbug, details.hcb-content.box.hcbbug,div.hcb-content.hcb-block.hcbexample, details.hcb-content.box.hcbexample,div.hcb-content.hcb-block.hcbquote, details.hcb-content.box.hcbquote {
+  border: .05rem solid #448aff;
+  border-radius: .2rem;
+  font-size: 0.96rem;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  transition: box-shadow 250ms;
+}
+div.hcb-content.hcb-block.hcbnote, details.hcb-content.box.hcbnote {
+  border-color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbabstract, details.hcb-content.box.hcbabstract {
+  border-color: #00b0ff;
+}
+div.hcb-content.hcb-block.hcbinfo, details.hcb-content.box.hcbinfo {
+  border-color: #00b8d4;
+}
+div.hcb-content.hcb-block.hcbtip, details.hcb-content.box.hcbtip {
+  border-color: #00bfa5;
+}
+div.hcb-content.hcb-block.hcbsuccess, details.hcb-content.box.hcbsuccess {
+  border-color: #00c853;
+}
+div.hcb-content.hcb-block.hcbquestion, details.hcb-content.box.hcbquestion {
+  border-color: #64dd17;
+}
+div.hcb-content.hcb-block.hcbwarning, details.hcb-content.box.hcbwarning {
+  border-color: #ff9100;
+}
+div.hcb-content.hcb-block.hcbfailure, details.hcb-content.box.hcbfailure {
+  border-color: #ff5252;
+}
+div.hcb-content.hcb-block.hcbdanger, details.hcb-content.box.hcbdanger {
+  border-color: #ff1744;
+}
+div.hcb-content.hcb-block.hcbbug, details.hcb-content.box.hcbbug {
+  border-color: #f50057;
+}
+div.hcb-content.hcb-block.hcbexample, details.hcb-content.box.hcbexample {
+  border-color: #7c4dff;
+}
+div.hcb-content.hcb-block.hcbquote, details.hcb-content.box.hcbquote {
+  border-color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbnote:focus-within, details.hcb-content.box.hcbnote:focus-within {
+  box-shadow: 0 0 0 .2rem #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbabstract:focus-within, details.hcb-content.box.hcbabstract:focus-within {
+  box-shadow: 0 0 0 .2rem #00b0ff1a;
+}
+div.hcb-content.hcb-block.hcbinfo:focus-within, details.hcb-content.box.hcbinfo:focus-within {
+  box-shadow: 0 0 0 .2rem #00b8d41a;
+}
+div.hcb-content.hcb-block.hcbtip:focus-within, details.hcb-content.box.hcbtip:focus-within {
+  box-shadow: 0 0 0 .2rem #00bfa51a;
+}
+div.hcb-content.hcb-block.hcbsuccess:focus-within, details.hcb-content.box.hcbsuccess:focus-within {
+  box-shadow: 0 0 0 .2rem #00c8531a;
+}
+div.hcb-content.hcb-block.hcbquestion:focus-within, details.hcb-content.box.hcbquestion:focus-within {
+  box-shadow: 0 0 0 .2rem #64dd171a;
+}
+div.hcb-content.hcb-block.hcbwarning:focus-within, details.hcb-content.box.hcbwarning:focus-within {
+  box-shadow: 0 0 0 .2rem #ff91001a;
+}
+div.hcb-content.hcb-block.hcbfailure:focus-within, details.hcb-content.box.hcbfailure:focus-within {
+  box-shadow: 0 0 0 .2rem #ff52521a;
+}
+div.hcb-content.hcb-block.hcbdanger:focus-within, details.hcb-content.box.hcbdanger:focus-within {
+  box-shadow: 0 0 0 .2rem #ff17441a;
+}
+div.hcb-content.hcb-block.hcbbug:focus-within, details.hcb-content.box.hcbbug:focus-within {
+  box-shadow: 0 0 0 .2rem #f500571a;
+}
+div.hcb-content.hcb-block.hcbexample:focus-within, details.hcb-content.box.hcbexample:focus-within {
+  box-shadow: 0 0 0 .2rem #7c4dff1a;
+}
+div.hcb-content.hcb-block.hcbquote:focus-within, details.hcb-content.box.hcbquote:focus-within {
+  box-shadow: 0 0 0 .2rem #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbnote *, details.hcb-content.box.hcbnote *,div.hcb-content.hcb-block.hcbabstract *, details.hcb-content.box.hcbabstract *,div.hcb-content.hcb-block.hcbinfo *, details.hcb-content.box.hcbinfo *,div.hcb-content.hcb-block.hcbtip *, details.hcb-content.box.hcbtip *,div.hcb-content.hcb-block.hcbsuccess *, details.hcb-content.box.hcbsuccess *,div.hcb-content.hcb-block.hcbquestion *, details.hcb-content.box.hcbquestion *,div.hcb-content.hcb-block.hcbwarning *, details.hcb-content.box.hcbwarning *,div.hcb-content.hcb-block.hcbfailure *, details.hcb-content.box.hcbfailure *,div.hcb-content.hcb-block.hcbdanger *, details.hcb-content.box.hcbdanger *,div.hcb-content.hcb-block.hcbbug *, details.hcb-content.box.hcbbug *,div.hcb-content.hcb-block.hcbexample *, details.hcb-content.box.hcbexample *,div.hcb-content.hcb-block.hcbquote *, details.hcb-content.box.hcbquote * {
+  box-sizing: border-box;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbnote > summary,div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbabstract > summary,div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbinfo > summary,div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbtip > summary,div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbsuccess > summary,div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquestion > summary,div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbwarning > summary,div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbfailure > summary,div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbdanger > summary,div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbbug > summary,div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbexample > summary,div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquote > summary {
+  border-top-right-radius: 0.1rem;
+  border-top-left-radius: 0.1rem;
+  border-left-width: 0.2rem;
+  display: block;
+  min-height: 1rem;
+  border: none;
+  font-weight: 700;
+  margin: 0 -1.2rem 1rem;
+  padding: 0.4rem 0.6rem;
+  position: relative;
+  outline: none;
+}
+details.hcb-content.box.hcbnote > summary,details.hcb-content.box.hcbabstract > summary,details.hcb-content.box.hcbinfo > summary,details.hcb-content.box.hcbtip > summary,details.hcb-content.box.hcbsuccess > summary,details.hcb-content.box.hcbquestion > summary,details.hcb-content.box.hcbwarning > summary,details.hcb-content.box.hcbfailure > summary,details.hcb-content.box.hcbdanger > summary,details.hcb-content.box.hcbbug > summary,details.hcb-content.box.hcbexample > summary,details.hcb-content.box.hcbquote > summary {
+  cursor: pointer;
+}
+details.hcb-content.box.hcbnote:not([open]) > summary,details.hcb-content.box.hcbabstract:not([open]) > summary,details.hcb-content.box.hcbinfo:not([open]) > summary,details.hcb-content.box.hcbtip:not([open]) > summary,details.hcb-content.box.hcbsuccess:not([open]) > summary,details.hcb-content.box.hcbquestion:not([open]) > summary,details.hcb-content.box.hcbwarning:not([open]) > summary,details.hcb-content.box.hcbfailure:not([open]) > summary,details.hcb-content.box.hcbdanger:not([open]) > summary,details.hcb-content.box.hcbbug:not([open]) > summary,details.hcb-content.box.hcbexample:not([open]) > summary,details.hcb-content.box.hcbquote:not([open]) > summary {
+  margin-bottom: 0;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbnote > summary {
+  background-color: #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbabstract > summary {
+  background-color: #00b0ff1a;
+}
+div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbinfo > summary {
+  background-color: #00b8d41a;
+}
+div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbtip > summary {
+  background-color: #00bfa51a;
+}
+div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbsuccess > summary {
+  background-color: #00c8531a;
+}
+div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquestion > summary {
+  background-color: #64dd171a;
+}
+div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbwarning > summary {
+  background-color: #ff91001a;
+}
+div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbfailure > summary {
+  background-color: #ff52521a;
+}
+div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbdanger > summary {
+  background-color: #ff17441a;
+}
+div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbbug > summary {
+  background-color: #f500571a;
+}
+div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbexample > summary {
+  background-color: #7c4dff1a;
+}
+div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquote > summary {
+  background-color: #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbnote > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbabstract > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00b0ff;
+}
+div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbinfo > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00b8d4;
+}
+div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbtip > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00bfa5;
+}
+div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbsuccess > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00c853;
+}
+div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbquestion > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #64dd17;
+}
+div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbwarning > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff9100;
+}
+div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbfailure > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff5252;
+}
+div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbdanger > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff1744;
+}
+div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbbug > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #f50057;
+}
+div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbexample > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #7c4dff;
+}
+div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbquote > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #9e9e9e;
+}
+details.hcb-content.box.hcbnote > summary > div.hcb-box-open-button,details.hcb-content.box.hcbabstract > summary > div.hcb-box-open-button,details.hcb-content.box.hcbinfo > summary > div.hcb-box-open-button,details.hcb-content.box.hcbtip > summary > div.hcb-box-open-button,details.hcb-content.box.hcbsuccess > summary > div.hcb-box-open-button,details.hcb-content.box.hcbquestion > summary > div.hcb-box-open-button,details.hcb-content.box.hcbwarning > summary > div.hcb-box-open-button,details.hcb-content.box.hcbfailure > summary > div.hcb-box-open-button,details.hcb-content.box.hcbdanger > summary > div.hcb-box-open-button,details.hcb-content.box.hcbbug > summary > div.hcb-box-open-button,details.hcb-content.box.hcbexample > summary > div.hcb-box-open-button,details.hcb-content.box.hcbquote > summary > div.hcb-box-open-button {
+  float: right;
+}
+details.hcb-content.box.hcbnote > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbabstract > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbinfo > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbtip > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbsuccess > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbquestion > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbwarning > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbfailure > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbdanger > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbbug > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbexample > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbquote > summary > div.hcb-box-open-button > i {
+  margin: 0 0.6rem 0 0.6rem;
+  font-size: 0.7rem;
+  transition: transform 250ms
+}
+details.hcb-content.box.hcbnote:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbabstract:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbinfo:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbtip:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbsuccess:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquestion:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbwarning:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbfailure:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbdanger:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbbug:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbexample:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquote:not([open]) > summary > div.hcb-box-open-button i {
+  transform: rotate(270deg);
+}
+details.hcb-content.box.hcbnote[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbabstract[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbinfo[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbtip[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbsuccess[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquestion[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbwarning[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbfailure[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbdanger[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbbug[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbexample[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquote[open] > summary > div.hcb-box-open-button i {
+  transform: rotate(180deg);
+}
+details.hcb-content.box.hcbnote summary div.hcb-box-open-button i {
+  color: #9e9e9e;
+}
+details.hcb-content.box.hcbabstract summary div.hcb-box-open-button i {
+  color: #00b0ff;
+}
+details.hcb-content.box.hcbinfo summary div.hcb-box-open-button i {
+  color: #00b8d4;
+}
+details.hcb-content.box.hcbtip summary div.hcb-box-open-button i {
+  color: #00bfa5;
+}
+details.hcb-content.box.hcbsuccess summary div.hcb-box-open-button i {
+  color: #00c853;
+}
+details.hcb-content.box.hcbquestion summary div.hcb-box-open-button i {
+  color: #64dd17;
+}
+details.hcb-content.box.hcbwarning summary div.hcb-box-open-button i {
+  color: #ff9100;
+}
+details.hcb-content.box.hcbfailure summary div.hcb-box-open-button i {
+  color: #ff5252;
+}
+details.hcb-content.box.hcbdanger summary div.hcb-box-open-button i {
+  color: #ff1744;
+}
+details.hcb-content.box.hcbbug summary div.hcb-box-open-button i {
+  color: #f50057;
+}
+details.hcb-content.box.hcbexample summary div.hcb-box-open-button i {
+  color: #7c4dff;
+}
+details.hcb-content.box.hcbquote summary div.hcb-box-open-button i {
+  color: #9e9e9e;
+}
+div.hcb-content.hcb-cards * {
+  box-sizing: border-box;
+}
+input.hcb-content.hcb-cards-input {
+  display: none;
+}
+div.hcb-content.hcb-cards-labels {
+  position: relative;
+  box-shadow: 0 -0.05rem #00000012 inset;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+div.hcb-content.hcb-cards-labels:before {
+  background: var(--cards-color);
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: translateX(var(--md-indicator-x));
+  transition: width 225ms, transform 250ms;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  width: var(--md-indicator-width);
+}
+label.hcb-content.hcb-cards-label {
+  border-bottom: 0.1rem solid #0000;
+  border-radius: 0.1rem 0.1rem 0 0;
+  cursor: pointer;
+  color: #0000008a;
+  font-size: 0.92em;
+  font-weight: 700;
+  padding: 0 1.25rem 0.625rem;
+  transition: color 250ms;
+}
+label.hcb-content.hcb-cards-label.active, label.hcb-content.hcb-cards-label:hover {
+  color: var(--cards-color);
+}
+div.hcb-content.hcb-cards-content {
+  display: none;
+}
+div.hcb-content.hcb-cards-content.active {
+  display: block;
+}
+</style>
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="HTML 最基本的單位是元素 (element)，例如以下是一個元素 p 的範例： 1&lt;p&gt;My cat is very grumpy&lt;&#x2F;p&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML 筆記 | 元素與結構">
+<meta property="og:url" content="https://www.yueswater.com/html-element-structure/index.html">
+<meta property="og:site_name" content="岳氏礦泉水">
+<meta property="og:description" content="HTML 最基本的單位是元素 (element)，例如以下是一個元素 p 的範例： 1&lt;p&gt;My cat is very grumpy&lt;&#x2F;p&gt;">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://www.yueswater.com/images/frontend-learning/html-learning/html-element-structure/element-demo.png">
+<meta property="og:image" content="https://www.yueswater.com/images/frontend-learning/html-learning/html-element-structure/block-inline.png">
+<meta property="article:published_time" content="2025-08-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-02T16:00:00.000Z">
+<meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="tag">
+<meta property="article:tag" content="element">
+<meta property="article:tag" content="structure">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yueswater.com/images/frontend-learning/html-learning/html-element-structure/element-demo.png">
+
+<link rel="canonical" href="https://www.yueswater.com/html-element-structure/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>HTML 筆記 | 元素與結構 | 岳氏礦泉水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">岳氏礦泉水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">泉源思緒，細品人生</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/html-element-structure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTML 筆記 | 元素與結構
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-08-03 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-03T00:00:00+08:00">2025-08-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">前端筆記</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/html-element-structure/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/html-element-structure/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>24 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>HTML 最基本的單位是<strong>元素 (element)</strong>，例如以下是一個元素 <code>p</code> 的範例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>My cat is very grumpy<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>MDN 提供了圖片的詳細介紹：</p>
+<div style="text-align:center">
+  <img src="/images/frontend-learning/html-learning/html-element-structure/element-demo.png" alt="HTML 標籤說明">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：HTML 標籤說明</p>
+</div>
+
+<p>圖片來源：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax">HTML 入門 - 學習 Web 開發 | MDN</a></p>
+<ul>
+<li><strong>起始標籤 (opening tag)</strong>：包含元素名稱，以 <code>&lt;元素名稱&gt;</code> 表示，代表元素於何時生效</li>
+<li><strong>結束標籤 (closing tag)</strong>：同樣包含元素名稱，但是是以 <code>&lt;/元素名稱&gt;</code> 表示，代表元素於何時失效</li>
+<li><strong>內容 (content)</strong>：元素內容</li>
+</ul>
+<h2 id="元素分類"><a href="#元素分類" class="headerlink" title="元素分類"></a>元素分類</h2><p>HTML 特別區分元素的種類，並且按照不同性質與效果有不同的定義與處理方式。</p>
+<h3 id="巢狀元素-Nesting-Element"><a href="#巢狀元素-Nesting-Element" class="headerlink" title="巢狀元素 (Nesting Element)"></a>巢狀元素 (Nesting Element)</h3><p>在前面的例子中，我們嘗試用段落元素來顯示一個句子，那麼如果想要特別強調我們的貓<strong>特兇</strong>，則可以使用 <code>&lt;strong&gt;</code> 元素包住想要強調的字：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>My cat is <span class="tag">&lt;<span class="name">strong</span>&gt;</span>very grumpy<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>因為 <code>strong</code> 元素被包在 <code>p</code> 元素中，則可以稱這段為巢狀元素。</p>
+<div class="note info">
+            <h3 id="巢狀元素順序"><a href="#巢狀元素順序" class="headerlink" title=" 巢狀元素順序"></a><i class="fa-solid fa-circle-info"></i> 巢狀元素順序</h3><p>儘管 HTML 提供編寫者自由在元素內用各種巢狀元素層層堆疊，但需要注意的是，結構必須是：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">元素1</span>&gt;</span><span class="tag">&lt;<span class="name">元素2</span>&gt;</span><span class="tag">&lt;<span class="name">元素3</span>&gt;</span>...<span class="tag">&lt;/<span class="name">元素3</span>&gt;</span><span class="tag">&lt;/<span class="name">元素2</span>&gt;</span><span class="tag">&lt;/<span class="name">元素1</span>&gt;</span></span><br></pre></td></tr></table></figure><p>必須正確打開與關閉元素。</p>
+          </div>
+
+<h3 id="區塊元素-Block-Element-與行內元素-Inline-Element"><a href="#區塊元素-Block-Element-與行內元素-Inline-Element" class="headerlink" title="區塊元素 (Block Element) 與行內元素 (Inline Element)"></a>區塊元素 (Block Element) 與行內元素 (Inline Element)</h3><p>就顯示在頁面上的方式，元素可以分為區塊與行內：</p>
+<ul>
+<li><strong>區塊</strong>：在頁面中單獨佔一行，前後都以一個換行分隔，例如段落、列表、導航選單</li>
+<li><strong>行內</strong>：放在區塊元素中的內容，非以段落或群組方式組成，例如超連結、強調元素</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span>first<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;<span class="name">em</span>&gt;</span>second<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;<span class="name">em</span>&gt;</span>third<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>fourth<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>fifth<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>sixth<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>em</code> 是行內元素，彼此緊挨著；<code>p</code> 則是區塊元素，上下皆有空間。</p>
+<div style="text-align:center">
+  <img src="/images/frontend-learning/html-learning/html-element-structure/block-inline.png" alt="HTML 標籤說明">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：HTML 標籤說明</p>
+</div>
+
+<h3 id="空元素-Empty-Element"><a href="#空元素-Empty-Element" class="headerlink" title="空元素 (Empty Element)"></a>空元素 (Empty Element)</h3><p>用於插入&#x2F;嵌入物件的元素，大多都是空元素。空元素並不符合起始標籤、內容、結束標籤的格式，僅有一個標籤。例如 <code>img</code> 用於在當前位置插入圖片檔：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/firefox-icon.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Firefox logo&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="常見-HTML-元素"><a href="#常見-HTML-元素" class="headerlink" title="常見 HTML 元素"></a>常見 HTML 元素</h3><table>
+<thead>
+<tr>
+<th>元素</th>
+<th>功能</th>
+<th>類別</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;h1&gt;</code>~<code>&lt;h6&gt;</code></td>
+<td>標題（從最大到最小）</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;p&gt;</code></td>
+<td>段落</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;a&gt;</code></td>
+<td>超連結</td>
+<td>行內元素 (Inline)</td>
+</tr>
+<tr>
+<td><code>&lt;img&gt;</code></td>
+<td>顯示圖片</td>
+<td>行內元素 + 空元素</td>
+</tr>
+<tr>
+<td><code>&lt;div&gt;</code></td>
+<td>區塊容器，不具語意</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;span&gt;</code></td>
+<td>行內容器，不具語意</td>
+<td>行內元素 (Inline)</td>
+</tr>
+<tr>
+<td><code>&lt;br&gt;</code></td>
+<td>換行符號</td>
+<td>行內元素 + 空元素</td>
+</tr>
+<tr>
+<td><code>&lt;ul&gt;</code></td>
+<td>無序清單</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;ol&gt;</code></td>
+<td>有序清單</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;li&gt;</code></td>
+<td>清單項目</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;strong&gt;</code></td>
+<td>強調（通常顯示為粗體）</td>
+<td>行內元素 (Inline)</td>
+</tr>
+<tr>
+<td><code>&lt;em&gt;</code></td>
+<td>語意上強調（通常顯示為斜體）</td>
+<td>行內元素 (Inline)</td>
+</tr>
+<tr>
+<td><code>&lt;input&gt;</code></td>
+<td>表單輸入欄位</td>
+<td>行內元素 + 空元素</td>
+</tr>
+<tr>
+<td><code>&lt;form&gt;</code></td>
+<td>表單容器</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;table&gt;</code></td>
+<td>表格容器</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;thead&gt;</code></td>
+<td>表格的標題列區塊</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;tbody&gt;</code></td>
+<td>表格的資料列區塊</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;tr&gt;</code></td>
+<td>表格的單一列</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;td&gt;</code></td>
+<td>表格中的儲存格（欄）</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;script&gt;</code></td>
+<td>插入 JavaScript 程式碼</td>
+<td>區塊元素 (Block)</td>
+</tr>
+<tr>
+<td><code>&lt;link&gt;</code></td>
+<td>連結外部資源（如 CSS）</td>
+<td>行內元素 + 空元素</td>
+</tr>
+<tr>
+<td><code>&lt;meta&gt;</code></td>
+<td>定義網頁的 metadata（如編碼）</td>
+<td>行內元素 + 空元素</td>
+</tr>
+<tr>
+<td><code>&lt;title&gt;</code></td>
+<td>設定頁面標題（出現在瀏覽器標籤上）</td>
+<td>區塊元素 (在 <code>&lt;head&gt;</code> 中)</td>
+</tr>
+</tbody></table>
+<p>詳細說明請參考 MDN 的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements#see_also">HTML elements reference</a>。</p>
+<h2 id="屬性-Attribute"><a href="#屬性-Attribute" class="headerlink" title="屬性 (Attribute)"></a>屬性 (Attribute)</h2><p>在 HTML 中，元素決定了內容的性質，例如 <code>p</code> 就代表內容將以段落的樣式呈現。而屬性則提供更多關於該元素的<strong>附加資訊</strong>，例如：</p>
+<ul>
+<li>超連結的目標網址</li>
+<li>圖片的檔案位置與替代文字</li>
+<li>是否預設勾選某些選項</li>
+<li>提示訊息、表單限制</li>
+</ul>
+<blockquote>
+<p>屬性不是裝飾，而是提供行為與語意。</p>
+</blockquote>
+<p>HTML 的屬性通常出現在開始標籤中，並由名稱與值組成，語法為：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">標籤名稱</span> <span class="attr">屬性1</span>=<span class="string">&quot;值&quot;</span> <span class="attr">屬性2</span>=<span class="string">&quot;值&quot;</span><span class="attr">...</span>&gt;</span>內容<span class="tag">&lt;/<span class="name">標籤名稱</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意到不同屬性之間會用<strong>空格</strong>分隔。</p>
+<h3 id="布林屬性-Boolean-attributes"><a href="#布林屬性-Boolean-attributes" class="headerlink" title="布林屬性 (Boolean attributes)"></a>布林屬性 (Boolean attributes)</h3><p>布林屬性只要寫出來就表示 <code>True</code>，例如 <code>required</code>、<code>checked</code> 等。以輸入元素 <code>input</code>，當使用 <code>disabled</code> 時，輸入框就會被賦予<strong>無法輸入文字的屬性</strong>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">disabled</span>=<span class="string">&quot;disabled&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>或者更簡短的方法是：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">disabled</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="自訂屬性"><a href="#自訂屬性" class="headerlink" title="自訂屬性"></a>自訂屬性</h3><h2 id="架構"><a href="#架構" class="headerlink" title="架構"></a>架構</h2><p>前面是 HTML 一些基本的元素與屬性定義與操作，但尚未真正了解一個 HTML 網頁的架構是什麼。事實上它有一個標準的骨架：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>只要 IDE 有裝上相關的插件，在一份空白的 HTML 文件中輸入 <code>doc</code> 就會跑出上述內容。</p>
+<table>
+<thead>
+<tr>
+<th>區塊&#x2F;標籤</th>
+<th>功能說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;!DOCTYPE html&gt;</code></td>
+<td>宣告這是一份 HTML5 文件，讓瀏覽器用標準模式解析。不是 HTML 標籤，而是<strong>聲明</strong>。</td>
+</tr>
+<tr>
+<td><code>&lt;html lang=&quot;en&quot;&gt;</code></td>
+<td><strong>整份 HTML 文件的根元素</strong>，所有內容都包在裡面。<code>lang=&quot;en&quot;</code> 表示這是英文頁面，有助於搜尋引擎與輔助工具理解語言環境。</td>
+</tr>
+<tr>
+<td><code>&lt;head&gt;</code></td>
+<td>儲存<strong>網頁的設定與資訊</strong>（非畫面內容），包含編碼、標題、連結 CSS、meta 描述等。</td>
+</tr>
+<tr>
+<td><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></td>
+<td>指定字元編碼為 UTF-8（支援各種語言文字，包括中文），<strong>避免亂碼問題</strong>。</td>
+</tr>
+<tr>
+<td><code>&lt;meta ...&gt;</code></td>
+<td>這是為了**響應式設計（行動裝置）**加入的設定，讓畫面在不同裝置寬度下正常顯示。</td>
+</tr>
+<tr>
+<td><code>&lt;title&gt;...&lt;/title&gt;</code></td>
+<td>設定瀏覽器標籤上的名稱，與搜尋結果的標題文字。</td>
+</tr>
+<tr>
+<td><code>&lt;body&gt;</code></td>
+<td>放置<strong>實際出現在畫面上的內容</strong>，像是標題、段落、圖片、表單等等。</td>
+</tr>
+<tr>
+<td><code>&lt;/html&gt;</code></td>
+<td>結束 HTML 文件（與 <code>&lt;html&gt;</code> 對應）。</td>
+</tr>
+</tbody></table>
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><p><code>&lt;head&gt;</code> 是 <code>&lt;html&gt;</code> 中第一個子元素，用來放置<strong>設定與宣告用的元素</strong>，不會顯示在畫面中，但會影響瀏覽器行為、SEO 表現、社群分享預覽等。</p>
+<h3 id="meta"><a href="#meta" class="headerlink" title="meta"></a>meta</h3><p><strong>中繼資訊 (metadata)</strong> 提供關於<strong>文件內容、行為、語言、作者</strong>等內容，不會出現在畫面上，但會影響搜尋引擎解析、瀏覽器行為、裝置排版。其結構為：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;...&quot;</span> <span class="attr">content</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>或是</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>寫法範例</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>編碼宣告</strong></td>
+<td><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></td>
+<td>最重要的 <code>meta</code>，避免亂碼，請務必放在最上方</td>
+</tr>
+<tr>
+<td><strong>響應式設計</strong></td>
+<td><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></td>
+<td>調整頁面在手機、平板的呈現比例</td>
+</tr>
+<tr>
+<td><strong>SEO 摘要</strong></td>
+<td><code>&lt;meta name=&quot;description&quot; content=&quot;這是我的個人網站首頁&quot;&gt;</code></td>
+<td>給搜尋引擎的簡介摘要</td>
+</tr>
+<tr>
+<td><strong>作者資訊</strong></td>
+<td><code>&lt;meta name=&quot;author&quot; content=&quot;xxx&quot;&gt;</code></td>
+<td>指出網頁製作者，非必要但可加</td>
+</tr>
+</tbody></table>
+<h3 id="link"><a href="#link" class="headerlink" title="link"></a>link</h3><p><code>&lt;link&gt;</code> 的作用是用來將網頁與外部資源連結起來，不會出現在畫面上，但會被瀏覽器<strong>載入使用</strong>。其結構如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;...&quot;</span> <span class="attr">href</span>=<span class="string">&quot;...&quot;</span> [<span class="attr">type</span>=<span class="string">&quot;...&quot;</span>]&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>寫法範例</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>連結 CSS 檔案</strong></td>
+<td><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code></td>
+<td>最常見用法，載入樣式表</td>
+</tr>
+<tr>
+<td><strong>設定 favicon</strong></td>
+<td><code>&lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;</code></td>
+<td>設定頁籤圖示（favicon）</td>
+</tr>
+<tr>
+<td><strong>RSS feed</strong></td>
+<td><code>&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; href=&quot;feed.xml&quot;&gt;</code></td>
+<td>提供 RSS 訂閱連結</td>
+</tr>
+<tr>
+<td><strong>字型檔案</strong></td>
+<td><code>&lt;link rel=&quot;preload&quot; href=&quot;font.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</code></td>
+<td>提前載入自訂字型（效能優化）</td>
+</tr>
+</tbody></table>
+<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><p><code>&lt;script&gt;</code> 用來在 HTML 文件中「插入 JavaScript 程式碼」，它可以：</p>
+<ul>
+<li>引用外部 JavaScript 檔案</li>
+<li>直接撰寫內嵌 JavaScript 程式</li>
+<li>設定載入時機與模式（如延遲、異步）</li>
+</ul>
+<p>一般來說，<code>&lt;script&gt;</code> 的位置多放在 <code>&lt;/body&gt;</code> 之前，而引入方式有兩種，一個是載入外部 JS：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;main.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>另一種是直接寫死在 HTML 中，但通常為了管理方便，不太會這樣做。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="比較"><a href="#比較" class="headerlink" title="比較"></a>比較</h3><table>
+<thead>
+<tr>
+<th>標籤</th>
+<th>功能</th>
+<th>是否顯示內容</th>
+<th>是否有行為</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;meta&gt;</code></td>
+<td>提供描述資訊</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>&lt;link&gt;</code></td>
+<td>載入外部資源</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>&lt;script&gt;</code></td>
+<td>載入與執行 JavaScript 程式</td>
+<td>否</td>
+<td>有程式行為</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/html/" rel="tag"><i class="fa fa-tag"></i> html</a>
+              <a href="/tags/tag/" rel="tag"><i class="fa fa-tag"></i> tag</a>
+              <a href="/tags/element/" rel="tag"><i class="fa fa-tag"></i> element</a>
+              <a href="/tags/structure/" rel="tag"><i class="fa fa-tag"></i> structure</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/basic/" rel="prev" title="Flask 筆記 | 基礎架構與環境準備">
+      <i class="fa fa-chevron-left"></i> Flask 筆記 | 基礎架構與環境準備
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/request/" rel="next" title="Flask 筆記 | 請求物件">
+      Flask 筆記 | 請求物件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E5%88%86%E9%A1%9E"><span class="nav-number">1.</span> <span class="nav-text">元素分類</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A2%E7%8B%80%E5%85%83%E7%B4%A0-Nesting-Element"><span class="nav-number">1.1.</span> <span class="nav-text">巢狀元素 (Nesting Element)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A2%E7%8B%80%E5%85%83%E7%B4%A0%E9%A0%86%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text"> 巢狀元素順序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%80%E5%A1%8A%E5%85%83%E7%B4%A0-Block-Element-%E8%88%87%E8%A1%8C%E5%85%A7%E5%85%83%E7%B4%A0-Inline-Element"><span class="nav-number">1.3.</span> <span class="nav-text">區塊元素 (Block Element) 與行內元素 (Inline Element)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E5%85%83%E7%B4%A0-Empty-Element"><span class="nav-number">1.4.</span> <span class="nav-text">空元素 (Empty Element)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A6%8B-HTML-%E5%85%83%E7%B4%A0"><span class="nav-number">1.5.</span> <span class="nav-text">常見 HTML 元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%AC%E6%80%A7-Attribute"><span class="nav-number">2.</span> <span class="nav-text">屬性 (Attribute)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E6%9E%97%E5%B1%AC%E6%80%A7-Boolean-attributes"><span class="nav-number">2.1.</span> <span class="nav-text">布林屬性 (Boolean attributes)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E5%B1%AC%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">自訂屬性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%A7%8B"><span class="nav-number">3.</span> <span class="nav-text">架構</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#head"><span class="nav-number">3.1.</span> <span class="nav-text">head</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meta"><span class="nav-number">3.2.</span> <span class="nav-text">meta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#link"><span class="nav-number">3.3.</span> <span class="nav-text">link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#script"><span class="nav-number">3.4.</span> <span class="nav-text">script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BC%83"><span class="nav-number">3.5.</span> <span class="nav-text">比較</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Anthony Sung"
+      src="/images/profile.svg">
+  <p class="site-author-name" itemprop="name">Anthony Sung</p>
+  <div class="site-description" itemprop="description">對生活抱持好奇心的學習者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaolong70701" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaolong70701" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sungpinyue@gmail.com" title="E-Mail → mailto:sungpinyue@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yueswater/" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yueswater&#x2F;" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/yues_19_water/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;yues_19_water&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">&copy; Anthony 部落格原站：<a href="https://xiaolong70701.github.io/blog/" target="_blank">Yueswater Blog</a>；若要轉載文章，麻煩請保留原作者名稱與原始連結。
+</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌙',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yueswater.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/html-element-structure/";
+    this.page.identifier = "/html-element-structure/";
+    this.page.title = "HTML 筆記 | 元素與結構";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+<script src="/js/injector.js"></script>
+</body>
+</html>

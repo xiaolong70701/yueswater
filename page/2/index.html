@@ -704,7 +704,7 @@ div.hcb-content.hcb-cards-content.active {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/array/">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/linked-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/profile.svg">
@@ -718,7 +718,7 @@ div.hcb-content.hcb-cards-content.active {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/array/" class="post-title-link" itemprop="url">資料結構與演算法筆記 | 陣列 (Array)</a>
+            <a href="/linked-list/" class="post-title-link" itemprop="url">資料結構與演算法筆記 | 鏈結串列 (Linked List)</a>
         </h2>
 
         <div class="post-meta">
@@ -728,14 +728,14 @@ div.hcb-content.hcb-cards-content.active {
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2025-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2025-07-29T00:00:00+08:00">2025-07-29</time>
+              <time title="創建時間：2025-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-02T00:00:00+08:00">2025-08-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-08-02 00:00:00" itemprop="dateModified" datetime="2025-08-02T00:00:00+08:00">2025-08-02</time>
+                <time title="修改時間：2025-08-03 00:00:00" itemprop="dateModified" datetime="2025-08-03T00:00:00+08:00">2025-08-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -760,8 +760,8 @@ div.hcb-content.hcb-cards-content.active {
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/array/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/array/" itemprop="commentCount"></span>
+    <a title="disqus" href="/linked-list/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/linked-list/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -771,14 +771,14 @@ div.hcb-content.hcb-cards-content.active {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>7.7k</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>38 分鐘</span>
+              <span>18 分鐘</span>
             </span>
 
         </div>
@@ -790,10 +790,15 @@ div.hcb-content.hcb-cards-content.active {
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>陣列是一種能儲存<strong>相同資料型別</strong>、<strong>固定大小</strong>、並使用<strong>連續記憶體</strong>空間的資料結構。每個元素透過<strong>索引 (index)</strong> 可以快速存取資料。</p>
+          <p>鏈結串列是一種線性資料結構，利用<strong>節點 (node)</strong> 將資料串起來，其中每個節點包含：</p>
+<ul>
+<li><strong>值 (value)</strong>：也就是儲存的資料</li>
+<li><strong>引用 (reference)</strong>：此處的引用是指向下一個節點的參考</li>
+</ul>
+<p>至於為何要使用鏈結串列，原因在於新增或刪除元素時，若用陣列儲存資料，需要搬移元素，耗時又費力。但若以鏈結串列儲存資料，僅需知道元素的索引，以及下一個節點指向何者，即可對資料進行操作。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/array/" rel="contents">
+              <a class="btn" href="/linked-list/" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -816,7 +821,7 @@ div.hcb-content.hcb-cards-content.active {
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
   </nav>
 
 
@@ -884,20 +889,20 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
