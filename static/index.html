@@ -319,17 +319,25 @@ div.hcb-content.hcb-cards-content.active {
     var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="對生活抱持好奇心的學習者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="岳氏礦泉水">
-<meta property="og:url" content="https://www.yueswater.com/tags/%E7%9F%A9%E9%99%A3%E6%93%8D%E4%BD%9C/index.html">
+  <meta name="description" content="靜態檔案 (static file) 指的是不同請求中訪問到的資料都相同的檔案，例如圖片、影片等。  不經過路由處理：靜態檔案不會經由 Flask 中設定的路由，而是由 WSGI middleware 直接處理，最終呈現在使用者瀏覽的畫面上，而非自己使用 @app.route() 加上。 特殊的路由：檔名對應著網址路徑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask 筆記 | 靜態檔案處理">
+<meta property="og:url" content="https://www.yueswater.com/static/index.html">
 <meta property="og:site_name" content="岳氏礦泉水">
-<meta property="og:description" content="對生活抱持好奇心的學習者">
+<meta property="og:description" content="靜態檔案 (static file) 指的是不同請求中訪問到的資料都相同的檔案，例如圖片、影片等。  不經過路由處理：靜態檔案不會經由 Flask 中設定的路由，而是由 WSGI middleware 直接處理，最終呈現在使用者瀏覽的畫面上，而非自己使用 @app.route() 加上。 特殊的路由：檔名對應著網址路徑">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/static/static-flask.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/static/static-flask.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/static/static-my_static-flask.png">
+<meta property="article:published_time" content="2025-08-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-01T16:00:00.000Z">
 <meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="flask">
+<meta property="article:tag" content="靜態檔案">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yueswater.com/images/flask-learning/static/static-flask.png">
 
-<link rel="canonical" href="https://www.yueswater.com/tags/%E7%9F%A9%E9%99%A3%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="https://www.yueswater.com/static/">
 
 
 <script id="page-configurations">
@@ -337,12 +345,12 @@ div.hcb-content.hcb-cards-content.active {
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>標籤: 矩陣操作 | 岳氏礦泉水</title>
+  <title>Flask 筆記 | 靜態檔案處理 | 岳氏礦泉水</title>
   
 
 
@@ -490,57 +498,200 @@ div.hcb-content.hcb-cards-content.active {
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/static/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flask 筆記 | 靜態檔案處理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-02T00:00:00+08:00">2025-08-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">程式語言筆記</span></a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">矩陣操作
-          <small>標籤</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/static/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/static/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>6 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong>靜態檔案 (static file)</strong> 指的是不同請求中訪問到的資料都相同的檔案，例如圖片、影片等。</p>
+<ul>
+<li>不經過路由處理：靜態檔案不會經由 Flask 中設定的路由，而是由 WSGI middleware 直接處理，最終呈現在使用者瀏覽的畫面上，而非自己使用 <code>@app.route()</code> 加上。</li>
+<li>特殊的路由：檔名對應著網址路徑</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="靜態檔案路徑設定"><a href="#靜態檔案路徑設定" class="headerlink" title="靜態檔案路徑設定"></a>靜態檔案路徑設定</h2><p>通常來說我們會直接將該靜態檔案資料夾建立在根目錄（也就是與 <code>app.py</code> 同一層）之下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> static</span><br></pre></td></tr></table></figure>
+
+<p>建立成功後無需改動程式碼，因為 Flask <a target="_blank" rel="noopener" href="https://github.com/pallets/flask/blob/85c5d93cbd049c4bd0679c36fd1ddcae8c37b642/src/flask/app.py#L81-L238">預設</a>靜態檔案存放在 <code>static</code> 資料夾：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Flask</span>(<span class="title class_ inherited__">App</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params"></span></span><br><span class="line"><span class="params">        self,</span></span><br><span class="line"><span class="params">        ...</span></span><br><span class="line"><span class="params">        static_url_path: <span class="built_in">str</span> | <span class="literal">None</span> = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">****        static_folder: <span class="built_in">str</span> | os.PathLike[<span class="built_in">str</span>] | <span class="literal">None</span> = <span class="string">&quot;static&quot;</span>,</span></span><br><span class="line"><span class="params">        ...</span></span><br><span class="line"><span class="params">    </span>):</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+
+<p>一般來說，<code>static</code> 資料夾下會使用以下的方式將檔案進行分類，否則全部放在資料夾中會搞混，整理起來也會很麻煩：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">static/</span><br><span class="line">├── css/</span><br><span class="line">│   └── style.css</span><br><span class="line">├── js/</span><br><span class="line">│   └── main.js</span><br><span class="line">├── images/</span><br><span class="line">│   ├── logo.png</span><br><span class="line">│   └── flask.svg</span><br><span class="line">├── fonts/</span><br><span class="line">│   └── Roboto.woff</span><br><span class="line">├── docs/</span><br><span class="line">│   └── terms.pdf</span><br><span class="line">└── <span class="built_in">test</span>/</span><br><span class="line">    └── test.txt</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>資料夾名稱</th>
+<th>用途說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>css/</code></td>
+<td>放置樣式表（例如 <code>style.css</code>）</td>
+</tr>
+<tr>
+<td><code>js/</code></td>
+<td>放置 JavaScript 程式碼（例如 <code>main.js</code>）</td>
+</tr>
+<tr>
+<td><code>images/</code></td>
+<td>放圖片檔案（例如 <code>logo.png</code>, <code>banner.jpg</code>）</td>
+</tr>
+<tr>
+<td><code>fonts/</code></td>
+<td>放自訂字型檔案（例如 <code>.ttf</code>, <code>.woff</code>）</td>
+</tr>
+<tr>
+<td><code>docs/</code></td>
+<td>可選，用來放一些靜態文件（例如 <code>terms.pdf</code>）</td>
+</tr>
+<tr>
+<td><code>test/</code></td>
+<td>可選，用來測試路徑用的小檔案，如 <code>test.txt</code></td>
+</tr>
+</tbody></table>
+<p>建立資料夾後，只需將檔案放入資料夾中，以 <code>/static/檔名</code> 訪問即可。必須注意到：檔名<strong>必須包含副檔名</strong>。舉例來說，在 <code>static</code> 資料夾中放入 <a target="_blank" rel="noopener" href="https://flask.palletsprojects.com/en/stable/_images/flask-name.svg">Flask 的 Logo</a>，訪問 <code>/static/flask.svg</code> 即可看到如下畫面：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/static/static-flask.png" alt="靜態檔案範例-Flask Logo">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：靜態檔案範例-Flask Logo</p>
+</div>
+
+<p>或是放入 <code>test.txt</code>，裡面寫入文字，訪問 <code>/static/test.txt</code> 也會顯示結果：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/static/static-flask.png" alt="靜態檔案範例-test 純文字檔">
+  <p style="font-size: 0.8em; color: #999999;">圖 2：靜態檔案範例-test 純文字檔</p>
+</div>
+
+<h2 id="自定義資料夾與路徑"><a href="#自定義資料夾與路徑" class="headerlink" title="自定義資料夾與路徑"></a>自定義資料夾與路徑</h2><p>若不想使用 Flask 預設的靜態檔案路徑，可以使用 <code>static_url_path</code> 設定路徑。方法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app = Flask(</span><br><span class="line">    __name__,</span><br><span class="line">    static_folder=<span class="string">&quot;靜態檔案資料夾&quot;</span>,</span><br><span class="line">    static_url_path=<span class="string">&quot;靜態檔案網址路徑&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>例如可以設定 <code>static_url_path</code> 為 <code>my_static</code>，嘗試訪問就變成 <code>/my_static/檔名</code>。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/static/static-my_static-flask.png" alt="自定義路徑">
+  <p style="font-size: 0.8em; color: #999999;">圖 3：自定義路徑</p>
+</div>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-04-08T00:00:00+08:00"
-              content="2025-04-08">
-          04-08
-        </time>
-      </div>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/flask/" rel="tag"><i class="fa fa-tag"></i> flask</a>
+              <a href="/tags/%E9%9D%9C%E6%85%8B%E6%AA%94%E6%A1%88/" rel="tag"><i class="fa fa-tag"></i> 靜態檔案</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/R-tutorial-3/" itemprop="url">
-            <span itemprop="name">R 語言教學入門｜矩陣操作與二維資料結構</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/array/" rel="prev" title="資料結構與演算法筆記 | 陣列 (Array)">
+      <i class="fa fa-chevron-left"></i> 資料結構與演算法筆記 | 陣列 (Array)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/routing/" rel="next" title="Flask 筆記 | 路由">
+      Flask 筆記 | 路由 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
   
 
   
-
-
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -587,6 +738,7 @@ div.hcb-content.hcb-cards-content.active {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9C%E6%85%8B%E6%AA%94%E6%A1%88%E8%B7%AF%E5%BE%91%E8%A8%AD%E5%AE%9A"><span class="nav-number">1.</span> <span class="nav-text">靜態檔案路徑設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E7%BE%A9%E8%B3%87%E6%96%99%E5%A4%BE%E8%88%87%E8%B7%AF%E5%BE%91"><span class="nav-number">2.</span> <span class="nav-text">自定義資料夾與路徑</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -764,6 +916,27 @@ darkmode.showWidget();
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/static/";
+    this.page.identifier = "/static/";
+    this.page.title = "Flask 筆記 | 靜態檔案處理";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 <div class="moon-menu">
   <div class="moon-menu-items">
