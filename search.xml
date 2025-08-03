@@ -252,426 +252,6 @@
       </tags>
   </entry>
   <entry>
-    <title>都市經濟學與政策 | 中地理論</title>
-    <url>//urban-econ-central-place-theory/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>日常生活中，我們可以觀察到城市與城市之間存在明顯的大小以及等級差異。以臺灣為例，儘管臺北在縣市層級上屬<a href="https://www.president.gov.tw/Page/106">直轄市</a>，聚集了各種高級的服務、大型商場與醫療資源；相較之下，其他小鎮、鄉村僅提供基本生活所需，並無眾多的設施。臺灣並非特例，世界各國均是如此。</p>
-<span id="more"></span>
-
-<blockquote>
-<ul>
-<li>為什麼城市間會有大小與距離的差異？</li>
-<li>為什麼大城市比較少，小城市比較多？</li>
-<li>如何安排城市的分佈，才能達到「成本最低」的社會最適狀態？</li>
-</ul>
-</blockquote>
-<p>為了回答上述問題，德國地理學家 Walter Christaller 在 1933 年所著之《<em>Die zentralen Orte in Süddeutschland</em>》提出了<strong>中地理論</strong>(central place theory)，經諸多經濟學家的發展，成為空間經濟學中的重要理論。</p>
-<h2 id="何謂中地理論？"><a href="#何謂中地理論？" class="headerlink" title="何謂中地理論？"></a>何謂中地理論？</h2><p>Christaller 認為，在一片地形平坦、肥沃度一致、農夫平均分佈的平面上，城市會自然行程一個層級結構，而該平面稱為均質平面(homogeneous surface)。</p>
-<ul>
-<li><p><strong>中地</strong>：每個城市都有一個服務區域，城市為區域內的居民提供商品與服務，該城市就稱為中地。</p>
-</li>
-<li><p><strong>商品有高低等級之分</strong>：像牙膏、肥皂這種需求高、成本低的商品，小城市就能提供；但像醫院、戲院、百貨公司這種需求少、成本高的服務，只有大城市有。</p>
-</li>
-<li><p><strong>層級性原則</strong>(hierarchy principle)：大城市一定會提供小城市有的所有商品，加上一些只有它才有的。</p>
-</li>
-</ul>
-<div style="text-align:center">
-  <img src="/images/Urban Economics/urban-econ-2-central-place.png" width="430" height="300" alt="中地示意圖">
-  <p style="font-size: 0.8em; color: #999999;">圖 1：中地示意圖<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Hsu, W. T., Holmes, T. J., & Morgan, F. (2014). Optimal city hierarchy: A dynamic programming approach to central place theory. *Journal of Economic Theory*, 154, 245-273.">[1]</span></a></sup></p>
-</div>
-
-<p>例如小鎮上只能買到雜貨店或便利商店的東西，但你要買 IKEA 家具就得去大城市，這就是層級性。</p>
-<h2 id="現代中地理論"><a href="#現代中地理論" class="headerlink" title="現代中地理論"></a>現代中地理論</h2><p>傳統的中央地理論雖然成功描繪出城市層級的圖像，卻缺乏足夠的數學基礎，難以被現代經濟學接受。因此，學者們開始嘗試用更嚴謹的模型來「形式化」這套理論，試圖解釋城市分布與規模差異的根本經濟邏輯。</p>
-<p>首先，我們將探討一個經過簡化的現代中地理論模型。這個模型的目的是透過數學推導，說明城市的層級結構如何在「社會最適」（即整體成本最低）的條件下自然形成。這樣的層級不是被政府強制設計出來的，而是源自於<strong>規模經濟</strong>與<strong>運輸成本</strong>之間的權衡結果。</p>
-<h3 id="模型設定"><a href="#模型設定" class="headerlink" title="模型設定"></a>模型設定</h3><p>為了簡化模型，假設整個空間是一條無限延長的直線，即整條實數線 $\mathbb{R}$，如此一來便可避免左右邊界造成不對稱的問題。沿著此線上，有無限多的消費者<strong>均勻分佈</strong>(uniformly distributed)，每單位長度的密度設定為 $d$。</p>
-<h4 id="消費者需求"><a href="#消費者需求" class="headerlink" title="消費者需求"></a>消費者需求</h4><p>每個消費者對商品有固定需求。我們將商品視為一個區間 $[0, z_{1}]$ 上的連續點，也就是每個數字 $y \in [0, z_{1}]$ 均代表一種商品，越靠近 $z_{1}$ 等級越高。每人每天都需要一單位的每種商品，需求不受價格影響，即完全無彈性，且無論城市設在哪裡，總需求都是一樣的。</p>
-<h4 id="商品與生產成本"><a href="#商品與生產成本" class="headerlink" title="商品與生產成本"></a>商品與生產成本</h4><p>廠商生產每一種商品 $y$ 都需要支付一筆固定成本 $\phi(y)$，且商品等級越高，成本就越高，亦即 $\phi^{\prime}(y) &gt; 0$，且如果不生產產品，則 $\phi(0) &#x3D; 0$。邊際生產成本為常數 $c$，但後續分析會被忽略，因為對每個人而言是固定的，不影響最終決策。<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="因為每個消費者都會消費 $z_{1}$ 單位的商品，邊際成本乘上所有消費者的需求量，會是一個固定數。因不論城市怎麼安排、商品從哪裡送，總變動成本加總起來都一樣。舉例來說，舉辦一場活動共有 100 名與會者，每個人需要吃一個 100 元的便當，總成本就是 10,000 元。因此無論叫哪一家便當店做，這 100 個便當的成本就是 10,000 元。如果現在要比較的是「是不是要開兩個取餐點讓大家走近一點？」以及「還是只開一個、但讓大家走遠一點？」，實際上在意的點是交通成本、動線安排這些變動的部分，而不是那 10,000 元便當費，因為那是固定、改變不了的。">[2]</span></a></sup>既然生產過程中有固定成本，那麼該生產活動就會具有規模經濟(scale of economies)，原因是因為規模經濟的定義是隨著產量增加，平均成本降低。<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="你可以想像一下，為何便當店總是會寫「超過幾份就提供外送服務」，原因就是如果一次只送一份餐點，油錢 50 元，平均每趟成本就是 50 元。但是如果一次送 10 份，油錢還是 50 元，平均成本變成 5 元。">[3]</span></a></sup>根據上面的假設，廠商生產 $q$ 單位的總成本為<br>$$<br>TC(q) &#x3D; \phi(q) + c \cdot q<br>$$<br>則平均成本為<br>$$<br>AC (q) &#x3D; \dfrac{\phi(q) + c \cdot q}{q}<br>$$<br>可以發現當 $q$ 越大，$\phi &#x2F; q$ 越小，整體的平均成本就會越低。簡言之，只要有固定成本，只要生產越多單位，就越能平均分攤這筆固定開銷，平均成本就會下降，因此會產生規模經濟。另外，模型假設若商品要運送給消費者，每單位距離每單位商品的運費是常數 $t$。因此，距離越遠，成本就越高。</p>
-<h4 id="層級性原則"><a href="#層級性原則" class="headerlink" title="層級性原則"></a>層級性原則</h4><p>每個生產地點（即一個城市）如果要生產某個高等級商品 $z$，那麼它必須也生產所有比其低等級的商品 $y &lt; z$<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="如果某座城市有醫院（假設醫院是高等級商品），那它也一定要有便利商店、診所、文具店（低等級商品）。不可能一個城市有百貨公司但連便利商店都沒有。">[4]</span></a></sup>。此外，每個城市所提供的商品一定是從最基本的 0 開始，一直到某個等級 $z$ 為止，是一個連續區間 $[0, z]$，不會跳過任何商品。所以我們只要知道它能生產哪個「最頂」的商品 $z$，就知道它的整個商品清單是 $[0,z]$。如果一座城市最高能提供商品 5，那就代表它一定也有 0 至 4 號商品。我們就叫它一座「$z&#x3D;5$ 的城市」，簡稱「5-city」。</p>
-<div style="text-align:center">
-  <img src="/images/Urban Economics/urban-econ-2-hierarchy.png" width="430" height="300" alt="層級性原則">
-  <p style="font-size: 0.8em; color: #999999;">圖 2：層級性原則<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Hsu, W. T., Holmes, T. J., & Morgan, F. (2014). Optimal city hierarchy: A dynamic programming approach to central place theory. *Journal of Economic Theory*, 154, 245-273.">[1]</span></a></sup></p>
-</div>
-
-<p>如果城市如果要提供從 0 到 $z$ 的所有商品，那它要承擔的總固定成本（蓋工廠、設施）就是把每種商品的固定成本 $\phi(y)$ 從 0 加總到 $z$ 為止，即是<br>$$<br>\Phi(z) &#x3D; \int_{0}^{z} \phi(y) dy<br>$$<br>另外，前面假設 $\phi(y)$ 是遞增的，代表越高階商品固定成本越高，根據微積分基本定理，可得到 $\Phi(z)$ 的一階與二階條件如下：<br>$$<br>\Phi^{\prime}(z) &#x3D; \phi(z) &gt; 0, \quad \Phi^{\prime\prime}(z) &#x3D; \phi^{\prime}(z) &gt; 0<br>$$<br>要成為「高階城市」成本很高，越高越貴，<strong>這就是現實中為什麼只有少數幾個大都市能提供最頂級的服務</strong>。</p>
-<h3 id="社會規劃者問題"><a href="#社會規劃者問題" class="headerlink" title="社會規劃者問題"></a>社會規劃者問題</h3><p>根據前述討論，由於每個人消費相同的東西，消費量也一樣，因此模型可以忽略變動成本，僅考慮固定成本 $\Phi(z)$ 與運輸成本 $t$。現在要從「上帝視角」安排整個空間上的城市，這個社會規劃者負責決定每個城市的位置與距離，<strong>目標是讓所有消費者的平均成本最低</strong>。</p>
-<p>由於消費者平均分佈在空間上，因此不管在哪一段距離，需求都是相同的，最有效率的安排方式就是把城市<strong>平均分配在空間上</strong>，這些城市都是最大城市，即生產所有商品 $z_{1}$ 的城市，稱為 $z_{1}$-city。現在要來計算兩個 $z_{1}$-city 中間那一段距離上，平均每個人為了拿到商品，要付出多少運費？假設兩座城市距離為 $\ell$，每個人都會去最近的城市購買商品，所以一個城市的<strong>服務半徑</strong>是 $\ell&#x2F;2$。因為消費者平均分佈，密度為 $d$，每人運費距離 $x$ 乘上每公里成本 $t$，因此把 $0$ 到 $\ell&#x2F;2$ 的所有運費加總就得到<br>$$<br>2d \int_{0}^{\ell&#x2F;2} tx dx &#x3D; \dfrac{dt\ell^{2}}{4}<br>$$</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Hsu, W. T., Holmes, T. J., &amp; Morgan, F. (2014). Optimal city hierarchy: A dynamic programming approach to central place theory. <em>Journal of Economic Theory</em>, 154, 245-273.<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">因為每個消費者都會消費 $z_{1}$ 單位的商品，邊際成本乘上所有消費者的需求量，會是一個固定數。因不論城市怎麼安排、商品從哪裡送，總變動成本加總起來都一樣。舉例來說，舉辦一場活動共有 100 名與會者，每個人需要吃一個 100 元的便當，總成本就是 10,000 元。因此無論叫哪一家便當店做，這 100 個便當的成本就是 10,000 元。如果現在要比較的是「是不是要開兩個取餐點讓大家走近一點？」以及「還是只開一個、但讓大家走遠一點？」，實際上在意的點是交通成本、動線安排這些變動的部分，而不是那 10,000 元便當費，因為那是固定、改變不了的。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">你可以想像一下，為何便當店總是會寫「超過幾份就提供外送服務」，原因就是如果一次只送一份餐點，油錢 50 元，平均每趟成本就是 50 元。但是如果一次送 10 份，油錢還是 50 元，平均成本變成 5 元。<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">如果某座城市有醫院（假設醫院是高等級商品），那它也一定要有便利商店、診所、文具店（低等級商品）。不可能一個城市有百貨公司但連便利商店都沒有。<a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>經濟學</category>
-        <category>都市經濟學</category>
-      </categories>
-      <tags>
-        <tag>都市空間結構</tag>
-        <tag>中地理論</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>都市經濟學與政策 | 都市空間結構</title>
-    <url>//urban-econ-spatial-structure/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>打開 Google 地圖的街景功能，可能會發現一個明顯的現象：越靠近市中心，高樓大廈越是林立，一棟比一棟還要高聳。以台北市為例，車水馬龍與川流不息的人潮，常讓人感到壓迫與窒息。如果你是上班族，無論是租屋還是買房，在這樣的都市裡都是一場硬仗——高得驚人的房價，讓安居樂業成為一種奢侈的夢想。</p>
-<span id="more"></span>
-
-<p>不過，並不是所有都市都呈現這樣的樣貌。舉例來說，以美國的休士頓(Houston)或澳洲的布里斯本(Brisbane)為例，雖然也有明確的市中心，但都市整體較為分散，住宅區通常延伸至更寬廣的範圍。許多居民選擇居住在郊區，每天開車<strong>進城上班</strong>。在這些都市中，高樓林立的現象侷限於幾個小型商業區，更多的是低密度的獨棟住宅、草坪與車庫組成的社區景觀。</p>
-<h2 id="單一中心都市模型-Monocentric-City-Model"><a href="#單一中心都市模型-Monocentric-City-Model" class="headerlink" title="單一中心都市模型(Monocentric City Model)"></a>單一中心都市模型(Monocentric City Model)</h2><p>都市空間的差異，其實正反映了不同國家、不同都市在「空間使用」、「交通方式」、「土地價格」以及「居民生活型態」上的根本差異。而這些看似毫無關聯的變數，其實可以用一套邏輯一致的理論來解釋：都市經濟學中經典的「單一中心都市模型」。此模型試圖回答幾個關鍵問題：為什麼市中心地價這麼貴？為什麼建物越靠近市中心越高？又為什麼郊區房子便宜、住戶空間變大、但人口密度反而下降？背後的關鍵在於——「通勤成本」與「土地競爭」。</p>
-<p>當人們需要在「住得近一點、節省通勤時間」與「住得遠一點、獲得較大空間與較便宜租金」之間做選擇時，整座都市的空間分佈就自然呈現出一種規律：地價與房價由市中心往外遞減，而建物高度、人口密度也跟著改變。這種分佈不只出現在台北、東京或紐約，幾乎所有都市——只要有市中心、有通勤、有土地價格——都能在某種程度上觀察到這種現象。</p>
-<h3 id="模型假設"><a href="#模型假設" class="headerlink" title="模型假設"></a>模型假設</h3><p>在討論之前，我們必須先瞭解單一中心都市模型如何描繪都市，以及都市中的「人」是如何與經濟體系互動。雖然模型會稍微簡化現實世界，但仍能捕捉部分的細節。</p>
-<ul>
-<li><strong>都市空間</strong>：模型假設都市裡的工作都在中心商業區(central business district, CBD)，且將 CBD 視作一個<strong>點</strong>。從家裡到 CBD 的通勤路線是放射狀的(radial)，並且假設可以沿著一條徑向道路直接通往 CBD，用 $x$ 表示距離 CBD 的遠近。</li>
-</ul>
-<div style="text-align:center">
-  <img src="/images/Urban Economics/urban-econ-1-CBD.png" width="300" height="300" alt="都市經濟圖">
-  <p style="font-size: 0.8em; color: #999999;">圖 1：都市中心商業區分析模型</p>
-</div>
-
-<ul>
-<li><p><strong>家計單位</strong>：對家計單位而言，每個家庭都相同(identical)，包含收入、偏好等都是一樣的，並計收入為 $y$，且都在 CBD 上班。家庭需要消費兩樣商品，一是住宅(housing)，在此模型中設定為「住房空間的大小」，可以想像為坪數；二是其他除了房子以外的所有商品與服務所合成的其他一般商品<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="直觀地可以想像到，模型的設定就是要儘量捕捉人類的生活習慣，至少需要一個地方居住，且需要食物來補充身體所需的能量。">[1]</span></a></sup>。</p>
-</li>
-<li><p><strong>通勤成本</strong>：家計單位從家中至上班途中的通勤費用以 $t$ 表示，無論油錢、時間成本，全部均以金錢考量。因此若住在距離市中心 $x$ 的地方，通勤總成本就是 $t \times x$。因此在給定家計單位的收入為 $y$ 之下，扣除通勤費用後剩下 $y - tx$ 就是可支配於買房或一般商品的金額。</p>
-</li>
-<li><p><strong>土地使用</strong>：模型僅關注住宅，因此假設工廠、商業用地等都集中在 CBD。每個地段上的建案由開發商（建商）興建並出租或出售給住戶，因此會同時考慮「家計單位的選擇」和「建商的利潤最大化」。</p>
-</li>
-</ul>
-<h3 id="家計單位的選擇：為何越遠地價越低？"><a href="#家計單位的選擇：為何越遠地價越低？" class="headerlink" title="家計單位的選擇：為何越遠地價越低？"></a>家計單位的選擇：為何越遠地價越低？</h3><p>假設家計單位的效用函數為 $u &#x3D; u(c, q)$，其中 $c$ 是消費的其他商品，$q$ 則是居住空間大小。家計單位所面臨的預算限制式可以表達為<br>$$<br>c + p(x) \cdot q &#x3D; y - tx<br>$$<br>其中 $c$ 的價格被單位化為 1，而 $p(x)$ 代表離市中心 $x$ 地點的「每單位住房空間價格」，因此 $p(x)q$ 是家計單位在房租或房貸上的支出。因此，家計單位的效用極大化模型可以表達為<br>$$<br>\begin{aligned}<br>\max_{c, q}\;&amp; u &#x3D; u(c, q)\\<br>\text{s.t.}\;&amp; c + p(x) \cdot q &#x3D; y - tx<br>\end{aligned}<br>$$<br>另外，必須注意到，由於家計單位的效用都一樣，又可自由選擇居住地，因此若某地的「淨效用」較高，人們就會趨之若鶩搶著搬去該地住，直到房租或房價上漲到每個人的效用都持平為止。換句話說，在均衡時，不管住在市中心還是邊緣，都會得到一樣的效用水準，只是住得近的人少繳通勤費但要花更多租金；而住得遠的人少繳租金但多繳通勤費。最後結果是：$p(x)$ 必須隨著 $x$ <strong>遞減</strong>，也就是距離市中心越遠，房價就應該要越便宜，才能夠<strong>補償</strong>每天高額的通勤成本。同時，由於較遠的房子較便宜，每個家計單位可以使用更大的空間，因此 $q(x)$ 隨著 $x$ 遞增。</p>
-<div style="text-align:center">
-  <img src="/images/Urban Economics/urban-econ-1-util.png" width="400" height="300" alt="都市經濟圖">
-  <p style="font-size: 0.8em; color: #999999;">圖 2：效用函數與預算限制式</p>
-</div>
-
-
-<div class="hcb-content hcb-block hcbnote">
-  <p class="hcb-content hcb-block-title"><i class="fa fa-pen fa-fw"></i>房價梯度</p>
-  <p><strong>房價梯度</strong>(housing price gradient)的概念簡言之其實就是用來衡量房價如何隨著與市中心距離的增加而變化，特別是「變化的速率」是多少。房價梯度定義為<br>$$<br>\dfrac{\partial p(x)}{\partial x} &#x3D; - \dfrac{t}{q(x)}<br>$$<br>先說結論：<strong>當距離市中心越遠，房價應該要降得越多，才能補償通勤費的增加</strong>。</p>
-  <p><strong>證明</strong></p>
-  <p>重述家計單位的效用極大化模型如下：<br>$$<br>\begin{aligned}<br>\max_{c, q}\;&amp; u &#x3D; u(c(x), q(x))\\<br>\text{s.t.}\;&amp; c + p(x) \cdot q &#x3D; y - tx<br>\end{aligned}<br>$$<br>因為模型假設所有家計單位都相同，收入也一樣，且可自由選擇住在任何距離市中心 $x$ 的地方，在均衡時，所有距離下的效用都相同。用數學的方法表達即是：<br>$$<br>u(c(x), q(x)) &#x3D; \bar{u}, \quad \forall x \in \mathbb{R}<br>$$<br>其中 $\bar{u}$ 為固定的效用值，為一個常數(constant)。這行數學式的經濟意涵即是：如果住在比較遠的地方效用比較高，那大家就會搬去那裡，直到那裡的房價被推高；反之亦然。由於效用是固定的，因此可以對上式兩邊都對 $x$ 作微分，並同樣應用在預算限制式上，得到<br>$$<br>\begin{aligned}<br>\;&amp;\dfrac{dc}{dx} + \dfrac{dp}{dx} \cdot q(x) + \dfrac{dq}{dx} \cdot p(x) &#x3D; -t \\[5pt]<br>\;&amp;\dfrac{du}{dx} &#x3D; \dfrac{\partial u}{\partial c} \cdot \dfrac{dc}{dx} + \dfrac{\partial u}{dq} \cdot \dfrac{dq}{dx} &#x3D; 0<br>\end{aligned}<br>$$<br>我們的目標是想要消去 $dc&#x2F;dx$ 與 $dq&#x2F;dx$，從而求出 $dp&#x2F;dx$。由效用極大化條件可知<br>$$<br>\dfrac{MU_{c}}{MU_{q}} &#x3D; \dfrac{\partial u&#x2F;\partial c}{\partial u&#x2F;\partial q} &#x3D; \dfrac{p(x)}{1} &#x3D; p(x)<br>$$<br>因此移項可得<br>$$<br>\dfrac{\partial u}{\partial c} &#x3D; p(x) \cdot \dfrac{\partial u}{\partial q}<br>$$<br>將此式代入由效用函數微分後的結果，可得<br>$$<br>\begin{aligned}<br>\;&amp;p(x) \cdot \dfrac{\partial u}{\partial q} \cdot \dfrac{dc}{dx} + \dfrac{\partial u}{dq} \cdot \dfrac{dq}{dx} &#x3D; 0\\<br>\Rightarrow\;&amp; \dfrac{\partial u}{\partial q} \left[p(x) \cdot \dfrac{dc}{dx} + \dfrac{dq}{dx}\right] &#x3D; 0\\<br>\Rightarrow\;&amp; \dfrac{dq}{dx} &#x3D; -p(x) \cdot \dfrac{dc}{dx}<br>\end{aligned}<br>$$<br>代入此結果至預算限制式微分後的式子，得到<br>$$<br>\begin{aligned}<br>\;&amp;\dfrac{dc}{dx} + \dfrac{dp}{dx} \cdot q(x) + \left[-p(x) \cdot \dfrac{dc}{dx}\right] \cdot p(x) &#x3D; -t \\[5pt]<br>\Rightarrow\;&amp;\dfrac{dc}{dx} + \dfrac{dp}{dx} \cdot q(x) + -p(x)^{2} \cdot \dfrac{dc}{dx} &#x3D; -t \\[5pt]<br>\Rightarrow\;&amp;\dfrac{dc}{dx}\left[1 - p(x)^{2}\right] + \dfrac{dp}{dx} \cdot q(x)&#x3D; -t \\[5pt]<br>\Rightarrow\;&amp;\dfrac{dp}{dx} \cdot q(x) &#x3D; -t + \left[p(x)^{2} + 1\right] \cdot \dfrac{dc}{dx}\\[5pt]<br>\end{aligned}<br>$$<br>這時候如果 $dc&#x2F;dx$ 很小，或效用是準線性(quasi-linear)，可以忽略右邊後半，移項整理最終可得：<br>$$<br>\dfrac{\partial p(x)}{\partial x} &#x3D; - \dfrac{t}{q(x)}<br>$$</p>
-  <ul>
-  <li>假設 $dc&#x2F;dx$ 很小的原因在於「住房空間」的選擇通常是主要考量，因為它直接受到房價和土地供給條件影響。相比之下，「一般消費品」的變動幅度通常相對小。尤其當都市裡生活用品價格固定（例如超市價格相同）時，即使住得遠一點、省下一些房租，多出來的錢也只是在消費品上略微增加，並不顯著改變效用水準。</li>
-  <li>如果是準線性效用函數，則效用函數可以寫成<br>  $$<br>  u(c, q) &#x3D; c + v(q)<br>  $$<br>  如此設定之下，邊際效用對 $c$ 是常數，即 $\partial u&#x2F;\partial c &#x3D; 1$，$q$ 才是改變效用的主角。</li>
-  </ul>
-  <p style="text-align: right;">□</p>
-</div>
-
-
-<h3 id="建商的選擇：為何越近要蓋越高？"><a href="#建商的選擇：為何越近要蓋越高？" class="headerlink" title="建商的選擇：為何越近要蓋越高？"></a>建商的選擇：為何越近要蓋越高？</h3><p>在此模型中，住宅的供給是由建商利用「土地」與「建築材料」共同生產出可居住的樓地面積($Q$)，而此面積可以表示為以下的住宅生產函數：<br>$$<br>Q &#x3D; H(N, l)<br>$$<br>其中 $N$ 是建材用量，$l$ 則為土地面積。此外，假設 $H$ 為固定規模報酬(constant return to scale, CRTS)，亦即<br>$$<br>\lambda Q &#x3D; H(\lambda N, \lambda l), \quad \lambda \in \mathbb{R}<br>$$<br>當建商想要將樓層越蓋越高時，邊際成本會隨之增加，可以想見，當大樓越高，就需要使用更多的鋼筋、水泥，從而將建築的結構加固。假設建商在某距離 $x$ 所支付的地租為 $r(x)$，購買建材的成本為 $i \times N$，其中 $i$ 為每單位建材價格，因此建商的成本函數可以表達為<br>$$<br>C(N, l) &#x3D; iN + rl<br>$$<br>當建商在每個地點觀察到當地住宅單價 $p(x)$ 後，便會考量：</p>
-<ul>
-<li>需要投入多少建材，以及使用多少土地（或購地多少），才能壓低成本生產最適量的住房空間，並以 $p(x)$ 出租&#x2F;售。</li>
-<li>在均衡時，競爭結果會導致建商的<strong>利潤為零</strong>（即建商僅賺取正常利潤），因為若某地利潤較高，其他建商都會在該處蓋房，直至地租 $r(x)$ 上漲，利潤被壓到 0 為止。</li>
-<li>由於越靠近市中心的 $p(x)$ 越高，為了充分利用這塊昂貴土地，開發商就會投更多建材、蓋更高樓，以攤平土地成本。於是越靠近市中心，建築物越高，土地利用也越密集。</li>
-</ul>
-<p>因此，地租會像房屋單價一樣呈現向外遞減的現象，而建材與土地的使用比例也隨著地價不同而改變：離市中心越近，土地貴、房價高，開發商就用更多建材，建出較高的樓。</p>
-<h3 id="人口密度：為何郊區人口較少？"><a href="#人口密度：為何郊區人口較少？" class="headerlink" title="人口密度：為何郊區人口較少？"></a>人口密度：為何郊區人口較少？</h3><p>誠如前述所言，離市中心越遠，房價越低，因此家計單位就會租賃更大間的房屋，代表空間被擠壓。雖然在市中心大樓很高，但是每戶住家空間 $q(x)$ 在市中心通常也較小，所以理論上整體「可住的人數」可能依舊密度很高。相反地，郊區的樓雖矮，可每戶空間大。因此討論人口密度時，需要綜合考慮「<strong>單位土地上的總樓地板面積</strong>」以及「<strong>每戶佔的單位面積</strong>」。將上述兩大因素結合，模型推導顯示，一般會得到「<strong>市中心人口密度高，往外距離增加而遞減</strong>」的結論。原因為</p>
-<ul>
-<li>靠近市中心 → 雖然房子貴、房間小，但樓蓋得多且單位土地可容納較多戶；總體算下來人口密度往往高。</li>
-<li>離市中心遠 → 雖然地便宜可蓋得寬，但每戶都想住更大空間，導致每單位土地能容納的戶數降低，總體密度相對小。</li>
-</ul>
-
-<div class="hcb-content hcb-block hcbnote">
-  <p class="hcb-content hcb-block-title"><i class="fa fa-pen fa-fw"></i>人口密度數學推導</p>
-  <p>用數學解釋如下：由於 $N(x)&#x2F;l(x)$ 隨著 $x$ 遞減，言下之意就是隨著距離市中心越遠，土地面積越大、建築密度越低，郊區土地佔地寬裝，建物密度會較低。又前面已知 $q(x)$ 會隨 $x$ 遞增，這是因為遠離市中心的地價較便宜，住戶有更多資金來購買較大的住宅，所以隨著距離市中心越遠，每戶住宅的面積會增加。人口密度(population density)是指單位土地面積上的居民數量。在這個模型中，每戶家庭擁有 $k$ 人，所以人口密度 $D(x)$ 可以用下面的公式表示：<br>$$<br>D(x) &#x3D; k \times \dfrac{H(N(x), l(x))}{q(x)} \times \dfrac{1}{l(x)}<br>$$<br>由於假設住房生產函數為固定規模報酬，因此上式可改寫為<br>$$<br>D(x) &#x3D; k \times \dfrac{H(N(x)&#x2F;l(x), 1)}{q(x)}<br>$$<br>綜上，因為 $N(x)&#x2F;l(x)$ 隨著 $x$ 遞減，$q(x)$ 會隨 $x$ 遞增，因此 $D(x)$ 會隨著 $x$ 遞減。</p>
-</div>
-
-
-<h3 id="都市邊界的決定因素"><a href="#都市邊界的決定因素" class="headerlink" title="都市邊界的決定因素"></a>都市邊界的決定因素</h3><p>當都市發展到一定程度，土地價格將不再足以支撐都市的飛速發展，此時土地會轉作他用，例如農業生產、工廠擴建等。</p>
-<ul>
-<li>都市的土地需求與供應之間會產生競爭：當都市的土地需求增大、市區土地價格上升，將會推動建商將原本的農業土地轉為都市建設用地。因此，農地收益提供了一個良好的外部選項，讓都市的人口得以「宣洩」。而正是因為如此，都市邊界正是都市土地和農業土地之間的分界線。</li>
-<li>農地收益作為上限：如果土地價格高於農業收益，則都市會繼續擴張；若土地價格低於農業收益，都市擴展將會停止，並且農地將取而代之。</li>
-</ul>
-<p>假設農地收益為 $r_{A}$，且地租曲線與農業收益的交點決定都市邊界 $\bar{x}$。此外，都市人口($L$)為外生給定，住房供應量必須滿足此人口需求，如此才能消除市場中的過剩需求或供應。假設所有都市居民都住在一個長度為 $[0, \bar{x}]$ 的區域內，則都市人口數為<br>$$<br>\int_{0}^{\bar{x}} D(x) dx &#x3D; L<br>$$<br>若假設都市居民均住在一個半徑為 $\bar{x}$ 的圓形區域內，則<br>$$<br>\int_{0}^{\bar{x}} 2\pi x D(x) dx &#x3D; L<br>$$<br>表示在圓形區域內，人口總數也是 $L$。不過在此模型中，因為已經假設都市是向外輻散的，因此第二個假設才比較符合模型設定。</p>
-<div style="text-align:center">
-  <img src="/images/Urban Economics/urban-econ-1-city-boundary.png" width="400" height="300" alt="都市邊界">
-  <p style="font-size: 0.8em; color: #999999;">圖 3：都市邊界</p>
-</div>
-
-<h3 id="都市結構與比較靜態"><a href="#都市結構與比較靜態" class="headerlink" title="都市結構與比較靜態"></a>都市結構與比較靜態</h3><p>現在需要討論的是，如果某些外在條件改變，都市的結構會怎麼跟著改變？或者如何解釋不同都市之間的差異，或同一都市在不同情況下的變化。</p>
-<h4 id="人口數量增加"><a href="#人口數量增加" class="headerlink" title="人口數量增加"></a>人口數量增加</h4><p>若有一座都市，人口從 $L_{0}$ 上升至 $L_{1}$。在變化初期，住房需求量必定上升，整體房價曲線必定上升。面臨租金&#x2F;房價攀升，住戶只能選擇縮小居住面積。對於建商而言，因為地價上升，為了抵消成本，從而興建高樓，提供空間供給量。如此一來，同一個半徑下能夠住進更多人，進而將都市邊界向外推。因此當都市面臨人口數量上升，都市會變大、房價上升、市中心更密集、人口密度普遍上升、邊界向外擴張。</p>
-<h4 id="農地收益上升"><a href="#農地收益上升" class="headerlink" title="農地收益上升"></a>農地收益上升</h4><p>如果郊外的農地或其他替代用途的收益增加，表示現在「搶」土地需要支付更高的地租。住宅用地一開始會相對短缺，房價因此攀升，因此住戶為了省錢，會減少居住空間。當建商看到地變貴了，就會將建物蓋的更加密集。整體人口仍可被容納，但因為市區地價也因競爭被推高，所以最終都市雖然能容納更多人，但邊界其實會「縮短」：地越來越貴，乾脆蓋高樓，往高處要空間，而不是往外擴張。</p>
-<h4 id="通勤成本改變"><a href="#通勤成本改變" class="headerlink" title="通勤成本改變"></a>通勤成本改變</h4><p>如果開車、搭車成本提高，住得遠就更不划算，因此更多人想往市中心靠近；市中心附近的房價因此上漲，而遠郊的房價反而下跌；整個都市人口分佈會往中心壓縮，邊界縮短。反之，若汽油成本、通勤成本下降（像高速公路、汽車普及），就會促進<strong>都市蔓延</strong>(urban sprawl)：大家更願意住得遠，大房子、大院子，都市外圍越拓越大。</p>
-<h4 id="所得提高"><a href="#所得提高" class="headerlink" title="所得提高"></a>所得提高</h4><p>原理和通勤成本幾乎相反。如果居民收入大幅提升，他們願意多花點通勤費，買更大房子或住得更舒適，並不一定要擠在市中心。因此都市整體會往外擴張，市中心的房價當然也會上漲，但人們可能選擇居住在更遠且更大的空間。</p>
-<h3 id="開放都市模型-Open-City-Model"><a href="#開放都市模型-Open-City-Model" class="headerlink" title="開放都市模型(Open City Model)"></a>開放都市模型(Open City Model)</h3><p>前面討論多半是假設「封閉都市」，人口數量固定。而若是「開放都市」，不同都市之間可以互相遷移，則：</p>
-<ul>
-<li><p>更高收入的都市吸引更多移民，人口會持續擴張，直到當地房價、通勤成本等上升到讓新移民覺得「效用」跟別的都市差不多，才停止流入。</p>
-</li>
-<li><p>於是，有高所得機會的都市往往人口更集中、更大，房價也更貴。</p>
-</li>
-</ul>
-<h2 id="修改後的單一中心都市模型"><a href="#修改後的單一中心都市模型" class="headerlink" title="修改後的單一中心都市模型"></a>修改後的單一中心都市模型</h2><p>在單一中心都市模型中，家計單位被假設具有同質性，連收入都是相同的，但現實生活中，不同家計單位的收入可能不一，有高收入、小康家庭、中低收入戶以及低收入戶等。此外，就業分布也是原本模型未考量到的部分。房屋的耐久性(durability)也是另外一個影響都市結構的因素之一。因此在修改後的單一中心都市模型中，在假設其他條件不變的情況下(<em><a href="https://en.wikipedia.org/wiki/Ceteris_paribus">ceteris paribus</a></em>)，逐一放寬這些假設，討論這些改變對於都市空間結構的影響。</p>
-<h3 id="都市中的收入差異"><a href="#都市中的收入差異" class="headerlink" title="都市中的收入差異"></a>都市中的收入差異</h3><p>假設都市內有兩個收入群體，分別為高收入群體(其收入記成 $y_{R}$)與低收入群體(其收入記成 $y_{P}$)，且 $y_{R} &gt; y_{P}$。可以觀察到，在美國，大多數的富人都會住在郊區，而窮人會願意著在市中心。不過這種反直覺的現象是否可以被模型合理解釋？答案是肯定的，原因是因為這兩個群體的住房需求不同所致：</p>
-<ul>
-<li><strong>低收入群體</strong>：由於低收入群體的收入相對較少，他們無法負擔市中心以外的高房價，因此他們通常選擇住在市中心。市中心的土地價格較便宜，且通勤成本較低，使得低收入群體能夠在相對較小的住房空間中承擔較低的租金或購房成本。</li>
-<li><strong>高收入群體</strong>：相對而言，高收入群體的收入較高，他們有更多的財務能力來選擇更大的住宅，通常會選擇住在郊區。雖然郊區的地價較低，但房屋空間較大，且雖然通勤成本較高，但高收入群體能夠承擔更高的通勤費用。在這樣的情況下，儘管通勤時間較長，但他們願意選擇遠離市中心的地方，享受更多的生活空間。</li>
-</ul>
-<p>由上述可知，$q_{R} &gt; q_{P}$，結合房價梯度，我們可以得出高收入群體的房價梯度較為平緩，原因基於：<br>$$<br>\dfrac{t}{q_{R}(x)} &lt; \dfrac{t}{q_{P}(x)}<br>$$<br>從高收入群體的角度來看，房價梯度平緩代表的意義是，高收入群體<strong>願意承擔較高的通勤成本</strong>，加上高收入群體對居住條件要求高，對於房屋的需求呈現剛性。</p>
-<div style="text-align:center">
-  <img src="/images/Urban Economics/urban-econ-1-pRpP.png" width="400" height="320" alt="高低收入群體房價梯度">
-  <p style="font-size: 0.8em; color: #999999;">圖 4：高低收入群體房價梯度</p>
-</div>
-
-<p>注意到，兩群體的房價梯度曲線會在 $\hat{x}$ 交會一次，且<strong>只會交會一次</strong>。首先，該交會點代表在此點上兩群體的住房價格相同，即 $p_{R}(\hat{x}) &#x3D; p_{P}(\hat{x})$，雖然高收入群體和低收入群體的房價相等，但由於高收入群體的每戶住房空間 $q_{R}(x)$ 較大，因此高收入群體的房價梯度在此交點之前會較為平緩。反之，低收入群體的房價梯度較陡。</p>
-<p>至於是否合理，我們可以直接在模型中引入通勤成本與時間成本。假設個體一天的總時間可以被單位化為 1，令單位距離通勤時間（包含往返）為 $\delta$，因此工時為 $(1 - \delta x)$。高收入群體的薪水記成 $w_{R}$，低收入群體則為 $w_{P}$，且 $w_{R} &gt; w_{P}$。此外，時間成本為每單位距離 $t$。因此，高收入群體住在距離市中心 $x$ 的地方時，其可支配所得即是總收入減去這些附加成本：<br>$$<br>(1 - \delta x)w_{R} - tx &#x3D; w_{R} - \underbrace{(\delta w_{R} + t)}_{通勤成本}x<br>$$</p>
-<p>因此高收入群體的通勤成本為 $m_{R} &#x3D; \delta w_{R} + t$，同理可推得低收入群體的通勤成本為 $m_{P} &#x3D; \delta w_{P} + t$。那麼，$m_{R}$ 與 $m_{P}$ 孰大孰小？其實這個答案無法確定，原因在於我們無法確定 $\delta w_{R}$ 與 $\delta w_{P}$ 的大小關係，個人觀點認為，高收入群體通常擁有較高的收入，他們對時間的價值會更加重視。在這種情況下，選擇私人轎車（例如 Uber）可以<strong>省去等候公共交通和在擁擠的交通中花費過多時間</strong>；即便這樣的選擇需要支付較高的成本，對他們來說，這筆額外費用是值得的，因為能夠節省時間和提升生活品質。</p>
-<h3 id="引入市中心外的就業機會"><a href="#引入市中心外的就業機會" class="headerlink" title="引入市中心外的就業機會"></a>引入市中心外的就業機會</h3><p>當都市中有更多的就業機會出現在市中心外，那麼都市結構會如何改變呢？可以考慮兩種情況，一是在都市中工作機會分佈在都市各地，而非集中於單一區域；二是假設都市內有次級商業區(secondary business district, SBD)。</p>
-<h4 id="在都市中廣泛分佈的工作"><a href="#在都市中廣泛分佈的工作" class="headerlink" title="在都市中廣泛分佈的工作"></a>在都市中廣泛分佈的工作</h4><p>假設一名工人住在距離市中心 $x^{*}$ 的地方，在其通勤路上，某雇主提供一份距離市中心 $x^{**}$ 的工作。在此情況下，雇主為了吸引這名工人，會根據工人的通勤距離提供更高的薪水： </p>
-<p>$$<br>y - tx^{\ast\ast} &#x3D; y - t(x^{\ast} - x^{\ast\ast}) &#x3D; y - tx^{\ast}<br>$$<br>工人如果接受這份工作，他的<strong>收入和生活成本會達到一個平衡點</strong>，即雇主會根據工人的通勤成本給予足夠的薪水，<strong>使工人對選擇接受這份工作與否無偏好</strong>。即使工作位置不在市中心，工人的可支配收入（即工資減去通勤成本）與選擇市中心工作相比，不會有太大區別。</p>
-<h4 id="次級商業區"><a href="#次級商業區" class="headerlink" title="次級商業區"></a>次級商業區</h4><p>假設都市中不只有市中心有工作機會，次級商業區也會提供，雖然薪資可能稍低、工作機會不多，或工作環境不同，但仍有人會選擇到此工作。如果市中心提供的薪水比次級商業區更高，那麼市中心的房價曲線會比次級商業區的曲線更高，表示越往市中心靠近，房價會更高；反之，離市中心越遠的地方，房價就會相對便宜。簡單來說，市中心工作提供更多收入，所以居住在市中心的人的收入也較高。</p>
-<p>這裡就出現一個問題：如果次級商業區提供的工作比較少，或薪水不高，理論上應該會選擇住得比較近的地方工作，這樣可以減少通勤時間，省下更多時間和金錢。然而，現實中會出現一個問題：有些工人即使知道市中心工作的薪水更高，或者雖然次級商業區的工作薪水較低，他們還是會選擇長時間的通勤，這就叫做<strong>浪費通勤</strong>(wasteful commuting)。出現浪費通勤此一現象的原因眾說紛紜，但大致可以歸納為以下幾點：</p>
-<ul>
-<li><strong>對市中心的偏好</strong>： 有些人可能喜歡住在市中心，因為市中心有更多的便利設施（像是餐廳、商店、娛樂場所等）。即使工作不是在市中心，也會選擇住在市中心，接受更長的通勤時間。這是因為市中心的生活設施比其他地方豐富，對這些人而言，這些設施是值得的。</li>
-<li><strong>多工&#x2F;雙薪家庭</strong>： 有些家庭可能有兩個工作的人，當這些工人選擇居住的地方時，他們並不僅僅考慮自己的工作地點，還會<strong>考慮配偶的工作地點</strong>。例如，配偶的工作地點可能就在市中心附近，所以整個家庭會選擇住在市中心，而不考慮次級商業區的工作地點，這樣就會導致浪費通勤。</li>
-</ul>
-<h3 id="住房耐久性"><a href="#住房耐久性" class="headerlink" title="住房耐久性"></a>住房耐久性</h3><p>在先前的模型中，假設都市的建築是一次性建立的，也就是所謂的「一次性」模型。換句話說，在之前的模型中，建築不會隨時間變化，只是單純的在某個時間點建立並持續使用，沒有考慮時間上的延續性和變化。但在現實中，建築是有耐久性的，建築會隨著時間的推移而改變或<strong>老化</strong>，最終可能會被重建或維修（如都更）。</p>
-<p>假設都市不斷向外擴展，每年新增一個固定距離的區域，這些區域被稱為區塊(block)。每個區塊代表都市的一個擴展部分，並且隨著時間的推移，這些區塊會在都市發展中逐漸形成。例如在時間 $T&#x3D;0$ 時，都市的第一個區塊（Block 0）開始建設。隨著時間的推移，每隔一定時間，會新增一個新的區塊，並且這些區塊的建築會逐漸老化。每個新建的區塊會在它建立時建造新建築，並且每個建築都會持有一段固定的時間，然後這些建築將被拆除並重新建造。</p>
-<p>假設每棟建築的使用年限是 3 年，也就是說：</p>
-<ul>
-<li>在 $T&#x3D;0$ 時建造的建築會在 $T&#x3D;3$ 時被拆除並重新建造。</li>
-<li>$T&#x3D;1$ 時建造的建築會在 $T&#x3D;4$ 時被拆除，以此類推。</li>
-</ul>
-<p>如此往復，就形成了都市內不同建築的年齡結構。隨著時間推移，都市中的建築會不斷更替，這會影響都市的外觀、居住條件以及經濟結構。另外，我們仍須考慮建築的高度與年齡的影響：</p>
-<ul>
-<li><strong>距離效應</strong>：隨著都市的擴展，距離市中心越遠的地方，建築的高度可能越低。原因是隨著距離市中心的增加，土地價格會逐漸下降，因此新建的建築可能會更矮小。</li>
-<li><strong>年齡效應</strong>：新建的建築可能會更高，而舊建築則相對較矮，即隨著時間的推移，舊建築的高度會逐漸降低，而新建的建築則可能更加現代化，並且高度更高。</li>
-</ul>
-<h2 id="開發中國家的都市化過程"><a href="#開發中國家的都市化過程" class="headerlink" title="開發中國家的都市化過程"></a>開發中國家的都市化過程</h2><p>目前多數開發中國家都面臨農村移往都市人口流動現象，以中國為例，目前中國的都市化程度尚不及 60%，但是多數已開發國家至少都超過此數字。從農村移往都市的過程，會改變都市的結構，成為一個值得討論的議題。</p>
-<h3 id="農村-都市人口遷移"><a href="#農村-都市人口遷移" class="headerlink" title="農村-都市人口遷移"></a>農村-都市人口遷移</h3><p>前面已經提過，在開放都市模型中，假設都市人口為 $L$，都市邊界($\bar{x}$) 會隨著 $L$ 而增加，因此可以將都市邊界表達為以下的關係：<br>$$<br>\bar{x} &#x3D; \bar{x}(L)<br>$$<br>由於農村居民通常不需要通勤，因此他們的選擇是基於都市邊界上與都市居民的比較。主要因為他們面臨的住房價格是一樣的。這意味著農村居民的選擇不受內部都市區域的影響，而只是與住在都市邊緣的居民的經濟條件進行比較。假設農村居民可支配所得為 $y_{A}$，且 $y - t\bar{x}(L)$ 為都市居民的收入扣除交通成本後的可支配所得，則</p>
-<ul>
-<li>若 $y - t\bar{x}(L) &gt; y_{A}$，代表都市居民的所得高於農村居民的可支配收入，農村居民會選擇遷移到都市。這會導致都市的人口 $L$ 增加，更多的農村居民被吸引進城。</li>
-<li>反之，若 $y - t\bar{x}(L) &lt; y_{A}$，代表都市居民的可支配所得低於農村居民的可支配所得，部分都市居民可能會選擇遷移回農村，都市人口因而減少。</li>
-</ul>
-<p>均衡狀態達成的條件是：當都市居民的可支配所得等於農村居民的可支配所得，人口遷移將停止。換句話說，當都市的收入足夠吸引農村居民，並且農村的收入不再高於都市居民的收入時，人口遷移會達到一個平衡狀態。因此可以得到以下結論：當農村居民收入比較低時，大規模往都市的人口遷移將會發生。</p>
-<h3 id="都市均衡與人口規模"><a href="#都市均衡與人口規模" class="headerlink" title="都市均衡與人口規模"></a>都市均衡與人口規模</h3><p>假設每個都市的住宅大小和高度在各地點都是固定的，從而簡化模型，避免了不同地點的住宅高度變動。假設人口密度是固定的，表示為 $\theta$，並定義 $\mu &#x3D; 1&#x2F;\theta$ 為人均佔地面積。在這個模型中，都市的均衡是基於人口規模 $L$ 與都市邊界的關係。房屋供需均衡時會滿足<br>$$<br>\mu L &#x3D; \pi \bar{x}^{2}<br>$$<br>在都市的均衡情況下，都市的土地使用量由以下公式決定：<br>$$<br>y - t\bar{x} &#x3D; y_{A}<br>$$<br>代入房屋供需均衡的條件，可得<br>$$<br>y - t\sqrt{\dfrac{\mu L}{\pi}} &#x3D; y_{A}<br>$$</p>
-<ul>
-<li>當 $y$ 增加時，這表示都市居民的收入上升，那麼為了保持均衡，都市的總人口 $L$ 也會隨之增加。這是因為都市提供了更高的收入，吸引更多的農村居民遷入都市。</li>
-<li>當 $t$ 減少時，交通成本降低，也會促使更多的人遷入都市，從而增加都市人口。</li>
-<li>當 $y_{A}$ 減少時，即農村的收入減少時，農村居民的遷移到都市的動機增強，也會增加都市的人口規模。</li>
-</ul>
-<h3 id="Harris-Todaro-模型"><a href="#Harris-Todaro-模型" class="headerlink" title="Harris-Todaro 模型"></a>Harris-Todaro 模型</h3><blockquote>
-<p>儘管都市的失業率很高，為何農村居民會趨之若鶩搬遷至都市居住呢？</p>
-</blockquote>
-<p>為了回答此問題，Harris-Todaro 模型給出「預期收入」的概念，而非僅僅仰賴現實的就業機會。對於一個來自農村的居民來說，決定是否遷入都市的關鍵因素不僅是都市的現有就業機會，而是他們根據都市的就業機會和農村的生活條件所預期的收入。假設都市有 $J$ 個工作機會，都市總人口為 $L$，但並非每個人都能成功找到工作，但為了方便起見，假設每個人都有相同的就業機會，找到工作的機率為 $J&#x2F;L$。均衡條件為<br>$$<br>y \times \dfrac{J}{L} - t\sqrt{\dfrac{\mu L}{\pi}} &#x3D; y_{A}<br>$$<br>其中 $y$ 為都市居民的平均所得，$y_{A}$ 為農村居民的所得。上式代表都市的預期收入（扣除交通成本）必須等於農村的收入，這樣才會達到平衡狀態。若都市的收入高於農村的收入，則農村居民會遷移到都市，增加都市的人口。當都市的工作機會增加，或交通成本減少，將使都市對農村居民的吸引力增強，從而導致更多的農村居民遷入都市。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">直觀地可以想像到，模型的設定就是要儘量捕捉人類的生活習慣，至少需要一個地方居住，且需要食物來補充身體所需的能量。<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>經濟學</category>
-        <category>都市經濟學</category>
-      </categories>
-      <tags>
-        <tag>都市空間結構</tag>
-        <tag>單核心都市模型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flask 筆記 | 基礎架構與環境準備</title>
-    <url>//basic/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Flask 是一個輕量級的 Python Web 框架，特別適合學習、原型設計與中小型專案。它的設計哲學是「微框架」，提供最小的核心功能，讓開發者可以自行決定要引入哪些擴充元件，使得 Flask 具有極高的彈性與可控性。</p>
-<span id="more"></span>
-
-<h2 id="安裝-Flask"><a href="#安裝-Flask" class="headerlink" title="安裝 Flask"></a>安裝 Flask</h2><p>Flask 是一個 Python 套件，可以透過常見的套件管理工具安裝。根據不同專案管理方式，可以選擇使用 <code>pip</code> 或 <code>poetry</code>。最簡單的方式是透過 <code>pip</code> 安裝：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install Flask</span><br></pre></td></tr></table></figure>
-
-<p>Flask 就會安裝到目前的 Python 環境中，適用於不使用虛擬環境管理器或是使用 <code>venv</code> 的情境。如果使用 Poetry 進行版本控制，則使用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">poetry add Flask</span><br></pre></td></tr></table></figure>
-
-<h2 id="建立第一個-Flask"><a href="#建立第一個-Flask" class="headerlink" title="建立第一個 Flask"></a>建立第一個 Flask</h2><p>首先在編譯器打開 app 的專案目錄，建立 <code>app.py</code> 這個檔案，例如：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">my_flask_app/</span><br><span class="line">└── app.py               <span class="comment"># Flask 主程式</span></span><br></pre></td></tr></table></figure>
-
-<p>接著在主程式寫入以下內容：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask  <span class="comment"># 載入 Flask</span></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)    <span class="comment"># 建立 Application 物件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立首頁回應方式</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():              <span class="comment"># 回應網站首頁連線函式</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span> <span class="comment"># 回傳網站首頁內容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 啟動網站伺服器</span></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
-
-<p>執行程式後，進入 <a href="http://127.0.0.1:5000/"><code>http://127.0.0.1:5000/</code></a> 即可看到如下畫面，代表網站伺服器成功啟動。</p>
-<div style="text-align:center">
-  <img src="/images/flask-learning/basic/flask-demo.png"  alt="Flask 網頁範例">
-  <p style="font-size: 0.8em; color: #999999;">圖 1：Flask 網頁範例</p>
-</div>
-
-<!-- ![截圖 2025-08-02 下午1.06.30.png](%5BFlask%5D%20%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E8%88%87%E7%92%B0%E5%A2%83%E6%BA%96%E5%82%99%2024396a33ded1805aab31c345cebd59ed/%E6%88%AA%E5%9C%96_2025-08-02_%E4%B8%8B%E5%8D%881.06.30.png) -->
-
-<p>按下 <code>Ctrl/⌃ + C</code> 即可退出網站，此時再進入 <a href="http://127.0.0.1:5000/"><code>http://127.0.0.1:5000/</code></a> 便不會看到任何東西。</p>
-<h2 id="網址"><a href="#網址" class="headerlink" title="網址"></a>網址</h2><p>一個網址的組成可以表達為</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">通訊協定://主機名稱:埠號/路徑?要求字串</span><br></pre></td></tr></table></figure>
-
-<p>以這個網址為例：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://example.com:5000/api/user?<span class="built_in">id</span>=123</span><br></pre></td></tr></table></figure>
-
-<p>可以分成以下幾個部分：</p>
-<table>
-<thead>
-<tr>
-<th>部分</th>
-<th>名稱</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>https://</code></td>
-<td><strong>通訊協定 (protocol)</strong></td>
-<td>告訴瀏覽器或程式要使用哪種協定進行資料傳輸，常見的是 <code>http</code> 或 <code>https</code>（安全的 http）。</td>
-</tr>
-<tr>
-<td><code>example.com</code></td>
-<td><strong>主機名稱 (hostname)</strong></td>
-<td>網站的域名，對應到一個伺服器 IP，例如你可以在 DNS 中設定自己的主機名稱。</td>
-</tr>
-<tr>
-<td><code>:5000</code></td>
-<td><strong>埠號 (port)</strong></td>
-<td>是伺服器上正在監聽的<strong>門口</strong>。如果省略，http 預設用 <code>80</code>，https 用 <code>443</code>；Flask 開發模式常用 <code>5000</code>。</td>
-</tr>
-<tr>
-<td><code>/api/user</code></td>
-<td><strong>路徑 (path)</strong></td>
-<td>表示你要請求主機上的哪個資源，Flask 會用這個部分來決定執行哪個路由函式。</td>
-</tr>
-<tr>
-<td><code>?id=123</code></td>
-<td><strong>要求字串 (query string)</strong></td>
-<td>傳遞給伺服器的額外資料，通常用在 GET 請求中，格式是 <code>key=value</code>。</td>
-</tr>
-</tbody></table>
-<h3 id="通訊協定"><a href="#通訊協定" class="headerlink" title="通訊協定"></a>通訊協定</h3><p>根據全球知名的網路服務公司 <a href="https://www.cloudflare.com/zh-tw/learning/network-layer/what-is-a-protocol/">Cloudflare 給的定義</a>：</p>
-<blockquote>
-<p>在網路中，通訊協定是一組用於格式化和處理資料的規則。網路通訊協定就像電腦的通用語言。網路中的電腦可能會使用完全不同的軟體和硬體；然而，使用通訊協定使它們無論如何都能彼此通訊。</p>
-</blockquote>
-<p>簡單來說，通訊協定就像是<strong>傳輸資料的語言規則</strong>，告訴瀏覽器如何與伺服器進行對話。</p>
-<table>
-<thead>
-<tr>
-<th>協定名稱</th>
-<th>全名</th>
-<th>用途</th>
-<th>特點</th>
-<th>常見應用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>TCP</strong></td>
-<td>Transmission Control Protocol</td>
-<td>傳輸層協定</td>
-<td>確保資料可靠傳輸，與 IP 搭配使用（TCP&#x2F;IP）</td>
-<td>網頁、郵件、檔案傳輸</td>
-</tr>
-<tr>
-<td><strong>HTTP</strong></td>
-<td>HyperText Transfer Protocol</td>
-<td>應用層協定</td>
-<td>無狀態、用於傳輸網頁資料</td>
-<td>網站連線、API 呼叫</td>
-</tr>
-<tr>
-<td><strong>HTTPS</strong></td>
-<td>HTTP Secure</td>
-<td>加密版 HTTP</td>
-<td>資料傳輸經 TLS&#x2F;SSL <strong>加密</strong>，更安全</td>
-<td>登入、付款、個資傳輸</td>
-</tr>
-<tr>
-<td><strong>TLS&#x2F;SSL</strong></td>
-<td>Transport Layer Security &#x2F; Secure Sockets Layer</td>
-<td>加密協定</td>
-<td>用於加密應用層協定如 HTTP、SMTP 等</td>
-<td>安全通訊、網站 HTTPS</td>
-</tr>
-<tr>
-<td><strong>UDP</strong></td>
-<td>User Datagram Protocol</td>
-<td>傳輸層協定</td>
-<td>無連線、不保證可靠、但速度快</td>
-<td>串流影音、線上遊戲</td>
-</tr>
-</tbody></table>
-<p>Flask 開發模式預設就是用 <code>http</code>，但部署時可以透過反向代理（如 nginx）加上 SSL 轉為 <code>https</code>。</p>
-<h3 id="主機名稱"><a href="#主機名稱" class="headerlink" title="主機名稱"></a>主機名稱</h3><p>也就是想要連到的伺服器名稱，對應到一個 IP 位址。</p>
-<blockquote>
-<p>IP 位址是指派給連接至網際網路之裝置或網域的唯一識別碼。每個 IP 位址都是一系列字元，例如 <code>192.168.1.1</code>。</p>
-</blockquote>
-<div style="text-align:center">
-  <img src="/images/flask-learning/basic/internet_protocol_ip_address_diagram.svg" alt="層級性原則">
-  <p style="font-size: 0.8em; color: #999999;">圖 2：主機互動圖示<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[網路協定 IP 是什麼？| Cloudflare](https://www.cloudflare.com/zh-tw/learning/network-layer/internet-protocol/)">[1]</span></a></sup></p>
-</div>
-
-<!-- 
-![[網路協定 IP 是什麼？| Cloudflare](https://www.cloudflare.com/zh-tw/learning/network-layer/internet-protocol/)](%5BFlask%5D%20%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E8%88%87%E7%92%B0%E5%A2%83%E6%BA%96%E5%82%99%2024396a33ded1805aab31c345cebd59ed/internet_protocol_ip_address_diagram.svg) -->
-
-
-
-<p>如果在本機測試，常見的主機名稱會是：</p>
-<ul>
-<li><code>localhost</code></li>
-<li><code>127.0.0.1</code></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>主機名稱</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>localhost</code></td>
-<td>本機測試 Flask</td>
-</tr>
-<tr>
-<td><code>example.com</code></td>
-<td>公開網站</td>
-</tr>
-<tr>
-<td><code>myapp.local</code></td>
-<td>開發用模擬主機，需設 DNS 或 <code>hosts</code> 檔</td>
-</tr>
-</tbody></table>
-<p>可以這樣啟動伺服器讓它在特定主機名稱上提供服務：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">flask run --host=127.0.0.1</span><br><span class="line">flask run --host=0.0.0.0    <span class="comment"># 接受所有外部 IP</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="連線埠與埠號"><a href="#連線埠與埠號" class="headerlink" title="連線埠與埠號"></a>連線埠與埠號</h3><p>一台電腦或一個伺服器上<strong>可以同時跑很多服務</strong>（例如 HTTP、FTP、郵件），每個服務就像是一個<strong>房間</strong>，而埠號就是這些房間的<strong>房號</strong>。</p>
-<ul>
-<li><strong>連線埠 (port)</strong>：伺服器上開的一個特定門口，專門用來收某一類的資料。</li>
-<li><strong>埠號 (port number)</strong>：門口的編號。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>服務類型</th>
-<th>協定</th>
-<th>預設埠號</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>HTTP（網頁）</td>
-<td>TCP</td>
-<td><code>80</code></td>
-</tr>
-<tr>
-<td>HTTPS（加密網頁）</td>
-<td>TCP</td>
-<td><code>443</code></td>
-</tr>
-<tr>
-<td>SSH（遠端連線）</td>
-<td>TCP</td>
-<td><code>22</code></td>
-</tr>
-<tr>
-<td>MySQL（資料庫）</td>
-<td>TCP</td>
-<td><code>3306</code></td>
-</tr>
-<tr>
-<td>Flask（開發伺服器）</td>
-<td>TCP</td>
-<td><strong><code>5000</code></strong>（預設）</td>
-</tr>
-</tbody></table>
-<p>在 Flask 的 app 中可以改變埠號。只要在 <code>app.run()</code> 中，指定 <code>port=埠號</code> 即可改變既有埠號。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span></span><br><span class="line"></span><br><span class="line">app.run(port=<span class="number">3000</span>)        <span class="comment"># 改變埠號</span></span><br></pre></td></tr></table></figure>
-
-<p>另一個方法是不在程式碼中指定，而是在執行時指定：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">flask run -p 8080</span><br></pre></td></tr></table></figure>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.cloudflare.com/zh-tw/learning/network-layer/internet-protocol/">網路協定 IP 是什麼？| Cloudflare</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>程式語言筆記</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-        <tag>網址</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>資料結構與演算法筆記 | 陣列 (Array)</title>
     <url>//array/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>陣列是一種能儲存<strong>相同資料型別</strong>、<strong>固定大小</strong>、並使用<strong>連續記憶體</strong>空間的資料結構。每個元素透過<strong>索引 (index)</strong> 可以快速存取資料。</p>
@@ -1087,125 +667,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Flask 筆記 | 路由</title>
-    <url>//basic/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>路由是屬於<strong>網路層 (network layer)</strong> 的概念，是資料封包從來源走到目的地時經過的路徑，路由器會根據資料的 IP 位址決定最佳、最穩定或是傳輸效率最大化的傳送路徑。在 Flask 中，路由則指的是將網址路徑對應到某個處理函式的行為。</p>
-<span id="more"></span>
-
-<h2 id="基礎路徑設定"><a href="#基礎路徑設定" class="headerlink" title="基礎路徑設定"></a>基礎路徑設定</h2><p>Flask 路由與路徑的基本語法如下所示：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;路徑&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">處理函式名稱</span>(<span class="params">參數名稱</span>)：</span><br><span class="line">    處理邏輯區塊</span><br></pre></td></tr></table></figure>
-
-<p>假設網址中有 <code>/data</code> 這個路徑，透過以下方式，可以將 <code>/data</code> 綁定到 <code>handleData</code> 處理函式上。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立路徑 /data 對應到的處理函式</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/data&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handleData</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;This is data.&quot;</span></span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
-
-<p>執行程式後，進入 <code>http://127.0.0.1:5000/data</code> ，即可看到以下畫面。</p>
-<div style="text-align:center">
-  <img src="/images/flask-learning/route/route-demo.png" alt="路由範例">
-  <p style="font-size: 0.8em; color: #999999;">圖 1：路由範例</p>
-</div>
-
-<p>如果嘗試進入未指定的路徑，則會顯示 <strong>Not Found</strong>，從字面意義不難看出就是因為這個路徑不存在，無法找到對應的頁面以供顯示。</p>
-<div style="text-align:center">
-  <img src="/images/flask-learning/route/route-not-found.png" alt="訪問未指定路徑">
-  <p style="font-size: 0.8em; color: #999999;">圖 2：訪問未指定路徑</p>
-</div>
-
-<h2 id="動態路由-Dynamic-Route-設定"><a href="#動態路由-Dynamic-Route-設定" class="headerlink" title="動態路由 (Dynamic Route) 設定"></a>動態路由 (Dynamic Route) 設定</h2><p>基本的路由可以接受參數，但是如果想要接受的變數是變動的，也就是可以根據使用者輸入的內容，讓伺服器執行對應的動作，那麼就需要使用<strong>動態路由</strong>。</p>
-<table>
-<thead>
-<tr>
-<th>類型</th>
-<th>路由</th>
-<th>對應網址</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>靜態路由</td>
-<td><code>/hello</code></td>
-<td><code>/hello</code></td>
-<td>只有固定一種網址能對應這個函式</td>
-</tr>
-<tr>
-<td>動態路由</td>
-<td><code>/user/&lt;name&gt;</code></td>
-<td><code>/user/david</code>、<code>/user/alice</code></td>
-<td><code>name</code> 是變數，可傳入不同值</td>
-</tr>
-</tbody></table>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;固定字首/&lt;參數名稱&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">處理函式名稱</span>(<span class="params">參數名稱</span>)：</span><br><span class="line">    處理邏輯區塊</span><br></pre></td></tr></table></figure>
-
-<p>例如我們在 <code>/user</code> 這個路徑下，接受 <code>&lt;username&gt;</code>，此時 Flask 會自動從網址擷取字串，傳給 <code>handleUser</code> 中的 <code>username</code> 參數。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立動態路徑 /user/使用者名稱 對應到的處理函式</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/user/&lt;username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handleUser</span>(<span class="params">username</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;Hello, <span class="subst">&#123;username&#125;</span>!&quot;</span></span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
-
-<p>例如使用者訪問 <code>/user/Anthony</code>，畫面就會顯示 <code>Hello, Anthony!</code>：</p>
-<div style="text-align:center">
-  <img src="/images/flask-learning/route/route-dynamic.png" alt="動態路由">
-  <p style="font-size: 0.8em; color: #999999;">圖 3：動態路由</p>
-</div>
-
-<p>但注意到，Flask 預設所有 <code>&lt;參數&gt;</code> 都是字串型別，如果我們需要將參數進行轉換，就需要使用型別轉換：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/路徑/&lt;型別:參數名稱&gt;&quot;</span></span>)</span></span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>型別</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>string</code></td>
-<td>預設型別。匹配任意字串（不含 <code>/</code>）</td>
-</tr>
-<tr>
-<td><code>int</code></td>
-<td>只接受整數（例如：<code>42</code>）</td>
-</tr>
-<tr>
-<td><code>float</code></td>
-<td>接受浮點數（例如：<code>3.14</code>）</td>
-</tr>
-<tr>
-<td><code>path</code></td>
-<td>和 string 類似，但<strong>可以包含 <code>/</code></strong>（適合抓取子路徑）</td>
-</tr>
-<tr>
-<td><code>uuid</code></td>
-<td>接受 UUID 格式的字串（例如：<code>6fa459ea-ee8a-3ca4-894e-db77e160355e</code>）</td>
-</tr>
-</tbody></table>
-<p>例如建立一個路徑 <code>/square</code>，並對應到 <code>square</code> 函式，功能為將傳遞進去的數字平方後顯示在畫面上：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 動態路徑：型別轉換</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/square/&lt;int:num&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">square</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;<span class="subst">&#123;num&#125;</span> squared is <span class="subst">&#123;num * num&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
-
-<div style="text-align:center">
-  <img src="/images/flask-learning/route/route-dynamic.png" alt="動態路由型別轉換">
-  <p style="font-size: 0.8em; color: #999999;">圖 4：動態路由型別轉換</p>
-</div>
-
-<h2 id="多路由綁定單一處理函式"><a href="#多路由綁定單一處理函式" class="headerlink" title="多路由綁定單一處理函式"></a><strong>多路由綁定單一處理函式</strong></h2><p>前面路由的設計基本上是一對一的關係，也就是路由僅將一個路徑綁定到一個函式上。但若今天一個函式的功能十分完整，或是重複性極高，可以提供多個路徑使用，Flask 允許為同一個函式指定多個路由路徑，無論使用者輸入哪個 URL，都會被導向執行同一段程式碼。</p>
-<div class="note info">
-            <h3 id="為什麼要用多路由對應"><a href="#為什麼要用多路由對應" class="headerlink" title=" 為什麼要用多路由對應"></a><i class="fa-solid fa-circle-info"></i> 為什麼要用多路由對應</h3><ul><li><strong>提高使用者體驗</strong>：有些使用者會習慣輸入 <code>/</code> 作為首頁，有些則可能輸入 <code>/index</code>。如果只設定其中一條路由，另一條就會顯示 404 錯誤。透過綁定多個路由，可以避免這種使用習慣上的落差，讓使用者無論輸入哪一種路徑都能正確導向頁面。</li><li><strong>向後相容 (backward compatibility)</strong>：當網站經過改版、重新命名或調整 URL 結構時，舊有的網址可能會被移除或改變。例如，原本的首頁是 <code>/home</code>，後來改為 <code>/</code>，這時仍可保留 <code>/home</code> 的路由，以避免舊有書籤或搜尋引擎索引失效，維持舊網址的可用性。</li><li><strong>統一處理邏輯</strong>：有時候，不同的路徑實際上是為了表示相同的功能或內容。與其為每條路徑撰寫一份幾乎一樣的程式碼，不如將它們都綁定到同一個函式。這樣不僅簡化維護，也能讓應用程式的邏輯更一致、更清晰。</li></ul>
-          </div>
-
-<h3 id="多裝飾器疊加"><a href="#多裝飾器疊加" class="headerlink" title="多裝飾器疊加"></a>多裝飾器疊加</h3><p>最常見的寫法是直接在處理函式上疊加路由處理的裝飾器：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;路徑 1&quot;</span></span>)</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;路徑 2&quot;</span></span>)</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;路徑 n&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">處理函式名稱</span>(<span class="params">參數名稱</span>):</span><br><span class="line">    處理邏輯區塊</span><br></pre></td></tr></table></figure>
-
-<p>當使用者訪問 <code>路徑 1</code>、<code>路徑 2</code> 至 <code>路徑 n</code>，Flask 都會呼叫該函式。</p>
-<h3 id="傳入-list"><a href="#傳入-list" class="headerlink" title="傳入 list"></a>傳入 list</h3><p>上述的寫法雖然方便，但若對應的路徑過多，程式碼會顯得十分混亂與冗長，編輯與維護起來很麻煩。因此可以使用 <code>list</code> 傳入需要的路徑</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params">[<span class="string">&quot;路徑 1&quot;</span>, <span class="string">&quot;路徑 2&quot;</span>, ... <span class="string">&quot;路徑 n&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">處理函式名稱</span>(<span class="params">參數名稱</span>):</span><br><span class="line">    處理邏輯區塊</span><br></pre></td></tr></table></figure>
-
-<p>這種寫法多用於需要動態產生或維護路由清單的場景。</p>
-]]></content>
-      <categories>
-        <category>程式語言筆記</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-        <tag>路由</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>資料結構與演算法筆記 | 鏈結串列 (Linked List)</title>
     <url>//linked-list/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>鏈結串列是一種線性資料結構，利用<strong>節點 (node)</strong> 將資料串起來，其中每個節點包含：</p>
@@ -1340,6 +801,624 @@
       <tags>
         <tag>鏈結串列</tag>
         <tag>節點</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask 筆記 | 路由</title>
+    <url>//basic/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>路由是屬於<strong>網路層 (network layer)</strong> 的概念，是資料封包從來源走到目的地時經過的路徑，路由器會根據資料的 IP 位址決定最佳、最穩定或是傳輸效率最大化的傳送路徑。在 Flask 中，路由則指的是將網址路徑對應到某個處理函式的行為。</p>
+<span id="more"></span>
+
+<h2 id="基礎路徑設定"><a href="#基礎路徑設定" class="headerlink" title="基礎路徑設定"></a>基礎路徑設定</h2><p>Flask 路由與路徑的基本語法如下所示：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;路徑&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">處理函式名稱</span>(<span class="params">參數名稱</span>)：</span><br><span class="line">    處理邏輯區塊</span><br></pre></td></tr></table></figure>
+
+<p>假設網址中有 <code>/data</code> 這個路徑，透過以下方式，可以將 <code>/data</code> 綁定到 <code>handleData</code> 處理函式上。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立路徑 /data 對應到的處理函式</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/data&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handleData</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;This is data.&quot;</span></span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
+
+<p>執行程式後，進入 <code>http://127.0.0.1:5000/data</code> ，即可看到以下畫面。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/route/route-demo.png" alt="路由範例">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：路由範例</p>
+</div>
+
+<p>如果嘗試進入未指定的路徑，則會顯示 <strong>Not Found</strong>，從字面意義不難看出就是因為這個路徑不存在，無法找到對應的頁面以供顯示。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/route/route-not-found.png" alt="訪問未指定路徑">
+  <p style="font-size: 0.8em; color: #999999;">圖 2：訪問未指定路徑</p>
+</div>
+
+<h2 id="動態路由-Dynamic-Route-設定"><a href="#動態路由-Dynamic-Route-設定" class="headerlink" title="動態路由 (Dynamic Route) 設定"></a>動態路由 (Dynamic Route) 設定</h2><p>基本的路由可以接受參數，但是如果想要接受的變數是變動的，也就是可以根據使用者輸入的內容，讓伺服器執行對應的動作，那麼就需要使用<strong>動態路由</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>路由</th>
+<th>對應網址</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>靜態路由</td>
+<td><code>/hello</code></td>
+<td><code>/hello</code></td>
+<td>只有固定一種網址能對應這個函式</td>
+</tr>
+<tr>
+<td>動態路由</td>
+<td><code>/user/&lt;name&gt;</code></td>
+<td><code>/user/david</code>、<code>/user/alice</code></td>
+<td><code>name</code> 是變數，可傳入不同值</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;固定字首/&lt;參數名稱&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">處理函式名稱</span>(<span class="params">參數名稱</span>)：</span><br><span class="line">    處理邏輯區塊</span><br></pre></td></tr></table></figure>
+
+<p>例如我們在 <code>/user</code> 這個路徑下，接受 <code>&lt;username&gt;</code>，此時 Flask 會自動從網址擷取字串，傳給 <code>handleUser</code> 中的 <code>username</code> 參數。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立動態路徑 /user/使用者名稱 對應到的處理函式</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/user/&lt;username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handleUser</span>(<span class="params">username</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;Hello, <span class="subst">&#123;username&#125;</span>!&quot;</span></span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
+
+<p>例如使用者訪問 <code>/user/Anthony</code>，畫面就會顯示 <code>Hello, Anthony!</code>：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/route/route-dynamic.png" alt="動態路由">
+  <p style="font-size: 0.8em; color: #999999;">圖 3：動態路由</p>
+</div>
+
+<p>但注意到，Flask 預設所有 <code>&lt;參數&gt;</code> 都是字串型別，如果我們需要將參數進行轉換，就需要使用型別轉換：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/路徑/&lt;型別:參數名稱&gt;&quot;</span></span>)</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>型別</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>string</code></td>
+<td>預設型別。匹配任意字串（不含 <code>/</code>）</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>只接受整數（例如：<code>42</code>）</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>接受浮點數（例如：<code>3.14</code>）</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td>和 string 類似，但<strong>可以包含 <code>/</code></strong>（適合抓取子路徑）</td>
+</tr>
+<tr>
+<td><code>uuid</code></td>
+<td>接受 UUID 格式的字串（例如：<code>6fa459ea-ee8a-3ca4-894e-db77e160355e</code>）</td>
+</tr>
+</tbody></table>
+<p>例如建立一個路徑 <code>/square</code>，並對應到 <code>square</code> 函式，功能為將傳遞進去的數字平方後顯示在畫面上：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 動態路徑：型別轉換</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/square/&lt;int:num&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">square</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;<span class="subst">&#123;num&#125;</span> squared is <span class="subst">&#123;num * num&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
+
+<div style="text-align:center">
+  <img src="/images/flask-learning/route/route-dynamic.png" alt="動態路由型別轉換">
+  <p style="font-size: 0.8em; color: #999999;">圖 4：動態路由型別轉換</p>
+</div>
+
+<h2 id="多路由綁定單一處理函式"><a href="#多路由綁定單一處理函式" class="headerlink" title="多路由綁定單一處理函式"></a><strong>多路由綁定單一處理函式</strong></h2><p>前面路由的設計基本上是一對一的關係，也就是路由僅將一個路徑綁定到一個函式上。但若今天一個函式的功能十分完整，或是重複性極高，可以提供多個路徑使用，Flask 允許為同一個函式指定多個路由路徑，無論使用者輸入哪個 URL，都會被導向執行同一段程式碼。</p>
+<div class="note info">
+            <h3 id="為什麼要用多路由對應"><a href="#為什麼要用多路由對應" class="headerlink" title=" 為什麼要用多路由對應"></a><i class="fa-solid fa-circle-info"></i> 為什麼要用多路由對應</h3><ul><li><strong>提高使用者體驗</strong>：有些使用者會習慣輸入 <code>/</code> 作為首頁，有些則可能輸入 <code>/index</code>。如果只設定其中一條路由，另一條就會顯示 404 錯誤。透過綁定多個路由，可以避免這種使用習慣上的落差，讓使用者無論輸入哪一種路徑都能正確導向頁面。</li><li><strong>向後相容 (backward compatibility)</strong>：當網站經過改版、重新命名或調整 URL 結構時，舊有的網址可能會被移除或改變。例如，原本的首頁是 <code>/home</code>，後來改為 <code>/</code>，這時仍可保留 <code>/home</code> 的路由，以避免舊有書籤或搜尋引擎索引失效，維持舊網址的可用性。</li><li><strong>統一處理邏輯</strong>：有時候，不同的路徑實際上是為了表示相同的功能或內容。與其為每條路徑撰寫一份幾乎一樣的程式碼，不如將它們都綁定到同一個函式。這樣不僅簡化維護，也能讓應用程式的邏輯更一致、更清晰。</li></ul>
+          </div>
+
+<h3 id="多裝飾器疊加"><a href="#多裝飾器疊加" class="headerlink" title="多裝飾器疊加"></a>多裝飾器疊加</h3><p>最常見的寫法是直接在處理函式上疊加路由處理的裝飾器：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;路徑 1&quot;</span></span>)</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;路徑 2&quot;</span></span>)</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;路徑 n&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">處理函式名稱</span>(<span class="params">參數名稱</span>):</span><br><span class="line">    處理邏輯區塊</span><br></pre></td></tr></table></figure>
+
+<p>當使用者訪問 <code>路徑 1</code>、<code>路徑 2</code> 至 <code>路徑 n</code>，Flask 都會呼叫該函式。</p>
+<h3 id="傳入-list"><a href="#傳入-list" class="headerlink" title="傳入 list"></a>傳入 list</h3><p>上述的寫法雖然方便，但若對應的路徑過多，程式碼會顯得十分混亂與冗長，編輯與維護起來很麻煩。因此可以使用 <code>list</code> 傳入需要的路徑</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params">[<span class="string">&quot;路徑 1&quot;</span>, <span class="string">&quot;路徑 2&quot;</span>, ... <span class="string">&quot;路徑 n&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">處理函式名稱</span>(<span class="params">參數名稱</span>):</span><br><span class="line">    處理邏輯區塊</span><br></pre></td></tr></table></figure>
+
+<p>這種寫法多用於需要動態產生或維護路由清單的場景。</p>
+]]></content>
+      <categories>
+        <category>程式語言筆記</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+        <tag>路由</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask 筆記 | 基礎架構與環境準備</title>
+    <url>//basic/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Flask 是一個輕量級的 Python Web 框架，特別適合學習、原型設計與中小型專案。它的設計哲學是「微框架」，提供最小的核心功能，讓開發者可以自行決定要引入哪些擴充元件，使得 Flask 具有極高的彈性與可控性。</p>
+<span id="more"></span>
+
+<h2 id="安裝-Flask"><a href="#安裝-Flask" class="headerlink" title="安裝 Flask"></a>安裝 Flask</h2><p>Flask 是一個 Python 套件，可以透過常見的套件管理工具安裝。根據不同專案管理方式，可以選擇使用 <code>pip</code> 或 <code>poetry</code>。最簡單的方式是透過 <code>pip</code> 安裝：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install Flask</span><br></pre></td></tr></table></figure>
+
+<p>Flask 就會安裝到目前的 Python 環境中，適用於不使用虛擬環境管理器或是使用 <code>venv</code> 的情境。如果使用 Poetry 進行版本控制，則使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">poetry add Flask</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立第一個-Flask"><a href="#建立第一個-Flask" class="headerlink" title="建立第一個 Flask"></a>建立第一個 Flask</h2><p>首先在編譯器打開 app 的專案目錄，建立 <code>app.py</code> 這個檔案，例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">my_flask_app/</span><br><span class="line">└── app.py               <span class="comment"># Flask 主程式</span></span><br></pre></td></tr></table></figure>
+
+<p>接著在主程式寫入以下內容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask  <span class="comment"># 載入 Flask</span></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)    <span class="comment"># 建立 Application 物件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立首頁回應方式</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():              <span class="comment"># 回應網站首頁連線函式</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span> <span class="comment"># 回傳網站首頁內容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 啟動網站伺服器</span></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
+
+<p>執行程式後，進入 <a href="http://127.0.0.1:5000/"><code>http://127.0.0.1:5000/</code></a> 即可看到如下畫面，代表網站伺服器成功啟動。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/basic/flask-demo.png"  alt="Flask 網頁範例">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：Flask 網頁範例</p>
+</div>
+
+<!-- ![截圖 2025-08-02 下午1.06.30.png](%5BFlask%5D%20%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E8%88%87%E7%92%B0%E5%A2%83%E6%BA%96%E5%82%99%2024396a33ded1805aab31c345cebd59ed/%E6%88%AA%E5%9C%96_2025-08-02_%E4%B8%8B%E5%8D%881.06.30.png) -->
+
+<p>按下 <code>Ctrl/⌃ + C</code> 即可退出網站，此時再進入 <a href="http://127.0.0.1:5000/"><code>http://127.0.0.1:5000/</code></a> 便不會看到任何東西。</p>
+<h2 id="網址"><a href="#網址" class="headerlink" title="網址"></a>網址</h2><p>一個網址的組成可以表達為</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">通訊協定://主機名稱:埠號/路徑?要求字串</span><br></pre></td></tr></table></figure>
+
+<p>以這個網址為例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://example.com:5000/api/user?<span class="built_in">id</span>=123</span><br></pre></td></tr></table></figure>
+
+<p>可以分成以下幾個部分：</p>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>https://</code></td>
+<td><strong>通訊協定 (protocol)</strong></td>
+<td>告訴瀏覽器或程式要使用哪種協定進行資料傳輸，常見的是 <code>http</code> 或 <code>https</code>（安全的 http）。</td>
+</tr>
+<tr>
+<td><code>example.com</code></td>
+<td><strong>主機名稱 (hostname)</strong></td>
+<td>網站的域名，對應到一個伺服器 IP，例如你可以在 DNS 中設定自己的主機名稱。</td>
+</tr>
+<tr>
+<td><code>:5000</code></td>
+<td><strong>埠號 (port)</strong></td>
+<td>是伺服器上正在監聽的<strong>門口</strong>。如果省略，http 預設用 <code>80</code>，https 用 <code>443</code>；Flask 開發模式常用 <code>5000</code>。</td>
+</tr>
+<tr>
+<td><code>/api/user</code></td>
+<td><strong>路徑 (path)</strong></td>
+<td>表示你要請求主機上的哪個資源，Flask 會用這個部分來決定執行哪個路由函式。</td>
+</tr>
+<tr>
+<td><code>?id=123</code></td>
+<td><strong>要求字串 (query string)</strong></td>
+<td>傳遞給伺服器的額外資料，通常用在 GET 請求中，格式是 <code>key=value</code>。</td>
+</tr>
+</tbody></table>
+<h3 id="通訊協定"><a href="#通訊協定" class="headerlink" title="通訊協定"></a>通訊協定</h3><p>根據全球知名的網路服務公司 <a href="https://www.cloudflare.com/zh-tw/learning/network-layer/what-is-a-protocol/">Cloudflare 給的定義</a>：</p>
+<blockquote>
+<p>在網路中，通訊協定是一組用於格式化和處理資料的規則。網路通訊協定就像電腦的通用語言。網路中的電腦可能會使用完全不同的軟體和硬體；然而，使用通訊協定使它們無論如何都能彼此通訊。</p>
+</blockquote>
+<p>簡單來說，通訊協定就像是<strong>傳輸資料的語言規則</strong>，告訴瀏覽器如何與伺服器進行對話。</p>
+<table>
+<thead>
+<tr>
+<th>協定名稱</th>
+<th>全名</th>
+<th>用途</th>
+<th>特點</th>
+<th>常見應用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>TCP</strong></td>
+<td>Transmission Control Protocol</td>
+<td>傳輸層協定</td>
+<td>確保資料可靠傳輸，與 IP 搭配使用（TCP&#x2F;IP）</td>
+<td>網頁、郵件、檔案傳輸</td>
+</tr>
+<tr>
+<td><strong>HTTP</strong></td>
+<td>HyperText Transfer Protocol</td>
+<td>應用層協定</td>
+<td>無狀態、用於傳輸網頁資料</td>
+<td>網站連線、API 呼叫</td>
+</tr>
+<tr>
+<td><strong>HTTPS</strong></td>
+<td>HTTP Secure</td>
+<td>加密版 HTTP</td>
+<td>資料傳輸經 TLS&#x2F;SSL <strong>加密</strong>，更安全</td>
+<td>登入、付款、個資傳輸</td>
+</tr>
+<tr>
+<td><strong>TLS&#x2F;SSL</strong></td>
+<td>Transport Layer Security &#x2F; Secure Sockets Layer</td>
+<td>加密協定</td>
+<td>用於加密應用層協定如 HTTP、SMTP 等</td>
+<td>安全通訊、網站 HTTPS</td>
+</tr>
+<tr>
+<td><strong>UDP</strong></td>
+<td>User Datagram Protocol</td>
+<td>傳輸層協定</td>
+<td>無連線、不保證可靠、但速度快</td>
+<td>串流影音、線上遊戲</td>
+</tr>
+</tbody></table>
+<p>Flask 開發模式預設就是用 <code>http</code>，但部署時可以透過反向代理（如 nginx）加上 SSL 轉為 <code>https</code>。</p>
+<h3 id="主機名稱"><a href="#主機名稱" class="headerlink" title="主機名稱"></a>主機名稱</h3><p>也就是想要連到的伺服器名稱，對應到一個 IP 位址。</p>
+<blockquote>
+<p>IP 位址是指派給連接至網際網路之裝置或網域的唯一識別碼。每個 IP 位址都是一系列字元，例如 <code>192.168.1.1</code>。</p>
+</blockquote>
+<div style="text-align:center">
+  <img src="/images/flask-learning/basic/internet_protocol_ip_address_diagram.svg" alt="層級性原則">
+  <p style="font-size: 0.8em; color: #999999;">圖 2：主機互動圖示<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[網路協定 IP 是什麼？| Cloudflare](https://www.cloudflare.com/zh-tw/learning/network-layer/internet-protocol/)">[1]</span></a></sup></p>
+</div>
+
+<!-- 
+![[網路協定 IP 是什麼？| Cloudflare](https://www.cloudflare.com/zh-tw/learning/network-layer/internet-protocol/)](%5BFlask%5D%20%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E8%88%87%E7%92%B0%E5%A2%83%E6%BA%96%E5%82%99%2024396a33ded1805aab31c345cebd59ed/internet_protocol_ip_address_diagram.svg) -->
+
+
+
+<p>如果在本機測試，常見的主機名稱會是：</p>
+<ul>
+<li><code>localhost</code></li>
+<li><code>127.0.0.1</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>主機名稱</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>localhost</code></td>
+<td>本機測試 Flask</td>
+</tr>
+<tr>
+<td><code>example.com</code></td>
+<td>公開網站</td>
+</tr>
+<tr>
+<td><code>myapp.local</code></td>
+<td>開發用模擬主機，需設 DNS 或 <code>hosts</code> 檔</td>
+</tr>
+</tbody></table>
+<p>可以這樣啟動伺服器讓它在特定主機名稱上提供服務：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">flask run --host=127.0.0.1</span><br><span class="line">flask run --host=0.0.0.0    <span class="comment"># 接受所有外部 IP</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="連線埠與埠號"><a href="#連線埠與埠號" class="headerlink" title="連線埠與埠號"></a>連線埠與埠號</h3><p>一台電腦或一個伺服器上<strong>可以同時跑很多服務</strong>（例如 HTTP、FTP、郵件），每個服務就像是一個<strong>房間</strong>，而埠號就是這些房間的<strong>房號</strong>。</p>
+<ul>
+<li><strong>連線埠 (port)</strong>：伺服器上開的一個特定門口，專門用來收某一類的資料。</li>
+<li><strong>埠號 (port number)</strong>：門口的編號。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>服務類型</th>
+<th>協定</th>
+<th>預設埠號</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP（網頁）</td>
+<td>TCP</td>
+<td><code>80</code></td>
+</tr>
+<tr>
+<td>HTTPS（加密網頁）</td>
+<td>TCP</td>
+<td><code>443</code></td>
+</tr>
+<tr>
+<td>SSH（遠端連線）</td>
+<td>TCP</td>
+<td><code>22</code></td>
+</tr>
+<tr>
+<td>MySQL（資料庫）</td>
+<td>TCP</td>
+<td><code>3306</code></td>
+</tr>
+<tr>
+<td>Flask（開發伺服器）</td>
+<td>TCP</td>
+<td><strong><code>5000</code></strong>（預設）</td>
+</tr>
+</tbody></table>
+<p>在 Flask 的 app 中可以改變埠號。只要在 <code>app.run()</code> 中，指定 <code>port=埠號</code> 即可改變既有埠號。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span></span><br><span class="line"></span><br><span class="line">app.run(port=<span class="number">3000</span>)        <span class="comment"># 改變埠號</span></span><br></pre></td></tr></table></figure>
+
+<p>另一個方法是不在程式碼中指定，而是在執行時指定：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">flask run -p 8080</span><br></pre></td></tr></table></figure>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.cloudflare.com/zh-tw/learning/network-layer/internet-protocol/">網路協定 IP 是什麼？| Cloudflare</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>程式語言筆記</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+        <tag>網址</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask 筆記 | 靜態檔案處理</title>
+    <url>//basic/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong>靜態檔案 (static file)</strong> 指的是不同請求中訪問到的資料都相同的檔案，例如圖片、影片等。</p>
+<ul>
+<li>不經過路由處理：靜態檔案不會經由 Flask 中設定的路由，而是由 WSGI middleware 直接處理，最終呈現在使用者瀏覽的畫面上，而非自己使用 <code>@app.route()</code> 加上。</li>
+<li>特殊的路由：檔名對應著網址路徑</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="靜態檔案路徑設定"><a href="#靜態檔案路徑設定" class="headerlink" title="靜態檔案路徑設定"></a>靜態檔案路徑設定</h2><p>通常來說我們會直接將該靜態檔案資料夾建立在根目錄（也就是與 <code>app.py</code> 同一層）之下。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> static</span><br></pre></td></tr></table></figure>
+
+<p>建立成功後無需改動程式碼，因為 Flask <a href="https://github.com/pallets/flask/blob/85c5d93cbd049c4bd0679c36fd1ddcae8c37b642/src/flask/app.py#L81-L238">預設</a>靜態檔案存放在 <code>static</code> 資料夾：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Flask</span>(<span class="title class_ inherited__">App</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params"></span></span><br><span class="line"><span class="params">        self,</span></span><br><span class="line"><span class="params">        ...</span></span><br><span class="line"><span class="params">        static_url_path: <span class="built_in">str</span> | <span class="literal">None</span> = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">****        static_folder: <span class="built_in">str</span> | os.PathLike[<span class="built_in">str</span>] | <span class="literal">None</span> = <span class="string">&quot;static&quot;</span>,</span></span><br><span class="line"><span class="params">        ...</span></span><br><span class="line"><span class="params">    </span>):</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+
+<p>一般來說，<code>static</code> 資料夾下會使用以下的方式將檔案進行分類，否則全部放在資料夾中會搞混，整理起來也會很麻煩：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">static/</span><br><span class="line">├── css/</span><br><span class="line">│   └── style.css</span><br><span class="line">├── js/</span><br><span class="line">│   └── main.js</span><br><span class="line">├── images/</span><br><span class="line">│   ├── logo.png</span><br><span class="line">│   └── flask.svg</span><br><span class="line">├── fonts/</span><br><span class="line">│   └── Roboto.woff</span><br><span class="line">├── docs/</span><br><span class="line">│   └── terms.pdf</span><br><span class="line">└── <span class="built_in">test</span>/</span><br><span class="line">    └── test.txt</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>資料夾名稱</th>
+<th>用途說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>css/</code></td>
+<td>放置樣式表（例如 <code>style.css</code>）</td>
+</tr>
+<tr>
+<td><code>js/</code></td>
+<td>放置 JavaScript 程式碼（例如 <code>main.js</code>）</td>
+</tr>
+<tr>
+<td><code>images/</code></td>
+<td>放圖片檔案（例如 <code>logo.png</code>, <code>banner.jpg</code>）</td>
+</tr>
+<tr>
+<td><code>fonts/</code></td>
+<td>放自訂字型檔案（例如 <code>.ttf</code>, <code>.woff</code>）</td>
+</tr>
+<tr>
+<td><code>docs/</code></td>
+<td>可選，用來放一些靜態文件（例如 <code>terms.pdf</code>）</td>
+</tr>
+<tr>
+<td><code>test/</code></td>
+<td>可選，用來測試路徑用的小檔案，如 <code>test.txt</code></td>
+</tr>
+</tbody></table>
+<p>建立資料夾後，只需將檔案放入資料夾中，以 <code>/static/檔名</code> 訪問即可。必須注意到：檔名<strong>必須包含副檔名</strong>。舉例來說，在 <code>static</code> 資料夾中放入 <a href="https://flask.palletsprojects.com/en/stable/_images/flask-name.svg">Flask 的 Logo</a>，訪問 <code>/static/flask.svg</code> 即可看到如下畫面：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/static/static-flask.png" alt="靜態檔案範例-Flask Logo">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：靜態檔案範例-Flask Logo</p>
+</div>
+
+<p>或是放入 <code>test.txt</code>，裡面寫入文字，訪問 <code>/static/test.txt</code> 也會顯示結果：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/static/static-flask.png" alt="靜態檔案範例-test 純文字檔">
+  <p style="font-size: 0.8em; color: #999999;">圖 2：靜態檔案範例-test 純文字檔</p>
+</div>
+
+<h2 id="自定義資料夾與路徑"><a href="#自定義資料夾與路徑" class="headerlink" title="自定義資料夾與路徑"></a>自定義資料夾與路徑</h2><p>若不想使用 Flask 預設的靜態檔案路徑，可以使用 <code>static_url_path</code> 設定路徑。方法如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app = Flask(</span><br><span class="line">    __name__,</span><br><span class="line">    static_folder=<span class="string">&quot;靜態檔案資料夾&quot;</span>,</span><br><span class="line">    static_url_path=<span class="string">&quot;靜態檔案網址路徑&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>例如可以設定 <code>static_url_path</code> 為 <code>my_static</code>，嘗試訪問就變成 <code>/my_static/檔名</code>。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/static/static-my_static-flask.png" alt="自定義路徑">
+  <p style="font-size: 0.8em; color: #999999;">圖 3：自定義路徑</p>
+</div>]]></content>
+      <categories>
+        <category>程式語言筆記</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+        <tag>靜態檔案</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>都市經濟學與政策 | 中地理論</title>
+    <url>//urban-econ-central-place-theory/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>日常生活中，我們可以觀察到城市與城市之間存在明顯的大小以及等級差異。以臺灣為例，儘管臺北在縣市層級上屬<a href="https://www.president.gov.tw/Page/106">直轄市</a>，聚集了各種高級的服務、大型商場與醫療資源；相較之下，其他小鎮、鄉村僅提供基本生活所需，並無眾多的設施。臺灣並非特例，世界各國均是如此。</p>
+<span id="more"></span>
+
+<blockquote>
+<ul>
+<li>為什麼城市間會有大小與距離的差異？</li>
+<li>為什麼大城市比較少，小城市比較多？</li>
+<li>如何安排城市的分佈，才能達到「成本最低」的社會最適狀態？</li>
+</ul>
+</blockquote>
+<p>為了回答上述問題，德國地理學家 Walter Christaller 在 1933 年所著之《<em>Die zentralen Orte in Süddeutschland</em>》提出了<strong>中地理論</strong>(central place theory)，經諸多經濟學家的發展，成為空間經濟學中的重要理論。</p>
+<h2 id="何謂中地理論？"><a href="#何謂中地理論？" class="headerlink" title="何謂中地理論？"></a>何謂中地理論？</h2><p>Christaller 認為，在一片地形平坦、肥沃度一致、農夫平均分佈的平面上，城市會自然行程一個層級結構，而該平面稱為均質平面(homogeneous surface)。</p>
+<ul>
+<li><p><strong>中地</strong>：每個城市都有一個服務區域，城市為區域內的居民提供商品與服務，該城市就稱為中地。</p>
+</li>
+<li><p><strong>商品有高低等級之分</strong>：像牙膏、肥皂這種需求高、成本低的商品，小城市就能提供；但像醫院、戲院、百貨公司這種需求少、成本高的服務，只有大城市有。</p>
+</li>
+<li><p><strong>層級性原則</strong>(hierarchy principle)：大城市一定會提供小城市有的所有商品，加上一些只有它才有的。</p>
+</li>
+</ul>
+<div style="text-align:center">
+  <img src="/images/Urban Economics/urban-econ-2-central-place.png" width="430" height="300" alt="中地示意圖">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：中地示意圖<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Hsu, W. T., Holmes, T. J., & Morgan, F. (2014). Optimal city hierarchy: A dynamic programming approach to central place theory. *Journal of Economic Theory*, 154, 245-273.">[1]</span></a></sup></p>
+</div>
+
+<p>例如小鎮上只能買到雜貨店或便利商店的東西，但你要買 IKEA 家具就得去大城市，這就是層級性。</p>
+<h2 id="現代中地理論"><a href="#現代中地理論" class="headerlink" title="現代中地理論"></a>現代中地理論</h2><p>傳統的中央地理論雖然成功描繪出城市層級的圖像，卻缺乏足夠的數學基礎，難以被現代經濟學接受。因此，學者們開始嘗試用更嚴謹的模型來「形式化」這套理論，試圖解釋城市分布與規模差異的根本經濟邏輯。</p>
+<p>首先，我們將探討一個經過簡化的現代中地理論模型。這個模型的目的是透過數學推導，說明城市的層級結構如何在「社會最適」（即整體成本最低）的條件下自然形成。這樣的層級不是被政府強制設計出來的，而是源自於<strong>規模經濟</strong>與<strong>運輸成本</strong>之間的權衡結果。</p>
+<h3 id="模型設定"><a href="#模型設定" class="headerlink" title="模型設定"></a>模型設定</h3><p>為了簡化模型，假設整個空間是一條無限延長的直線，即整條實數線 $\mathbb{R}$，如此一來便可避免左右邊界造成不對稱的問題。沿著此線上，有無限多的消費者<strong>均勻分佈</strong>(uniformly distributed)，每單位長度的密度設定為 $d$。</p>
+<h4 id="消費者需求"><a href="#消費者需求" class="headerlink" title="消費者需求"></a>消費者需求</h4><p>每個消費者對商品有固定需求。我們將商品視為一個區間 $[0, z_{1}]$ 上的連續點，也就是每個數字 $y \in [0, z_{1}]$ 均代表一種商品，越靠近 $z_{1}$ 等級越高。每人每天都需要一單位的每種商品，需求不受價格影響，即完全無彈性，且無論城市設在哪裡，總需求都是一樣的。</p>
+<h4 id="商品與生產成本"><a href="#商品與生產成本" class="headerlink" title="商品與生產成本"></a>商品與生產成本</h4><p>廠商生產每一種商品 $y$ 都需要支付一筆固定成本 $\phi(y)$，且商品等級越高，成本就越高，亦即 $\phi^{\prime}(y) &gt; 0$，且如果不生產產品，則 $\phi(0) &#x3D; 0$。邊際生產成本為常數 $c$，但後續分析會被忽略，因為對每個人而言是固定的，不影響最終決策。<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="因為每個消費者都會消費 $z_{1}$ 單位的商品，邊際成本乘上所有消費者的需求量，會是一個固定數。因不論城市怎麼安排、商品從哪裡送，總變動成本加總起來都一樣。舉例來說，舉辦一場活動共有 100 名與會者，每個人需要吃一個 100 元的便當，總成本就是 10,000 元。因此無論叫哪一家便當店做，這 100 個便當的成本就是 10,000 元。如果現在要比較的是「是不是要開兩個取餐點讓大家走近一點？」以及「還是只開一個、但讓大家走遠一點？」，實際上在意的點是交通成本、動線安排這些變動的部分，而不是那 10,000 元便當費，因為那是固定、改變不了的。">[2]</span></a></sup>既然生產過程中有固定成本，那麼該生產活動就會具有規模經濟(scale of economies)，原因是因為規模經濟的定義是隨著產量增加，平均成本降低。<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="你可以想像一下，為何便當店總是會寫「超過幾份就提供外送服務」，原因就是如果一次只送一份餐點，油錢 50 元，平均每趟成本就是 50 元。但是如果一次送 10 份，油錢還是 50 元，平均成本變成 5 元。">[3]</span></a></sup>根據上面的假設，廠商生產 $q$ 單位的總成本為<br>$$<br>TC(q) &#x3D; \phi(q) + c \cdot q<br>$$<br>則平均成本為<br>$$<br>AC (q) &#x3D; \dfrac{\phi(q) + c \cdot q}{q}<br>$$<br>可以發現當 $q$ 越大，$\phi &#x2F; q$ 越小，整體的平均成本就會越低。簡言之，只要有固定成本，只要生產越多單位，就越能平均分攤這筆固定開銷，平均成本就會下降，因此會產生規模經濟。另外，模型假設若商品要運送給消費者，每單位距離每單位商品的運費是常數 $t$。因此，距離越遠，成本就越高。</p>
+<h4 id="層級性原則"><a href="#層級性原則" class="headerlink" title="層級性原則"></a>層級性原則</h4><p>每個生產地點（即一個城市）如果要生產某個高等級商品 $z$，那麼它必須也生產所有比其低等級的商品 $y &lt; z$<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="如果某座城市有醫院（假設醫院是高等級商品），那它也一定要有便利商店、診所、文具店（低等級商品）。不可能一個城市有百貨公司但連便利商店都沒有。">[4]</span></a></sup>。此外，每個城市所提供的商品一定是從最基本的 0 開始，一直到某個等級 $z$ 為止，是一個連續區間 $[0, z]$，不會跳過任何商品。所以我們只要知道它能生產哪個「最頂」的商品 $z$，就知道它的整個商品清單是 $[0,z]$。如果一座城市最高能提供商品 5，那就代表它一定也有 0 至 4 號商品。我們就叫它一座「$z&#x3D;5$ 的城市」，簡稱「5-city」。</p>
+<div style="text-align:center">
+  <img src="/images/Urban Economics/urban-econ-2-hierarchy.png" width="430" height="300" alt="層級性原則">
+  <p style="font-size: 0.8em; color: #999999;">圖 2：層級性原則<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="Hsu, W. T., Holmes, T. J., & Morgan, F. (2014). Optimal city hierarchy: A dynamic programming approach to central place theory. *Journal of Economic Theory*, 154, 245-273.">[1]</span></a></sup></p>
+</div>
+
+<p>如果城市如果要提供從 0 到 $z$ 的所有商品，那它要承擔的總固定成本（蓋工廠、設施）就是把每種商品的固定成本 $\phi(y)$ 從 0 加總到 $z$ 為止，即是<br>$$<br>\Phi(z) &#x3D; \int_{0}^{z} \phi(y) dy<br>$$<br>另外，前面假設 $\phi(y)$ 是遞增的，代表越高階商品固定成本越高，根據微積分基本定理，可得到 $\Phi(z)$ 的一階與二階條件如下：<br>$$<br>\Phi^{\prime}(z) &#x3D; \phi(z) &gt; 0, \quad \Phi^{\prime\prime}(z) &#x3D; \phi^{\prime}(z) &gt; 0<br>$$<br>要成為「高階城市」成本很高，越高越貴，<strong>這就是現實中為什麼只有少數幾個大都市能提供最頂級的服務</strong>。</p>
+<h3 id="社會規劃者問題"><a href="#社會規劃者問題" class="headerlink" title="社會規劃者問題"></a>社會規劃者問題</h3><p>根據前述討論，由於每個人消費相同的東西，消費量也一樣，因此模型可以忽略變動成本，僅考慮固定成本 $\Phi(z)$ 與運輸成本 $t$。現在要從「上帝視角」安排整個空間上的城市，這個社會規劃者負責決定每個城市的位置與距離，<strong>目標是讓所有消費者的平均成本最低</strong>。</p>
+<p>由於消費者平均分佈在空間上，因此不管在哪一段距離，需求都是相同的，最有效率的安排方式就是把城市<strong>平均分配在空間上</strong>，這些城市都是最大城市，即生產所有商品 $z_{1}$ 的城市，稱為 $z_{1}$-city。現在要來計算兩個 $z_{1}$-city 中間那一段距離上，平均每個人為了拿到商品，要付出多少運費？假設兩座城市距離為 $\ell$，每個人都會去最近的城市購買商品，所以一個城市的<strong>服務半徑</strong>是 $\ell&#x2F;2$。因為消費者平均分佈，密度為 $d$，每人運費距離 $x$ 乘上每公里成本 $t$，因此把 $0$ 到 $\ell&#x2F;2$ 的所有運費加總就得到<br>$$<br>2d \int_{0}^{\ell&#x2F;2} tx dx &#x3D; \dfrac{dt\ell^{2}}{4}<br>$$</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Hsu, W. T., Holmes, T. J., &amp; Morgan, F. (2014). Optimal city hierarchy: A dynamic programming approach to central place theory. <em>Journal of Economic Theory</em>, 154, 245-273.<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">因為每個消費者都會消費 $z_{1}$ 單位的商品，邊際成本乘上所有消費者的需求量，會是一個固定數。因不論城市怎麼安排、商品從哪裡送，總變動成本加總起來都一樣。舉例來說，舉辦一場活動共有 100 名與會者，每個人需要吃一個 100 元的便當，總成本就是 10,000 元。因此無論叫哪一家便當店做，這 100 個便當的成本就是 10,000 元。如果現在要比較的是「是不是要開兩個取餐點讓大家走近一點？」以及「還是只開一個、但讓大家走遠一點？」，實際上在意的點是交通成本、動線安排這些變動的部分，而不是那 10,000 元便當費，因為那是固定、改變不了的。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">你可以想像一下，為何便當店總是會寫「超過幾份就提供外送服務」，原因就是如果一次只送一份餐點，油錢 50 元，平均每趟成本就是 50 元。但是如果一次送 10 份，油錢還是 50 元，平均成本變成 5 元。<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">如果某座城市有醫院（假設醫院是高等級商品），那它也一定要有便利商店、診所、文具店（低等級商品）。不可能一個城市有百貨公司但連便利商店都沒有。<a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>經濟學</category>
+        <category>都市經濟學</category>
+      </categories>
+      <tags>
+        <tag>都市空間結構</tag>
+        <tag>中地理論</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>都市經濟學與政策 | 都市空間結構</title>
+    <url>//urban-econ-spatial-structure/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>打開 Google 地圖的街景功能，可能會發現一個明顯的現象：越靠近市中心，高樓大廈越是林立，一棟比一棟還要高聳。以台北市為例，車水馬龍與川流不息的人潮，常讓人感到壓迫與窒息。如果你是上班族，無論是租屋還是買房，在這樣的都市裡都是一場硬仗——高得驚人的房價，讓安居樂業成為一種奢侈的夢想。</p>
+<span id="more"></span>
+
+<p>不過，並不是所有都市都呈現這樣的樣貌。舉例來說，以美國的休士頓(Houston)或澳洲的布里斯本(Brisbane)為例，雖然也有明確的市中心，但都市整體較為分散，住宅區通常延伸至更寬廣的範圍。許多居民選擇居住在郊區，每天開車<strong>進城上班</strong>。在這些都市中，高樓林立的現象侷限於幾個小型商業區，更多的是低密度的獨棟住宅、草坪與車庫組成的社區景觀。</p>
+<h2 id="單一中心都市模型-Monocentric-City-Model"><a href="#單一中心都市模型-Monocentric-City-Model" class="headerlink" title="單一中心都市模型(Monocentric City Model)"></a>單一中心都市模型(Monocentric City Model)</h2><p>都市空間的差異，其實正反映了不同國家、不同都市在「空間使用」、「交通方式」、「土地價格」以及「居民生活型態」上的根本差異。而這些看似毫無關聯的變數，其實可以用一套邏輯一致的理論來解釋：都市經濟學中經典的「單一中心都市模型」。此模型試圖回答幾個關鍵問題：為什麼市中心地價這麼貴？為什麼建物越靠近市中心越高？又為什麼郊區房子便宜、住戶空間變大、但人口密度反而下降？背後的關鍵在於——「通勤成本」與「土地競爭」。</p>
+<p>當人們需要在「住得近一點、節省通勤時間」與「住得遠一點、獲得較大空間與較便宜租金」之間做選擇時，整座都市的空間分佈就自然呈現出一種規律：地價與房價由市中心往外遞減，而建物高度、人口密度也跟著改變。這種分佈不只出現在台北、東京或紐約，幾乎所有都市——只要有市中心、有通勤、有土地價格——都能在某種程度上觀察到這種現象。</p>
+<h3 id="模型假設"><a href="#模型假設" class="headerlink" title="模型假設"></a>模型假設</h3><p>在討論之前，我們必須先瞭解單一中心都市模型如何描繪都市，以及都市中的「人」是如何與經濟體系互動。雖然模型會稍微簡化現實世界，但仍能捕捉部分的細節。</p>
+<ul>
+<li><strong>都市空間</strong>：模型假設都市裡的工作都在中心商業區(central business district, CBD)，且將 CBD 視作一個<strong>點</strong>。從家裡到 CBD 的通勤路線是放射狀的(radial)，並且假設可以沿著一條徑向道路直接通往 CBD，用 $x$ 表示距離 CBD 的遠近。</li>
+</ul>
+<div style="text-align:center">
+  <img src="/images/Urban Economics/urban-econ-1-CBD.png" width="300" height="300" alt="都市經濟圖">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：都市中心商業區分析模型</p>
+</div>
+
+<ul>
+<li><p><strong>家計單位</strong>：對家計單位而言，每個家庭都相同(identical)，包含收入、偏好等都是一樣的，並計收入為 $y$，且都在 CBD 上班。家庭需要消費兩樣商品，一是住宅(housing)，在此模型中設定為「住房空間的大小」，可以想像為坪數；二是其他除了房子以外的所有商品與服務所合成的其他一般商品<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="直觀地可以想像到，模型的設定就是要儘量捕捉人類的生活習慣，至少需要一個地方居住，且需要食物來補充身體所需的能量。">[1]</span></a></sup>。</p>
+</li>
+<li><p><strong>通勤成本</strong>：家計單位從家中至上班途中的通勤費用以 $t$ 表示，無論油錢、時間成本，全部均以金錢考量。因此若住在距離市中心 $x$ 的地方，通勤總成本就是 $t \times x$。因此在給定家計單位的收入為 $y$ 之下，扣除通勤費用後剩下 $y - tx$ 就是可支配於買房或一般商品的金額。</p>
+</li>
+<li><p><strong>土地使用</strong>：模型僅關注住宅，因此假設工廠、商業用地等都集中在 CBD。每個地段上的建案由開發商（建商）興建並出租或出售給住戶，因此會同時考慮「家計單位的選擇」和「建商的利潤最大化」。</p>
+</li>
+</ul>
+<h3 id="家計單位的選擇：為何越遠地價越低？"><a href="#家計單位的選擇：為何越遠地價越低？" class="headerlink" title="家計單位的選擇：為何越遠地價越低？"></a>家計單位的選擇：為何越遠地價越低？</h3><p>假設家計單位的效用函數為 $u &#x3D; u(c, q)$，其中 $c$ 是消費的其他商品，$q$ 則是居住空間大小。家計單位所面臨的預算限制式可以表達為<br>$$<br>c + p(x) \cdot q &#x3D; y - tx<br>$$<br>其中 $c$ 的價格被單位化為 1，而 $p(x)$ 代表離市中心 $x$ 地點的「每單位住房空間價格」，因此 $p(x)q$ 是家計單位在房租或房貸上的支出。因此，家計單位的效用極大化模型可以表達為<br>$$<br>\begin{aligned}<br>\max_{c, q}\;&amp; u &#x3D; u(c, q)\\<br>\text{s.t.}\;&amp; c + p(x) \cdot q &#x3D; y - tx<br>\end{aligned}<br>$$<br>另外，必須注意到，由於家計單位的效用都一樣，又可自由選擇居住地，因此若某地的「淨效用」較高，人們就會趨之若鶩搶著搬去該地住，直到房租或房價上漲到每個人的效用都持平為止。換句話說，在均衡時，不管住在市中心還是邊緣，都會得到一樣的效用水準，只是住得近的人少繳通勤費但要花更多租金；而住得遠的人少繳租金但多繳通勤費。最後結果是：$p(x)$ 必須隨著 $x$ <strong>遞減</strong>，也就是距離市中心越遠，房價就應該要越便宜，才能夠<strong>補償</strong>每天高額的通勤成本。同時，由於較遠的房子較便宜，每個家計單位可以使用更大的空間，因此 $q(x)$ 隨著 $x$ 遞增。</p>
+<div style="text-align:center">
+  <img src="/images/Urban Economics/urban-econ-1-util.png" width="400" height="300" alt="都市經濟圖">
+  <p style="font-size: 0.8em; color: #999999;">圖 2：效用函數與預算限制式</p>
+</div>
+
+
+<div class="hcb-content hcb-block hcbnote">
+  <p class="hcb-content hcb-block-title"><i class="fa fa-pen fa-fw"></i>房價梯度</p>
+  <p><strong>房價梯度</strong>(housing price gradient)的概念簡言之其實就是用來衡量房價如何隨著與市中心距離的增加而變化，特別是「變化的速率」是多少。房價梯度定義為<br>$$<br>\dfrac{\partial p(x)}{\partial x} &#x3D; - \dfrac{t}{q(x)}<br>$$<br>先說結論：<strong>當距離市中心越遠，房價應該要降得越多，才能補償通勤費的增加</strong>。</p>
+  <p><strong>證明</strong></p>
+  <p>重述家計單位的效用極大化模型如下：<br>$$<br>\begin{aligned}<br>\max_{c, q}\;&amp; u &#x3D; u(c(x), q(x))\\<br>\text{s.t.}\;&amp; c + p(x) \cdot q &#x3D; y - tx<br>\end{aligned}<br>$$<br>因為模型假設所有家計單位都相同，收入也一樣，且可自由選擇住在任何距離市中心 $x$ 的地方，在均衡時，所有距離下的效用都相同。用數學的方法表達即是：<br>$$<br>u(c(x), q(x)) &#x3D; \bar{u}, \quad \forall x \in \mathbb{R}<br>$$<br>其中 $\bar{u}$ 為固定的效用值，為一個常數(constant)。這行數學式的經濟意涵即是：如果住在比較遠的地方效用比較高，那大家就會搬去那裡，直到那裡的房價被推高；反之亦然。由於效用是固定的，因此可以對上式兩邊都對 $x$ 作微分，並同樣應用在預算限制式上，得到<br>$$<br>\begin{aligned}<br>\;&amp;\dfrac{dc}{dx} + \dfrac{dp}{dx} \cdot q(x) + \dfrac{dq}{dx} \cdot p(x) &#x3D; -t \\[5pt]<br>\;&amp;\dfrac{du}{dx} &#x3D; \dfrac{\partial u}{\partial c} \cdot \dfrac{dc}{dx} + \dfrac{\partial u}{dq} \cdot \dfrac{dq}{dx} &#x3D; 0<br>\end{aligned}<br>$$<br>我們的目標是想要消去 $dc&#x2F;dx$ 與 $dq&#x2F;dx$，從而求出 $dp&#x2F;dx$。由效用極大化條件可知<br>$$<br>\dfrac{MU_{c}}{MU_{q}} &#x3D; \dfrac{\partial u&#x2F;\partial c}{\partial u&#x2F;\partial q} &#x3D; \dfrac{p(x)}{1} &#x3D; p(x)<br>$$<br>因此移項可得<br>$$<br>\dfrac{\partial u}{\partial c} &#x3D; p(x) \cdot \dfrac{\partial u}{\partial q}<br>$$<br>將此式代入由效用函數微分後的結果，可得<br>$$<br>\begin{aligned}<br>\;&amp;p(x) \cdot \dfrac{\partial u}{\partial q} \cdot \dfrac{dc}{dx} + \dfrac{\partial u}{dq} \cdot \dfrac{dq}{dx} &#x3D; 0\\<br>\Rightarrow\;&amp; \dfrac{\partial u}{\partial q} \left[p(x) \cdot \dfrac{dc}{dx} + \dfrac{dq}{dx}\right] &#x3D; 0\\<br>\Rightarrow\;&amp; \dfrac{dq}{dx} &#x3D; -p(x) \cdot \dfrac{dc}{dx}<br>\end{aligned}<br>$$<br>代入此結果至預算限制式微分後的式子，得到<br>$$<br>\begin{aligned}<br>\;&amp;\dfrac{dc}{dx} + \dfrac{dp}{dx} \cdot q(x) + \left[-p(x) \cdot \dfrac{dc}{dx}\right] \cdot p(x) &#x3D; -t \\[5pt]<br>\Rightarrow\;&amp;\dfrac{dc}{dx} + \dfrac{dp}{dx} \cdot q(x) + -p(x)^{2} \cdot \dfrac{dc}{dx} &#x3D; -t \\[5pt]<br>\Rightarrow\;&amp;\dfrac{dc}{dx}\left[1 - p(x)^{2}\right] + \dfrac{dp}{dx} \cdot q(x)&#x3D; -t \\[5pt]<br>\Rightarrow\;&amp;\dfrac{dp}{dx} \cdot q(x) &#x3D; -t + \left[p(x)^{2} + 1\right] \cdot \dfrac{dc}{dx}\\[5pt]<br>\end{aligned}<br>$$<br>這時候如果 $dc&#x2F;dx$ 很小，或效用是準線性(quasi-linear)，可以忽略右邊後半，移項整理最終可得：<br>$$<br>\dfrac{\partial p(x)}{\partial x} &#x3D; - \dfrac{t}{q(x)}<br>$$</p>
+  <ul>
+  <li>假設 $dc&#x2F;dx$ 很小的原因在於「住房空間」的選擇通常是主要考量，因為它直接受到房價和土地供給條件影響。相比之下，「一般消費品」的變動幅度通常相對小。尤其當都市裡生活用品價格固定（例如超市價格相同）時，即使住得遠一點、省下一些房租，多出來的錢也只是在消費品上略微增加，並不顯著改變效用水準。</li>
+  <li>如果是準線性效用函數，則效用函數可以寫成<br>  $$<br>  u(c, q) &#x3D; c + v(q)<br>  $$<br>  如此設定之下，邊際效用對 $c$ 是常數，即 $\partial u&#x2F;\partial c &#x3D; 1$，$q$ 才是改變效用的主角。</li>
+  </ul>
+  <p style="text-align: right;">□</p>
+</div>
+
+
+<h3 id="建商的選擇：為何越近要蓋越高？"><a href="#建商的選擇：為何越近要蓋越高？" class="headerlink" title="建商的選擇：為何越近要蓋越高？"></a>建商的選擇：為何越近要蓋越高？</h3><p>在此模型中，住宅的供給是由建商利用「土地」與「建築材料」共同生產出可居住的樓地面積($Q$)，而此面積可以表示為以下的住宅生產函數：<br>$$<br>Q &#x3D; H(N, l)<br>$$<br>其中 $N$ 是建材用量，$l$ 則為土地面積。此外，假設 $H$ 為固定規模報酬(constant return to scale, CRTS)，亦即<br>$$<br>\lambda Q &#x3D; H(\lambda N, \lambda l), \quad \lambda \in \mathbb{R}<br>$$<br>當建商想要將樓層越蓋越高時，邊際成本會隨之增加，可以想見，當大樓越高，就需要使用更多的鋼筋、水泥，從而將建築的結構加固。假設建商在某距離 $x$ 所支付的地租為 $r(x)$，購買建材的成本為 $i \times N$，其中 $i$ 為每單位建材價格，因此建商的成本函數可以表達為<br>$$<br>C(N, l) &#x3D; iN + rl<br>$$<br>當建商在每個地點觀察到當地住宅單價 $p(x)$ 後，便會考量：</p>
+<ul>
+<li>需要投入多少建材，以及使用多少土地（或購地多少），才能壓低成本生產最適量的住房空間，並以 $p(x)$ 出租&#x2F;售。</li>
+<li>在均衡時，競爭結果會導致建商的<strong>利潤為零</strong>（即建商僅賺取正常利潤），因為若某地利潤較高，其他建商都會在該處蓋房，直至地租 $r(x)$ 上漲，利潤被壓到 0 為止。</li>
+<li>由於越靠近市中心的 $p(x)$ 越高，為了充分利用這塊昂貴土地，開發商就會投更多建材、蓋更高樓，以攤平土地成本。於是越靠近市中心，建築物越高，土地利用也越密集。</li>
+</ul>
+<p>因此，地租會像房屋單價一樣呈現向外遞減的現象，而建材與土地的使用比例也隨著地價不同而改變：離市中心越近，土地貴、房價高，開發商就用更多建材，建出較高的樓。</p>
+<h3 id="人口密度：為何郊區人口較少？"><a href="#人口密度：為何郊區人口較少？" class="headerlink" title="人口密度：為何郊區人口較少？"></a>人口密度：為何郊區人口較少？</h3><p>誠如前述所言，離市中心越遠，房價越低，因此家計單位就會租賃更大間的房屋，代表空間被擠壓。雖然在市中心大樓很高，但是每戶住家空間 $q(x)$ 在市中心通常也較小，所以理論上整體「可住的人數」可能依舊密度很高。相反地，郊區的樓雖矮，可每戶空間大。因此討論人口密度時，需要綜合考慮「<strong>單位土地上的總樓地板面積</strong>」以及「<strong>每戶佔的單位面積</strong>」。將上述兩大因素結合，模型推導顯示，一般會得到「<strong>市中心人口密度高，往外距離增加而遞減</strong>」的結論。原因為</p>
+<ul>
+<li>靠近市中心 → 雖然房子貴、房間小，但樓蓋得多且單位土地可容納較多戶；總體算下來人口密度往往高。</li>
+<li>離市中心遠 → 雖然地便宜可蓋得寬，但每戶都想住更大空間，導致每單位土地能容納的戶數降低，總體密度相對小。</li>
+</ul>
+
+<div class="hcb-content hcb-block hcbnote">
+  <p class="hcb-content hcb-block-title"><i class="fa fa-pen fa-fw"></i>人口密度數學推導</p>
+  <p>用數學解釋如下：由於 $N(x)&#x2F;l(x)$ 隨著 $x$ 遞減，言下之意就是隨著距離市中心越遠，土地面積越大、建築密度越低，郊區土地佔地寬裝，建物密度會較低。又前面已知 $q(x)$ 會隨 $x$ 遞增，這是因為遠離市中心的地價較便宜，住戶有更多資金來購買較大的住宅，所以隨著距離市中心越遠，每戶住宅的面積會增加。人口密度(population density)是指單位土地面積上的居民數量。在這個模型中，每戶家庭擁有 $k$ 人，所以人口密度 $D(x)$ 可以用下面的公式表示：<br>$$<br>D(x) &#x3D; k \times \dfrac{H(N(x), l(x))}{q(x)} \times \dfrac{1}{l(x)}<br>$$<br>由於假設住房生產函數為固定規模報酬，因此上式可改寫為<br>$$<br>D(x) &#x3D; k \times \dfrac{H(N(x)&#x2F;l(x), 1)}{q(x)}<br>$$<br>綜上，因為 $N(x)&#x2F;l(x)$ 隨著 $x$ 遞減，$q(x)$ 會隨 $x$ 遞增，因此 $D(x)$ 會隨著 $x$ 遞減。</p>
+</div>
+
+
+<h3 id="都市邊界的決定因素"><a href="#都市邊界的決定因素" class="headerlink" title="都市邊界的決定因素"></a>都市邊界的決定因素</h3><p>當都市發展到一定程度，土地價格將不再足以支撐都市的飛速發展，此時土地會轉作他用，例如農業生產、工廠擴建等。</p>
+<ul>
+<li>都市的土地需求與供應之間會產生競爭：當都市的土地需求增大、市區土地價格上升，將會推動建商將原本的農業土地轉為都市建設用地。因此，農地收益提供了一個良好的外部選項，讓都市的人口得以「宣洩」。而正是因為如此，都市邊界正是都市土地和農業土地之間的分界線。</li>
+<li>農地收益作為上限：如果土地價格高於農業收益，則都市會繼續擴張；若土地價格低於農業收益，都市擴展將會停止，並且農地將取而代之。</li>
+</ul>
+<p>假設農地收益為 $r_{A}$，且地租曲線與農業收益的交點決定都市邊界 $\bar{x}$。此外，都市人口($L$)為外生給定，住房供應量必須滿足此人口需求，如此才能消除市場中的過剩需求或供應。假設所有都市居民都住在一個長度為 $[0, \bar{x}]$ 的區域內，則都市人口數為<br>$$<br>\int_{0}^{\bar{x}} D(x) dx &#x3D; L<br>$$<br>若假設都市居民均住在一個半徑為 $\bar{x}$ 的圓形區域內，則<br>$$<br>\int_{0}^{\bar{x}} 2\pi x D(x) dx &#x3D; L<br>$$<br>表示在圓形區域內，人口總數也是 $L$。不過在此模型中，因為已經假設都市是向外輻散的，因此第二個假設才比較符合模型設定。</p>
+<div style="text-align:center">
+  <img src="/images/Urban Economics/urban-econ-1-city-boundary.png" width="400" height="300" alt="都市邊界">
+  <p style="font-size: 0.8em; color: #999999;">圖 3：都市邊界</p>
+</div>
+
+<h3 id="都市結構與比較靜態"><a href="#都市結構與比較靜態" class="headerlink" title="都市結構與比較靜態"></a>都市結構與比較靜態</h3><p>現在需要討論的是，如果某些外在條件改變，都市的結構會怎麼跟著改變？或者如何解釋不同都市之間的差異，或同一都市在不同情況下的變化。</p>
+<h4 id="人口數量增加"><a href="#人口數量增加" class="headerlink" title="人口數量增加"></a>人口數量增加</h4><p>若有一座都市，人口從 $L_{0}$ 上升至 $L_{1}$。在變化初期，住房需求量必定上升，整體房價曲線必定上升。面臨租金&#x2F;房價攀升，住戶只能選擇縮小居住面積。對於建商而言，因為地價上升，為了抵消成本，從而興建高樓，提供空間供給量。如此一來，同一個半徑下能夠住進更多人，進而將都市邊界向外推。因此當都市面臨人口數量上升，都市會變大、房價上升、市中心更密集、人口密度普遍上升、邊界向外擴張。</p>
+<h4 id="農地收益上升"><a href="#農地收益上升" class="headerlink" title="農地收益上升"></a>農地收益上升</h4><p>如果郊外的農地或其他替代用途的收益增加，表示現在「搶」土地需要支付更高的地租。住宅用地一開始會相對短缺，房價因此攀升，因此住戶為了省錢，會減少居住空間。當建商看到地變貴了，就會將建物蓋的更加密集。整體人口仍可被容納，但因為市區地價也因競爭被推高，所以最終都市雖然能容納更多人，但邊界其實會「縮短」：地越來越貴，乾脆蓋高樓，往高處要空間，而不是往外擴張。</p>
+<h4 id="通勤成本改變"><a href="#通勤成本改變" class="headerlink" title="通勤成本改變"></a>通勤成本改變</h4><p>如果開車、搭車成本提高，住得遠就更不划算，因此更多人想往市中心靠近；市中心附近的房價因此上漲，而遠郊的房價反而下跌；整個都市人口分佈會往中心壓縮，邊界縮短。反之，若汽油成本、通勤成本下降（像高速公路、汽車普及），就會促進<strong>都市蔓延</strong>(urban sprawl)：大家更願意住得遠，大房子、大院子，都市外圍越拓越大。</p>
+<h4 id="所得提高"><a href="#所得提高" class="headerlink" title="所得提高"></a>所得提高</h4><p>原理和通勤成本幾乎相反。如果居民收入大幅提升，他們願意多花點通勤費，買更大房子或住得更舒適，並不一定要擠在市中心。因此都市整體會往外擴張，市中心的房價當然也會上漲，但人們可能選擇居住在更遠且更大的空間。</p>
+<h3 id="開放都市模型-Open-City-Model"><a href="#開放都市模型-Open-City-Model" class="headerlink" title="開放都市模型(Open City Model)"></a>開放都市模型(Open City Model)</h3><p>前面討論多半是假設「封閉都市」，人口數量固定。而若是「開放都市」，不同都市之間可以互相遷移，則：</p>
+<ul>
+<li><p>更高收入的都市吸引更多移民，人口會持續擴張，直到當地房價、通勤成本等上升到讓新移民覺得「效用」跟別的都市差不多，才停止流入。</p>
+</li>
+<li><p>於是，有高所得機會的都市往往人口更集中、更大，房價也更貴。</p>
+</li>
+</ul>
+<h2 id="修改後的單一中心都市模型"><a href="#修改後的單一中心都市模型" class="headerlink" title="修改後的單一中心都市模型"></a>修改後的單一中心都市模型</h2><p>在單一中心都市模型中，家計單位被假設具有同質性，連收入都是相同的，但現實生活中，不同家計單位的收入可能不一，有高收入、小康家庭、中低收入戶以及低收入戶等。此外，就業分布也是原本模型未考量到的部分。房屋的耐久性(durability)也是另外一個影響都市結構的因素之一。因此在修改後的單一中心都市模型中，在假設其他條件不變的情況下(<em><a href="https://en.wikipedia.org/wiki/Ceteris_paribus">ceteris paribus</a></em>)，逐一放寬這些假設，討論這些改變對於都市空間結構的影響。</p>
+<h3 id="都市中的收入差異"><a href="#都市中的收入差異" class="headerlink" title="都市中的收入差異"></a>都市中的收入差異</h3><p>假設都市內有兩個收入群體，分別為高收入群體(其收入記成 $y_{R}$)與低收入群體(其收入記成 $y_{P}$)，且 $y_{R} &gt; y_{P}$。可以觀察到，在美國，大多數的富人都會住在郊區，而窮人會願意著在市中心。不過這種反直覺的現象是否可以被模型合理解釋？答案是肯定的，原因是因為這兩個群體的住房需求不同所致：</p>
+<ul>
+<li><strong>低收入群體</strong>：由於低收入群體的收入相對較少，他們無法負擔市中心以外的高房價，因此他們通常選擇住在市中心。市中心的土地價格較便宜，且通勤成本較低，使得低收入群體能夠在相對較小的住房空間中承擔較低的租金或購房成本。</li>
+<li><strong>高收入群體</strong>：相對而言，高收入群體的收入較高，他們有更多的財務能力來選擇更大的住宅，通常會選擇住在郊區。雖然郊區的地價較低，但房屋空間較大，且雖然通勤成本較高，但高收入群體能夠承擔更高的通勤費用。在這樣的情況下，儘管通勤時間較長，但他們願意選擇遠離市中心的地方，享受更多的生活空間。</li>
+</ul>
+<p>由上述可知，$q_{R} &gt; q_{P}$，結合房價梯度，我們可以得出高收入群體的房價梯度較為平緩，原因基於：<br>$$<br>\dfrac{t}{q_{R}(x)} &lt; \dfrac{t}{q_{P}(x)}<br>$$<br>從高收入群體的角度來看，房價梯度平緩代表的意義是，高收入群體<strong>願意承擔較高的通勤成本</strong>，加上高收入群體對居住條件要求高，對於房屋的需求呈現剛性。</p>
+<div style="text-align:center">
+  <img src="/images/Urban Economics/urban-econ-1-pRpP.png" width="400" height="320" alt="高低收入群體房價梯度">
+  <p style="font-size: 0.8em; color: #999999;">圖 4：高低收入群體房價梯度</p>
+</div>
+
+<p>注意到，兩群體的房價梯度曲線會在 $\hat{x}$ 交會一次，且<strong>只會交會一次</strong>。首先，該交會點代表在此點上兩群體的住房價格相同，即 $p_{R}(\hat{x}) &#x3D; p_{P}(\hat{x})$，雖然高收入群體和低收入群體的房價相等，但由於高收入群體的每戶住房空間 $q_{R}(x)$ 較大，因此高收入群體的房價梯度在此交點之前會較為平緩。反之，低收入群體的房價梯度較陡。</p>
+<p>至於是否合理，我們可以直接在模型中引入通勤成本與時間成本。假設個體一天的總時間可以被單位化為 1，令單位距離通勤時間（包含往返）為 $\delta$，因此工時為 $(1 - \delta x)$。高收入群體的薪水記成 $w_{R}$，低收入群體則為 $w_{P}$，且 $w_{R} &gt; w_{P}$。此外，時間成本為每單位距離 $t$。因此，高收入群體住在距離市中心 $x$ 的地方時，其可支配所得即是總收入減去這些附加成本：<br>$$<br>(1 - \delta x)w_{R} - tx &#x3D; w_{R} - \underbrace{(\delta w_{R} + t)}_{通勤成本}x<br>$$</p>
+<p>因此高收入群體的通勤成本為 $m_{R} &#x3D; \delta w_{R} + t$，同理可推得低收入群體的通勤成本為 $m_{P} &#x3D; \delta w_{P} + t$。那麼，$m_{R}$ 與 $m_{P}$ 孰大孰小？其實這個答案無法確定，原因在於我們無法確定 $\delta w_{R}$ 與 $\delta w_{P}$ 的大小關係，個人觀點認為，高收入群體通常擁有較高的收入，他們對時間的價值會更加重視。在這種情況下，選擇私人轎車（例如 Uber）可以<strong>省去等候公共交通和在擁擠的交通中花費過多時間</strong>；即便這樣的選擇需要支付較高的成本，對他們來說，這筆額外費用是值得的，因為能夠節省時間和提升生活品質。</p>
+<h3 id="引入市中心外的就業機會"><a href="#引入市中心外的就業機會" class="headerlink" title="引入市中心外的就業機會"></a>引入市中心外的就業機會</h3><p>當都市中有更多的就業機會出現在市中心外，那麼都市結構會如何改變呢？可以考慮兩種情況，一是在都市中工作機會分佈在都市各地，而非集中於單一區域；二是假設都市內有次級商業區(secondary business district, SBD)。</p>
+<h4 id="在都市中廣泛分佈的工作"><a href="#在都市中廣泛分佈的工作" class="headerlink" title="在都市中廣泛分佈的工作"></a>在都市中廣泛分佈的工作</h4><p>假設一名工人住在距離市中心 $x^{*}$ 的地方，在其通勤路上，某雇主提供一份距離市中心 $x^{**}$ 的工作。在此情況下，雇主為了吸引這名工人，會根據工人的通勤距離提供更高的薪水： </p>
+<p>$$<br>y - tx^{\ast\ast} &#x3D; y - t(x^{\ast} - x^{\ast\ast}) &#x3D; y - tx^{\ast}<br>$$<br>工人如果接受這份工作，他的<strong>收入和生活成本會達到一個平衡點</strong>，即雇主會根據工人的通勤成本給予足夠的薪水，<strong>使工人對選擇接受這份工作與否無偏好</strong>。即使工作位置不在市中心，工人的可支配收入（即工資減去通勤成本）與選擇市中心工作相比，不會有太大區別。</p>
+<h4 id="次級商業區"><a href="#次級商業區" class="headerlink" title="次級商業區"></a>次級商業區</h4><p>假設都市中不只有市中心有工作機會，次級商業區也會提供，雖然薪資可能稍低、工作機會不多，或工作環境不同，但仍有人會選擇到此工作。如果市中心提供的薪水比次級商業區更高，那麼市中心的房價曲線會比次級商業區的曲線更高，表示越往市中心靠近，房價會更高；反之，離市中心越遠的地方，房價就會相對便宜。簡單來說，市中心工作提供更多收入，所以居住在市中心的人的收入也較高。</p>
+<p>這裡就出現一個問題：如果次級商業區提供的工作比較少，或薪水不高，理論上應該會選擇住得比較近的地方工作，這樣可以減少通勤時間，省下更多時間和金錢。然而，現實中會出現一個問題：有些工人即使知道市中心工作的薪水更高，或者雖然次級商業區的工作薪水較低，他們還是會選擇長時間的通勤，這就叫做<strong>浪費通勤</strong>(wasteful commuting)。出現浪費通勤此一現象的原因眾說紛紜，但大致可以歸納為以下幾點：</p>
+<ul>
+<li><strong>對市中心的偏好</strong>： 有些人可能喜歡住在市中心，因為市中心有更多的便利設施（像是餐廳、商店、娛樂場所等）。即使工作不是在市中心，也會選擇住在市中心，接受更長的通勤時間。這是因為市中心的生活設施比其他地方豐富，對這些人而言，這些設施是值得的。</li>
+<li><strong>多工&#x2F;雙薪家庭</strong>： 有些家庭可能有兩個工作的人，當這些工人選擇居住的地方時，他們並不僅僅考慮自己的工作地點，還會<strong>考慮配偶的工作地點</strong>。例如，配偶的工作地點可能就在市中心附近，所以整個家庭會選擇住在市中心，而不考慮次級商業區的工作地點，這樣就會導致浪費通勤。</li>
+</ul>
+<h3 id="住房耐久性"><a href="#住房耐久性" class="headerlink" title="住房耐久性"></a>住房耐久性</h3><p>在先前的模型中，假設都市的建築是一次性建立的，也就是所謂的「一次性」模型。換句話說，在之前的模型中，建築不會隨時間變化，只是單純的在某個時間點建立並持續使用，沒有考慮時間上的延續性和變化。但在現實中，建築是有耐久性的，建築會隨著時間的推移而改變或<strong>老化</strong>，最終可能會被重建或維修（如都更）。</p>
+<p>假設都市不斷向外擴展，每年新增一個固定距離的區域，這些區域被稱為區塊(block)。每個區塊代表都市的一個擴展部分，並且隨著時間的推移，這些區塊會在都市發展中逐漸形成。例如在時間 $T&#x3D;0$ 時，都市的第一個區塊（Block 0）開始建設。隨著時間的推移，每隔一定時間，會新增一個新的區塊，並且這些區塊的建築會逐漸老化。每個新建的區塊會在它建立時建造新建築，並且每個建築都會持有一段固定的時間，然後這些建築將被拆除並重新建造。</p>
+<p>假設每棟建築的使用年限是 3 年，也就是說：</p>
+<ul>
+<li>在 $T&#x3D;0$ 時建造的建築會在 $T&#x3D;3$ 時被拆除並重新建造。</li>
+<li>$T&#x3D;1$ 時建造的建築會在 $T&#x3D;4$ 時被拆除，以此類推。</li>
+</ul>
+<p>如此往復，就形成了都市內不同建築的年齡結構。隨著時間推移，都市中的建築會不斷更替，這會影響都市的外觀、居住條件以及經濟結構。另外，我們仍須考慮建築的高度與年齡的影響：</p>
+<ul>
+<li><strong>距離效應</strong>：隨著都市的擴展，距離市中心越遠的地方，建築的高度可能越低。原因是隨著距離市中心的增加，土地價格會逐漸下降，因此新建的建築可能會更矮小。</li>
+<li><strong>年齡效應</strong>：新建的建築可能會更高，而舊建築則相對較矮，即隨著時間的推移，舊建築的高度會逐漸降低，而新建的建築則可能更加現代化，並且高度更高。</li>
+</ul>
+<h2 id="開發中國家的都市化過程"><a href="#開發中國家的都市化過程" class="headerlink" title="開發中國家的都市化過程"></a>開發中國家的都市化過程</h2><p>目前多數開發中國家都面臨農村移往都市人口流動現象，以中國為例，目前中國的都市化程度尚不及 60%，但是多數已開發國家至少都超過此數字。從農村移往都市的過程，會改變都市的結構，成為一個值得討論的議題。</p>
+<h3 id="農村-都市人口遷移"><a href="#農村-都市人口遷移" class="headerlink" title="農村-都市人口遷移"></a>農村-都市人口遷移</h3><p>前面已經提過，在開放都市模型中，假設都市人口為 $L$，都市邊界($\bar{x}$) 會隨著 $L$ 而增加，因此可以將都市邊界表達為以下的關係：<br>$$<br>\bar{x} &#x3D; \bar{x}(L)<br>$$<br>由於農村居民通常不需要通勤，因此他們的選擇是基於都市邊界上與都市居民的比較。主要因為他們面臨的住房價格是一樣的。這意味著農村居民的選擇不受內部都市區域的影響，而只是與住在都市邊緣的居民的經濟條件進行比較。假設農村居民可支配所得為 $y_{A}$，且 $y - t\bar{x}(L)$ 為都市居民的收入扣除交通成本後的可支配所得，則</p>
+<ul>
+<li>若 $y - t\bar{x}(L) &gt; y_{A}$，代表都市居民的所得高於農村居民的可支配收入，農村居民會選擇遷移到都市。這會導致都市的人口 $L$ 增加，更多的農村居民被吸引進城。</li>
+<li>反之，若 $y - t\bar{x}(L) &lt; y_{A}$，代表都市居民的可支配所得低於農村居民的可支配所得，部分都市居民可能會選擇遷移回農村，都市人口因而減少。</li>
+</ul>
+<p>均衡狀態達成的條件是：當都市居民的可支配所得等於農村居民的可支配所得，人口遷移將停止。換句話說，當都市的收入足夠吸引農村居民，並且農村的收入不再高於都市居民的收入時，人口遷移會達到一個平衡狀態。因此可以得到以下結論：當農村居民收入比較低時，大規模往都市的人口遷移將會發生。</p>
+<h3 id="都市均衡與人口規模"><a href="#都市均衡與人口規模" class="headerlink" title="都市均衡與人口規模"></a>都市均衡與人口規模</h3><p>假設每個都市的住宅大小和高度在各地點都是固定的，從而簡化模型，避免了不同地點的住宅高度變動。假設人口密度是固定的，表示為 $\theta$，並定義 $\mu &#x3D; 1&#x2F;\theta$ 為人均佔地面積。在這個模型中，都市的均衡是基於人口規模 $L$ 與都市邊界的關係。房屋供需均衡時會滿足<br>$$<br>\mu L &#x3D; \pi \bar{x}^{2}<br>$$<br>在都市的均衡情況下，都市的土地使用量由以下公式決定：<br>$$<br>y - t\bar{x} &#x3D; y_{A}<br>$$<br>代入房屋供需均衡的條件，可得<br>$$<br>y - t\sqrt{\dfrac{\mu L}{\pi}} &#x3D; y_{A}<br>$$</p>
+<ul>
+<li>當 $y$ 增加時，這表示都市居民的收入上升，那麼為了保持均衡，都市的總人口 $L$ 也會隨之增加。這是因為都市提供了更高的收入，吸引更多的農村居民遷入都市。</li>
+<li>當 $t$ 減少時，交通成本降低，也會促使更多的人遷入都市，從而增加都市人口。</li>
+<li>當 $y_{A}$ 減少時，即農村的收入減少時，農村居民的遷移到都市的動機增強，也會增加都市的人口規模。</li>
+</ul>
+<h3 id="Harris-Todaro-模型"><a href="#Harris-Todaro-模型" class="headerlink" title="Harris-Todaro 模型"></a>Harris-Todaro 模型</h3><blockquote>
+<p>儘管都市的失業率很高，為何農村居民會趨之若鶩搬遷至都市居住呢？</p>
+</blockquote>
+<p>為了回答此問題，Harris-Todaro 模型給出「預期收入」的概念，而非僅僅仰賴現實的就業機會。對於一個來自農村的居民來說，決定是否遷入都市的關鍵因素不僅是都市的現有就業機會，而是他們根據都市的就業機會和農村的生活條件所預期的收入。假設都市有 $J$ 個工作機會，都市總人口為 $L$，但並非每個人都能成功找到工作，但為了方便起見，假設每個人都有相同的就業機會，找到工作的機率為 $J&#x2F;L$。均衡條件為<br>$$<br>y \times \dfrac{J}{L} - t\sqrt{\dfrac{\mu L}{\pi}} &#x3D; y_{A}<br>$$<br>其中 $y$ 為都市居民的平均所得，$y_{A}$ 為農村居民的所得。上式代表都市的預期收入（扣除交通成本）必須等於農村的收入，這樣才會達到平衡狀態。若都市的收入高於農村的收入，則農村居民會遷移到都市，增加都市的人口。當都市的工作機會增加，或交通成本減少，將使都市對農村居民的吸引力增強，從而導致更多的農村居民遷入都市。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">直觀地可以想像到，模型的設定就是要儘量捕捉人類的生活習慣，至少需要一個地方居住，且需要食物來補充身體所需的能量。<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>經濟學</category>
+        <category>都市經濟學</category>
+      </categories>
+      <tags>
+        <tag>都市空間結構</tag>
+        <tag>單核心都市模型</tag>
       </tags>
   </entry>
   <entry>
@@ -2354,48 +2433,6 @@ E 6 8
         <tag>成長</tag>
         <tag>生命歷程</tag>
         <tag>身心障礙</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《2021多元博物館講堂 | 身心障礙者的平等參與演講小記》</title>
-    <url>//museum/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/2022-09-11-museum.jpg"></p>
-<p>昨天(2021&#x2F;10&#x2F;17)與社團幹部 David Lin、宗揚一同前往<a href="https://www.facebook.com/TaiwanNHRM">國家人權博物館 National Human Rights Museum</a>一同聆聽中華民國身心障礙聯盟秘書長洪心平，以及國立臺北大學社會學系張恒豪教授的演講。</p>
-<span id="more"></span>
-
-<p>令我最印象深刻的一句話應該是洪秘書長在演講開頭說的：「障礙是一種特徵，會對於生活造成困難；而每個人都有機會成為障礙者，但有障礙特徵不代表在生活上會產生障礙。」的確，在沒有眼鏡或是矯正視力的時代，每個近視的人都沒辦法成為四眼田雞，而是成為我們現在所說的「障礙者」。現代社會常常會將「障礙者」與「失能者」連結在一起，認為兩者在醫學上可以劃上等號；但若從實際狀況來看，許多障礙者只是在生活上會面臨諸多不便，例如肢障者走路、拿取東西不方便、視障者不良於觀看世界、聽障者無法或是聽不清旋律，但他們並非完全失能，事實上屏除掉其障礙的部位，仍然能夠完成許多事情。</p>
-<p>基於歷史背景與因素，以前的人們總會將障礙者禁閉於家中，認為他們到外面必定會被欺負或是被人佔便宜，致使他們在這個社會上的形象就已經被貼上「弱化」的標籤。然誠如我在上篇文章（也就是社刊）裡頭提到的，他們只是缺少一些裝備，並不代表他們無法完成人生這個大型的RPG遊戲。但有趣的是，就我所聽聞的身心障礙者中，有需多人一生都以「身心障礙者」自居，認為別人都必須體貼他、照顧他，為他做任何事情—因為他是身心障礙者。作為一個非身心障礙者，我沒有置喙的餘地，但我認為如果身體狀況允許，或許可以學習獨立自主完成生活起居，嘗試擺脫社會的弱化標籤外，也避免在自己身上再貼上一張自怨自艾的標籤。</p>
-<p>另一方面，就上面提到眼鏡的例子，很多時候障礙並不是我們一般人所想的「天生」的障礙，引用張恒豪教授所言：障礙有時被定義為個人問題，但有時我們卻忽略社會環境所造成的影響，我相信這也是「無障礙坡道」這個名詞的由來（但有時候政府機關或是大樓蓋設的無障礙坡道的坡度多不符合法律規定）。</p>
-<p>最後一點我想提到的是，你問我：「什麼事情是有關身心障礙者的事？」事實上，我們生活周遭的每一件事都與身心障礙息息相關，因為身心障礙者與我們一樣，在任何權利上都與他人享有相同權利，也因此我們所關心的議題不能夠僅限於食衣住行，那皆是我們「自我想像」，認為身心障礙者只有這些權利罷了；身心障礙者的性權利、生育權利、戀愛權利、玩樂的權利…等多如牛毛的事情都應該被考慮進去。</p>
-]]></content>
-      <categories>
-        <category>心情日記</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-        <tag>成長</tag>
-        <tag>生命歷程</tag>
-        <tag>身心障礙</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>110學測作文「如果我有一座新冰箱」的反思</title>
-    <url>//dsra/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>今日(2021年2月2日)晚間與好友餐敘時，聊到110年的學測作文「如果我有一座新冰箱」，這個話題在學測舉行不久後，甫即成為了全網熱議的話題，不少學生抱怨為何作文題目會如此刁鑽，甚至是了無新意。然而，就我個人的論點而言，其實這篇或是現在大考中心的作文，是值得拿出來探討的。</p>
-<span id="more"></span>
-
-<p>事實上，隨著科技的發展，在人手一支智慧型手機的時代之下，要獲取大量的資訊並非難事；相較於我們父母的那個年代（約莫50至70年代），資訊並不流通，當時的教育體制也是要求學生成為一座圖書館，能夠得到越多的知識越好。但正如上述所言，現在人人都可以成為圖書館，但是為什麼近年來有諸多學生表示，作文對他們而言是一場巨大的惡夢，會因為作文寫的不夠好，而面臨成績遭到吞噬的狀況。我認為是有跡可循的。</p>
-<p>在講求速食、簡潔的科技時代下，每個人都希望能夠在短時間內獲取大量的知識，由YouTube頻道的趨勢就可以觀察到這個現象：時間越短的（約10至15分鐘）影片，其點閱率以及觀看次數會相較於時間長的影片要高出許多。但是，在如此快速的知識傳遞模式下，有多少人能夠在看完影片之後，吸收所有知識；更甚者，又有多少人能夠在影片中或結束時提出自己的疑問，並上網查詢資料以佐證自己的論點是正確的，或查證該講述人所言是否屬實。我相信大多數人在觀賞完影片後，都是被演算法帶到下一部影片，上述的行為多半不存在於現代人的「知識獲取習慣」當中。最近一份PISA的報告指出，我國學生的閱讀能力排名為17，但相較其他亞洲國家，這樣的成績並非值得驕傲。閱讀對現代學生而言，是一件十分困難的事，對多數學生而言，書籍只是冗長文字的組合、知識的堆疊、詞藻的堆砌，甚至認為閱讀是浪費時間。也正因為這樣，作文才會成為現在台灣學生普遍面臨到的問題─無法用具有邏輯的語言表達出自己內心的想法。</p>
-<p>身處於這樣的年代，我們當然不可能，也絕不會回到20、30年前那般，資訊不甚流通的生活。因此，面對速食文化的衝擊，現代學生應該做的，並非成為一座座龐大的圖書館，而是成為圖書館的「管理員」：當有一個人上前詢問該如何解決某某問題時，身為圖書館管理員，必須要有能力將與該問題相關的書籍交付給其，以解決該名提問者所面臨到的問題；學生亦是如此，我們必須對這個世界抱持著好奇、熱情，並嘗試提出問題，然後運用我們現在人人都具備的圖書館，攫取相對應的資訊，進行整理、整合，最終運用所學提出解決方案。</p>
-<p>最後，作文考的不僅是一個人的行文能力，更是考驗一個人的邏輯推理是否縝密，以及一個人能否運用其所學，解決當前面對的問題。</p>
-]]></content>
-      <categories>
-        <category>心情日記</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-        <tag>成長</tag>
-        <tag>生命歷程</tag>
       </tags>
   </entry>
   <entry>
@@ -4069,6 +4106,201 @@ Built: R 4.4.0; ; 2024-04-23 11:40:42 UTC; unix
       </tags>
   </entry>
   <entry>
+    <title>110學測作文「如果我有一座新冰箱」的反思</title>
+    <url>//dsra/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>今日(2021年2月2日)晚間與好友餐敘時，聊到110年的學測作文「如果我有一座新冰箱」，這個話題在學測舉行不久後，甫即成為了全網熱議的話題，不少學生抱怨為何作文題目會如此刁鑽，甚至是了無新意。然而，就我個人的論點而言，其實這篇或是現在大考中心的作文，是值得拿出來探討的。</p>
+<span id="more"></span>
+
+<p>事實上，隨著科技的發展，在人手一支智慧型手機的時代之下，要獲取大量的資訊並非難事；相較於我們父母的那個年代（約莫50至70年代），資訊並不流通，當時的教育體制也是要求學生成為一座圖書館，能夠得到越多的知識越好。但正如上述所言，現在人人都可以成為圖書館，但是為什麼近年來有諸多學生表示，作文對他們而言是一場巨大的惡夢，會因為作文寫的不夠好，而面臨成績遭到吞噬的狀況。我認為是有跡可循的。</p>
+<p>在講求速食、簡潔的科技時代下，每個人都希望能夠在短時間內獲取大量的知識，由YouTube頻道的趨勢就可以觀察到這個現象：時間越短的（約10至15分鐘）影片，其點閱率以及觀看次數會相較於時間長的影片要高出許多。但是，在如此快速的知識傳遞模式下，有多少人能夠在看完影片之後，吸收所有知識；更甚者，又有多少人能夠在影片中或結束時提出自己的疑問，並上網查詢資料以佐證自己的論點是正確的，或查證該講述人所言是否屬實。我相信大多數人在觀賞完影片後，都是被演算法帶到下一部影片，上述的行為多半不存在於現代人的「知識獲取習慣」當中。最近一份PISA的報告指出，我國學生的閱讀能力排名為17，但相較其他亞洲國家，這樣的成績並非值得驕傲。閱讀對現代學生而言，是一件十分困難的事，對多數學生而言，書籍只是冗長文字的組合、知識的堆疊、詞藻的堆砌，甚至認為閱讀是浪費時間。也正因為這樣，作文才會成為現在台灣學生普遍面臨到的問題─無法用具有邏輯的語言表達出自己內心的想法。</p>
+<p>身處於這樣的年代，我們當然不可能，也絕不會回到20、30年前那般，資訊不甚流通的生活。因此，面對速食文化的衝擊，現代學生應該做的，並非成為一座座龐大的圖書館，而是成為圖書館的「管理員」：當有一個人上前詢問該如何解決某某問題時，身為圖書館管理員，必須要有能力將與該問題相關的書籍交付給其，以解決該名提問者所面臨到的問題；學生亦是如此，我們必須對這個世界抱持著好奇、熱情，並嘗試提出問題，然後運用我們現在人人都具備的圖書館，攫取相對應的資訊，進行整理、整合，最終運用所學提出解決方案。</p>
+<p>最後，作文考的不僅是一個人的行文能力，更是考驗一個人的邏輯推理是否縝密，以及一個人能否運用其所學，解決當前面對的問題。</p>
+]]></content>
+      <categories>
+        <category>心情日記</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+        <tag>成長</tag>
+        <tag>生命歷程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《2021多元博物館講堂 | 身心障礙者的平等參與演講小記》</title>
+    <url>//museum/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/2022-09-11-museum.jpg"></p>
+<p>昨天(2021&#x2F;10&#x2F;17)與社團幹部 David Lin、宗揚一同前往<a href="https://www.facebook.com/TaiwanNHRM">國家人權博物館 National Human Rights Museum</a>一同聆聽中華民國身心障礙聯盟秘書長洪心平，以及國立臺北大學社會學系張恒豪教授的演講。</p>
+<span id="more"></span>
+
+<p>令我最印象深刻的一句話應該是洪秘書長在演講開頭說的：「障礙是一種特徵，會對於生活造成困難；而每個人都有機會成為障礙者，但有障礙特徵不代表在生活上會產生障礙。」的確，在沒有眼鏡或是矯正視力的時代，每個近視的人都沒辦法成為四眼田雞，而是成為我們現在所說的「障礙者」。現代社會常常會將「障礙者」與「失能者」連結在一起，認為兩者在醫學上可以劃上等號；但若從實際狀況來看，許多障礙者只是在生活上會面臨諸多不便，例如肢障者走路、拿取東西不方便、視障者不良於觀看世界、聽障者無法或是聽不清旋律，但他們並非完全失能，事實上屏除掉其障礙的部位，仍然能夠完成許多事情。</p>
+<p>基於歷史背景與因素，以前的人們總會將障礙者禁閉於家中，認為他們到外面必定會被欺負或是被人佔便宜，致使他們在這個社會上的形象就已經被貼上「弱化」的標籤。然誠如我在上篇文章（也就是社刊）裡頭提到的，他們只是缺少一些裝備，並不代表他們無法完成人生這個大型的RPG遊戲。但有趣的是，就我所聽聞的身心障礙者中，有需多人一生都以「身心障礙者」自居，認為別人都必須體貼他、照顧他，為他做任何事情—因為他是身心障礙者。作為一個非身心障礙者，我沒有置喙的餘地，但我認為如果身體狀況允許，或許可以學習獨立自主完成生活起居，嘗試擺脫社會的弱化標籤外，也避免在自己身上再貼上一張自怨自艾的標籤。</p>
+<p>另一方面，就上面提到眼鏡的例子，很多時候障礙並不是我們一般人所想的「天生」的障礙，引用張恒豪教授所言：障礙有時被定義為個人問題，但有時我們卻忽略社會環境所造成的影響，我相信這也是「無障礙坡道」這個名詞的由來（但有時候政府機關或是大樓蓋設的無障礙坡道的坡度多不符合法律規定）。</p>
+<p>最後一點我想提到的是，你問我：「什麼事情是有關身心障礙者的事？」事實上，我們生活周遭的每一件事都與身心障礙息息相關，因為身心障礙者與我們一樣，在任何權利上都與他人享有相同權利，也因此我們所關心的議題不能夠僅限於食衣住行，那皆是我們「自我想像」，認為身心障礙者只有這些權利罷了；身心障礙者的性權利、生育權利、戀愛權利、玩樂的權利…等多如牛毛的事情都應該被考慮進去。</p>
+]]></content>
+      <categories>
+        <category>心情日記</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+        <tag>成長</tag>
+        <tag>生命歷程</tag>
+        <tag>身心障礙</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>為何沒有E選項？談台灣教育的缺失，兼論補習文化</title>
+    <url>//taiwan-edu/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>相信有不少人看過底下這張圖，明明都可以得到同樣的答案，卻是假「建構式數學」之名，行「填鴨式教育」(cramming education)之實。當然，我必須承認，教導孩子學習某些方法，確實是可以一步步地引導孩子學習，但不可否認的是，有些孩子真的比較聰明，會的也比同齡的孩子多，正如底下附圖所示，直式並非算數之唯一解方，只要能夠求出一樣的答案，對於其他方法有何不可承認的呢？</p>
+<p><img src="/images/2020-09-10-taiwan-edu-fig.png"></p>
+<span id="more"></span>
+
+<p>這邊就直截了當的講，台灣教育的弊病之一，就是給予過於制式化的標準答案。以我的觀點而言，作文一直是我在各個學科上的強項（我不敢說我作文真的很強，只是比較下來的），但近幾年（似乎是從我那屆學測，也就是107學年度開始）教育部對於學測國文寫作（下稱國寫）的政策方針是：要求學生同時兼具「理性」與「感性」，並鼓勵學生將生活經驗融入其中，且希望學生能夠有許多創意的想法。然而，諷刺的是，今年學測國寫題目「如果我有一座新冰箱」引發許多網友熱議，大考中心於2021年2月1日舉辦說明會，會中表示：「能深刻描繪新冰箱冷藏內容，由此連結美好生活，虛實整合、富有巧思者可得A+級，但有考生寫成『如果我是一座新冰箱』，或像流水帳式陳述冰箱可能儲存哪些物品，未扣回到主題且與原命題方向不同，分數就會有落差。」</p>
+<p>簡言之，還是有標準答案的嘛……</p>
+<p>台灣教育最令人感到頭疼的，就是不斷地抄襲外國的教育政策，但卻又缺乏一個定性的方針，導致當前的教育體制變得四不像。我認為，如果教育部真的有心想要改革，希望學生擁有思辨的能力(critical thinking)，就應該如法國一般，真切給予學生思考與批判的空間，只要學生的答案具有邏輯性，雖某種程度上不與命題者之真意相符，但仍應使其具有一定的分數。</p>
+<p>補習作為台灣最具特色的文化，根據教育部2017年的統計數據，全台補習班的數量已經達到近18500間，意味著在台灣22個行政區域中，每個行政區內至少都有高達500家的補習班，而高度發展的都市又存在更多的補習班。補習班林立已經是台灣最「引以為傲」的現象，好像從小沒有去補習，未來必定不會有所成就。</p>
+<p>的確，補習班會給予學生某種程度上的益處——超前進度讓學生可以學得更多、教導學生一些速算法以加快學生解題速度。但事實上這些教學方式，不僅沒有在本質上幫助學生，更是摧殘學生。</p>
+<p>分享一下最近在補習班當輔導老師的經歷：當我在教學生作文時，學生總是會跟我說：「老師說這題應該怎樣怎樣解」或「這幾個單字不是意思完全一樣嗎」（可以參考Instagram上<a href="https://www.instagram.com/p/CKgXlvjnZh4/">小籠包老師對於「bombastic」的觀點</a>）等話語，讓我十分頭疼。如同上述所說的，在這些學生的心中，答案已經不再是答案，而像是「一個蘿蔔一個坑」一般，每個題目都有一定的解法或標準答案，學生自己已經完完全全失去了獨立思考的能力。</p>
+<p>我必須說，我不會一竿子打翻一船人，但這個現象我已經看過太多了。從小我就是一個沒有補習生活的人（除了英文，不過英文也不是補學科，而是真正的學習一門語言），我很不懂為什麼要補習（歡迎在留言區跟我討論）或為什麼要浪費時間去那種悶熱、空氣不流通的環境，在一天上課的辛勞後，還要不斷地被各種資訊、知識壓榨，根本沒有任何的課外活動時間。</p>
+<p>教育部從111學年度，對於大學入學考試，提出「學習歷程檔案」的政策，鼓勵學生能夠多多參與各種活動，增加自己的閱歷。然而，荒謬的是，教育部所推行的課綱、考試內容不斷地增加難度的趨勢（不是不好，只是這個政策所帶來的弊大於利），以及堅持那一套「標準答案」的思維，只會讓學生更有壓力，不得不去蹲補習班，最後形成一個惡性循環——學生面對困難考試只會尋求一定的標準解答，不會自己摸索各種解方與答案。</p>
+<p>最後，我認為台灣教育應該推行的，是給予學生提出自己見解的機會，而非老師說什麼就是什麼。學生應該自己去思考某些問題的答案，或許在這個思考的過程中，會找出該問題或該解方的某些盲點，待有朝一日能夠推翻現有的解決方式或理論基礎，這個社會以及知識體系才能不斷地被建構、循環下去。</p>
+]]></content>
+      <categories>
+        <category>心情日記</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+        <tag>成長</tag>
+        <tag>生命歷程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>聊聊失敗這件事</title>
+    <url>//on-failure/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>失敗僅是過程，從過程中汲取教訓才能夠被稱為成功。這篇文章則是我根據最近的事情，以及自身過往的經驗撰寫。</p>
+<span id="more"></span>
+
+<p>轉學考說明會落幕已久，近期也致力於輔導有意準備轉學考的學弟妹們。在與他們談話當中，我看到他們對於「失敗」的不安、對於「挫折」的恐懼，深怕自己在備考過程中，沒有準備的完善、考試當天自身狀況不佳、認為自己並沒有那麼聰明爾爾。面對他們的情緒，我只好一一的講述我的故事給他們聽。</p>
+<p>國中時，我並不是一個熱愛讀書的學生（現在也不是，但相較之前好多了），這邊指涉的讀書是指「為了得到成績而研讀某些領域」之行為，那時候認為，一昧的為了成績向前看是一件愚蠢的事情，所以我在會考時並沒有盡自己太大的努力，想當然也沒有考上彼時對於自己所要求的前三志願。</p>
+<p>高中時，我因為國文太過枯燥乏味，因此選擇放棄花時間讀國文，導致國文成績一落千丈，學測與指考的表現也是差強人意。不過在那時，我對於讀書這件事有些改觀，心想：如果要上台大、政大的話，勢必還是要讀點書的。但最後的結果卻是，因為我那時的玩心還是太重，連對自己最低要求的中字輩都擦不上邊，最終成為南漂學子。</p>
+<p>因為之前的大學與科系並非我心之所向，在那裡我也過的不甚愉快，原因是因為文學作品充其量只能夠作為我休閒時光之消遣，無法成為我的主修科目，那樣太痛苦了。於是在第一次轉學考失敗之後，便毅然決然的決定要考取一直以來都想要就讀的科系——政治學系。最後，經過了一年的拼搏與努力，在堅持夢想之下，我來到了公館讀書。</p>
+<p>是的，我失敗了無數次，最終有了成果。但這代表著什麼嗎？或許很多人會認為，我能考上就表示我真的很厲害，未來必能成為國家之棟樑。然而，這一切只是被外表蒙蔽所得出之結論罷。</p>
+<p>其實，在準備考試的期間，我真的多次想要放棄自己，想要放棄這段讓我痛苦、疲憊不堪的日子，當時心裡想的，只有兩個：「我好想考上」跟「我好累」。在這些日子裡，我的父母、親朋好友都相繼來勸我別考了，好好的讀英文系吧！但我也不知道為什麼，自己心裡就有一股衝動與執念，想要將這段與考試的關係有始有終。</p>
+<p>在2020年7月11日於台大應試那天，我悟出了道理。</p>
+<p>或許對我自己在追求夢想的過程中，投注的精力與時間不容我犯下任何錯誤，但很明顯的，直到這天之前，我都不清楚自己到底錯在哪、對在哪，只是像隻無頭蒼蠅一樣往前衝。其實，那時候悟出的道理，也只不過是用來安慰我當時激憤與悲痛的心靈，並不是什麼人生大道理。但現在回頭過來，似乎是有些邏輯存在的。</p>
+<p>努力，這個字的定義太過於沈重，我甚至無法明確的勾勒出它的輪廓。然而，備考的日子讓我了解了。努力並不是一個結果，而是過程，在這段過程中學習到的任何東西並非無用武之地，所謂養兵千日用於一時，即是這個道理。我很難相信，之前在英文系學習的語音學、語言學、文學作品導讀、發音練習能夠對我人生有益處；直到我最近在補習班輔導時，學生問到的問題都能夠透過之前在英文系學習的知識、工具迎刃而解。</p>
+<p>同時，在之前的時間，我開始學會與自己獨處，開始學會如何讓自己面對難題的時候，把焦慮化為動力、把痛苦作為補給，一步步地將事情梳理出一定的架構，並以有效率以及有效的方式處理。</p>
+<p>相信每個人都有面臨失敗與挫折的經歷，但最重要的是要怎樣定義失敗。對我而言，失敗只是過程的一小部分，追逐還在持續，而夢想尚在遠方，我所企及的是在過程中能夠得到的任何東西，作為滋養我這個人的養分。</p>
+<p>願每個身在考試、挫折的人能夠正視自己所面對的難題，慢慢琢磨解決方法。</p>
+<p>在黎明來臨前，我們總有個療傷的夜晚。</p>
+]]></content>
+      <categories>
+        <category>心情日記</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+        <tag>成長</tag>
+        <tag>生命歷程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>台語才是愛台灣的象徵嗎？</title>
+    <url>//taiwanese-preservation/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>台灣島上承載著許多語言，也曾受到不公平的壓迫，為何台語卻特立獨行？</p>
+<iframe width="750" height="486" src="https://www.youtube.com/embed/uTiUeK4I__s" title="講台語才愛台灣？為什麼台語會變成愛台獎章？這真的有道理嗎？《台味七七》EP 035｜志祺七七" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<span id="more"></span>
+
+<p>我在家裡大概有 50% 的比例是講台語，50% 的比例則是講「國語」，但是我在日常生活中也不會逼迫我的朋友、家人一定要講台語。語言使用習慣如果需要透過強制的方式來去改變，那麼就失去了這個語言本身存在的目的（屏除統治他者、其他文化的因素），自身招致污名化的可能性也隨之提高。</p>
+<p>有時候我在看台語漢字跟台羅拼音時，都會一愣一愣的，可能會有點看不懂，只能根據前後文去猜測這個字的意思。但是，似乎有一群人卻要求我們必須看得懂，認為這才是台語的真諦。</p>
+<p>但台語的真諦真的是以此作為定義嗎？</p>
+<ol>
+<li><p>從教育的角度來看，打個比方好了，一個台語十分流利的耆老，卻因為過去的政府政策，導致他沒有辦法學習，進而導致他成為文盲。當他看到這些臺羅漢字、台羅拼音時，大概也無法理解其中的意思，這時候你會稱他為不愛台灣的人嗎？</p>
+</li>
+<li><p>從文化的角度來看，我們就舉美國這個「文化大熔爐」為例。根據美國社區問卷調查(American Community Survey)的統計，2017 至 2021 年，全美有 78.5% 的人講英文，13.2% 講西班牙文，1.1% 講華語。如果今天一個操著一口流利西文的人在你前面，開心地跟你介紹美國的文化，你會懷疑他不是美國人嗎？但他就是美國人啊，而且還很愛美國。你可能會問了，為什麼他不講英文？有幾種可能：他在上西文課、他的母語就是西文，而他「講話的當下」就真的很想用西文。</p>
+</li>
+</ol>
+<p>現在也有許多政府政策在努力推動台語保護，但我們似乎卻忘了，這塊土地上還承載著其他語言，包含客語、不同族的原住民語、新住民語，還有我們每個人從小就必須學習，最終變成考試科目的英語。 語言的傳承確實是需要大家共同努力維護，但如果變成衛道者，總是站在高位認為自己的語言才是正統、標準的，那與18、19世紀那些殖民國家邪惡的嘴臉有何不同？如果只有台語才能夠成為「愛台灣」的象徵，不就成為名副其實的「台語霸權」(Taiwanese hegemony)嗎？</p>
+]]></content>
+      <categories>
+        <category>心情日記</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+        <tag>成長</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>做這件事好累，我撐不住了...但別說我沒毅力好嗎？</title>
+    <url>//persistence/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>常常聽到許多人說，做任何事情都要有毅力才能成功，或是沒有毅力就代表你不重視這件事。但事實真的是這樣嗎？我就直截了當的說，我們都「毅力」這個字框架住，認為只有透過這種方式才能成功。然而，毅力這個字的定義，如同前篇提及「努力」一詞時一般，十分模糊，無法理清他的輪廓。 </p>
+<span id="more"></span>
+
+<p>由 Angela Duckworth 所撰《恆毅力：人生成功的究極能力》一書中，對於恆毅力(grit)有這樣的定義：「心理學中一種正向的特質，是追求長期目標的熱情與毅力，為了達成特定目標的強大動機。」這個定義背後隱含的，不僅僅是「恆心」與「毅力」，更代表著在進行任務時必須透過強大的心理素質面對一切的挫折與苦難─如同《奧德賽》(Odyssey)中的奧底休斯(Odysseus)一樣，歷經20年的風雨，無畏艱難的通過諸神賜予其的各種挑戰，最終返回家鄉。</p>
+<p>因此有不少人會認為，那些「不成功」（依據他們自己的定義）人，肯定是缺乏恆心與毅力，才沒有辦法達到一定的成就。但事實卻跟這些評論者甚有差距。</p>
+<p>以我身邊的朋友（以下稱為A）舉例。</p>
+<p>A從小被醫生診斷患有注意力不足過動症(ADHD)，也就是俗稱的過動兒。在幼年時期，A常常因為專注力不足，而無法在一定的時間內完成老師或是家長所指派的作業、任務，以致於A常因此受責備，並被視為是一個「沒有毅力」的孩子。在國高中時期，A也是因為該症狀而無法準時或是有效率的讀完書，最終並沒有考上理想的大學。不意外的，任何知道A目前就讀學校不甚理想的人，都會為其冠上「不成功」的稱號，認為A未來沒有前途。</p>
+<p>但知道A症狀的我，並不這麼認為。</p>
+<p>與A讀過幾次書，我發現他並非不會讀書，也不是一個愚笨的人；相反地，他有好多好多的想法，而這些想法都是建構在他的知識架構上，絕非憑空杜撰或天馬行空的想法。所以說要認定A是一個失敗者，我認為過早下定論了（而且失敗跟成功是相對的，絕不能以某人的身分或社經地位作為唯一的評斷標準）。 回到今天的主題：毅力。</p>
+<p>該說A沒有毅力嗎？這題的答案事實上只有他自己知道，但跟A相處許久，我認為A是有毅力與恆心的，只是礙於纏身的生理疾病，致使A在學習上有一定程度的障礙。曾聽A說過，在高中時期，許多老師對其並不抱持著正面、積極的態度，認為A就是一個不認真的學生。依我的觀點而言，毅力這件事不能單以表象觀之─有太多人僅以外表就評斷一個人，這無疑是落入所謂「以貌取人」的窠臼。</p>
+<p>毅力，不過只是成功者對於其努力過程及結果所得出之定義罷了，普遍認為只有認真才能成功，的確是這樣沒錯，但不能排除有些人是真的有心想要學習，但卻遭逢某些心理（如過動症、憂鬱症、躁鬱症）、生理障礙（肢體障礙等），導致其無法同一般人一樣。因此，我對於毅力的定義是：「在心理層面上，抱持著積極的態度，想方設法解決問題的特質。」這邊所稱的積極的態度，指涉的是「具有想要釐清並試圖解決問題」，因此並不一定要有樂觀的態度，對於評估自身能力後，認為無法達成的事項，當然可以做出悲觀的結論。</p>
+<p>最後，我所想要傳遞的，並非呼籲大家不要往前進。本文的宗旨是提醒大家，切勿以自身的觀點，將自己所認為的價值觀加諸在別人身上；或許你能夠保持專注力好幾個小時，但對於像A一樣的人而言，完成這項任務是一件極為困難的事。面對這樣的人，我們無須對其做出過度的批評，也無須投以過分的憐憫之情（顯得做作並不會對他們有太大的助益），而是在自己能力所及範圍內，盡可能的鼓勵他們，適時地給予獎勵（口頭或實際行動均可），讓他們在完成專注這個任務上，具有一定的成就感。如此一步步地走下去，便會在他們心中產生正向的能量，進而提高他們完成任務的動機。</p>
+<p>把價值觀收在心底，別妄想你可以改變別人，否則你所做的一切都是「律他」而非「律己」。</p>
+]]></content>
+      <categories>
+        <category>心情日記</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+        <tag>成長</tag>
+        <tag>生命歷程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>司法院裁判書查詢與下載系統</title>
+    <url>//judgement-downloader/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在資訊透明化的時代，法律資料的取得與應用變得越來越重要。無論是法律專業人士、學術研究者，還是關心司法議題的公民，都需要方便地獲取並分析判決書等法律文件。今天這篇文章要為大家介紹一個由我搭配 GPT 大神開發的強大工具——「<a href="https://judgment-downloader.streamlit.app/">判決書下載器</a>」(Judgment Downloader)。</p>
+<span id="more"></span>
+
+<h2 id="判決書下載器的誕生背景"><a href="#判決書下載器的誕生背景" class="headerlink" title="判決書下載器的誕生背景"></a>判決書下載器的誕生背景</h2><h3 id="法律資料取得的困境"><a href="#法律資料取得的困境" class="headerlink" title="法律資料取得的困境"></a>法律資料取得的困境</h3><p>在臺灣，司法院雖然已建立「法學資料檢索系統」，提供當事人、律師乃至於司法官查詢過往判決書，但這個系統主要針對單筆查詢設計，對於需要批量下載或分析大量判決的使用者來說並不友善。儘管現在裁判書系統已提供下載 PDF 檔案服務，不過研究人員、法律工作者仍需要花費大量時間手動下載判決書，這不僅費時費神，同時也限制了法律資料的研究深度和廣度。</p>
+<h3 id="開源解決方案的出現"><a href="#開源解決方案的出現" class="headerlink" title="開源解決方案的出現"></a>開源解決方案的出現</h3><p>正是在這樣的背景下，「判決書下載器」應運而生。這是一個基於 <a href="https://streamlit.io/">Streamlit</a> 開發的網頁，旨在提供一個簡單、直觀且高效的界面，讓使用者能夠根據關鍵字，批量下載臺灣各級法院的判決書。此外，本專案採用開源模式，不僅為使用者提供了便利的工具，也希望為整個法律研究領域與實務注入新的活力。</p>
+<h2 id="功能特色與使用體驗"><a href="#功能特色與使用體驗" class="headerlink" title="功能特色與使用體驗"></a>功能特色與使用體驗</h2><h3 id="直觀的使用者界面"><a href="#直觀的使用者界面" class="headerlink" title="直觀的使用者界面"></a>直觀的使用者界面</h3><p>判決書下載器最引人注目的特點之一就是其簡潔明瞭的使用者界面。Streamlit 的選用使得開發者能夠專注於功能實現，同時為使用者提供流暢的操作體驗。整個界面設計遵循「簡單即是美」的原則，即使是非技術背景的使用者也能輕鬆上手。</p>
+<p>主界面主要分為幾個功能區塊：</p>
+<ul>
+<li>法院及案件類型選擇</li>
+<li>關鍵詞搜尋</li>
+<li>執行狀態顯示</li>
+<li>結果預覽與下載</li>
+</ul>
+<p>這種直觀的設計大大降低了學習成本，使得法律資料的獲取不再是技術門檻高的任務。</p>
+<h3 id="高效的批量下載"><a href="#高效的批量下載" class="headerlink" title="高效的批量下載"></a>高效的批量下載</h3><p>判決書下載器最核心的價值在於批量下載功能。傳統上，使用者可能需要一個個點擊下載按鈕，耗費大量時間。而使用這個工具，只需設定好搜尋條件，系統會自動批量下載符合條件的所有判決書，並整合為易於管理的格式。因此本系統將 PDF 的下載連結先暫存起來，待使用者按下按鈕後，便可一個個下載到暫存資料夾中，最後輸出成壓縮檔案。</p>
+<h2 id="程式碼基本想法與架構設計"><a href="#程式碼基本想法與架構設計" class="headerlink" title="程式碼基本想法與架構設計"></a>程式碼基本想法與架構設計</h2><h3 id="Streamlit-框架"><a href="#Streamlit-框架" class="headerlink" title="Streamlit 框架"></a>Streamlit 框架</h3><p>判決書下載器選用 Streamlit 作為開發框架，雖然這是一個專為資料科學和機器學習應用設計的 Python 框架，但是好用又免費（免費仔的福音 🤣）。Streamlit 使得開發者能夠快速將 Python 程式碼轉換為共享網頁，大幅降低了網頁開發的複雜性。</p>
+<p>在該專案中，Streamlit負責提供直觀的使用者界面，處理使用者輸入，展示下載進度和結果等，從而使得整個應用保持輕量、不複雜，這也是一個網頁開發的核心要求。</p>
+<h3 id="網頁爬蟲技術"><a href="#網頁爬蟲技術" class="headerlink" title="網頁爬蟲技術"></a>網頁爬蟲技術</h3><p>判決書下載器的核心功能—批量下載判決書—依賴於高效的網頁爬蟲技術。專案使用 Python 的 <code>requests</code>、<code>BeautifulSoup</code> 與 <code>Playwright</code> 等套件爬取司法院裁判書查詢系統。</p>
+<p>爬蟲部分的實現考慮了多方面的因素：</p>
+<ul>
+<li><strong>請求頻率控制</strong>：設置合理的請求間隔，避免對目標服務器造成壓力（不然真的會出事）</li>
+<li><strong>錯誤處理與重試機制</strong>：處理網絡波動、服務器響應異常等情況</li>
+<li><strong>會話管理</strong>：維護爬取會話，處理可能的認證和Cookie問題</li>
+</ul>
+<h2 id="應用場景與實際案例"><a href="#應用場景與實際案例" class="headerlink" title="應用場景與實際案例"></a>應用場景與實際案例</h2><h3 id="學術研究中的應用"><a href="#學術研究中的應用" class="headerlink" title="學術研究中的應用"></a>學術研究中的應用</h3><p>當初在開發這個判決書下載器時，我心中最初的想法並非商業化或是單純技術展示，而是期待它能夠為學術研究領域，特別是法學研究，提供一份實質的助力。法律作為一種制度性的規範，其研究過程本身極為繁重，不僅需要閱讀大量的判決文書，還需將這些文本加以分類、歸納、分析，最後再融入法理學與社會脈絡中進行辯證與詮釋。這樣的研究方式，不僅是對資料處理能力的挑戰，更是一場對研究者耐心與邏輯思維的長期考驗。臺灣的判決書公開制度固然已經走在世界前段，然而現行的檢索與取得機制仍有操作上的障礙，從繁瑣的網頁查詢，到無法批次下載的限制，都無形中提高了學術研究的門檻。</p>
+<p>在這樣的背景下，開發這個下載器的初衷，其實就是希望能夠降低法律資料蒐集的技術成本，讓研究者能夠將時間與心力投入在真正重要的分析與辯證工作上。此外，這個專案也受到臺大法律學院黃詩淳教授近年來推廣的「法律與資料科學結合」理念所啟發。黃教授在多次公開演講與論文中提到，未來的法律研究，勢必會走向跨領域數據分析與實證法學的路徑，而不是停留在傳統的條文解釋與案例羅列。因此，我期望這個專案能夠讓更多具備技術背景或對資料科學有興趣的法律學者，能夠投入到這個數位法學的生態系統中，共同為臺灣的司法透明與法學發展做出貢獻。</p>
+<h3 id="法律實務工作者的助手"><a href="#法律實務工作者的助手" class="headerlink" title="法律實務工作者的助手"></a>法律實務工作者的助手</h3><p>除了學術研究，這套判決書下載器對於法律實務工作者來說同樣具有極高的應用價值。對律師、法官、檢察官甚至是法務專員而言，日常工作的重心之一即是「案例檢索」與「法律適用」。每當面對一個棘手的案件，從過往的判決書中尋找相似案例與判決理由，是律師制定訴訟策略、法官進行判斷的重要依據。然而，法院判決書的數量龐大且分散，即便有官方查詢系統，也因為查詢條件限制與介面設計問題，難以快速批量取得需要的判決書檔案，進一步影響案件分析的效率與精準度。</p>
+<p>這套下載器正是為了解決這樣的實務痛點而設計。在實際應用中，已有數間專注於智慧財產權、商業糾紛或刑事訴訟的律師事務所，藉由本工具建立自有的判決書資料庫。例如，有一間專注於專利訴訟的律師事務所，利用下載器系統性地整理了上千份專利侵權相關判決，透過後續的資料清理與分類，他們能夠快速檢索相似案例，並結合案件類型與審理法官的歷史判決資料，提供當事人更精準的風險評估與訴訟建議。對於律師而言，這不僅是工具，更是一種數據化的法律服務資產，能夠提升業務競爭力，並在訴訟過程中取得先機。</p>
+<h3 id="法學教育的教學工具"><a href="#法學教育的教學工具" class="headerlink" title="法學教育的教學工具"></a>法學教育的教學工具</h3><p>從法學教育的角度來看，這個下載器同樣具備潛在的教學價值。判例教學向來是法學院課程中的核心，教師經常需要為學生準備真實且具代表性的案例，用以引導學生進行法律適用與邏輯推理訓練。然而，現行的判決書查詢機制不僅耗時，且資料格式零散，導致教師在備課時需要花費過多時間於資料檢索與整理，無形中削弱了課程的教學重心。藉由判決書下載器，教師可以輕鬆批次取得所需案例，並依課程需求進行分類與標註，大幅縮短教學準備的流程，將重心回歸到案例討論與學生思辨的培養上。</p>
+<p>另一方面，對於法學院學生而言，這套工具同樣是一種學習資源的解放。在法學院的研究課程、判例分析作業乃至於模擬法庭比賽中，學生經常需要蒐集大量的真實案例作為論述依據。以往，這樣的資料搜集工作往往需要耗費數日甚至數週，對於學生而言是一項沉重的負擔。</p>
+<h2 id="結語：拋磚引玉，總得先有一塊磚"><a href="#結語：拋磚引玉，總得先有一塊磚" class="headerlink" title="結語：拋磚引玉，總得先有一塊磚"></a>結語：拋磚引玉，總得先有一塊磚</h2><p>寫到這裡，你可能會以為這個「判決書下載器」已經廣泛應用，成為法律界與學術圈的必備神器。但事實上，直到今天為止，這個工具幾乎沒有人在用，連留言詢問或按讚的人都屈指可數。也許是因為功能還不夠完美，也許是因為這個領域本來就小眾，又或者，只是因為這個系統藏得太深，還沒被需要它的人發現。</p>
+<p>然而，對我來說，這個專案的價值從來不只是「多少人用」的問題，而是它作為一個 示範，證明了一件事——資料科學與法律這兩個看似遙遠的世界，其實可以被橋接起來。無論是研究者、實務工作者，還是法學院的學生，只要願意花一點時間學習工具、打開視野，就有機會用技術幫自己減少重複勞力，把精力放在真正重要的思考與判斷上。</p>
+<p>這個下載器或許不是什麼劃時代的大工程，但它是一塊磚，一塊試圖改變資料取得與應用困境的小磚。如果未來某一天，有學生、研究者或律師無意間點進這個網站，發現它節省了他們兩個小時、五個小時，甚至一個禮拜的工作，那我覺得，這個專案就沒有白做。</p>
+<p>如果你剛好讀到這裡，對這個工具有興趣，也歡迎你試試看，哪怕只是好奇、哪怕只是玩玩看。畢竟，所有技術的價值，從來不是因為它「做得多大」，而是因為它<strong>真的幫助了哪怕一個人</strong>。</p>
+]]></content>
+      <categories>
+        <category>專案</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>R 語言教學入門｜資料框與資料處理藝術</title>
     <url>//R-tutorial-4/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在進入數據分析的世界，我們必須認識不同的資料結構。前面我們已經學習了向量，它像是一條單行的數字或文字；接著認識了矩陣，它如同一張二維的表格，但有個限制：所有元素必須是相同型別。然而，現實世界的資料往往是<strong>混合型</strong>的——一份調查可能同時包含受訪者的姓名（字串）、年齡（數值）和是否已婚（邏輯值）。這時，我們需要一個更靈活的資料結構，那就是<strong>資料框</strong>(data frame)。</p>
@@ -5215,159 +5447,6 @@ product 北 西 東 南
         <tag>資料處理</tag>
         <tag>敘述統計</tag>
         <tag>群組分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>做這件事好累，我撐不住了...但別說我沒毅力好嗎？</title>
-    <url>//persistence/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>常常聽到許多人說，做任何事情都要有毅力才能成功，或是沒有毅力就代表你不重視這件事。但事實真的是這樣嗎？我就直截了當的說，我們都「毅力」這個字框架住，認為只有透過這種方式才能成功。然而，毅力這個字的定義，如同前篇提及「努力」一詞時一般，十分模糊，無法理清他的輪廓。 </p>
-<span id="more"></span>
-
-<p>由 Angela Duckworth 所撰《恆毅力：人生成功的究極能力》一書中，對於恆毅力(grit)有這樣的定義：「心理學中一種正向的特質，是追求長期目標的熱情與毅力，為了達成特定目標的強大動機。」這個定義背後隱含的，不僅僅是「恆心」與「毅力」，更代表著在進行任務時必須透過強大的心理素質面對一切的挫折與苦難─如同《奧德賽》(Odyssey)中的奧底休斯(Odysseus)一樣，歷經20年的風雨，無畏艱難的通過諸神賜予其的各種挑戰，最終返回家鄉。</p>
-<p>因此有不少人會認為，那些「不成功」（依據他們自己的定義）人，肯定是缺乏恆心與毅力，才沒有辦法達到一定的成就。但事實卻跟這些評論者甚有差距。</p>
-<p>以我身邊的朋友（以下稱為A）舉例。</p>
-<p>A從小被醫生診斷患有注意力不足過動症(ADHD)，也就是俗稱的過動兒。在幼年時期，A常常因為專注力不足，而無法在一定的時間內完成老師或是家長所指派的作業、任務，以致於A常因此受責備，並被視為是一個「沒有毅力」的孩子。在國高中時期，A也是因為該症狀而無法準時或是有效率的讀完書，最終並沒有考上理想的大學。不意外的，任何知道A目前就讀學校不甚理想的人，都會為其冠上「不成功」的稱號，認為A未來沒有前途。</p>
-<p>但知道A症狀的我，並不這麼認為。</p>
-<p>與A讀過幾次書，我發現他並非不會讀書，也不是一個愚笨的人；相反地，他有好多好多的想法，而這些想法都是建構在他的知識架構上，絕非憑空杜撰或天馬行空的想法。所以說要認定A是一個失敗者，我認為過早下定論了（而且失敗跟成功是相對的，絕不能以某人的身分或社經地位作為唯一的評斷標準）。 回到今天的主題：毅力。</p>
-<p>該說A沒有毅力嗎？這題的答案事實上只有他自己知道，但跟A相處許久，我認為A是有毅力與恆心的，只是礙於纏身的生理疾病，致使A在學習上有一定程度的障礙。曾聽A說過，在高中時期，許多老師對其並不抱持著正面、積極的態度，認為A就是一個不認真的學生。依我的觀點而言，毅力這件事不能單以表象觀之─有太多人僅以外表就評斷一個人，這無疑是落入所謂「以貌取人」的窠臼。</p>
-<p>毅力，不過只是成功者對於其努力過程及結果所得出之定義罷了，普遍認為只有認真才能成功，的確是這樣沒錯，但不能排除有些人是真的有心想要學習，但卻遭逢某些心理（如過動症、憂鬱症、躁鬱症）、生理障礙（肢體障礙等），導致其無法同一般人一樣。因此，我對於毅力的定義是：「在心理層面上，抱持著積極的態度，想方設法解決問題的特質。」這邊所稱的積極的態度，指涉的是「具有想要釐清並試圖解決問題」，因此並不一定要有樂觀的態度，對於評估自身能力後，認為無法達成的事項，當然可以做出悲觀的結論。</p>
-<p>最後，我所想要傳遞的，並非呼籲大家不要往前進。本文的宗旨是提醒大家，切勿以自身的觀點，將自己所認為的價值觀加諸在別人身上；或許你能夠保持專注力好幾個小時，但對於像A一樣的人而言，完成這項任務是一件極為困難的事。面對這樣的人，我們無須對其做出過度的批評，也無須投以過分的憐憫之情（顯得做作並不會對他們有太大的助益），而是在自己能力所及範圍內，盡可能的鼓勵他們，適時地給予獎勵（口頭或實際行動均可），讓他們在完成專注這個任務上，具有一定的成就感。如此一步步地走下去，便會在他們心中產生正向的能量，進而提高他們完成任務的動機。</p>
-<p>把價值觀收在心底，別妄想你可以改變別人，否則你所做的一切都是「律他」而非「律己」。</p>
-]]></content>
-      <categories>
-        <category>心情日記</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-        <tag>成長</tag>
-        <tag>生命歷程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>為何沒有E選項？談台灣教育的缺失，兼論補習文化</title>
-    <url>//taiwan-edu/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>相信有不少人看過底下這張圖，明明都可以得到同樣的答案，卻是假「建構式數學」之名，行「填鴨式教育」(cramming education)之實。當然，我必須承認，教導孩子學習某些方法，確實是可以一步步地引導孩子學習，但不可否認的是，有些孩子真的比較聰明，會的也比同齡的孩子多，正如底下附圖所示，直式並非算數之唯一解方，只要能夠求出一樣的答案，對於其他方法有何不可承認的呢？</p>
-<p><img src="/images/2020-09-10-taiwan-edu-fig.png"></p>
-<span id="more"></span>
-
-<p>這邊就直截了當的講，台灣教育的弊病之一，就是給予過於制式化的標準答案。以我的觀點而言，作文一直是我在各個學科上的強項（我不敢說我作文真的很強，只是比較下來的），但近幾年（似乎是從我那屆學測，也就是107學年度開始）教育部對於學測國文寫作（下稱國寫）的政策方針是：要求學生同時兼具「理性」與「感性」，並鼓勵學生將生活經驗融入其中，且希望學生能夠有許多創意的想法。然而，諷刺的是，今年學測國寫題目「如果我有一座新冰箱」引發許多網友熱議，大考中心於2021年2月1日舉辦說明會，會中表示：「能深刻描繪新冰箱冷藏內容，由此連結美好生活，虛實整合、富有巧思者可得A+級，但有考生寫成『如果我是一座新冰箱』，或像流水帳式陳述冰箱可能儲存哪些物品，未扣回到主題且與原命題方向不同，分數就會有落差。」</p>
-<p>簡言之，還是有標準答案的嘛……</p>
-<p>台灣教育最令人感到頭疼的，就是不斷地抄襲外國的教育政策，但卻又缺乏一個定性的方針，導致當前的教育體制變得四不像。我認為，如果教育部真的有心想要改革，希望學生擁有思辨的能力(critical thinking)，就應該如法國一般，真切給予學生思考與批判的空間，只要學生的答案具有邏輯性，雖某種程度上不與命題者之真意相符，但仍應使其具有一定的分數。</p>
-<p>補習作為台灣最具特色的文化，根據教育部2017年的統計數據，全台補習班的數量已經達到近18500間，意味著在台灣22個行政區域中，每個行政區內至少都有高達500家的補習班，而高度發展的都市又存在更多的補習班。補習班林立已經是台灣最「引以為傲」的現象，好像從小沒有去補習，未來必定不會有所成就。</p>
-<p>的確，補習班會給予學生某種程度上的益處——超前進度讓學生可以學得更多、教導學生一些速算法以加快學生解題速度。但事實上這些教學方式，不僅沒有在本質上幫助學生，更是摧殘學生。</p>
-<p>分享一下最近在補習班當輔導老師的經歷：當我在教學生作文時，學生總是會跟我說：「老師說這題應該怎樣怎樣解」或「這幾個單字不是意思完全一樣嗎」（可以參考Instagram上<a href="https://www.instagram.com/p/CKgXlvjnZh4/">小籠包老師對於「bombastic」的觀點</a>）等話語，讓我十分頭疼。如同上述所說的，在這些學生的心中，答案已經不再是答案，而像是「一個蘿蔔一個坑」一般，每個題目都有一定的解法或標準答案，學生自己已經完完全全失去了獨立思考的能力。</p>
-<p>我必須說，我不會一竿子打翻一船人，但這個現象我已經看過太多了。從小我就是一個沒有補習生活的人（除了英文，不過英文也不是補學科，而是真正的學習一門語言），我很不懂為什麼要補習（歡迎在留言區跟我討論）或為什麼要浪費時間去那種悶熱、空氣不流通的環境，在一天上課的辛勞後，還要不斷地被各種資訊、知識壓榨，根本沒有任何的課外活動時間。</p>
-<p>教育部從111學年度，對於大學入學考試，提出「學習歷程檔案」的政策，鼓勵學生能夠多多參與各種活動，增加自己的閱歷。然而，荒謬的是，教育部所推行的課綱、考試內容不斷地增加難度的趨勢（不是不好，只是這個政策所帶來的弊大於利），以及堅持那一套「標準答案」的思維，只會讓學生更有壓力，不得不去蹲補習班，最後形成一個惡性循環——學生面對困難考試只會尋求一定的標準解答，不會自己摸索各種解方與答案。</p>
-<p>最後，我認為台灣教育應該推行的，是給予學生提出自己見解的機會，而非老師說什麼就是什麼。學生應該自己去思考某些問題的答案，或許在這個思考的過程中，會找出該問題或該解方的某些盲點，待有朝一日能夠推翻現有的解決方式或理論基礎，這個社會以及知識體系才能不斷地被建構、循環下去。</p>
-]]></content>
-      <categories>
-        <category>心情日記</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-        <tag>成長</tag>
-        <tag>生命歷程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>台語才是愛台灣的象徵嗎？</title>
-    <url>//taiwanese-preservation/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>台灣島上承載著許多語言，也曾受到不公平的壓迫，為何台語卻特立獨行？</p>
-<iframe width="750" height="486" src="https://www.youtube.com/embed/uTiUeK4I__s" title="講台語才愛台灣？為什麼台語會變成愛台獎章？這真的有道理嗎？《台味七七》EP 035｜志祺七七" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<span id="more"></span>
-
-<p>我在家裡大概有 50% 的比例是講台語，50% 的比例則是講「國語」，但是我在日常生活中也不會逼迫我的朋友、家人一定要講台語。語言使用習慣如果需要透過強制的方式來去改變，那麼就失去了這個語言本身存在的目的（屏除統治他者、其他文化的因素），自身招致污名化的可能性也隨之提高。</p>
-<p>有時候我在看台語漢字跟台羅拼音時，都會一愣一愣的，可能會有點看不懂，只能根據前後文去猜測這個字的意思。但是，似乎有一群人卻要求我們必須看得懂，認為這才是台語的真諦。</p>
-<p>但台語的真諦真的是以此作為定義嗎？</p>
-<ol>
-<li><p>從教育的角度來看，打個比方好了，一個台語十分流利的耆老，卻因為過去的政府政策，導致他沒有辦法學習，進而導致他成為文盲。當他看到這些臺羅漢字、台羅拼音時，大概也無法理解其中的意思，這時候你會稱他為不愛台灣的人嗎？</p>
-</li>
-<li><p>從文化的角度來看，我們就舉美國這個「文化大熔爐」為例。根據美國社區問卷調查(American Community Survey)的統計，2017 至 2021 年，全美有 78.5% 的人講英文，13.2% 講西班牙文，1.1% 講華語。如果今天一個操著一口流利西文的人在你前面，開心地跟你介紹美國的文化，你會懷疑他不是美國人嗎？但他就是美國人啊，而且還很愛美國。你可能會問了，為什麼他不講英文？有幾種可能：他在上西文課、他的母語就是西文，而他「講話的當下」就真的很想用西文。</p>
-</li>
-</ol>
-<p>現在也有許多政府政策在努力推動台語保護，但我們似乎卻忘了，這塊土地上還承載著其他語言，包含客語、不同族的原住民語、新住民語，還有我們每個人從小就必須學習，最終變成考試科目的英語。 語言的傳承確實是需要大家共同努力維護，但如果變成衛道者，總是站在高位認為自己的語言才是正統、標準的，那與18、19世紀那些殖民國家邪惡的嘴臉有何不同？如果只有台語才能夠成為「愛台灣」的象徵，不就成為名副其實的「台語霸權」(Taiwanese hegemony)嗎？</p>
-]]></content>
-      <categories>
-        <category>心情日記</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-        <tag>成長</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>聊聊失敗這件事</title>
-    <url>//on-failure/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>失敗僅是過程，從過程中汲取教訓才能夠被稱為成功。這篇文章則是我根據最近的事情，以及自身過往的經驗撰寫。</p>
-<span id="more"></span>
-
-<p>轉學考說明會落幕已久，近期也致力於輔導有意準備轉學考的學弟妹們。在與他們談話當中，我看到他們對於「失敗」的不安、對於「挫折」的恐懼，深怕自己在備考過程中，沒有準備的完善、考試當天自身狀況不佳、認為自己並沒有那麼聰明爾爾。面對他們的情緒，我只好一一的講述我的故事給他們聽。</p>
-<p>國中時，我並不是一個熱愛讀書的學生（現在也不是，但相較之前好多了），這邊指涉的讀書是指「為了得到成績而研讀某些領域」之行為，那時候認為，一昧的為了成績向前看是一件愚蠢的事情，所以我在會考時並沒有盡自己太大的努力，想當然也沒有考上彼時對於自己所要求的前三志願。</p>
-<p>高中時，我因為國文太過枯燥乏味，因此選擇放棄花時間讀國文，導致國文成績一落千丈，學測與指考的表現也是差強人意。不過在那時，我對於讀書這件事有些改觀，心想：如果要上台大、政大的話，勢必還是要讀點書的。但最後的結果卻是，因為我那時的玩心還是太重，連對自己最低要求的中字輩都擦不上邊，最終成為南漂學子。</p>
-<p>因為之前的大學與科系並非我心之所向，在那裡我也過的不甚愉快，原因是因為文學作品充其量只能夠作為我休閒時光之消遣，無法成為我的主修科目，那樣太痛苦了。於是在第一次轉學考失敗之後，便毅然決然的決定要考取一直以來都想要就讀的科系——政治學系。最後，經過了一年的拼搏與努力，在堅持夢想之下，我來到了公館讀書。</p>
-<p>是的，我失敗了無數次，最終有了成果。但這代表著什麼嗎？或許很多人會認為，我能考上就表示我真的很厲害，未來必能成為國家之棟樑。然而，這一切只是被外表蒙蔽所得出之結論罷。</p>
-<p>其實，在準備考試的期間，我真的多次想要放棄自己，想要放棄這段讓我痛苦、疲憊不堪的日子，當時心裡想的，只有兩個：「我好想考上」跟「我好累」。在這些日子裡，我的父母、親朋好友都相繼來勸我別考了，好好的讀英文系吧！但我也不知道為什麼，自己心裡就有一股衝動與執念，想要將這段與考試的關係有始有終。</p>
-<p>在2020年7月11日於台大應試那天，我悟出了道理。</p>
-<p>或許對我自己在追求夢想的過程中，投注的精力與時間不容我犯下任何錯誤，但很明顯的，直到這天之前，我都不清楚自己到底錯在哪、對在哪，只是像隻無頭蒼蠅一樣往前衝。其實，那時候悟出的道理，也只不過是用來安慰我當時激憤與悲痛的心靈，並不是什麼人生大道理。但現在回頭過來，似乎是有些邏輯存在的。</p>
-<p>努力，這個字的定義太過於沈重，我甚至無法明確的勾勒出它的輪廓。然而，備考的日子讓我了解了。努力並不是一個結果，而是過程，在這段過程中學習到的任何東西並非無用武之地，所謂養兵千日用於一時，即是這個道理。我很難相信，之前在英文系學習的語音學、語言學、文學作品導讀、發音練習能夠對我人生有益處；直到我最近在補習班輔導時，學生問到的問題都能夠透過之前在英文系學習的知識、工具迎刃而解。</p>
-<p>同時，在之前的時間，我開始學會與自己獨處，開始學會如何讓自己面對難題的時候，把焦慮化為動力、把痛苦作為補給，一步步地將事情梳理出一定的架構，並以有效率以及有效的方式處理。</p>
-<p>相信每個人都有面臨失敗與挫折的經歷，但最重要的是要怎樣定義失敗。對我而言，失敗只是過程的一小部分，追逐還在持續，而夢想尚在遠方，我所企及的是在過程中能夠得到的任何東西，作為滋養我這個人的養分。</p>
-<p>願每個身在考試、挫折的人能夠正視自己所面對的難題，慢慢琢磨解決方法。</p>
-<p>在黎明來臨前，我們總有個療傷的夜晚。</p>
-]]></content>
-      <categories>
-        <category>心情日記</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-        <tag>成長</tag>
-        <tag>生命歷程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>司法院裁判書查詢與下載系統</title>
-    <url>//judgement-downloader/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在資訊透明化的時代，法律資料的取得與應用變得越來越重要。無論是法律專業人士、學術研究者，還是關心司法議題的公民，都需要方便地獲取並分析判決書等法律文件。今天這篇文章要為大家介紹一個由我搭配 GPT 大神開發的強大工具——「<a href="https://judgment-downloader.streamlit.app/">判決書下載器</a>」(Judgment Downloader)。</p>
-<span id="more"></span>
-
-<h2 id="判決書下載器的誕生背景"><a href="#判決書下載器的誕生背景" class="headerlink" title="判決書下載器的誕生背景"></a>判決書下載器的誕生背景</h2><h3 id="法律資料取得的困境"><a href="#法律資料取得的困境" class="headerlink" title="法律資料取得的困境"></a>法律資料取得的困境</h3><p>在臺灣，司法院雖然已建立「法學資料檢索系統」，提供當事人、律師乃至於司法官查詢過往判決書，但這個系統主要針對單筆查詢設計，對於需要批量下載或分析大量判決的使用者來說並不友善。儘管現在裁判書系統已提供下載 PDF 檔案服務，不過研究人員、法律工作者仍需要花費大量時間手動下載判決書，這不僅費時費神，同時也限制了法律資料的研究深度和廣度。</p>
-<h3 id="開源解決方案的出現"><a href="#開源解決方案的出現" class="headerlink" title="開源解決方案的出現"></a>開源解決方案的出現</h3><p>正是在這樣的背景下，「判決書下載器」應運而生。這是一個基於 <a href="https://streamlit.io/">Streamlit</a> 開發的網頁，旨在提供一個簡單、直觀且高效的界面，讓使用者能夠根據關鍵字，批量下載臺灣各級法院的判決書。此外，本專案採用開源模式，不僅為使用者提供了便利的工具，也希望為整個法律研究領域與實務注入新的活力。</p>
-<h2 id="功能特色與使用體驗"><a href="#功能特色與使用體驗" class="headerlink" title="功能特色與使用體驗"></a>功能特色與使用體驗</h2><h3 id="直觀的使用者界面"><a href="#直觀的使用者界面" class="headerlink" title="直觀的使用者界面"></a>直觀的使用者界面</h3><p>判決書下載器最引人注目的特點之一就是其簡潔明瞭的使用者界面。Streamlit 的選用使得開發者能夠專注於功能實現，同時為使用者提供流暢的操作體驗。整個界面設計遵循「簡單即是美」的原則，即使是非技術背景的使用者也能輕鬆上手。</p>
-<p>主界面主要分為幾個功能區塊：</p>
-<ul>
-<li>法院及案件類型選擇</li>
-<li>關鍵詞搜尋</li>
-<li>執行狀態顯示</li>
-<li>結果預覽與下載</li>
-</ul>
-<p>這種直觀的設計大大降低了學習成本，使得法律資料的獲取不再是技術門檻高的任務。</p>
-<h3 id="高效的批量下載"><a href="#高效的批量下載" class="headerlink" title="高效的批量下載"></a>高效的批量下載</h3><p>判決書下載器最核心的價值在於批量下載功能。傳統上，使用者可能需要一個個點擊下載按鈕，耗費大量時間。而使用這個工具，只需設定好搜尋條件，系統會自動批量下載符合條件的所有判決書，並整合為易於管理的格式。因此本系統將 PDF 的下載連結先暫存起來，待使用者按下按鈕後，便可一個個下載到暫存資料夾中，最後輸出成壓縮檔案。</p>
-<h2 id="程式碼基本想法與架構設計"><a href="#程式碼基本想法與架構設計" class="headerlink" title="程式碼基本想法與架構設計"></a>程式碼基本想法與架構設計</h2><h3 id="Streamlit-框架"><a href="#Streamlit-框架" class="headerlink" title="Streamlit 框架"></a>Streamlit 框架</h3><p>判決書下載器選用 Streamlit 作為開發框架，雖然這是一個專為資料科學和機器學習應用設計的 Python 框架，但是好用又免費（免費仔的福音 🤣）。Streamlit 使得開發者能夠快速將 Python 程式碼轉換為共享網頁，大幅降低了網頁開發的複雜性。</p>
-<p>在該專案中，Streamlit負責提供直觀的使用者界面，處理使用者輸入，展示下載進度和結果等，從而使得整個應用保持輕量、不複雜，這也是一個網頁開發的核心要求。</p>
-<h3 id="網頁爬蟲技術"><a href="#網頁爬蟲技術" class="headerlink" title="網頁爬蟲技術"></a>網頁爬蟲技術</h3><p>判決書下載器的核心功能—批量下載判決書—依賴於高效的網頁爬蟲技術。專案使用 Python 的 <code>requests</code>、<code>BeautifulSoup</code> 與 <code>Playwright</code> 等套件爬取司法院裁判書查詢系統。</p>
-<p>爬蟲部分的實現考慮了多方面的因素：</p>
-<ul>
-<li><strong>請求頻率控制</strong>：設置合理的請求間隔，避免對目標服務器造成壓力（不然真的會出事）</li>
-<li><strong>錯誤處理與重試機制</strong>：處理網絡波動、服務器響應異常等情況</li>
-<li><strong>會話管理</strong>：維護爬取會話，處理可能的認證和Cookie問題</li>
-</ul>
-<h2 id="應用場景與實際案例"><a href="#應用場景與實際案例" class="headerlink" title="應用場景與實際案例"></a>應用場景與實際案例</h2><h3 id="學術研究中的應用"><a href="#學術研究中的應用" class="headerlink" title="學術研究中的應用"></a>學術研究中的應用</h3><p>當初在開發這個判決書下載器時，我心中最初的想法並非商業化或是單純技術展示，而是期待它能夠為學術研究領域，特別是法學研究，提供一份實質的助力。法律作為一種制度性的規範，其研究過程本身極為繁重，不僅需要閱讀大量的判決文書，還需將這些文本加以分類、歸納、分析，最後再融入法理學與社會脈絡中進行辯證與詮釋。這樣的研究方式，不僅是對資料處理能力的挑戰，更是一場對研究者耐心與邏輯思維的長期考驗。臺灣的判決書公開制度固然已經走在世界前段，然而現行的檢索與取得機制仍有操作上的障礙，從繁瑣的網頁查詢，到無法批次下載的限制，都無形中提高了學術研究的門檻。</p>
-<p>在這樣的背景下，開發這個下載器的初衷，其實就是希望能夠降低法律資料蒐集的技術成本，讓研究者能夠將時間與心力投入在真正重要的分析與辯證工作上。此外，這個專案也受到臺大法律學院黃詩淳教授近年來推廣的「法律與資料科學結合」理念所啟發。黃教授在多次公開演講與論文中提到，未來的法律研究，勢必會走向跨領域數據分析與實證法學的路徑，而不是停留在傳統的條文解釋與案例羅列。因此，我期望這個專案能夠讓更多具備技術背景或對資料科學有興趣的法律學者，能夠投入到這個數位法學的生態系統中，共同為臺灣的司法透明與法學發展做出貢獻。</p>
-<h3 id="法律實務工作者的助手"><a href="#法律實務工作者的助手" class="headerlink" title="法律實務工作者的助手"></a>法律實務工作者的助手</h3><p>除了學術研究，這套判決書下載器對於法律實務工作者來說同樣具有極高的應用價值。對律師、法官、檢察官甚至是法務專員而言，日常工作的重心之一即是「案例檢索」與「法律適用」。每當面對一個棘手的案件，從過往的判決書中尋找相似案例與判決理由，是律師制定訴訟策略、法官進行判斷的重要依據。然而，法院判決書的數量龐大且分散，即便有官方查詢系統，也因為查詢條件限制與介面設計問題，難以快速批量取得需要的判決書檔案，進一步影響案件分析的效率與精準度。</p>
-<p>這套下載器正是為了解決這樣的實務痛點而設計。在實際應用中，已有數間專注於智慧財產權、商業糾紛或刑事訴訟的律師事務所，藉由本工具建立自有的判決書資料庫。例如，有一間專注於專利訴訟的律師事務所，利用下載器系統性地整理了上千份專利侵權相關判決，透過後續的資料清理與分類，他們能夠快速檢索相似案例，並結合案件類型與審理法官的歷史判決資料，提供當事人更精準的風險評估與訴訟建議。對於律師而言，這不僅是工具，更是一種數據化的法律服務資產，能夠提升業務競爭力，並在訴訟過程中取得先機。</p>
-<h3 id="法學教育的教學工具"><a href="#法學教育的教學工具" class="headerlink" title="法學教育的教學工具"></a>法學教育的教學工具</h3><p>從法學教育的角度來看，這個下載器同樣具備潛在的教學價值。判例教學向來是法學院課程中的核心，教師經常需要為學生準備真實且具代表性的案例，用以引導學生進行法律適用與邏輯推理訓練。然而，現行的判決書查詢機制不僅耗時，且資料格式零散，導致教師在備課時需要花費過多時間於資料檢索與整理，無形中削弱了課程的教學重心。藉由判決書下載器，教師可以輕鬆批次取得所需案例，並依課程需求進行分類與標註，大幅縮短教學準備的流程，將重心回歸到案例討論與學生思辨的培養上。</p>
-<p>另一方面，對於法學院學生而言，這套工具同樣是一種學習資源的解放。在法學院的研究課程、判例分析作業乃至於模擬法庭比賽中，學生經常需要蒐集大量的真實案例作為論述依據。以往，這樣的資料搜集工作往往需要耗費數日甚至數週，對於學生而言是一項沉重的負擔。</p>
-<h2 id="結語：拋磚引玉，總得先有一塊磚"><a href="#結語：拋磚引玉，總得先有一塊磚" class="headerlink" title="結語：拋磚引玉，總得先有一塊磚"></a>結語：拋磚引玉，總得先有一塊磚</h2><p>寫到這裡，你可能會以為這個「判決書下載器」已經廣泛應用，成為法律界與學術圈的必備神器。但事實上，直到今天為止，這個工具幾乎沒有人在用，連留言詢問或按讚的人都屈指可數。也許是因為功能還不夠完美，也許是因為這個領域本來就小眾，又或者，只是因為這個系統藏得太深，還沒被需要它的人發現。</p>
-<p>然而，對我來說，這個專案的價值從來不只是「多少人用」的問題，而是它作為一個 示範，證明了一件事——資料科學與法律這兩個看似遙遠的世界，其實可以被橋接起來。無論是研究者、實務工作者，還是法學院的學生，只要願意花一點時間學習工具、打開視野，就有機會用技術幫自己減少重複勞力，把精力放在真正重要的思考與判斷上。</p>
-<p>這個下載器或許不是什麼劃時代的大工程，但它是一塊磚，一塊試圖改變資料取得與應用困境的小磚。如果未來某一天，有學生、研究者或律師無意間點進這個網站，發現它節省了他們兩個小時、五個小時，甚至一個禮拜的工作，那我覺得，這個專案就沒有白做。</p>
-<p>如果你剛好讀到這裡，對這個工具有興趣，也歡迎你試試看，哪怕只是好奇、哪怕只是玩玩看。畢竟，所有技術的價值，從來不是因為它「做得多大」，而是因為它<strong>真的幫助了哪怕一個人</strong>。</p>
-]]></content>
-      <categories>
-        <category>專案</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
 </search>
