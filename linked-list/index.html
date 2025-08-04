@@ -567,7 +567,7 @@ div.hcb-content.hcb-cards-content.active {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>3.6k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -676,8 +676,7 @@ div.hcb-content.hcb-cards-content.active {
 
 <h3 id="鏈結串列完整實作"><a href="#鏈結串列完整實作" class="headerlink" title="鏈結串列完整實作"></a>鏈結串列完整實作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.head = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, n0: ListNode, p: ListNode</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        n1 = n0.<span class="built_in">next</span></span><br><span class="line">        p.<span class="built_in">next</span> = n1</span><br><span class="line">        n0.<span class="built_in">next</span> = p</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, n0: ListNode</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        p = n0.<span class="built_in">next</span></span><br><span class="line">        n1 = p.<span class="built_in">next</span></span><br><span class="line">        n0.<span class="built_in">next</span> = n1</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">access</span>(<span class="params">self, index: <span class="built_in">int</span></span>) -&gt; ListNode | <span class="literal">None</span>:</span><br><span class="line">        curr = <span class="variable language_">self</span>.head</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(index):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> curr:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            curr = curr.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> curr</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">self, target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        curr = <span class="variable language_">self</span>.head</span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> curr:</span><br><span class="line">            <span class="keyword">if</span> curr.val == target:</span><br><span class="line">                <span class="keyword">return</span> index</span><br><span class="line">            curr = curr.<span class="built_in">next</span></span><br><span class="line">            index += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">traverse</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        curr = <span class="variable language_">self</span>.head</span><br><span class="line">        nodes = []</span><br><span class="line">        <span class="keyword">while</span> curr:</span><br><span class="line">            nodes.append(curr.val)</span><br><span class="line">            curr = curr.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot; -&gt; &quot;</span>.join(<span class="built_in">str</span>(v) <span class="keyword">for</span> v <span class="keyword">in</span> nodes)</span><br></pre></td></tr></table></figure>
 
-<h3 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h3><div class="tabs" id="練習題"><ul class="nav-tabs"><li class="tab active"><a href="#練習題-1">練習題 1</a></li><li class="tab"><a href="#練習題-2">練習題 2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="練習題-1"><p><strong>反轉鏈結串列</strong></p>
-<p>給一個單向鏈結串列的 <code>head</code>，請反轉整條串列，並回傳新的頭節點。</p>
+<h3 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h3><div class="tabs" id="練習題"><ul class="nav-tabs"><li class="tab active"><a href="#練習題-1">反轉鏈結串列</a></li><li class="tab"><a href="#練習題-2">鏈結串列中間節點</a></li></ul><div class="tab-content"><div class="tab-pane active" id="練習題-1"><p>給一個單向鏈結串列的 <code>head</code>，請反轉整條串列，並回傳新的頭節點。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">輸入: 1 → 2 → 3 → 4 → 5</span><br><span class="line">輸出: 5</span><br><span class="line">原因: 5 → 4 → 3 → 2 → 1</span><br></pre></td></tr></table></figure>
 
 <details>
@@ -685,8 +684,7 @@ div.hcb-content.hcb-cards-content.active {
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reverseList</span>(<span class="params">self, head: ListNode | <span class="literal">None</span></span>) -&gt; ListNode | <span class="literal">None</span>:</span><br><span class="line">        curr = head</span><br><span class="line">        prev = <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> curr:</span><br><span class="line">            next_node = curr.<span class="built_in">next</span></span><br><span class="line">            curr.<span class="built_in">next</span> = prev</span><br><span class="line">            prev = curr</span><br><span class="line">            curr = next_node</span><br><span class="line">        <span class="keyword">return</span> prev</span><br></pre></td></tr></table></figure>
 </details>
-<br></div><div class="tab-pane" id="練習題-2"><p><strong>鏈結串列中間節點</strong></p>
-<p>給一個單向鏈結串列，請找出它的「中間節點」並回傳。若有偶數個節點，回傳第二個中間節點（從 <code>0</code> 開始算）。</p>
+<br></div><div class="tab-pane" id="練習題-2"><p>給一個單向鏈結串列，請找出它的「中間節點」並回傳。若有偶數個節點，回傳第二個中間節點（從 <code>0</code> 開始算）。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">輸入: 1 → 2 → 3 → 4 → 5</span><br><span class="line">輸出: 3</span><br><span class="line"></span><br><span class="line">輸入: 1 → 2 → 3 → 4 → 5 → 6</span><br><span class="line">輸出: 4</span><br></pre></td></tr></table></figure>
 
 <details>
@@ -730,12 +728,12 @@ div.hcb-content.hcb-cards-content.active {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/array/" rel="prev" title="資料結構與演算法筆記 | 陣列 (Array)">
-      <i class="fa fa-chevron-left"></i> 資料結構與演算法筆記 | 陣列 (Array)
+    <a href="/basic/" rel="prev" title="Flask 筆記 | 基礎架構與環境準備">
+      <i class="fa fa-chevron-left"></i> Flask 筆記 | 基礎架構與環境準備
     </a></div>
       <div class="post-nav-item">
-    <a href="/static/" rel="next" title="Flask 筆記 | 靜態檔案處理">
-      Flask 筆記 | 靜態檔案處理 <i class="fa fa-chevron-right"></i>
+    <a href="/html-element-structure/" rel="next" title="HTML 筆記 | 元素與結構">
+      HTML 筆記 | 元素與結構 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -818,7 +816,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -831,7 +829,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
