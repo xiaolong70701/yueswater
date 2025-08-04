@@ -561,7 +561,7 @@ div.hcb-content.hcb-cards-content.active {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>3.7k</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -629,7 +629,8 @@ div.hcb-content.hcb-cards-content.active {
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ArrayQueue</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, size: <span class="built_in">int</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>._size = size</span><br><span class="line">        <span class="variable language_">self</span>._nums: <span class="built_in">list</span>[<span class="built_in">int</span>] = [<span class="number">0</span>] * <span class="variable language_">self</span>._size</span><br><span class="line">        <span class="variable language_">self</span>._front: <span class="built_in">int</span> = <span class="number">0</span></span><br><span class="line">        <span class="variable language_">self</span>._rear: <span class="built_in">int</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">capacity</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>._nums)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._size</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_empty</span>(<span class="params">self</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._size == <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, num: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>._size == <span class="variable language_">self</span>.capacity():</span><br><span class="line">            <span class="keyword">raise</span> IndexError(<span class="string">&quot;佇列已滿&quot;</span>)</span><br><span class="line">        <span class="comment"># 將 num 新增至列尾</span></span><br><span class="line">        <span class="variable language_">self</span>._nums[<span class="variable language_">self</span>._rear] = num</span><br><span class="line">        <span class="variable language_">self</span>._size += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 重新計算佇列尾指標</span></span><br><span class="line">        <span class="variable language_">self</span>._rear = (<span class="variable language_">self</span>._rear + <span class="number">1</span>) % <span class="variable language_">self</span>.capacity()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># 將 num 移除列尾</span></span><br><span class="line">        num: <span class="built_in">int</span> = <span class="variable language_">self</span>.peek()</span><br><span class="line">        <span class="variable language_">self</span>._size -= <span class="number">1</span></span><br><span class="line">        <span class="comment"># 重新計算佇列頭指標</span></span><br><span class="line">        <span class="variable language_">self</span>._front = (<span class="variable language_">self</span>._front + <span class="number">1</span>) % <span class="variable language_">self</span>.capacity()</span><br><span class="line">        <span class="keyword">return</span> num</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">raise</span> IndexError(<span class="string">&quot;佇列為空&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._nums[<span class="variable language_">self</span>._front]</span><br></pre></td></tr></table></figure>
 
 <p>環狀陣列的操作一開始我也不是很清楚，但是參考舊金山大學製作的 <a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/QueueArray.html">Array Queue Visualization</a>，就有較為清楚的理解。或可以參件以下的影片：</p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=okr-XE8yTO8">https://www.youtube.com/watch?v=okr-XE8yTO8</a></p>
+<iframe width="1430" height="603" src="https://www.youtube.com/embed/okr-XE8yTO8" title="Data structures: Array implementation of Queue" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <h3 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h3><div class="tabs" id="練習題"><ul class="nav-tabs"><li class="tab active"><a href="#練習題-1">最近的請求次數</a></li><li class="tab"><a href="#練習題-2">滑動平均</a></li></ul><div class="tab-content"><div class="tab-pane active" id="練習題-1"><p>實作一個類別 <code>RecentCounter</code>，每次收到請求時會記錄該請求時間（整數 <code>t</code>，以毫秒為單位，遞增順序呼叫）。請完成：</p>
 <ul>
 <li><code>ping(t)</code>：表示在時間 <code>t</code> 來了一次請求，回傳從 <code>t-3000</code> 到 <code>t</code> 這段時間內的請求總數。</li>
@@ -674,7 +675,10 @@ div.hcb-content.hcb-cards-content.active {
     <a href="/stack/" rel="prev" title="資料結構與演算法筆記 | 堆疊 (Stack)">
       <i class="fa fa-chevron-left"></i> 資料結構與演算法筆記 | 堆疊 (Stack)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/flask-query/" rel="next" title="Flask 筆記 | 查詢字串">
+      Flask 筆記 | 查詢字串 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -756,7 +760,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -769,7 +773,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

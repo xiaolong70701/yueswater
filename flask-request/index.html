@@ -319,25 +319,23 @@ div.hcb-content.hcb-cards-content.active {
     var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="靜態檔案 (static file) 指的是不同請求中訪問到的資料都相同的檔案，例如圖片、影片等。  不經過路由處理：靜態檔案不會經由 Flask 中設定的路由，而是由 WSGI middleware 直接處理，最終呈現在使用者瀏覽的畫面上，而非自己使用 @app.route() 加上。 特殊的路由：檔名對應著網址路徑">
+  <meta name="description" content="在了解 Flask 請求物件之間，必須先了解何謂請求。  HTTP 請求（多簡稱為請求）是瀏覽器或前端程式發送向後端伺服器要求資料的動作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flask 筆記 | 靜態檔案處理">
-<meta property="og:url" content="https://www.yueswater.com/static/index.html">
+<meta property="og:title" content="Flask 筆記 | 請求物件">
+<meta property="og:url" content="https://www.yueswater.com/flask-request/index.html">
 <meta property="og:site_name" content="岳氏礦泉水">
-<meta property="og:description" content="靜態檔案 (static file) 指的是不同請求中訪問到的資料都相同的檔案，例如圖片、影片等。  不經過路由處理：靜態檔案不會經由 Flask 中設定的路由，而是由 WSGI middleware 直接處理，最終呈現在使用者瀏覽的畫面上，而非自己使用 @app.route() 加上。 特殊的路由：檔名對應著網址路徑">
+<meta property="og:description" content="在了解 Flask 請求物件之間，必須先了解何謂請求。  HTTP 請求（多簡稱為請求）是瀏覽器或前端程式發送向後端伺服器要求資料的動作。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/static/static-flask.png">
-<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/static/static-flask.png">
-<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/static/static-my_static-flask.png">
-<meta property="article:published_time" content="2025-08-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-01T16:00:00.000Z">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/request/lang-preference.png">
+<meta property="article:published_time" content="2025-08-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-02T16:00:00.000Z">
 <meta property="article:author" content="Anthony Sung">
 <meta property="article:tag" content="flask">
-<meta property="article:tag" content="靜態檔案">
+<meta property="article:tag" content="請求物件">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.yueswater.com/images/flask-learning/static/static-flask.png">
+<meta name="twitter:image" content="https://www.yueswater.com/images/flask-learning/request/lang-preference.png">
 
-<link rel="canonical" href="https://www.yueswater.com/static/">
+<link rel="canonical" href="https://www.yueswater.com/flask-request/">
 
 
 <script id="page-configurations">
@@ -350,7 +348,7 @@ div.hcb-content.hcb-cards-content.active {
   };
 </script>
 
-  <title>Flask 筆記 | 靜態檔案處理 | 岳氏礦泉水</title>
+  <title>Flask 筆記 | 請求物件 | 岳氏礦泉水</title>
   
 
 
@@ -505,7 +503,7 @@ div.hcb-content.hcb-cards-content.active {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/static/">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/flask-request/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/profile.svg">
@@ -518,7 +516,7 @@ div.hcb-content.hcb-cards-content.active {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Flask 筆記 | 靜態檔案處理
+          Flask 筆記 | 請求物件
         </h1>
 
         <div class="post-meta">
@@ -528,7 +526,7 @@ div.hcb-content.hcb-cards-content.active {
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2025-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-02T00:00:00+08:00">2025-08-02</time>
+              <time title="創建時間：2025-08-03 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-03T00:00:00+08:00">2025-08-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -549,8 +547,8 @@ div.hcb-content.hcb-cards-content.active {
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/static/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/static/" itemprop="commentCount"></span>
+    <a title="disqus" href="/flask-request/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/flask-request/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -560,14 +558,14 @@ div.hcb-content.hcb-cards-content.active {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>1.2k</span>
+              <span>3.8k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>6 分鐘</span>
+              <span>19 分鐘</span>
             </span>
 
         </div>
@@ -579,74 +577,272 @@ div.hcb-content.hcb-cards-content.active {
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong>靜態檔案 (static file)</strong> 指的是不同請求中訪問到的資料都相同的檔案，例如圖片、影片等。</p>
-<ul>
-<li>不經過路由處理：靜態檔案不會經由 Flask 中設定的路由，而是由 WSGI middleware 直接處理，最終呈現在使用者瀏覽的畫面上，而非自己使用 <code>@app.route()</code> 加上。</li>
-<li>特殊的路由：檔名對應著網址路徑</li>
-</ul>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在了解 Flask 請求物件之間，必須先了解何謂請求。</p>
+<blockquote>
+<p>HTTP 請求（多簡稱為請求）是瀏覽器或前端程式發送向後端伺服器要求資料的動作。</p>
+</blockquote>
 <span id="more"></span>
 
-<h2 id="靜態檔案路徑設定"><a href="#靜態檔案路徑設定" class="headerlink" title="靜態檔案路徑設定"></a>靜態檔案路徑設定</h2><p>通常來說我們會直接將該靜態檔案資料夾建立在根目錄（也就是與 <code>app.py</code> 同一層）之下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> static</span><br></pre></td></tr></table></figure>
-
-<p>建立成功後無需改動程式碼，因為 Flask <a target="_blank" rel="noopener" href="https://github.com/pallets/flask/blob/85c5d93cbd049c4bd0679c36fd1ddcae8c37b642/src/flask/app.py#L81-L238">預設</a>靜態檔案存放在 <code>static</code> 資料夾：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Flask</span>(<span class="title class_ inherited__">App</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params"></span></span><br><span class="line"><span class="params">        self,</span></span><br><span class="line"><span class="params">        ...</span></span><br><span class="line"><span class="params">        static_url_path: <span class="built_in">str</span> | <span class="literal">None</span> = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">****        static_folder: <span class="built_in">str</span> | os.PathLike[<span class="built_in">str</span>] | <span class="literal">None</span> = <span class="string">&quot;static&quot;</span>,</span></span><br><span class="line"><span class="params">        ...</span></span><br><span class="line"><span class="params">    </span>):</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
-
-<p>一般來說，<code>static</code> 資料夾下會使用以下的方式將檔案進行分類，否則全部放在資料夾中會搞混，整理起來也會很麻煩：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">static/</span><br><span class="line">├── css/</span><br><span class="line">│   └── style.css</span><br><span class="line">├── js/</span><br><span class="line">│   └── main.js</span><br><span class="line">├── images/</span><br><span class="line">│   ├── logo.png</span><br><span class="line">│   └── flask.svg</span><br><span class="line">├── fonts/</span><br><span class="line">│   └── Roboto.woff</span><br><span class="line">├── docs/</span><br><span class="line">│   └── terms.pdf</span><br><span class="line">└── <span class="built_in">test</span>/</span><br><span class="line">    └── test.txt</span><br></pre></td></tr></table></figure>
-
+<p>例如在網址列輸入 <code>https://example.com/hello</code>，就是對伺服器發出一個 <strong>GET 請求</strong>，要求 <code>/hello</code> 這個路徑的內容。而前端會用以下幾種方式發送請求：</p>
 <table>
 <thead>
 <tr>
-<th>資料夾名稱</th>
-<th>用途說明</th>
+<th>方式</th>
+<th>發出請求的方法</th>
+<th>備註</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>css/</code></td>
-<td>放置樣式表（例如 <code>style.css</code>）</td>
+<td>使用網址列</td>
+<td>直接輸入網址</td>
+<td>預設是 GET</td>
 </tr>
 <tr>
-<td><code>js/</code></td>
-<td>放置 JavaScript 程式碼（例如 <code>main.js</code>）</td>
+<td>超連結 <code>&lt;a&gt;</code></td>
+<td>點擊超連結</td>
+<td>GET</td>
 </tr>
 <tr>
-<td><code>images/</code></td>
-<td>放圖片檔案（例如 <code>logo.png</code>, <code>banner.jpg</code>）</td>
+<td>表單 <code>&lt;form&gt;</code></td>
+<td>點擊送出按鈕</td>
+<td>GET 或 POST</td>
 </tr>
 <tr>
-<td><code>fonts/</code></td>
-<td>放自訂字型檔案（例如 <code>.ttf</code>, <code>.woff</code>）</td>
-</tr>
-<tr>
-<td><code>docs/</code></td>
-<td>可選，用來放一些靜態文件（例如 <code>terms.pdf</code>）</td>
-</tr>
-<tr>
-<td><code>test/</code></td>
-<td>可選，用來測試路徑用的小檔案，如 <code>test.txt</code></td>
+<td>JavaScript (AJAX, Fetch)</td>
+<td>用 JS 動態送出請求</td>
+<td>支援 CRUD</td>
 </tr>
 </tbody></table>
-<p>建立資料夾後，只需將檔案放入資料夾中，以 <code>/static/檔名</code> 訪問即可。必須注意到：檔名<strong>必須包含副檔名</strong>。舉例來說，在 <code>static</code> 資料夾中放入 <a target="_blank" rel="noopener" href="https://flask.palletsprojects.com/en/stable/_images/flask-name.svg">Flask 的 Logo</a>，訪問 <code>/static/flask.svg</code> 即可看到如下畫面：</p>
-<div style="text-align:center">
-  <img src="/images/flask-learning/static/static-flask.png" alt="靜態檔案範例-Flask Logo">
-  <p style="font-size: 0.8em; color: #999999;">圖 1：靜態檔案範例-Flask Logo</p>
-</div>
+<p>這些請求到後端後，就會被 Flask 的 <code>request</code> 接住並解析。而常見的請求方法有以下幾種：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>用途</th>
+<th>說明</th>
+<th>常見情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET</code></td>
+<td>讀取資料</td>
+<td>向伺服器<strong>請求</strong>一筆資料（不修改伺服器的東西）</td>
+<td>讀取文章、打開網頁、查詢資料</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>建立資料</td>
+<td>向伺服器<strong>新增</strong>資料（像是填寫表單）</td>
+<td>註冊、登入、發文、留言</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>替換資料</td>
+<td>向伺服器<strong>完整更新</strong>一筆資料</td>
+<td>修改整筆使用者資料</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>局部更新</td>
+<td>向伺服器<strong>部分更新</strong>資料</td>
+<td>只改一欄，如只修改 email</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>刪除資料</td>
+<td>向伺服器刪除指定資源</td>
+<td>刪除帳號、移除留言</td>
+</tr>
+<tr>
+<td><code>HEAD</code></td>
+<td>讀取標頭</td>
+<td>跟 <code>GET</code> 類似，但只拿回<strong>標頭資訊</strong>不拿回內容</td>
+<td>檢查資源是否存在（例如圖片）</td>
+</tr>
+<tr>
+<td><code>OPTIONS</code></td>
+<td>查詢支援方法</td>
+<td>詢問伺服器支援哪些方法（CORS 時常用）</td>
+<td>跨來源請求前的預檢請求</td>
+</tr>
+</tbody></table>
+<h2 id="基本屬性"><a href="#基本屬性" class="headerlink" title="基本屬性"></a>基本屬性</h2><p>在處理使用者送來的 HTTP 請求時，Flask 提供了一個 <code>request</code> 物件來讀取請求的各種資訊。最基本的屬性包含了請求的方法、網址、路徑、通訊協定等，這些資訊通常會在處理請求邏輯的開頭就被用到。</p>
+<table>
+<thead>
+<tr>
+<th>類別</th>
+<th>屬性</th>
+<th>說明</th>
+<th>舉例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>請求基本資訊</td>
+<td><code>method</code></td>
+<td>請求方法，如 GET、POST</td>
+<td><code>&quot;POST&quot;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>url</code></td>
+<td>完整請求網址</td>
+<td><code>&quot;&lt;http://localhost:5000/form?name=David&gt;&quot;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>path</code></td>
+<td>路徑部分</td>
+<td><code>&quot;/form&quot;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>scheme</code></td>
+<td>協定 http or https</td>
+<td><code>&quot;http&quot;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>host</code></td>
+<td>主機名稱</td>
+<td><code>&quot;localhost:5000&quot;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>remote_addr</code></td>
+<td>發出請求的 IP</td>
+<td><code>&quot;127.0.0.1&quot;</code></td>
+</tr>
+<tr>
+<td>查詢參數</td>
+<td><code>args</code></td>
+<td>URL 查詢字串（只能用在 GET）</td>
+<td><code>/search?q=flask</code> → <code>request.args[&#39;q&#39;]</code></td>
+</tr>
+<tr>
+<td>表單資料</td>
+<td><code>form</code></td>
+<td>POST 表單傳來的資料</td>
+<td><code>&lt;form&gt;</code> 的欄位值</td>
+</tr>
+<tr>
+<td>上傳檔案</td>
+<td><code>files</code></td>
+<td>使用者上傳的檔案</td>
+<td><code>request.files[&#39;file&#39;]</code></td>
+</tr>
+<tr>
+<td>JSON 資料</td>
+<td><code>json</code></td>
+<td>發送的 JSON 主體資料</td>
+<td>用 JS <code>fetch(..., body: JSON.stringify(...))</code></td>
+</tr>
+<tr>
+<td>請求標頭</td>
+<td><code>headers</code></td>
+<td>使用者裝置、語言等資訊</td>
+<td><code>request.headers[&#39;User-Agent&#39;]</code></td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td><code>cookies</code></td>
+<td>使用者的 cookie 值</td>
+<td><code>request.cookies[&#39;session_id&#39;]</code></td>
+</tr>
+<tr>
+<td>重導前 URL</td>
+<td><code>referrer</code></td>
+<td>上一頁網址</td>
+<td>用來知道用戶從哪裡來</td>
+</tr>
+<tr>
+<td>請求類型</td>
+<td><code>content_type</code></td>
+<td>資料格式</td>
+<td>如 <code>&quot;application/json&quot;</code></td>
+</tr>
+<tr>
+<td>請求資料長度</td>
+<td><code>content_length</code></td>
+<td>請求資料長度（位元組）</td>
+<td>例如 <code>284</code></td>
+</tr>
+<tr>
+<td>環境資訊</td>
+<td><code>environ</code></td>
+<td>更底層的 WSGI 環境資料</td>
+<td>少用，但可 debug</td>
+</tr>
+</tbody></table>
+<p>使用 <code>request</code> 物件前，需要在程式碼開頭模組：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br></pre></td></tr></table></figure>
 
-<p>或是放入 <code>test.txt</code>，裡面寫入文字，訪問 <code>/static/test.txt</code> 也會顯示結果：</p>
-<div style="text-align:center">
-  <img src="/images/flask-learning/static/static-flask.png" alt="靜態檔案範例-test 純文字檔">
-  <p style="font-size: 0.8em; color: #999999;">圖 2：靜態檔案範例-test 純文字檔</p>
-</div>
+<p>接著就可以使用物件的屬性與方法。為了顯式觀察 <code>request</code> 物件的屬性，我們使用 <code>logging</code> 模組，並搭配 <code>loggig.debug()</code> 印出請求物件的一些內容。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.DEBUG)       <span class="comment"># 設定 logging 預設層級</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="自定義資料夾與路徑"><a href="#自定義資料夾與路徑" class="headerlink" title="自定義資料夾與路徑"></a>自定義資料夾與路徑</h2><p>若不想使用 Flask 預設的靜態檔案路徑，可以使用 <code>static_url_path</code> 設定路徑。方法如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app = Flask(</span><br><span class="line">    __name__,</span><br><span class="line">    static_folder=<span class="string">&quot;靜態檔案資料夾&quot;</span>,</span><br><span class="line">    static_url_path=<span class="string">&quot;靜態檔案網址路徑&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="基本資訊"><a href="#基本資訊" class="headerlink" title="基本資訊"></a>基本資訊</h3><p><code>request</code> 最基本的幾個屬性，包括請求方法、通訊協定、主機名稱、路徑與完整網址，使用方式是 <code>request.屬性名稱</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    logging.debug(<span class="string">f&quot;請求方法: <span class="subst">&#123;request.method&#125;</span>&quot;</span>)</span><br><span class="line">    logging.debug(<span class="string">f&quot;通訊協定: <span class="subst">&#123;request.scheme&#125;</span>&quot;</span>)</span><br><span class="line">    logging.debug(<span class="string">f&quot;主機名稱: <span class="subst">&#123;request.host&#125;</span>&quot;</span>)</span><br><span class="line">    logging.debug(<span class="string">f&quot;路徑: <span class="subst">&#123;request.path&#125;</span>&quot;</span>)</span><br><span class="line">    logging.debug(<span class="string">f&quot;完整網址: <span class="subst">&#123;request.url&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
 
-<p>例如可以設定 <code>static_url_path</code> 為 <code>my_static</code>，嘗試訪問就變成 <code>/my_static/檔名</code>。</p>
-<div style="text-align:center">
-  <img src="/images/flask-learning/static/static-my_static-flask.png" alt="自定義路徑">
-  <p style="font-size: 0.8em; color: #999999;">圖 3：自定義路徑</p>
-</div>
+<p>執行 <code>app.py</code> 並訪問 <code>/</code> 後，便可在終端機看到以下輸出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DEBUG:root:請求方法: GET</span><br><span class="line">DEBUG:root:通訊協定: http</span><br><span class="line">DEBUG:root:主機名稱: 127.0.0.1:5000</span><br><span class="line">DEBUG:root:路徑: /</span><br><span class="line">DEBUG:root:完整網址: http://127.0.0.1:5000/</span><br></pre></td></tr></table></figure>
+
+<p>其實不難發現，這些屬性都與網址息息相關。</p>
+<h3 id="標頭-Header"><a href="#標頭-Header" class="headerlink" title="標頭 (Header)"></a>標頭 (Header)</h3><p>當前端發送請求到伺服器時，除了主體資料（像是表單或 JSON），還會附帶一份<strong>額外的附註說明</strong>，這份附註就叫做<strong>請求標頭（Request Headers）</strong>。這些資訊可有可無，但如果有了標頭的這些額外資訊，對於後端處理資料會很有幫助</p>
+<blockquote>
+<p>送資料給別人前，信封上寫的一些說明：「我是誰、我講什麼語言、這份資料是什麼格式、我是從哪裡來的」。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>標頭名稱</th>
+<th>說明</th>
+<th>範例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>User-Agent</code></td>
+<td>使用者的裝置與瀏覽器資訊</td>
+<td><code>Mozilla/5.0 (Macintosh...)</code></td>
+</tr>
+<tr>
+<td><code>Host</code></td>
+<td>你要連線的主機名稱</td>
+<td><code>example.com</code></td>
+</tr>
+<tr>
+<td><code>Accept</code></td>
+<td>你希望伺服器回傳哪種格式</td>
+<td><code>text/html, application/json</code></td>
+</tr>
+<tr>
+<td><code>Content-Type</code></td>
+<td>你送出的資料格式</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Referrer</code></td>
+<td>你是從哪個頁面點進來的</td>
+<td><code>https://google.com</code></td>
+</tr>
+<tr>
+<td><code>Authorization</code></td>
+<td>驗證用的權杖或登入資訊</td>
+<td><code>Bearer &lt;token&gt;</code></td>
+</tr>
+<tr>
+<td><code>Accept-Language</code></td>
+<td>使用者偏好的語言</td>
+<td><code>zh-TW, en-US</code></td>
+</tr>
+</tbody></table>
+<p>在 Flask 裡，使用 <code>request.headers</code> 這個屬性就能拿到所有的標頭資訊。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    logging.debug(<span class="string">f&quot;瀏覽器與作業系統: <span class="subst">&#123;request.headers.get(<span class="string">&#x27;user-agent&#x27;</span>)&#125;</span>&quot;</span>)</span><br><span class="line">    logging.debug(<span class="string">f&quot;語言偏好: <span class="subst">&#123;request.headers.get(<span class="string">&#x27;accept-language&#x27;</span>)&#125;</span>&quot;</span>)</span><br><span class="line">    logging.debug(<span class="string">f&quot;引薦網址: <span class="subst">&#123;request.headers.get(<span class="string">&#x27;referrer&#x27;</span>)&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+
+<p>可以得到以下結果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DEBUG:root:瀏覽器與作業系統: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15</span><br><span class="line">DEBUG:root:語言偏好: zh-TW,zh-Hant;q=0.9</span><br><span class="line">DEBUG:root:引薦網址: None</span><br></pre></td></tr></table></figure>
+
+<div class="note info">
+            <h3 id="語言代碼格式"><a href="#語言代碼格式" class="headerlink" title=" 語言代碼格式"></a><i class="fa-solid fa-language"></i> 語言代碼格式</h3><p>基本語言代碼會長這樣：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zh-TW, zh;q=0.9, en-US;q=0.8, en;q=0.7</span><br></pre></td></tr></table></figure><p>這些是<strong>語言地區碼</strong>與<strong>優先權數值（</strong><code>q</code> <strong>值）</strong>。可以把它想成是一份語言排行榜，由高到低。而 <code>q</code> 值是 quality value 的縮寫，用來表示語言的<strong>優先程度</strong>，範圍是 <code>0.0 ~ 1.0</code>，預設是 <code>1.0</code>（也就是不寫 <code>q=</code> 時的意思）。</p><table><thead><tr><th>項目</th><th>解釋</th></tr></thead><tbody><tr><td><code>zh-TW</code></td><td>使用者最希望看到「繁體中文（台灣）」的內容</td></tr><tr><td><code>zh;q=0.9</code></td><td>如果找不到 zh-TW，就退而求其次選擇「中文」任何版本</td></tr><tr><td><code>en-US;q=0.8</code></td><td>如果還找不到中文版本，再選「美式英文」</td></tr><tr><td><code>en;q=0.7</code></td><td>最後可以接受任意英文</td></tr></tbody></table><p>例如 chromium 瀏覽器可以透過設定修改語言偏好，以 Edge 瀏覽器為例，進入 <code>edge://settings/languages</code> 後，即可看到語言偏好的相關設定：</p><div style="text-align:center">  <img src="/images/flask-learning/request/lang-preference.png" alt="語言偏好設定">  <p style="font-size: 0.8em; color: #999999;">圖：語言偏好設定</p></div><p>利用語言代碼，我們可以進行一些操作。例如語言偏好開頭為 <code>en</code> 時，網頁上就顯示英文的內容，若為 <code>zh</code> 則顯示中文。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    lang = request.headers.get(<span class="string">&#x27;accept-language&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> lang.startswith(<span class="string">&quot;en&quot;</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello, Flask&quot;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;哈囉，Flask&quot;</span></span><br></pre></td></tr></table></figure>
+          </div>
     </div>
 
     
@@ -657,7 +853,7 @@ div.hcb-content.hcb-cards-content.active {
           
           <div class="post-tags">
               <a href="/tags/flask/" rel="tag"><i class="fa fa-tag"></i> flask</a>
-              <a href="/tags/%E9%9D%9C%E6%85%8B%E6%AA%94%E6%A1%88/" rel="tag"><i class="fa fa-tag"></i> 靜態檔案</a>
+              <a href="/tags/%E8%AB%8B%E6%B1%82%E7%89%A9%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> 請求物件</a>
           </div>
 
         
@@ -666,12 +862,12 @@ div.hcb-content.hcb-cards-content.active {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/array/" rel="prev" title="資料結構與演算法筆記 | 陣列 (Array)">
-      <i class="fa fa-chevron-left"></i> 資料結構與演算法筆記 | 陣列 (Array)
+    <a href="/html-element-structure/" rel="prev" title="HTML 筆記 | 元素與結構">
+      <i class="fa fa-chevron-left"></i> HTML 筆記 | 元素與結構
     </a></div>
       <div class="post-nav-item">
-    <a href="/routing/" rel="next" title="Flask 筆記 | 路由">
-      Flask 筆記 | 路由 <i class="fa fa-chevron-right"></i>
+    <a href="/stack/" rel="next" title="資料結構與演算法筆記 | 堆疊 (Stack)">
+      資料結構與演算法筆記 | 堆疊 (Stack) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -738,7 +934,7 @@ div.hcb-content.hcb-cards-content.active {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9C%E6%85%8B%E6%AA%94%E6%A1%88%E8%B7%AF%E5%BE%91%E8%A8%AD%E5%AE%9A"><span class="nav-number">1.</span> <span class="nav-text">靜態檔案路徑設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E7%BE%A9%E8%B3%87%E6%96%99%E5%A4%BE%E8%88%87%E8%B7%AF%E5%BE%91"><span class="nav-number">2.</span> <span class="nav-text">自定義資料夾與路徑</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%B1%AC%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">基本屬性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%B3%87%E8%A8%8A"><span class="nav-number">1.1.</span> <span class="nav-text">基本資訊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E9%A0%AD-Header"><span class="nav-number">1.2.</span> <span class="nav-text">標頭 (Header)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%9E%E8%A8%80%E4%BB%A3%E7%A2%BC%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text"> 語言代碼格式</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -754,7 +950,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -767,7 +963,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -919,9 +1115,9 @@ darkmode.showWidget();
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://www.yueswater.com/static/";
-    this.page.identifier = "/static/";
-    this.page.title = "Flask 筆記 | 靜態檔案處理";
+    this.page.url = "https://www.yueswater.com/flask-request/";
+    this.page.identifier = "/flask-request/";
+    this.page.title = "Flask 筆記 | 請求物件";
     this.language = "zh_TW"; // Disqus 顯示語言
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
