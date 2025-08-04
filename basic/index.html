@@ -603,7 +603,7 @@ div.hcb-content.hcb-cards-content.active {
 
 <p>按下 <code>Ctrl/⌃ + C</code> 即可退出網站，此時再進入 <a target="_blank" rel="noopener" href="http://127.0.0.1:5000/"><code>http://127.0.0.1:5000/</code></a> 便不會看到任何東西。</p>
 <h2 id="網址"><a href="#網址" class="headerlink" title="網址"></a>網址</h2><p>一個網址的組成可以表達為</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通訊協定://主機名稱:埠號/路徑?要求字串</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通訊協定://主機名稱:埠號/路徑?查詢字串</span><br></pre></td></tr></table></figure>
 
 <p>以這個網址為例：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://example.com:5000/api/user?<span class="built_in">id</span>=123</span><br></pre></td></tr></table></figure>
@@ -639,7 +639,7 @@ div.hcb-content.hcb-cards-content.active {
 </tr>
 <tr>
 <td><code>?id=123</code></td>
-<td><strong>要求字串 (query string)</strong></td>
+<td><strong>查詢字串 (query string)</strong></td>
 <td>傳遞給伺服器的額外資料，通常用在 GET 請求中，格式是 <code>key=value</code>。</td>
 </tr>
 </tbody></table>
