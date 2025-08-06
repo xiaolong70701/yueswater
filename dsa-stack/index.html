@@ -319,21 +319,22 @@ div.hcb-content.hcb-cards-content.active {
     var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="鏈結串列是一種線性資料結構，利用節點 (node) 將資料串起來，其中每個節點包含：  值 (value)：也就是儲存的資料 引用 (reference)：此處的引用是指向下一個節點的參考  至於為何要使用鏈結串列，原因在於新增或刪除元素時，若用陣列儲存資料，需要搬移元素，耗時又費力。但若以鏈結串列儲存資料，僅需知道元素的索引，以及下一個節點指向何者，即可對資料進行操作。">
+  <meta name="description" content="堆疊是一個遵循後進先出 (Last In First Out, LIFO) 的線性資料結構，表示最後放進去的資料會最先被取出。例如有一個羽球罐，不斷往裡面塞入羽球，而最後一顆被塞入的球，下次打球時會最先被拿出來（除非用倒的）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="資料結構與演算法筆記 | 鏈結串列 (Linked List)">
-<meta property="og:url" content="https://www.yueswater.com/linked-list/index.html">
+<meta property="og:title" content="資料結構與演算法筆記 | 堆疊 (Stack)">
+<meta property="og:url" content="https://www.yueswater.com/dsa-stack/index.html">
 <meta property="og:site_name" content="岳氏礦泉水">
-<meta property="og:description" content="鏈結串列是一種線性資料結構，利用節點 (node) 將資料串起來，其中每個節點包含：  值 (value)：也就是儲存的資料 引用 (reference)：此處的引用是指向下一個節點的參考  至於為何要使用鏈結串列，原因在於新增或刪除元素時，若用陣列儲存資料，需要搬移元素，耗時又費力。但若以鏈結串列儲存資料，僅需知道元素的索引，以及下一個節點指向何者，即可對資料進行操作。">
+<meta property="og:description" content="堆疊是一個遵循後進先出 (Last In First Out, LIFO) 的線性資料結構，表示最後放進去的資料會最先被取出。例如有一個羽球罐，不斷往裡面塞入羽球，而最後一顆被塞入的球，下次打球時會最先被拿出來（除非用倒的）。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2025-08-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-02T16:00:00.000Z">
+<meta property="article:published_time" content="2025-08-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-03T16:00:00.000Z">
 <meta property="article:author" content="Anthony Sung">
-<meta property="article:tag" content="鏈結串列">
-<meta property="article:tag" content="節點">
+<meta property="article:tag" content="堆疊">
+<meta property="article:tag" content="push">
+<meta property="article:tag" content="pop">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.yueswater.com/linked-list/">
+<link rel="canonical" href="https://www.yueswater.com/dsa-stack/">
 
 
 <script id="page-configurations">
@@ -346,7 +347,7 @@ div.hcb-content.hcb-cards-content.active {
   };
 </script>
 
-  <title>資料結構與演算法筆記 | 鏈結串列 (Linked List) | 岳氏礦泉水</title>
+  <title>資料結構與演算法筆記 | 堆疊 (Stack) | 岳氏礦泉水</title>
   
 
 
@@ -501,7 +502,7 @@ div.hcb-content.hcb-cards-content.active {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/linked-list/">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/dsa-stack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/profile.svg">
@@ -514,7 +515,7 @@ div.hcb-content.hcb-cards-content.active {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          資料結構與演算法筆記 | 鏈結串列 (Linked List)
+          資料結構與演算法筆記 | 堆疊 (Stack)
         </h1>
 
         <div class="post-meta">
@@ -524,15 +525,8 @@ div.hcb-content.hcb-cards-content.active {
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2025-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-02T00:00:00+08:00">2025-08-02</time>
+              <time title="創建時間：2025-08-04 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-04T00:00:00+08:00">2025-08-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-08-03 00:00:00" itemprop="dateModified" datetime="2025-08-03T00:00:00+08:00">2025-08-03</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -556,8 +550,8 @@ div.hcb-content.hcb-cards-content.active {
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/linked-list/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/linked-list/" itemprop="commentCount"></span>
+    <a title="disqus" href="/dsa-stack/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/dsa-stack/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -567,14 +561,14 @@ div.hcb-content.hcb-cards-content.active {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>3.5k</span>
+              <span>3.8k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>18 分鐘</span>
+              <span>19 分鐘</span>
             </span>
 
         </div>
@@ -586,127 +580,76 @@ div.hcb-content.hcb-cards-content.active {
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>鏈結串列是一種線性資料結構，利用<strong>節點 (node)</strong> 將資料串起來，其中每個節點包含：</p>
-<ul>
-<li><strong>值 (value)</strong>：也就是儲存的資料</li>
-<li><strong>引用 (reference)</strong>：此處的引用是指向下一個節點的參考</li>
-</ul>
-<p>至於為何要使用鏈結串列，原因在於新增或刪除元素時，若用陣列儲存資料，需要搬移元素，耗時又費力。但若以鏈結串列儲存資料，僅需知道元素的索引，以及下一個節點指向何者，即可對資料進行操作。</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>堆疊是一個遵循<strong>後進先出 (Last In First Out, LIFO)</strong> 的線性資料結構，表示最後放進去的資料會最先被取出。例如有一個羽球罐，不斷往裡面塞入羽球，而最後一顆被塞入的球，下次打球時會最先被拿出來（除非用倒的）。</p>
 <span id="more"></span>
 
+<h2 id="堆疊操作"><a href="#堆疊操作" class="headerlink" title="堆疊操作"></a>堆疊操作</h2><p>通常實作堆疊時，會建立以下幾個方法：</p>
+<ul>
+<li><strong>入堆 (push)</strong>：將元素放入堆頂</li>
+<li><strong>出堆 (pop)</strong>：將堆頂元素移除並回傳</li>
+<li><strong>頂元素 (peek)</strong>：查看堆頂元素（不會移除）</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>陣列</th>
-<th>鏈結串列</th>
+<th>操作</th>
+<th>時間複雜度</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>儲存位置</td>
-<td>連續記憶體區塊</td>
-<td>分散在記憶體各處</td>
+<td><code>push()</code></td>
+<td>$\mathcal{O}(1)$</td>
 </tr>
 <tr>
-<td>插入刪除</td>
-<td>慢，需要移動其他元素</td>
-<td>快，只需改變指標</td>
+<td><code>pop()</code></td>
+<td>$\mathcal{O}(1)$</td>
 </tr>
 <tr>
-<td>隨機存取</td>
-<td>快（可用索引）</td>
-<td>慢，要一個一個走過去</td>
-</tr>
-<tr>
-<td>空間大小</td>
-<td>固定或需重建</td>
-<td>動態增加</td>
+<td><code>peek()</code></td>
+<td>$\mathcal{O}(1)$</td>
 </tr>
 </tbody></table>
-<h2 id="建立鏈結串列"><a href="#建立鏈結串列" class="headerlink" title="建立鏈結串列"></a>建立鏈結串列</h2><p>假設我們想要建立以下的鏈結串列：</p>
-<pre class="mermaid" style="text-align: center;">
-            
-            graph LR
-  N1((1)) --> N2((3))
-  N2 --> N3((5))
-  N3 --> N4((7))
-  N4 --> N5((9))
-  N5 --> X[None]
-          </pre>
+<div class="note info">
+            <h3 id="堆疊操作釋疑"><a href="#堆疊操作釋疑" class="headerlink" title=" 堆疊操作釋疑"></a><i class="fa-solid fa-circle-info"></i> 堆疊操作釋疑</h3><ol><li><p><strong>為何不抽中間的東西呢？</strong></p><p> 原因在於如果直接抽取中間的元素，會破壞整體順序。假設要提取中間的元素，就必須先把該元素上面的所有元素全部暫存到另一個地方，提取後再將這些元素放回。此時有幾個問題：</p><ul><li>暫存到另一個地方會增加空間複雜度，記憶體配置會更多，並非我們所樂見的狀況。</li><li>將元素放回後，原本的索引會因此而改變，堆疊的結構被破壞了。</li></ul></li><li><p><strong>實作訪問頂端元素的目的是什麼？</strong></p><p> 可以舉個簡單的例子，假設有個程式用來處理網站請求，請求會放到堆疊中排隊處理。假設有段程式碼會運作如下：</p> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> stack[-<span class="number">1</span>] == <span class="string">&#x27;shutdown&#x27;</span>:</span><br><span class="line">    <span class="comment"># 停止系統</span></span><br></pre></td></tr></table></figure><p> 如果改為</p> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> stack.pop() == <span class="string">&#x27;shutdown&#x27;</span>:</span><br><span class="line">    <span class="comment"># 停止系統</span></span><br></pre></td></tr></table></figure><p> 因為 <code>pop()</code> 會把元素刪除並回傳該值，那麼就會<strong>誤刪</strong>。事實上我們只是想要檢查頂端元素而已，這種「看一眼」但不動資料的行為，就是 <code>peek</code> 的用處。</p></li></ol>
+          </div>
 
-<p>必須拆分為兩步驟：</p>
-<ol>
-<li><strong>建立節點</strong>：定義每個節點的資訊，包含值與引用</li>
-<li><strong>建立鏈結串列</strong>：根據節點的定義，串起每個節點形成串列</li>
-</ol>
-<h3 id="建立節點"><a href="#建立節點" class="headerlink" title="建立節點"></a>建立節點</h3><p>首先必須先寫出每個節點的定義：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, val: <span class="built_in">int</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.val = val                      <span class="comment"># 節點值</span></span><br><span class="line">        <span class="variable language_">self</span>.<span class="built_in">next</span>: ListNode | <span class="literal">None</span> = <span class="literal">None</span>   <span class="comment"># 指向下一個節點的引用</span></span><br></pre></td></tr></table></figure>
+<h2 id="堆疊功能"><a href="#堆疊功能" class="headerlink" title="堆疊功能"></a>堆疊功能</h2><p>堆疊非常適合<strong>處理最近加入的任務</strong>，因為這些任務是最容易被取出的，毋需翻動前面的元素，僅處理工作堆中頂端那一層。因此，如果撰寫程式時，遇到「最後一個進來、最先處理」的情境，就適合使用堆疊。</p>
+<div class="note info">
+            <h3 id="呼叫堆疊-call-stack"><a href="#呼叫堆疊-call-stack" class="headerlink" title=" 呼叫堆疊 (call stack)"></a><i class="fa-solid fa-circle-info"></i> 呼叫堆疊 (call stack)</h3><p>呼叫堆疊是一種來記錄目前程式在執行時函式的呼叫順序與執行狀態。</p><blockquote><p>每當一個函式被呼叫時，系統就會把它的執行狀態放進堆疊中；當它執行完畢後，會從 stack 移除，然後回到呼叫它的那一層繼續執行。</p></blockquote><ul><li>函式可能呼叫函式，會產生巢狀邏輯</li><li>程式要記得呼叫者的位置與暫存資料</li><li>多個函式同時存在時，彼此不能干擾</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">A</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Enter A&quot;</span>)</span><br><span class="line">    B()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Exit A&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">B</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Enter B&quot;</span>)</span><br><span class="line">    C()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Exit B&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">C</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Enter C&quot;</span>)</span><br><span class="line"></span><br><span class="line">A()</span><br></pre></td></tr></table></figure><table><thead><tr><th>時間點</th><th>呼叫堆疊內容</th><th>執行動作</th></tr></thead><tbody><tr><td>1</td><td><code>A()</code></td><td>呼叫 A</td></tr><tr><td>2</td><td><code>A()</code> → <code>B()</code></td><td>A 呼叫 B</td></tr><tr><td>3</td><td><code>A()</code> → <code>B()</code> → <code>C()</code></td><td>B 呼叫 C</td></tr><tr><td>4</td><td><code>A()</code> → <code>B()</code></td><td>C 執行完畢 → pop 掉 C</td></tr><tr><td>5</td><td><code>A()</code></td><td>B 執行完畢 → pop 掉 B</td></tr><tr><td>6</td><td>（空）</td><td>A 執行完畢 → pop 掉 A</td></tr></tbody></table>
+          </div>
 
-<p>初始化各個節點：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n0 = ListNode(<span class="number">1</span>)</span><br><span class="line">n1 = ListNode(<span class="number">3</span>)</span><br><span class="line">n2 = ListNode(<span class="number">5</span>)</span><br><span class="line">n3 = ListNode(<span class="number">7</span>)</span><br><span class="line">n4 = ListNode(<span class="number">9</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="堆疊實作"><a href="#堆疊實作" class="headerlink" title="堆疊實作"></a>堆疊實作</h2><p>由於堆疊僅能在堆頂新增或刪除元素的性質，實踐上其實較為容易，而實作堆疊的資料結構非陣列與鏈結串列莫屬，原因是這兩者可以在任意增刪元素，因此堆疊可以視為是<strong>受限制的陣列</strong>或<strong>鏈結串列</strong>。</p>
+<h3 id="使用鏈結串列"><a href="#使用鏈結串列" class="headerlink" title="使用鏈結串列"></a>使用鏈結串列</h3><p>鏈結串列有頭節點與尾節點，分別對應到堆頂與堆底。因此入堆即是將元素插入頭節點，出堆則是移除頭節點。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedListStack</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>._peek: ListNode | <span class="literal">None</span> = <span class="literal">None</span>      <span class="comment"># 用私有方法保護堆頂不被竄改</span></span><br><span class="line">        <span class="variable language_">self</span>._size = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._size</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_empty</span>(<span class="params">self</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.size() == <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, val: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        node = ListNode(val)</span><br><span class="line">        node.<span class="built_in">next</span> = <span class="variable language_">self</span>._peek</span><br><span class="line">        <span class="variable language_">self</span>._peek = node</span><br><span class="line">        <span class="variable language_">self</span>._size += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        num = <span class="variable language_">self</span>.peek()</span><br><span class="line">        <span class="variable language_">self</span>._peek = <span class="variable language_">self</span>._peek.<span class="built_in">next</span></span><br><span class="line">        <span class="variable language_">self</span>._size -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> num</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&quot;堆疊為空&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._peek.val</span><br></pre></td></tr></table></figure>
 
-<h3 id="建立鏈結串列-1"><a href="#建立鏈結串列-1" class="headerlink" title="建立鏈結串列"></a>建立鏈結串列</h3><p>根據初始化的節點，需要建立節點之間的引用：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n0.<span class="built_in">next</span> = n1</span><br><span class="line">n1.<span class="built_in">next</span> = n2</span><br><span class="line">n2.<span class="built_in">next</span> = n3</span><br><span class="line">n3.<span class="built_in">next</span> = n4</span><br></pre></td></tr></table></figure>
+<h3 id="使用陣列"><a href="#使用陣列" class="headerlink" title="使用陣列"></a>使用陣列</h3><p>若以陣列表示，就需要一點想像力。當元素逐一放入陣列後，堆底其實是元素的第一個元素，堆頂則為最後一個元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ArrayStack</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>._stack: <span class="built_in">list</span>[<span class="built_in">int</span>] = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>._stack)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_empty</span>(<span class="params">self</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.size == <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, val: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="variable language_">self</span>._stack.append(val)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&quot;堆疊為空&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._stack.pop()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&quot;堆疊為空&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._stack[-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
 
-<p>建立完成後，可以嘗試走訪整條串列：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curr = n0</span><br><span class="line"><span class="keyword">while</span> curr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:   <span class="comment"># 若為 None 表示走到底</span></span><br><span class="line">    <span class="built_in">print</span>(curr.val)</span><br><span class="line">    curr = curr.<span class="built_in">next</span>      <span class="comment"># 當前值變成下一節點</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="操作鏈結串列"><a href="#操作鏈結串列" class="headerlink" title="操作鏈結串列"></a>操作鏈結串列</h2><p>操作鏈結串列之前，必須先瞭解如何建立串列：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.head = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="新增節點"><a href="#新增節點" class="headerlink" title="新增節點"></a>新增節點</h3><p>新增節點的方式其實十分直觀。假設我們想要在 $n_{0}$ 與 $n_{1}$ 間新增一個節點 $p$，步驟是：</p>
+<h3 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h3><div class="tabs" id="練習題"><ul class="nav-tabs"><li class="tab active"><a href="#練習題-1">有效的括號</a></li><li class="tab"><a href="#練習題-2">支援最小值的堆疊</a></li></ul><div class="tab-content"><div class="tab-pane active" id="練習題-1"><p>給一個只包含 <code>(</code>、<code>)</code>、<code>{</code>、<code>}</code>、<code>[</code>、<code>]</code> 的字串 <code>s</code>，請判斷此字串中的括號是否成對配對且順序正確。有效的定義如下：</p>
 <ul>
-<li>先將 $n_{1}$ 設定為 $n_{0}$ 的下一個節點</li>
-<li>設定 $n_{1}$ 為 $p$ 的下一個節點</li>
-<li>指定 $n_{0}$ 的下一個節點為 $p$</li>
+<li>左括號必須由相同類型的右括號閉合。</li>
+<li>括號必須以正確順序閉合。</li>
 </ul>
-<p>簡單來說，就是將 $n_{1}$ 的下個節點設定為 $p$，並且重新指定 $n_{0}$ 的下個節點為 $p$，此時就可串聯成 <code>n0 -&gt; p -&gt; n1</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, n0: ListNode, p: ListNode</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    n1 = n0.<span class="built_in">next</span></span><br><span class="line">    p.<span class="built_in">next</span> = n1</span><br><span class="line">    n0.<span class="built_in">next</span> = p</span><br></pre></td></tr></table></figure>
-
-<h3 id="刪除節點"><a href="#刪除節點" class="headerlink" title="刪除節點"></a>刪除節點</h3><p>刪除節點的方法與新增節點類似，只不過是反向操作，也就是斷開 $n_{0}$  與 $p$ 的連結，重新將 $n_{0}$ 與 $n_{1}$ 連起來。雖然 $p$ 還是指向 $n_{1}$，但由於已經斷開 $n_{0}$ 與 $p$ 的連結，因此無法訪問到 $p$。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, n0: ListNode</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    p = n0.<span class="built_in">next</span></span><br><span class="line">    n1 = p.<span class="built_in">next</span></span><br><span class="line">    n0.<span class="built_in">next</span> = n1</span><br></pre></td></tr></table></figure>
-
-<h3 id="訪問節點"><a href="#訪問節點" class="headerlink" title="訪問節點"></a>訪問節點</h3><p>不同於陣列，若要訪問鏈結串列的節點，需要<strong>從頭至尾</strong>遍歷，直至找到目標節點，對於索引 $i$ 的節點，需要走 $i - 1$ 輪，時間複雜度為 $\mathcal{O}(n)$。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">access</span>(<span class="params">self, index: <span class="built_in">int</span></span>) -&gt; ListNode | <span class="literal">None</span>:</span><br><span class="line">    curr = <span class="variable language_">self</span>.head</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(index):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> curr:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        curr = curr.<span class="built_in">next</span></span><br><span class="line">    <span class="keyword">return</span> curr</span><br></pre></td></tr></table></figure>
-
-<p>如果想要遍歷整個串列，可以使用與訪問類似的作法，並將訪問過的節點全部蒐集在一個容器中（以 <code>list</code> 處理較為方便），最後印出。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">traverse</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    curr = <span class="variable language_">self</span>.head</span><br><span class="line">    nodes = []</span><br><span class="line">    <span class="keyword">while</span> curr:</span><br><span class="line">        nodes.append(curr.val)</span><br><span class="line">        curr = curr.<span class="built_in">next</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot; -&gt; &quot;</span>.join(<span class="built_in">str</span>(v) <span class="keyword">for</span> v <span class="keyword">in</span> nodes)</span><br></pre></td></tr></table></figure>
-
-<h3 id="查詢節點"><a href="#查詢節點" class="headerlink" title="查詢節點"></a>查詢節點</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">self, target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    curr = <span class="variable language_">self</span>.head</span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> curr:</span><br><span class="line">        <span class="keyword">if</span> curr.val == target:</span><br><span class="line">            <span class="keyword">return</span> index</span><br><span class="line">        curr = curr.<span class="built_in">next</span></span><br><span class="line">        index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="鏈結串列完整實作"><a href="#鏈結串列完整實作" class="headerlink" title="鏈結串列完整實作"></a>鏈結串列完整實作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.head = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, n0: ListNode, p: ListNode</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        n1 = n0.<span class="built_in">next</span></span><br><span class="line">        p.<span class="built_in">next</span> = n1</span><br><span class="line">        n0.<span class="built_in">next</span> = p</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, n0: ListNode</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        p = n0.<span class="built_in">next</span></span><br><span class="line">        n1 = p.<span class="built_in">next</span></span><br><span class="line">        n0.<span class="built_in">next</span> = n1</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">access</span>(<span class="params">self, index: <span class="built_in">int</span></span>) -&gt; ListNode | <span class="literal">None</span>:</span><br><span class="line">        curr = <span class="variable language_">self</span>.head</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(index):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> curr:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            curr = curr.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> curr</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">self, target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        curr = <span class="variable language_">self</span>.head</span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> curr:</span><br><span class="line">            <span class="keyword">if</span> curr.val == target:</span><br><span class="line">                <span class="keyword">return</span> index</span><br><span class="line">            curr = curr.<span class="built_in">next</span></span><br><span class="line">            index += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">traverse</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        curr = <span class="variable language_">self</span>.head</span><br><span class="line">        nodes = []</span><br><span class="line">        <span class="keyword">while</span> curr:</span><br><span class="line">            nodes.append(curr.val)</span><br><span class="line">            curr = curr.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot; -&gt; &quot;</span>.join(<span class="built_in">str</span>(v) <span class="keyword">for</span> v <span class="keyword">in</span> nodes)</span><br></pre></td></tr></table></figure>
-
-<h3 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h3><div class="tabs" id="練習題"><ul class="nav-tabs"><li class="tab active"><a href="#練習題-1">反轉鏈結串列</a></li><li class="tab"><a href="#練習題-2">鏈結串列中間節點</a></li></ul><div class="tab-content"><div class="tab-pane active" id="練習題-1"><p>給一個單向鏈結串列的 <code>head</code>，請反轉整條串列，並回傳新的頭節點。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">輸入: 1 → 2 → 3 → 4 → 5</span><br><span class="line">輸出: 5</span><br><span class="line">原因: 5 → 4 → 3 → 2 → 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">輸入: s = <span class="string">&quot;(&#123;[]&#125;)&quot;</span></span><br><span class="line">輸出: True</span><br><span class="line">原因: 每個左括號都有正確的右括號以正確順序配對</span><br></pre></td></tr></table></figure>
 
 <details>
 <summary>解答</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reverseList</span>(<span class="params">self, head: ListNode | <span class="literal">None</span></span>) -&gt; ListNode | <span class="literal">None</span>:</span><br><span class="line">        curr = head</span><br><span class="line">        prev = <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> curr:</span><br><span class="line">            next_node = curr.<span class="built_in">next</span></span><br><span class="line">            curr.<span class="built_in">next</span> = prev</span><br><span class="line">            prev = curr</span><br><span class="line">            curr = next_node</span><br><span class="line">        <span class="keyword">return</span> prev</span><br></pre></td></tr></table></figure>
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isValid</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        stack = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">if</span> s[i] == <span class="string">&quot;(&quot;</span> <span class="keyword">or</span> s[i] == <span class="string">&quot;&#123;&quot;</span> <span class="keyword">or</span> s[i] == <span class="string">&quot;[&quot;</span>:</span><br><span class="line">                stack.append(s[i])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> stack <span class="keyword">and</span> ((stack[-<span class="number">1</span>] == <span class="string">&quot;(&quot;</span> <span class="keyword">and</span> s[i] == <span class="string">&quot;)&quot;</span>) <span class="keyword">or</span></span><br><span class="line">                                (stack[-<span class="number">1</span>] == <span class="string">&quot;&#123;&quot;</span> <span class="keyword">and</span> s[i] == <span class="string">&quot;&#125;&quot;</span>) <span class="keyword">or</span></span><br><span class="line">                                (stack[-<span class="number">1</span>] == <span class="string">&quot;[&quot;</span> <span class="keyword">and</span> s[i] == <span class="string">&quot;]&quot;</span>)):</span><br><span class="line">                    stack.pop()</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">not</span> stack</span><br></pre></td></tr></table></figure>
 </details>
-<br></div><div class="tab-pane" id="練習題-2"><p>給一個單向鏈結串列，請找出它的「中間節點」並回傳。若有偶數個節點，回傳第二個中間節點（從 <code>0</code> 開始算）。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">輸入: 1 → 2 → 3 → 4 → 5</span><br><span class="line">輸出: 3</span><br><span class="line"></span><br><span class="line">輸入: 1 → 2 → 3 → 4 → 5 → 6</span><br><span class="line">輸出: 4</span><br></pre></td></tr></table></figure>
+<br></div><div class="tab-pane" id="練習題-2"><p>實作一個支援下列操作的堆疊 (<code>MinStack</code>)：</p>
+<ul>
+<li><code>push(x)</code>：將 <code>x</code> 推入堆疊</li>
+<li><code>pop()</code>：移除堆疊頂端元素</li>
+<li><code>top()</code>：取得堆疊頂端元素</li>
+<li><code>getMin()</code>：取得目前堆疊中的最小值（常數時間）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">輸入:</span><br><span class="line">[<span class="string">&quot;MinStack&quot;</span>,<span class="string">&quot;push&quot;</span>,<span class="string">&quot;push&quot;</span>,<span class="string">&quot;push&quot;</span>,<span class="string">&quot;getMin&quot;</span>,<span class="string">&quot;pop&quot;</span>,<span class="string">&quot;top&quot;</span>,<span class="string">&quot;getMin&quot;</span>]</span><br><span class="line">[[],[-2],[0],[-3],[],[],[],[]]</span><br><span class="line">輸出: [null,null,null,null,-3,null,0,-2]</span><br><span class="line">理由:</span><br><span class="line">MinStack minStack = new MinStack();</span><br><span class="line">minStack.push(-2);</span><br><span class="line">minStack.push(0);</span><br><span class="line">minStack.push(-3);</span><br><span class="line">minStack.getMin(); // <span class="built_in">return</span> -3</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top();    // <span class="built_in">return</span> 0</span><br><span class="line">minStack.getMin(); // <span class="built_in">return</span> -2</span><br></pre></td></tr></table></figure>
 
 <details>
 <summary>解答</summary>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">middleNode</span>(<span class="params">self, head: ListNode | <span class="literal">None</span></span>) -&gt; ListNode | <span class="literal">None</span>:</span><br><span class="line">        slow = head</span><br><span class="line">        fast = head</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> fast <span class="keyword">and</span> fast.<span class="built_in">next</span>:</span><br><span class="line">            slow = slow.<span class="built_in">next</span></span><br><span class="line">            fast = fast.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> slow</span><br></pre></td></tr></table></figure>
-
-<p>這題比較有趣的是需要用到<strong>快慢指標</strong> (slow-fast pointer)的概念。我們需要建立兩個指標，<code>slow</code> 與 <code>fast</code>，並且設 <code>slow</code>  一次僅走一步，<code>fast</code> 則走兩步，$t$ 回合後，</p>
-<ul>
-<li><code>slow</code> 走了 $t$ 步，落在 $n_{t}$</li>
-<li><code>fast</code> 走了 $2t$ 步，落在 $n_{2t}$</li>
-</ul>
-<p>因此考慮兩種情況：</p>
-<p>$L$ <strong>為奇數</strong></p>
-<p>令 $L &#x3D; 2n + 1$，那麼 $t$ 回合後：</p>
-<p>$$<br>2t &#x3D; L - 1 \Rightarrow t &#x3D; \dfrac{L - 1}{2}<br>$$</p>
-<p>節點恰好落在中間節點 $n_{\frac{L - 1}{2}}$。</p>
-<p>$L$ <strong>為偶數</strong></p>
-<p>令 $L &#x3D; 2n$，那麼 $t$ 回合後：</p>
-<p>$$<br>2t &#x3D; L \Rightarrow t &#x3D; \dfrac{L}{2}<br>$$</p>
-<p>節點恰好落在第 $n + 1$ 個節點 $n_{\frac{L}{2}}$。</p>
-<p>因此結論為：<br>$$<br>\texttt{slow} &#x3D;<br>\begin{cases}<br>n_{\frac{L-1}{2}}, &amp;\quad\text{if } L \text{ is odd}\\<br>n_{\frac{L}{2}}, &amp;\quad\text{if } L \text{ is even}<br>\end{cases}<br>$$</p>
+        
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MinStack</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>._stack = []</span><br><span class="line">        <span class="variable language_">self</span>._min_stack = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, val: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="variable language_">self</span>._stack.append(val)</span><br><span class="line">        <span class="comment"># 判斷加入值是否為當前最小</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>._min_stack:</span><br><span class="line">            <span class="variable language_">self</span>._min_stack.append(val)                 <span class="comment"># 若為空代表當前加入值為最小</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            curr_min = <span class="variable language_">self</span>._min_stack[-<span class="number">1</span>]</span><br><span class="line">            <span class="variable language_">self</span>._min_stack.append(<span class="built_in">min</span>(curr_min, val))  <span class="comment"># 比較當前最小與加入值何者較小</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="variable language_">self</span>._stack.pop()</span><br><span class="line">        <span class="variable language_">self</span>._min_stack.pop()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">top</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._stack[-<span class="number">1</span>]        </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getMin</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>._min_stack[-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
 </details>
 <br></div></div></div>
     </div>
@@ -718,8 +661,9 @@ div.hcb-content.hcb-cards-content.active {
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97/" rel="tag"><i class="fa fa-tag"></i> 鏈結串列</a>
-              <a href="/tags/%E7%AF%80%E9%BB%9E/" rel="tag"><i class="fa fa-tag"></i> 節點</a>
+              <a href="/tags/%E5%A0%86%E7%96%8A/" rel="tag"><i class="fa fa-tag"></i> 堆疊</a>
+              <a href="/tags/push/" rel="tag"><i class="fa fa-tag"></i> push</a>
+              <a href="/tags/pop/" rel="tag"><i class="fa fa-tag"></i> pop</a>
           </div>
 
         
@@ -728,12 +672,12 @@ div.hcb-content.hcb-cards-content.active {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/flask-basic/" rel="prev" title="Flask 筆記 | 基礎架構與環境準備">
-      <i class="fa fa-chevron-left"></i> Flask 筆記 | 基礎架構與環境準備
+    <a href="/flask-request/" rel="prev" title="Flask 筆記 | 請求物件">
+      <i class="fa fa-chevron-left"></i> Flask 筆記 | 請求物件
     </a></div>
       <div class="post-nav-item">
-    <a href="/html-element-structure/" rel="next" title="HTML 筆記 | 元素與結構">
-      HTML 筆記 | 元素與結構 <i class="fa fa-chevron-right"></i>
+    <a href="/queue/" rel="next" title="資料結構與演算法筆記 | 佇列 (Queue)">
+      資料結構與演算法筆記 | 佇列 (Queue) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -800,7 +744,7 @@ div.hcb-content.hcb-cards-content.active {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">建立鏈結串列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E7%AF%80%E9%BB%9E"><span class="nav-number">1.1.</span> <span class="nav-text">建立節點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97-1"><span class="nav-number">1.2.</span> <span class="nav-text">建立鏈結串列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">操作鏈結串列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E7%AF%80%E9%BB%9E"><span class="nav-number">2.1.</span> <span class="nav-text">新增節點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%AA%E9%99%A4%E7%AF%80%E9%BB%9E"><span class="nav-number">2.2.</span> <span class="nav-text">刪除節點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AA%E5%95%8F%E7%AF%80%E9%BB%9E"><span class="nav-number">2.3.</span> <span class="nav-text">訪問節點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%A9%A2%E7%AF%80%E9%BB%9E"><span class="nav-number">2.4.</span> <span class="nav-text">查詢節點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E5%AE%8C%E6%95%B4%E5%AF%A6%E4%BD%9C"><span class="nav-number">2.5.</span> <span class="nav-text">鏈結串列完整實作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B7%B4%E7%BF%92%E9%A1%8C"><span class="nav-number">2.6.</span> <span class="nav-text">練習題</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E7%96%8A%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">堆疊操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E7%96%8A%E6%93%8D%E4%BD%9C%E9%87%8B%E7%96%91"><span class="nav-number">1.1.</span> <span class="nav-text"> 堆疊操作釋疑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E7%96%8A%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">堆疊功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BC%E5%8F%AB%E5%A0%86%E7%96%8A-call-stack"><span class="nav-number">2.1.</span> <span class="nav-text"> 呼叫堆疊 (call stack)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E7%96%8A%E5%AF%A6%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">堆疊實作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97"><span class="nav-number">3.1.</span> <span class="nav-text">使用鏈結串列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%99%A3%E5%88%97"><span class="nav-number">3.2.</span> <span class="nav-text">使用陣列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B7%B4%E7%BF%92%E9%A1%8C"><span class="nav-number">3.3.</span> <span class="nav-text">練習題</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -816,7 +760,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -829,7 +773,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -981,9 +925,9 @@ darkmode.showWidget();
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://www.yueswater.com/linked-list/";
-    this.page.identifier = "/linked-list/";
-    this.page.title = "資料結構與演算法筆記 | 鏈結串列 (Linked List)";
+    this.page.url = "https://www.yueswater.com/dsa-stack/";
+    this.page.identifier = "/dsa-stack/";
+    this.page.title = "資料結構與演算法筆記 | 堆疊 (Stack)";
     this.language = "zh_TW"; // Disqus 顯示語言
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {

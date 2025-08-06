@@ -598,7 +598,7 @@ div.hcb-content.hcb-cards-content.active {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/array/">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/flask-static/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/profile.svg">
@@ -612,7 +612,113 @@ div.hcb-content.hcb-cards-content.active {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/array/" class="post-title-link" itemprop="url">資料結構與演算法筆記 | 陣列 (Array)</a>
+            <a href="/flask-static/" class="post-title-link" itemprop="url">Flask 筆記 | 靜態檔案處理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-02T00:00:00+08:00">2025-08-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">程式語言筆記</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/flask-static/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/flask-static/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>6 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>靜態檔案 (static file)</strong> 指的是不同請求中訪問到的資料都相同的檔案，例如圖片、影片等。</p>
+<ul>
+<li>不經過路由處理：靜態檔案不會經由 Flask 中設定的路由，而是由 WSGI middleware 直接處理，最終呈現在使用者瀏覽的畫面上，而非自己使用 <code>@app.route()</code> 加上。</li>
+<li>特殊的路由：檔名對應著網址路徑</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/flask-static/" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/dsa-array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dsa-array/" class="post-title-link" itemprop="url">資料結構與演算法筆記 | 陣列 (Array)</a>
         </h2>
 
         <div class="post-meta">
@@ -654,8 +760,8 @@ div.hcb-content.hcb-cards-content.active {
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/array/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/array/" itemprop="commentCount"></span>
+    <a title="disqus" href="/dsa-array/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/dsa-array/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -687,114 +793,7 @@ div.hcb-content.hcb-cards-content.active {
           <p>陣列是一種能儲存<strong>相同資料型別</strong>、<strong>固定大小</strong>、並使用<strong>連續記憶體</strong>空間的資料結構。每個元素透過<strong>索引 (index)</strong> 可以快速存取資料。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/array/" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/dbms/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile.svg">
-      <meta itemprop="name" content="Anthony Sung">
-      <meta itemprop="description" content="對生活抱持好奇心的學習者">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="岳氏礦泉水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dbms/" class="post-title-link" itemprop="url">資料庫筆記 | 資料庫管理系統 (Database Management System)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2025-07-25 00:00:00" itemprop="dateCreated datePublished" datetime="2025-07-25T00:00:00+08:00">2025-07-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">程式語言筆記</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/dbms/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/dbms/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">文章字數：</span>
-              <span>2.6k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>13 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div style="text-align:center">
-  <img src="/images/database-learning/intro-dbms.png" width="430" height="300" alt="資料庫管理系統">
-  <p style="font-size: 0.8em; color: #999999;">資料庫管理系統</p>
-</div>
-
-<p>資料庫管理系統（Database Management System, 簡稱 <strong>DBMS</strong>）是一套<strong>軟體系統</strong>，用來<strong>建立、管理、查詢與維護資料庫</strong>。它的目的是讓使用者能夠有效地儲存、檢索與操作資料，同時確保資料的<strong>安全性、一致性與完整性</strong>。以 ATM 為例，當插入卡片之後，ATM 會開始讀取晶片資料，並嘗試從資料庫中抓取帳戶、餘額等所需資訊，並提供使用者進行提款、存款、轉帳等動作。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/dbms/" rel="contents">
+              <a class="btn" href="/dsa-array/" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -885,7 +884,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -898,7 +897,7 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4306040064090497"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <style type="text/css">
+
+div.hcb-content.hcb-block.hcbnote, details.hcb-content.box.hcbnote,div.hcb-content.hcb-block.hcbabstract, details.hcb-content.box.hcbabstract,div.hcb-content.hcb-block.hcbinfo, details.hcb-content.box.hcbinfo,div.hcb-content.hcb-block.hcbtip, details.hcb-content.box.hcbtip,div.hcb-content.hcb-block.hcbsuccess, details.hcb-content.box.hcbsuccess,div.hcb-content.hcb-block.hcbquestion, details.hcb-content.box.hcbquestion,div.hcb-content.hcb-block.hcbwarning, details.hcb-content.box.hcbwarning,div.hcb-content.hcb-block.hcbfailure, details.hcb-content.box.hcbfailure,div.hcb-content.hcb-block.hcbdanger, details.hcb-content.box.hcbdanger,div.hcb-content.hcb-block.hcbbug, details.hcb-content.box.hcbbug,div.hcb-content.hcb-block.hcbexample, details.hcb-content.box.hcbexample,div.hcb-content.hcb-block.hcbquote, details.hcb-content.box.hcbquote {
+  border: .05rem solid #448aff;
+  border-radius: .2rem;
+  font-size: 0.96rem;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  transition: box-shadow 250ms;
+}
+div.hcb-content.hcb-block.hcbnote, details.hcb-content.box.hcbnote {
+  border-color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbabstract, details.hcb-content.box.hcbabstract {
+  border-color: #00b0ff;
+}
+div.hcb-content.hcb-block.hcbinfo, details.hcb-content.box.hcbinfo {
+  border-color: #00b8d4;
+}
+div.hcb-content.hcb-block.hcbtip, details.hcb-content.box.hcbtip {
+  border-color: #00bfa5;
+}
+div.hcb-content.hcb-block.hcbsuccess, details.hcb-content.box.hcbsuccess {
+  border-color: #00c853;
+}
+div.hcb-content.hcb-block.hcbquestion, details.hcb-content.box.hcbquestion {
+  border-color: #64dd17;
+}
+div.hcb-content.hcb-block.hcbwarning, details.hcb-content.box.hcbwarning {
+  border-color: #ff9100;
+}
+div.hcb-content.hcb-block.hcbfailure, details.hcb-content.box.hcbfailure {
+  border-color: #ff5252;
+}
+div.hcb-content.hcb-block.hcbdanger, details.hcb-content.box.hcbdanger {
+  border-color: #ff1744;
+}
+div.hcb-content.hcb-block.hcbbug, details.hcb-content.box.hcbbug {
+  border-color: #f50057;
+}
+div.hcb-content.hcb-block.hcbexample, details.hcb-content.box.hcbexample {
+  border-color: #7c4dff;
+}
+div.hcb-content.hcb-block.hcbquote, details.hcb-content.box.hcbquote {
+  border-color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbnote:focus-within, details.hcb-content.box.hcbnote:focus-within {
+  box-shadow: 0 0 0 .2rem #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbabstract:focus-within, details.hcb-content.box.hcbabstract:focus-within {
+  box-shadow: 0 0 0 .2rem #00b0ff1a;
+}
+div.hcb-content.hcb-block.hcbinfo:focus-within, details.hcb-content.box.hcbinfo:focus-within {
+  box-shadow: 0 0 0 .2rem #00b8d41a;
+}
+div.hcb-content.hcb-block.hcbtip:focus-within, details.hcb-content.box.hcbtip:focus-within {
+  box-shadow: 0 0 0 .2rem #00bfa51a;
+}
+div.hcb-content.hcb-block.hcbsuccess:focus-within, details.hcb-content.box.hcbsuccess:focus-within {
+  box-shadow: 0 0 0 .2rem #00c8531a;
+}
+div.hcb-content.hcb-block.hcbquestion:focus-within, details.hcb-content.box.hcbquestion:focus-within {
+  box-shadow: 0 0 0 .2rem #64dd171a;
+}
+div.hcb-content.hcb-block.hcbwarning:focus-within, details.hcb-content.box.hcbwarning:focus-within {
+  box-shadow: 0 0 0 .2rem #ff91001a;
+}
+div.hcb-content.hcb-block.hcbfailure:focus-within, details.hcb-content.box.hcbfailure:focus-within {
+  box-shadow: 0 0 0 .2rem #ff52521a;
+}
+div.hcb-content.hcb-block.hcbdanger:focus-within, details.hcb-content.box.hcbdanger:focus-within {
+  box-shadow: 0 0 0 .2rem #ff17441a;
+}
+div.hcb-content.hcb-block.hcbbug:focus-within, details.hcb-content.box.hcbbug:focus-within {
+  box-shadow: 0 0 0 .2rem #f500571a;
+}
+div.hcb-content.hcb-block.hcbexample:focus-within, details.hcb-content.box.hcbexample:focus-within {
+  box-shadow: 0 0 0 .2rem #7c4dff1a;
+}
+div.hcb-content.hcb-block.hcbquote:focus-within, details.hcb-content.box.hcbquote:focus-within {
+  box-shadow: 0 0 0 .2rem #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbnote *, details.hcb-content.box.hcbnote *,div.hcb-content.hcb-block.hcbabstract *, details.hcb-content.box.hcbabstract *,div.hcb-content.hcb-block.hcbinfo *, details.hcb-content.box.hcbinfo *,div.hcb-content.hcb-block.hcbtip *, details.hcb-content.box.hcbtip *,div.hcb-content.hcb-block.hcbsuccess *, details.hcb-content.box.hcbsuccess *,div.hcb-content.hcb-block.hcbquestion *, details.hcb-content.box.hcbquestion *,div.hcb-content.hcb-block.hcbwarning *, details.hcb-content.box.hcbwarning *,div.hcb-content.hcb-block.hcbfailure *, details.hcb-content.box.hcbfailure *,div.hcb-content.hcb-block.hcbdanger *, details.hcb-content.box.hcbdanger *,div.hcb-content.hcb-block.hcbbug *, details.hcb-content.box.hcbbug *,div.hcb-content.hcb-block.hcbexample *, details.hcb-content.box.hcbexample *,div.hcb-content.hcb-block.hcbquote *, details.hcb-content.box.hcbquote * {
+  box-sizing: border-box;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbnote > summary,div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbabstract > summary,div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbinfo > summary,div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbtip > summary,div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbsuccess > summary,div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquestion > summary,div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbwarning > summary,div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbfailure > summary,div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbdanger > summary,div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbbug > summary,div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbexample > summary,div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquote > summary {
+  border-top-right-radius: 0.1rem;
+  border-top-left-radius: 0.1rem;
+  border-left-width: 0.2rem;
+  display: block;
+  min-height: 1rem;
+  border: none;
+  font-weight: 700;
+  margin: 0 -1.2rem 1rem;
+  padding: 0.4rem 0.6rem;
+  position: relative;
+  outline: none;
+}
+details.hcb-content.box.hcbnote > summary,details.hcb-content.box.hcbabstract > summary,details.hcb-content.box.hcbinfo > summary,details.hcb-content.box.hcbtip > summary,details.hcb-content.box.hcbsuccess > summary,details.hcb-content.box.hcbquestion > summary,details.hcb-content.box.hcbwarning > summary,details.hcb-content.box.hcbfailure > summary,details.hcb-content.box.hcbdanger > summary,details.hcb-content.box.hcbbug > summary,details.hcb-content.box.hcbexample > summary,details.hcb-content.box.hcbquote > summary {
+  cursor: pointer;
+}
+details.hcb-content.box.hcbnote:not([open]) > summary,details.hcb-content.box.hcbabstract:not([open]) > summary,details.hcb-content.box.hcbinfo:not([open]) > summary,details.hcb-content.box.hcbtip:not([open]) > summary,details.hcb-content.box.hcbsuccess:not([open]) > summary,details.hcb-content.box.hcbquestion:not([open]) > summary,details.hcb-content.box.hcbwarning:not([open]) > summary,details.hcb-content.box.hcbfailure:not([open]) > summary,details.hcb-content.box.hcbdanger:not([open]) > summary,details.hcb-content.box.hcbbug:not([open]) > summary,details.hcb-content.box.hcbexample:not([open]) > summary,details.hcb-content.box.hcbquote:not([open]) > summary {
+  margin-bottom: 0;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbnote > summary {
+  background-color: #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbabstract > summary {
+  background-color: #00b0ff1a;
+}
+div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbinfo > summary {
+  background-color: #00b8d41a;
+}
+div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbtip > summary {
+  background-color: #00bfa51a;
+}
+div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbsuccess > summary {
+  background-color: #00c8531a;
+}
+div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquestion > summary {
+  background-color: #64dd171a;
+}
+div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbwarning > summary {
+  background-color: #ff91001a;
+}
+div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbfailure > summary {
+  background-color: #ff52521a;
+}
+div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbdanger > summary {
+  background-color: #ff17441a;
+}
+div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbbug > summary {
+  background-color: #f500571a;
+}
+div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbexample > summary {
+  background-color: #7c4dff1a;
+}
+div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquote > summary {
+  background-color: #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbnote > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbabstract > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00b0ff;
+}
+div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbinfo > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00b8d4;
+}
+div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbtip > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00bfa5;
+}
+div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbsuccess > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00c853;
+}
+div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbquestion > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #64dd17;
+}
+div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbwarning > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff9100;
+}
+div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbfailure > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff5252;
+}
+div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbdanger > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff1744;
+}
+div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbbug > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #f50057;
+}
+div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbexample > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #7c4dff;
+}
+div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbquote > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #9e9e9e;
+}
+details.hcb-content.box.hcbnote > summary > div.hcb-box-open-button,details.hcb-content.box.hcbabstract > summary > div.hcb-box-open-button,details.hcb-content.box.hcbinfo > summary > div.hcb-box-open-button,details.hcb-content.box.hcbtip > summary > div.hcb-box-open-button,details.hcb-content.box.hcbsuccess > summary > div.hcb-box-open-button,details.hcb-content.box.hcbquestion > summary > div.hcb-box-open-button,details.hcb-content.box.hcbwarning > summary > div.hcb-box-open-button,details.hcb-content.box.hcbfailure > summary > div.hcb-box-open-button,details.hcb-content.box.hcbdanger > summary > div.hcb-box-open-button,details.hcb-content.box.hcbbug > summary > div.hcb-box-open-button,details.hcb-content.box.hcbexample > summary > div.hcb-box-open-button,details.hcb-content.box.hcbquote > summary > div.hcb-box-open-button {
+  float: right;
+}
+details.hcb-content.box.hcbnote > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbabstract > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbinfo > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbtip > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbsuccess > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbquestion > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbwarning > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbfailure > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbdanger > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbbug > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbexample > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbquote > summary > div.hcb-box-open-button > i {
+  margin: 0 0.6rem 0 0.6rem;
+  font-size: 0.7rem;
+  transition: transform 250ms
+}
+details.hcb-content.box.hcbnote:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbabstract:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbinfo:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbtip:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbsuccess:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquestion:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbwarning:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbfailure:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbdanger:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbbug:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbexample:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquote:not([open]) > summary > div.hcb-box-open-button i {
+  transform: rotate(270deg);
+}
+details.hcb-content.box.hcbnote[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbabstract[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbinfo[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbtip[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbsuccess[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquestion[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbwarning[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbfailure[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbdanger[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbbug[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbexample[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquote[open] > summary > div.hcb-box-open-button i {
+  transform: rotate(180deg);
+}
+details.hcb-content.box.hcbnote summary div.hcb-box-open-button i {
+  color: #9e9e9e;
+}
+details.hcb-content.box.hcbabstract summary div.hcb-box-open-button i {
+  color: #00b0ff;
+}
+details.hcb-content.box.hcbinfo summary div.hcb-box-open-button i {
+  color: #00b8d4;
+}
+details.hcb-content.box.hcbtip summary div.hcb-box-open-button i {
+  color: #00bfa5;
+}
+details.hcb-content.box.hcbsuccess summary div.hcb-box-open-button i {
+  color: #00c853;
+}
+details.hcb-content.box.hcbquestion summary div.hcb-box-open-button i {
+  color: #64dd17;
+}
+details.hcb-content.box.hcbwarning summary div.hcb-box-open-button i {
+  color: #ff9100;
+}
+details.hcb-content.box.hcbfailure summary div.hcb-box-open-button i {
+  color: #ff5252;
+}
+details.hcb-content.box.hcbdanger summary div.hcb-box-open-button i {
+  color: #ff1744;
+}
+details.hcb-content.box.hcbbug summary div.hcb-box-open-button i {
+  color: #f50057;
+}
+details.hcb-content.box.hcbexample summary div.hcb-box-open-button i {
+  color: #7c4dff;
+}
+details.hcb-content.box.hcbquote summary div.hcb-box-open-button i {
+  color: #9e9e9e;
+}
+div.hcb-content.hcb-cards * {
+  box-sizing: border-box;
+}
+input.hcb-content.hcb-cards-input {
+  display: none;
+}
+div.hcb-content.hcb-cards-labels {
+  position: relative;
+  box-shadow: 0 -0.05rem #00000012 inset;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+div.hcb-content.hcb-cards-labels:before {
+  background: var(--cards-color);
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: translateX(var(--md-indicator-x));
+  transition: width 225ms, transform 250ms;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  width: var(--md-indicator-width);
+}
+label.hcb-content.hcb-cards-label {
+  border-bottom: 0.1rem solid #0000;
+  border-radius: 0.1rem 0.1rem 0 0;
+  cursor: pointer;
+  color: #0000008a;
+  font-size: 0.92em;
+  font-weight: 700;
+  padding: 0 1.25rem 0.625rem;
+  transition: color 250ms;
+}
+label.hcb-content.hcb-cards-label.active, label.hcb-content.hcb-cards-label:hover {
+  color: var(--cards-color);
+}
+div.hcb-content.hcb-cards-content {
+  display: none;
+}
+div.hcb-content.hcb-cards-content.active {
+  display: block;
+}
+</style>
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="當我們在做資料處理時，除了新增與刪除資料外，另一項最常見的用途就是查詢資料。假設有一堆學生的資料，簡化假設，每個學生都有有學號與姓名。現在需要快速查出某個學號對應的學生姓名。做法有以下幾種：  陣列：可以用索引快速查找（但索引是整數，學號可能不是），但若用學號當所有會浪費空間，例如學號是 1023001 迴圈：假設資料存在陣列或其他資料結當中，用迴圈逐一匹配是否有對應的學號，但時間複雜度會是 $\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資料結構與演算法筆記 | 哈希表 (Hash Table)">
+<meta property="og:url" content="https://www.yueswater.com/dsa-hash-table/index.html">
+<meta property="og:site_name" content="岳氏礦泉水">
+<meta property="og:description" content="當我們在做資料處理時，除了新增與刪除資料外，另一項最常見的用途就是查詢資料。假設有一堆學生的資料，簡化假設，每個學生都有有學號與姓名。現在需要快速查出某個學號對應的學生姓名。做法有以下幾種：  陣列：可以用索引快速查找（但索引是整數，學號可能不是），但若用學號當所有會浪費空間，例如學號是 1023001 迴圈：假設資料存在陣列或其他資料結當中，用迴圈逐一匹配是否有對應的學號，但時間複雜度會是 $\">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-08-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-05T16:00:00.000Z">
+<meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="哈希表">
+<meta property="article:tag" content="哈希函數">
+<meta property="article:tag" content="哈希衝突">
+<meta property="article:tag" content="墓碑標記">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.yueswater.com/dsa-hash-table/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>資料結構與演算法筆記 | 哈希表 (Hash Table) | 岳氏礦泉水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">岳氏礦泉水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">泉源思緒，細品人生</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/dsa-hash-table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          資料結構與演算法筆記 | 哈希表 (Hash Table)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-08-06 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-06T00:00:00+08:00">2025-08-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">程式語言筆記</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/%E6%BC%94%E7%AE%97%E6%B3%95%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">演算法筆記</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/dsa-hash-table/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/dsa-hash-table/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>9k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>45 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>當我們在做資料處理時，除了新增與刪除資料外，另一項最常見的用途就是查詢資料。假設有一堆學生的資料，簡化假設，每個學生都有有學號與姓名。現在需要快速查出某個學號對應的學生姓名。做法有以下幾種：</p>
+<ul>
+<li><strong>陣列</strong>：可以用索引快速查找（但索引是整數，學號可能不是），但若用學號當所有會浪費空間，例如學號是 <code>1023001</code></li>
+<li><strong>迴圈</strong>：假設資料存在陣列或其他資料結當中，用迴圈逐一匹配是否有對應的學號，但時間複雜度會是 $\mathcal{O}(n)$，假設今天有數千名甚至數萬名筆資料，恐怕要查到天荒地老</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="哈希表的數學觀點"><a href="#哈希表的數學觀點" class="headerlink" title="哈希表的數學觀點"></a>哈希表的數學觀點</h2><p>為了解決這個問題，我們可以使用<strong>哈希表</strong>，其定義是根據鍵直接查詢在記憶體中儲存位置之值的資料結構。簡單來說，哈希表是一種使用<strong>鍵 (key)</strong> 查找<strong>值 (value)</strong> 的資料結構，底層通常是用陣列儲存資料，但用一種特殊的方式：<strong>哈希函數 (Hash function)</strong> 將鍵映射到陣列的索引。</p>
+<h3 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h3><p>在數學上，哈希表可以理解為一種從集合 $A$ <strong>映射 (maps)</strong> 到集合 $B$ 的函數結構。</p>
+<ul>
+<li>$K$：鍵集合 (key set)，例如學號、身分證號等</li>
+<li>$V$：值集合 (value set)，例如姓名、居住地等</li>
+<li>$T$：儲存資料的陣列，大小為 $m$，稱為哈希表的<strong>容量 (capacity)</strong></li>
+</ul>
+<p>因此哈希表 ($H$) 的結構可以表示為：</p>
+<p>$$<br>H:K \to V<br>$$</p>
+<h3 id="哈希函數"><a href="#哈希函數" class="headerlink" title="哈希函數"></a>哈希函數</h3><p>誠如上述所言，哈希表是一個實踐映射的資料結構，而這種映射就是哈希函數：</p>
+<p>$$<br>h: K \to {0, 1, 2, \cdots, m - 1}<br>$$</p>
+<p>也就是說，把任意的 key（可能是字串、元組、物件等）轉換成一個固定範圍的整數，這個整數就是哈希表中的<strong>索引值</strong>。假設我們有一個鍵是 <code>k=&quot;A123456789&quot;</code>，然後我們定義一個簡單的哈希函數：</p>
+<p>$$<br>h(k) &#x3D; \left(\sum_{i &#x3D; 1}^{n} \operatorname{ASCII}(k_{i})\right) \bmod m<br>$$</p>
+<p>這個意思是：</p>
+<ul>
+<li>把字串每個字元轉成 ASCII 值</li>
+<li>加總起來</li>
+<li>對表長 $m$ 取餘數</li>
+</ul>
+<p>這樣就保證會落在 $0$ 到 $m - 1$ 的範圍內。而一個好的哈希算法必須同時滿足以下數學與特性：</p>
+<ol>
+<li><strong>確定性 (determinism)</strong>：相同輸入鍵一定輸出相同哈希值，高度可重現</li>
+<li><strong>高效能 (computational efficiency)</strong>：算哈希成本要低，如 $\mathcal{O}(1)$ 操作級別，不能太慢</li>
+<li><strong>均勻分布 (uniform distribution)</strong>：哈希值的分布要平均，才能讓鍵均分配到各桶中，降低碰撞機率。</li>
+</ol>
+<p>這三者缺一不可，尤其關於哈希表性能，均勻分布至關重要。</p>
+<h3 id="哈希表資料存取行為"><a href="#哈希表資料存取行為" class="headerlink" title="哈希表資料存取行為"></a>哈希表資料存取行為</h3><p>插入操作，即是給定一對鍵值對 $(k, v)$，先計算索引 $i &#x3D; h(k)$，並在表格的第 $i$ 格儲存該資料 $v$：</p>
+<p>$$<br>T[h(k)] &#x3D; v<br>$$</p>
+<p>要查詢鍵值為 $k$ 的資料時，即是回傳 $T[h(k)]$。</p>
+<h3 id="哈希表範例"><a href="#哈希表範例" class="headerlink" title="哈希表範例"></a>哈希表範例</h3><p>例如下面我們初始化一個名為 <code>hmap</code>的字典，以數字作為鍵，對應到不同人物名稱，展現哈希表的基本操作：新增、查詢與刪除：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化哈希表</span></span><br><span class="line">hmap: <span class="built_in">dict</span> = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新增元素</span></span><br><span class="line">hmap[<span class="number">12836</span>] = <span class="string">&quot;喪彪&quot;</span></span><br><span class="line">hmap[<span class="number">15937</span>] = <span class="string">&quot;金髮&quot;</span></span><br><span class="line">hmap[<span class="number">16750</span>] = <span class="string">&quot;小美&quot;</span></span><br><span class="line">hmap[<span class="number">13276</span>] = <span class="string">&quot;小帥&quot;</span></span><br><span class="line">hmap[<span class="number">10583</span>] = <span class="string">&quot;大壯&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>查詢元素的語法為 <code>dict[key]</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查詢元素</span></span><br><span class="line">name: <span class="built_in">str</span> = hmap[<span class="number">12836</span>]</span><br><span class="line"><span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
+
+<p>刪除元素則是 <code>dict.pop(key)</code> ：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 刪除元素</span></span><br><span class="line">hmap.pop(<span class="number">15937</span>)</span><br></pre></td></tr></table></figure>
+
+<p>我們也可以使用迴圈來實作走訪：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 走訪鍵值對</span></span><br><span class="line"><span class="keyword">for</span> key, val <span class="keyword">in</span> hmap.items():</span><br><span class="line">    <span class="built_in">print</span>(key, <span class="string">&quot;-&gt;&quot;</span>, val)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 單獨走訪鍵</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> hmap.keys():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;key: <span class="subst">&#123;key&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 單獨走訪值</span></span><br><span class="line"><span class="keyword">for</span> val <span class="keyword">in</span> hmap.values():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;val: <span class="subst">&#123;val&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="哈希表實作"><a href="#哈希表實作" class="headerlink" title="哈希表實作"></a>哈希表實作</h2><p>Python 中的 <code>dict</code> 就是內建的哈希表實作，允許使用任意的<strong>可哈希 (hashable)</strong> 鍵來快速對應到一個值。因此我們需要先建立鍵值對的類，方便之後操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Pair</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, key: <span class="built_in">int</span>, val: <span class="built_in">str</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.key = key</span><br><span class="line">        <span class="variable language_">self</span>.val = val</span><br></pre></td></tr></table></figure>
+
+<p>為簡化設計，此處將哈希函數設定為鍵值對容量取餘，哈希函數透過 <code>key % 100</code> 將鍵映射到 100 個桶之一，並將鍵值對儲存在對應位置。查詢與刪除也透過相同哈希函數找對應索引。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ArrayHashMap</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.buckets: <span class="built_in">list</span>[Pair | <span class="literal">None</span>] = [<span class="literal">None</span>] * <span class="number">100</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_func</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        index = key % <span class="number">100</span></span><br><span class="line">        <span class="keyword">return</span> index</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, key: <span class="built_in">int</span>, val: <span class="built_in">str</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        pair = Pair(key, val)</span><br><span class="line">        index: <span class="built_in">int</span> = <span class="variable language_">self</span>.hash_func(key)</span><br><span class="line">        <span class="variable language_">self</span>.buckets[index] = pair</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        index: <span class="built_in">int</span> = <span class="variable language_">self</span>.hash_func(key)</span><br><span class="line">        <span class="variable language_">self</span>.buckets[index] = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        index: <span class="built_in">int</span> = <span class="variable language_">self</span>.hash_func(key)</span><br><span class="line">        pair: Pair = <span class="variable language_">self</span>.buckets[index]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> pair <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> pair.val</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">entry_set</span>(<span class="params">self</span>) -&gt; <span class="built_in">list</span>[Pair]:</span><br><span class="line">        result: <span class="built_in">list</span>[Pair] = []</span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> <span class="variable language_">self</span>.buckets:</span><br><span class="line">            <span class="keyword">if</span> pair <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                result.append(pair)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">key_set</span>(<span class="params">self</span>) -&gt; <span class="built_in">list</span>[<span class="built_in">int</span>]:</span><br><span class="line">        keys: <span class="built_in">list</span>[<span class="built_in">int</span>] = []</span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> <span class="variable language_">self</span>.buckets:</span><br><span class="line">            <span class="keyword">if</span> pair <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                keys.append(pair.key)</span><br><span class="line">        <span class="keyword">return</span> keys</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">val_set</span>(<span class="params">self</span>) -&gt; <span class="built_in">list</span>[<span class="built_in">int</span>]:</span><br><span class="line">        vals: <span class="built_in">list</span>[<span class="built_in">int</span>] = []</span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> <span class="variable language_">self</span>.buckets:</span><br><span class="line">            <span class="keyword">if</span> pair <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                vals.append(pair.val)</span><br><span class="line">        <span class="keyword">return</span> vals</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        entries = []</span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> <span class="variable language_">self</span>.buckets:</span><br><span class="line">            <span class="keyword">if</span> pair <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                entries.append(<span class="string">f&quot;<span class="subst">&#123;pair.key&#125;</span> -&gt; <span class="subst">&#123;pair.val&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;\n&quot;</span>.join(entries)</span><br></pre></td></tr></table></figure>
+
+<h3 id="練習題"><a href="#練習題" class="headerlink" title="練習題"></a>練習題</h3><div class="tabs" id="hash"><ul class="nav-tabs"><li class="tab active"><a href="#hash-1">兩數之和</a></li><li class="tab"><a href="#hash-2">字符串中的第一個唯一字符</a></li></ul><div class="tab-content"><div class="tab-pane active" id="hash-1"><p>給一個整數陣列 <code>nums</code> 和一個目標數 <code>target</code>，請你返回陣列中<strong>兩個數字的索引</strong>，使得它們的總和為 <code>target</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">輸入: nums = [2, 7, 11, 15], target = 9</span><br><span class="line">輸出: [0, 1]</span><br><span class="line">原因: nums[0] + nums[1] = 2 + 7 = 9</span><br></pre></td></tr></table></figure>
+<details>
+<summary>解答</summary>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums: <span class="built_in">list</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">list</span>[<span class="built_in">int</span>]:</span><br><span class="line">        seen_idx = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i, num <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            complement = target - num</span><br><span class="line">            <span class="keyword">if</span> complement <span class="keyword">in</span> seen_idx:</span><br><span class="line">                <span class="keyword">return</span> [seen_idx[complement], i]</span><br><span class="line">            seen_idx[num] = i</span><br></pre></td></tr></table></figure>
+</details>
+<br></div><div class="tab-pane" id="hash-2"><p>給一個字串 <code>s</code>，找出<strong>第一個只出現一次的字元</strong>，並回傳它的索引。如果不存在，就回傳 <code>-1</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">輸入: s = <span class="string">&quot;leetcode&quot;</span></span><br><span class="line">輸出: 0</span><br><span class="line"></span><br><span class="line">輸入: s = <span class="string">&quot;loveleetcode&quot;</span></span><br><span class="line">輸出: 2</span><br><span class="line"></span><br><span class="line">輸入: s = <span class="string">&quot;aabb&quot;</span></span><br><span class="line">輸出: -1</span><br></pre></td></tr></table></figure>
+<details>
+<summary>解答</summary>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">firstUniqChar</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        ch_freq = &#123;&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> ch <span class="keyword">in</span> s:</span><br><span class="line">            <span class="keyword">if</span> ch <span class="keyword">in</span> ch_freq:</span><br><span class="line">                ch_freq[ch] += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                ch_freq[ch] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">if</span> ch_freq[s[i]] == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure>
+</details>
+<br></div></div></div>
+
+<h2 id="哈希衝突-Hash-Collision"><a href="#哈希衝突-Hash-Collision" class="headerlink" title="哈希衝突 (Hash Collision)"></a>哈希衝突 (<strong>Hash Collision)</strong></h2><p>雖然：</p>
+<p>$$<br>h: K \to {0, 1, …, m-1}<br>$$</p>
+<p>但通常 $|K| \gg m$，即鍵的種類遠多於表格容量，按照<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E9%B4%BF%E5%B7%A2%E5%8E%9F%E7%90%86">鴿籠原理 (Pigeonhole Principle)</a>，必定會有兩個不同的 key 被映射到同一個位置：</p>
+<p>$$<br>\exists \ k_1 \ne k_2 \ni h(k_1) &#x3D; h(k_2)<br>$$</p>
+<p>這就稱為<strong>哈希衝突</strong>。因此，設計哈希表時，除了設計好的 $h(k)$，還要選好解衝突的方法。舉例來說，上面的例子限制表容量為 100 個，但如果查詢 12836 與 21636 時，經過哈希函數後（對 100 取餘），均會得到 36，此時會指向同一個輸出。為了解決此問題，我們可以會<a target="_blank" rel="noopener" href="https://www.hello-algo.com/chapter_hashing/hash_collision/">依照狀況</a>採取策略：</p>
+<ul>
+<li>改良哈希表的資料結構</li>
+<li>若衝突不斷發生，才會採用擴容</li>
+</ul>
+<h3 id="鏈式地址-Separate-Chaining"><a href="#鏈式地址-Separate-Chaining" class="headerlink" title="鏈式地址 (Separate Chaining)"></a>鏈式地址 (Separate Chaining)</h3><p>每個桶位不是放單一資料，而是放一個<strong>鏈結串列</strong>或<strong>陣列</strong>來儲存<strong>多個</strong> <code>Pair(key, val)</code>。當多個鍵對應到同一個索引時，它們會被加入這條鏈中，避免覆蓋掉原資料。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">buckets = [</span><br><span class="line">    [(<span class="number">1</span>, <span class="string">&quot;A&quot;</span>), (<span class="number">5</span>, <span class="string">&quot;B&quot;</span>)],   <span class="comment"># 1 % 4 = 1, 5 % 4 = 1</span></span><br><span class="line">    [],                     <span class="comment"># index 1</span></span><br><span class="line">    [],                     <span class="comment"># index 2</span></span><br><span class="line">    []                      <span class="comment"># index 3</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>操作流程為：</p>
+<ul>
+<li>插入時：把新資料加到對應桶位的串列裡（尾端或頭端）</li>
+<li>查找時：先找到桶，再逐一掃描串列</li>
+</ul>
+<div class="note info">
+            <h3 id="負載因子-Load-Factor"><a href="#負載因子-Load-Factor" class="headerlink" title=" 負載因子 (Load Factor)"></a><i class="fa-solid fa-circle-info"></i> 負載因子 (Load Factor)</h3><p>我們會使用<strong>負載因子 (load factor)</strong> 來衡量哈希表的擁擠程度，因此：</p><ul><li>若太大，代表許多 bucket 裡面堆太多資料，平均查找時間會退化</li><li>若太小，空間浪費</li></ul><p>在鏈式哈希表中，平均每個 bucket 長度為負載因子的大小，所以查找平均複雜度為 $\mathcal{O}(1 + \alpha)$，其中 $\alpha$ 為負載因子。</p>
+          </div>
+
+<p>為了方便理解，設：</p>
+<ul>
+<li><p>$n$：當前資料筆數</p>
+</li>
+<li><p>$M$：桶數量</p>
+</li>
+<li><p>$r$：擴容倍率</p>
+</li>
+<li><p>$\alpha$：負載因子，計算方式為：</p>
+<p>  $$<br>  \alpha &#x3D; \dfrac{n}{M}<br>  $$</p>
+</li>
+</ul>
+<p>因此我們可以設計為：當負載因子超過 $2&#x2F;3$ 時，就將原哈希表擴容為兩倍。當擴容後，負載因子會降低：</p>
+<p>$$<br>\alpha^{\prime} &#x3D; \dfrac{n}{2 M} &#x3D; \dfrac{1}{2} \times \dfrac{n}{M} &#x3D; \dfrac{\alpha}{2}<br>$$</p>
+<p>且注意到，擴容後必須<strong>重新哈希</strong>，因爲一旦哈希表容量變了，索引的分布也會跟著改變。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">HashMapChaining</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.size = <span class="number">0</span>                   <span class="comment"># 鍵值對數量</span></span><br><span class="line">        <span class="variable language_">self</span>.capacity = <span class="number">4</span>               <span class="comment"># 哈希表容量</span></span><br><span class="line">        <span class="variable language_">self</span>.load_thres = <span class="number">2.0</span> / <span class="number">3.0</span>     <span class="comment"># 負載因子閾值</span></span><br><span class="line">        <span class="variable language_">self</span>.extend_ratio = <span class="number">2</span>           <span class="comment"># 擴容倍數</span></span><br><span class="line">        <span class="variable language_">self</span>.buckets: <span class="built_in">list</span>[<span class="built_in">list</span>[Pair]] = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="variable language_">self</span>.capacity)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_func</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> key % <span class="variable language_">self</span>.capacity</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">load_factor</span>(<span class="params">self</span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.size / <span class="variable language_">self</span>.capacity</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, key: <span class="built_in">int</span>, val: <span class="built_in">str</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.load_factor() &gt; <span class="variable language_">self</span>.load_thres:</span><br><span class="line">            <span class="variable language_">self</span>.extend()</span><br><span class="line">        </span><br><span class="line">        index: <span class="built_in">int</span> = <span class="variable language_">self</span>.hash_func(key)</span><br><span class="line">        bucket = <span class="variable language_">self</span>.buckets[index]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> bucket:</span><br><span class="line">            <span class="keyword">if</span> pair.key == key:</span><br><span class="line">                pair.val = val</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        pair = Pair(key, val)</span><br><span class="line">        bucket.append(pair)</span><br><span class="line">        <span class="variable language_">self</span>.size += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        index: <span class="built_in">int</span> = <span class="variable language_">self</span>.hash_func(key)</span><br><span class="line">        bucket = <span class="variable language_">self</span>.buckets[index]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> bucket:</span><br><span class="line">            <span class="keyword">if</span> pair.key == key:</span><br><span class="line">                bucket.remove(pair)</span><br><span class="line">                <span class="variable language_">self</span>.size -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span> | <span class="literal">None</span>:</span><br><span class="line">        index: <span class="built_in">int</span> = <span class="variable language_">self</span>.hash_func(key)</span><br><span class="line">        bucket = <span class="variable language_">self</span>.buckets[index]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> bucket:</span><br><span class="line">            <span class="keyword">if</span> pair.key == key:</span><br><span class="line">                <span class="keyword">return</span> pair.val</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">extend</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="comment"># 暫存既有桶</span></span><br><span class="line">        buckets = <span class="variable language_">self</span>.buckets</span><br><span class="line">        <span class="comment"># 擴容</span></span><br><span class="line">        <span class="variable language_">self</span>.capacity *= <span class="variable language_">self</span>.extend_ratio</span><br><span class="line">        <span class="variable language_">self</span>.buckets = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="variable language_">self</span>.capacity)]</span><br><span class="line">        <span class="variable language_">self</span>.size = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 將既有桶放入新桶中</span></span><br><span class="line">        <span class="keyword">for</span> bucket <span class="keyword">in</span> buckets:</span><br><span class="line">            <span class="keyword">for</span> pair <span class="keyword">in</span> bucket:</span><br><span class="line">                <span class="variable language_">self</span>.put(pair.key, pair.val)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        entries = []</span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> <span class="variable language_">self</span>.buckets:</span><br><span class="line">            <span class="keyword">if</span> pair <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                entries.append(<span class="string">f&quot;<span class="subst">&#123;pair.key&#125;</span> -&gt; <span class="subst">&#123;pair.val&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;\n&quot;</span>.join(entries)</span><br></pre></td></tr></table></figure>
+
+<h3 id="開放定址-Open-Addressing"><a href="#開放定址-Open-Addressing" class="headerlink" title="開放定址 (Open Addressing)"></a>開放定址 (Open Addressing)</h3><p>開放定址的核心想法是：如果哈希衝突了，就去找下一個「空位」來放，整張表就像是停車場，車位排滿就往後找空位停。假設去全聯買完東西要停車，但原本想停的位置已經有人停了，那麼就往後找。對於每個鍵，計算方式如下：</p>
+<p>$$<br>h(k, i) &#x3D; g\left(h^{\prime}(k) + f(i)\right)<br>$$</p>
+<ul>
+<li>$h(k, i)$：第 $i$ 次嘗試的位置（實際使用的位置）</li>
+<li>$g$：哈希函數</li>
+<li>$h^{\prime}$：原始哈希值（例如 <code>key % m</code>）</li>
+<li>$f(i)$：探查函數（決定下一次探查往哪裡移動）</li>
+<li>$m$：表格容量</li>
+</ul>
+<p>常見的探查策略有三種：</p>
+<table>
+<thead>
+<tr>
+<th>探查策略</th>
+<th>探查公式</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>線性探查 (linear probing)</td>
+<td>$f(i)&#x3D;i$</td>
+<td>每次往後一格找</td>
+</tr>
+<tr>
+<td>二次探查 (quadratic probing)</td>
+<td>$f(i) &#x3D; i^2$</td>
+<td>跳著找、減少群聚</td>
+</tr>
+<tr>
+<td>雙重雜湊 (double hashing)</td>
+<td>$f(i) &#x3D; i \cdot h_2(k)$</td>
+<td>使用第二個 hash function</td>
+</tr>
+</tbody></table>
+<p>以線性探查為例，所有資料直接儲存在一維陣列中，插入時，如果計算出來的位置被佔用了（發生衝突），就用線性探查繼續往後找空位，查找與刪除時，也用同樣的探查方式來找到正確的位置。但如果今天直接把刪除的格子設為 <code>None</code>，會發生以下問題：</p>
+<ul>
+<li>查找時：如果你遇到 <code>None</code> 就會以為 key 不存在，<strong>提早終止線性探查</strong></li>
+<li>但實際上 key 可能被插在後面的桶</li>
+</ul>
+<p>假設 capacity 為 4，插入的鍵為：</p>
+<ul>
+<li><code>key=1</code> → <code>1 % 4 = 1</code> → 存在索引 <code>1</code></li>
+<li><code>key=5</code> → <code>5 % 4 = 1</code>（衝突）→ 線性探查到索引 <code>2</code>，插在該處</li>
+</ul>
+<p>如果你刪除了 <code>key=1</code>，然後查找 <code>key=5</code>，則會：</p>
+<ul>
+<li>索引 <code>1</code> 是 <code>None</code></li>
+<li>程式看到 <code>None</code> 就結束了 → 找不到 <code>key=5</code></li>
+</ul>
+<p>這就導致了<strong>錯誤的查找結果</strong>。為此，我們引入了<strong>墓碑標記 (tombstome)</strong>，用以表示「這裡曾經有資料，但現在刪除了，請繼續探查後面的格子」，它是為了保證<strong>查找與插入的正確性</strong>而設計的一種「中介狀態」，並且讓刪除後空出來的位置可以被<strong>再利用</strong>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">HashMapOpenAddrssing</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.size = <span class="number">0</span></span><br><span class="line">        <span class="variable language_">self</span>.capacity = <span class="number">4</span></span><br><span class="line">        <span class="variable language_">self</span>.load_thres = <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">        <span class="variable language_">self</span>.extend_ratio = <span class="number">2</span></span><br><span class="line">        <span class="variable language_">self</span>.buckets: <span class="built_in">list</span>[Pair | <span class="literal">None</span>] = [<span class="literal">None</span>] * <span class="variable language_">self</span>.capacity</span><br><span class="line">        <span class="variable language_">self</span>.TOMBSTONE = Pair(-<span class="number">1</span>, <span class="string">&quot;-1&quot;</span>)         <span class="comment"># 墓碑標記</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_func</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> key % <span class="variable language_">self</span>.capacity</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">load_factor</span>(<span class="params">self</span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.size / <span class="variable language_">self</span>.capacity</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">find_bucket</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        index = <span class="variable language_">self</span>.hash_func(key)</span><br><span class="line">        first_tombstone = -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="variable language_">self</span>.buckets[index] <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="variable language_">self</span>.buckets[index].key == key:</span><br><span class="line">                <span class="keyword">if</span> first_tombstone != -<span class="number">1</span>:</span><br><span class="line">                    <span class="variable language_">self</span>.buckets[first_tombstone] = <span class="variable language_">self</span>.buckets[index]</span><br><span class="line">                    <span class="variable language_">self</span>.buckets[index] = <span class="variable language_">self</span>.TOMBSTONE</span><br><span class="line">                    <span class="keyword">return</span> first_tombstone</span><br><span class="line">                <span class="keyword">return</span> index</span><br><span class="line">            <span class="keyword">if</span> first_tombstone == -<span class="number">1</span> <span class="keyword">and</span> <span class="variable language_">self</span>.buckets[index] <span class="keyword">is</span> <span class="variable language_">self</span>.TOMBSTONE:</span><br><span class="line">                first_tombstone = index</span><br><span class="line">            </span><br><span class="line">            index = (index + <span class="number">1</span>) % <span class="variable language_">self</span>.capacity</span><br><span class="line">        <span class="keyword">return</span> index <span class="keyword">if</span> first_tombstone == -<span class="number">1</span> <span class="keyword">else</span> first_tombstone</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">put</span>(<span class="params">self, key: <span class="built_in">int</span>, val: <span class="built_in">str</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.load_factor() &gt; <span class="variable language_">self</span>.load_thres:</span><br><span class="line">            <span class="variable language_">self</span>.extend()</span><br><span class="line">        </span><br><span class="line">        index: <span class="built_in">int</span> = <span class="variable language_">self</span>.find_bucket(key)</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.buckets[index] <span class="keyword">not</span> <span class="keyword">in</span> [<span class="literal">None</span>, <span class="variable language_">self</span>.TOMBSTONE]:</span><br><span class="line">            <span class="variable language_">self</span>.buckets[index].val = val</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="variable language_">self</span>.buckets[index] = Pair(key, val)</span><br><span class="line">        <span class="variable language_">self</span>.size += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        index: <span class="built_in">int</span> = <span class="variable language_">self</span>.find_bucket(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.buckets[index] <span class="keyword">not</span> <span class="keyword">in</span> [<span class="literal">None</span>, <span class="variable language_">self</span>.TOMBSTONE]:</span><br><span class="line">            <span class="variable language_">self</span>.buckets[index] = <span class="variable language_">self</span>.TOMBSTONE</span><br><span class="line">            <span class="variable language_">self</span>.size -= <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        index = <span class="variable language_">self</span>.find_bucket(key)</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.buckets[index] <span class="keyword">not</span> <span class="keyword">in</span> [<span class="literal">None</span>, <span class="variable language_">self</span>.TOMBSTONE]:</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">self</span>.buckets[index].val</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">extend</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        buckets = <span class="variable language_">self</span>.buckets</span><br><span class="line">        <span class="variable language_">self</span>.capacity *= <span class="variable language_">self</span>.extend_ratio</span><br><span class="line">        <span class="variable language_">self</span>.buckets = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="variable language_">self</span>.capacity)]</span><br><span class="line">        <span class="variable language_">self</span>.size = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> buckets:</span><br><span class="line">            <span class="keyword">if</span> pair <span class="keyword">not</span> <span class="keyword">in</span> [<span class="literal">None</span>, <span class="variable language_">self</span>.TOMBSTONE]:</span><br><span class="line">                <span class="variable language_">self</span>.put(pair.key, pair.val)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        entries = []</span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> <span class="variable language_">self</span>.buckets:</span><br><span class="line">            <span class="keyword">if</span> pair <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                entries.append(<span class="string">f&quot;<span class="subst">&#123;pair.key&#125;</span> -&gt; <span class="subst">&#123;pair.val&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;\n&quot;</span>.join(entries)</span><br></pre></td></tr></table></figure>
+
+<h3 id="鏈式地址與開放定址比較"><a href="#鏈式地址與開放定址比較" class="headerlink" title="鏈式地址與開放定址比較"></a>鏈式地址與開放定址比較</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>鏈式法</th>
+<th>開放定址法（線性探查）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>插入</td>
+<td>平均 $\mathcal{O}(1)$，最差 $\mathcal{O}(n)$</td>
+<td>平均 $\mathcal{O}(1)$，最差 $\mathcal{O}(n)$</td>
+</tr>
+<tr>
+<td>查找</td>
+<td>平均 $\mathcal{O}(1 + \alpha)$</td>
+<td>平均 $\mathcal{O}(1 + \alpha)$</td>
+</tr>
+<tr>
+<td>刪除</td>
+<td>較簡單（直接刪）</td>
+<td>較麻煩（需重排）</td>
+</tr>
+<tr>
+<td>擴容後重排</td>
+<td>每個鍵重哈希</td>
+<td>每個鍵重哈希</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag"><i class="fa fa-tag"></i> 哈希表</a>
+              <a href="/tags/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B8/" rel="tag"><i class="fa fa-tag"></i> 哈希函數</a>
+              <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%9D%E7%AA%81/" rel="tag"><i class="fa fa-tag"></i> 哈希衝突</a>
+              <a href="/tags/%E5%A2%93%E7%A2%91%E6%A8%99%E8%A8%98/" rel="tag"><i class="fa fa-tag"></i> 墓碑標記</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/flask-query/" rel="prev" title="Flask 筆記 | 查詢字串">
+      <i class="fa fa-chevron-left"></i> Flask 筆記 | 查詢字串
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E6%95%B8%E5%AD%B8%E8%A7%80%E9%BB%9E"><span class="nav-number">1.</span> <span class="nav-text">哈希表的數學觀點</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">哈希表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B8"><span class="nav-number">1.2.</span> <span class="nav-text">哈希函數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8%E8%B3%87%E6%96%99%E5%AD%98%E5%8F%96%E8%A1%8C%E7%82%BA"><span class="nav-number">1.3.</span> <span class="nav-text">哈希表資料存取行為</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8%E7%AF%84%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">哈希表範例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AF%A6%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">哈希表實作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B7%B4%E7%BF%92%E9%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">練習題</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%9D%E7%AA%81-Hash-Collision"><span class="nav-number">3.</span> <span class="nav-text">哈希衝突 (Hash Collision)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%8F%88%E5%BC%8F%E5%9C%B0%E5%9D%80-Separate-Chaining"><span class="nav-number">3.1.</span> <span class="nav-text">鏈式地址 (Separate Chaining)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B2%A0%E8%BC%89%E5%9B%A0%E5%AD%90-Load-Factor"><span class="nav-number">3.2.</span> <span class="nav-text"> 負載因子 (Load Factor)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%8B%E6%94%BE%E5%AE%9A%E5%9D%80-Open-Addressing"><span class="nav-number">3.3.</span> <span class="nav-text">開放定址 (Open Addressing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%8F%88%E5%BC%8F%E5%9C%B0%E5%9D%80%E8%88%87%E9%96%8B%E6%94%BE%E5%AE%9A%E5%9D%80%E6%AF%94%E8%BC%83"><span class="nav-number">3.4.</span> <span class="nav-text">鏈式地址與開放定址比較</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Anthony Sung"
+      src="/images/profile.svg">
+  <p class="site-author-name" itemprop="name">Anthony Sung</p>
+  <div class="site-description" itemprop="description">對生活抱持好奇心的學習者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaolong70701" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaolong70701" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sungpinyue@gmail.com" title="E-Mail → mailto:sungpinyue@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yueswater/" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yueswater&#x2F;" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/yues_19_water/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;yues_19_water&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">&copy; Anthony 部落格原站：<a href="https://xiaolong70701.github.io/blog/" target="_blank">Yueswater Blog</a>；若要轉載文章，麻煩請保留原作者名稱與原始連結。
+</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌙',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yueswater.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/dsa-hash-table/";
+    this.page.identifier = "/dsa-hash-table/";
+    this.page.title = "資料結構與演算法筆記 | 哈希表 (Hash Table)";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+<script src="/js/injector.js"></script>
+</body>
+</html>
