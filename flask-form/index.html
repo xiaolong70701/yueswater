@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4306040064090497"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <style type="text/css">
+
+div.hcb-content.hcb-block.hcbnote, details.hcb-content.box.hcbnote,div.hcb-content.hcb-block.hcbabstract, details.hcb-content.box.hcbabstract,div.hcb-content.hcb-block.hcbinfo, details.hcb-content.box.hcbinfo,div.hcb-content.hcb-block.hcbtip, details.hcb-content.box.hcbtip,div.hcb-content.hcb-block.hcbsuccess, details.hcb-content.box.hcbsuccess,div.hcb-content.hcb-block.hcbquestion, details.hcb-content.box.hcbquestion,div.hcb-content.hcb-block.hcbwarning, details.hcb-content.box.hcbwarning,div.hcb-content.hcb-block.hcbfailure, details.hcb-content.box.hcbfailure,div.hcb-content.hcb-block.hcbdanger, details.hcb-content.box.hcbdanger,div.hcb-content.hcb-block.hcbbug, details.hcb-content.box.hcbbug,div.hcb-content.hcb-block.hcbexample, details.hcb-content.box.hcbexample,div.hcb-content.hcb-block.hcbquote, details.hcb-content.box.hcbquote {
+  border: .05rem solid #448aff;
+  border-radius: .2rem;
+  font-size: 0.96rem;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  transition: box-shadow 250ms;
+}
+div.hcb-content.hcb-block.hcbnote, details.hcb-content.box.hcbnote {
+  border-color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbabstract, details.hcb-content.box.hcbabstract {
+  border-color: #00b0ff;
+}
+div.hcb-content.hcb-block.hcbinfo, details.hcb-content.box.hcbinfo {
+  border-color: #00b8d4;
+}
+div.hcb-content.hcb-block.hcbtip, details.hcb-content.box.hcbtip {
+  border-color: #00bfa5;
+}
+div.hcb-content.hcb-block.hcbsuccess, details.hcb-content.box.hcbsuccess {
+  border-color: #00c853;
+}
+div.hcb-content.hcb-block.hcbquestion, details.hcb-content.box.hcbquestion {
+  border-color: #64dd17;
+}
+div.hcb-content.hcb-block.hcbwarning, details.hcb-content.box.hcbwarning {
+  border-color: #ff9100;
+}
+div.hcb-content.hcb-block.hcbfailure, details.hcb-content.box.hcbfailure {
+  border-color: #ff5252;
+}
+div.hcb-content.hcb-block.hcbdanger, details.hcb-content.box.hcbdanger {
+  border-color: #ff1744;
+}
+div.hcb-content.hcb-block.hcbbug, details.hcb-content.box.hcbbug {
+  border-color: #f50057;
+}
+div.hcb-content.hcb-block.hcbexample, details.hcb-content.box.hcbexample {
+  border-color: #7c4dff;
+}
+div.hcb-content.hcb-block.hcbquote, details.hcb-content.box.hcbquote {
+  border-color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbnote:focus-within, details.hcb-content.box.hcbnote:focus-within {
+  box-shadow: 0 0 0 .2rem #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbabstract:focus-within, details.hcb-content.box.hcbabstract:focus-within {
+  box-shadow: 0 0 0 .2rem #00b0ff1a;
+}
+div.hcb-content.hcb-block.hcbinfo:focus-within, details.hcb-content.box.hcbinfo:focus-within {
+  box-shadow: 0 0 0 .2rem #00b8d41a;
+}
+div.hcb-content.hcb-block.hcbtip:focus-within, details.hcb-content.box.hcbtip:focus-within {
+  box-shadow: 0 0 0 .2rem #00bfa51a;
+}
+div.hcb-content.hcb-block.hcbsuccess:focus-within, details.hcb-content.box.hcbsuccess:focus-within {
+  box-shadow: 0 0 0 .2rem #00c8531a;
+}
+div.hcb-content.hcb-block.hcbquestion:focus-within, details.hcb-content.box.hcbquestion:focus-within {
+  box-shadow: 0 0 0 .2rem #64dd171a;
+}
+div.hcb-content.hcb-block.hcbwarning:focus-within, details.hcb-content.box.hcbwarning:focus-within {
+  box-shadow: 0 0 0 .2rem #ff91001a;
+}
+div.hcb-content.hcb-block.hcbfailure:focus-within, details.hcb-content.box.hcbfailure:focus-within {
+  box-shadow: 0 0 0 .2rem #ff52521a;
+}
+div.hcb-content.hcb-block.hcbdanger:focus-within, details.hcb-content.box.hcbdanger:focus-within {
+  box-shadow: 0 0 0 .2rem #ff17441a;
+}
+div.hcb-content.hcb-block.hcbbug:focus-within, details.hcb-content.box.hcbbug:focus-within {
+  box-shadow: 0 0 0 .2rem #f500571a;
+}
+div.hcb-content.hcb-block.hcbexample:focus-within, details.hcb-content.box.hcbexample:focus-within {
+  box-shadow: 0 0 0 .2rem #7c4dff1a;
+}
+div.hcb-content.hcb-block.hcbquote:focus-within, details.hcb-content.box.hcbquote:focus-within {
+  box-shadow: 0 0 0 .2rem #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbnote *, details.hcb-content.box.hcbnote *,div.hcb-content.hcb-block.hcbabstract *, details.hcb-content.box.hcbabstract *,div.hcb-content.hcb-block.hcbinfo *, details.hcb-content.box.hcbinfo *,div.hcb-content.hcb-block.hcbtip *, details.hcb-content.box.hcbtip *,div.hcb-content.hcb-block.hcbsuccess *, details.hcb-content.box.hcbsuccess *,div.hcb-content.hcb-block.hcbquestion *, details.hcb-content.box.hcbquestion *,div.hcb-content.hcb-block.hcbwarning *, details.hcb-content.box.hcbwarning *,div.hcb-content.hcb-block.hcbfailure *, details.hcb-content.box.hcbfailure *,div.hcb-content.hcb-block.hcbdanger *, details.hcb-content.box.hcbdanger *,div.hcb-content.hcb-block.hcbbug *, details.hcb-content.box.hcbbug *,div.hcb-content.hcb-block.hcbexample *, details.hcb-content.box.hcbexample *,div.hcb-content.hcb-block.hcbquote *, details.hcb-content.box.hcbquote * {
+  box-sizing: border-box;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbnote > summary,div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbabstract > summary,div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbinfo > summary,div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbtip > summary,div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbsuccess > summary,div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquestion > summary,div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbwarning > summary,div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbfailure > summary,div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbdanger > summary,div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbbug > summary,div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbexample > summary,div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquote > summary {
+  border-top-right-radius: 0.1rem;
+  border-top-left-radius: 0.1rem;
+  border-left-width: 0.2rem;
+  display: block;
+  min-height: 1rem;
+  border: none;
+  font-weight: 700;
+  margin: 0 -1.2rem 1rem;
+  padding: 0.4rem 0.6rem;
+  position: relative;
+  outline: none;
+}
+details.hcb-content.box.hcbnote > summary,details.hcb-content.box.hcbabstract > summary,details.hcb-content.box.hcbinfo > summary,details.hcb-content.box.hcbtip > summary,details.hcb-content.box.hcbsuccess > summary,details.hcb-content.box.hcbquestion > summary,details.hcb-content.box.hcbwarning > summary,details.hcb-content.box.hcbfailure > summary,details.hcb-content.box.hcbdanger > summary,details.hcb-content.box.hcbbug > summary,details.hcb-content.box.hcbexample > summary,details.hcb-content.box.hcbquote > summary {
+  cursor: pointer;
+}
+details.hcb-content.box.hcbnote:not([open]) > summary,details.hcb-content.box.hcbabstract:not([open]) > summary,details.hcb-content.box.hcbinfo:not([open]) > summary,details.hcb-content.box.hcbtip:not([open]) > summary,details.hcb-content.box.hcbsuccess:not([open]) > summary,details.hcb-content.box.hcbquestion:not([open]) > summary,details.hcb-content.box.hcbwarning:not([open]) > summary,details.hcb-content.box.hcbfailure:not([open]) > summary,details.hcb-content.box.hcbdanger:not([open]) > summary,details.hcb-content.box.hcbbug:not([open]) > summary,details.hcb-content.box.hcbexample:not([open]) > summary,details.hcb-content.box.hcbquote:not([open]) > summary {
+  margin-bottom: 0;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbnote > summary {
+  background-color: #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbabstract > summary {
+  background-color: #00b0ff1a;
+}
+div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbinfo > summary {
+  background-color: #00b8d41a;
+}
+div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbtip > summary {
+  background-color: #00bfa51a;
+}
+div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbsuccess > summary {
+  background-color: #00c8531a;
+}
+div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquestion > summary {
+  background-color: #64dd171a;
+}
+div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbwarning > summary {
+  background-color: #ff91001a;
+}
+div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbfailure > summary {
+  background-color: #ff52521a;
+}
+div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbdanger > summary {
+  background-color: #ff17441a;
+}
+div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbbug > summary {
+  background-color: #f500571a;
+}
+div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbexample > summary {
+  background-color: #7c4dff1a;
+}
+div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title, details.hcb-content.box.hcbquote > summary {
+  background-color: #9e9e9e1a;
+}
+div.hcb-content.hcb-block.hcbnote > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbnote > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #9e9e9e;
+}
+div.hcb-content.hcb-block.hcbabstract > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbabstract > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00b0ff;
+}
+div.hcb-content.hcb-block.hcbinfo > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbinfo > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00b8d4;
+}
+div.hcb-content.hcb-block.hcbtip > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbtip > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00bfa5;
+}
+div.hcb-content.hcb-block.hcbsuccess > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbsuccess > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #00c853;
+}
+div.hcb-content.hcb-block.hcbquestion > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbquestion > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #64dd17;
+}
+div.hcb-content.hcb-block.hcbwarning > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbwarning > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff9100;
+}
+div.hcb-content.hcb-block.hcbfailure > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbfailure > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff5252;
+}
+div.hcb-content.hcb-block.hcbdanger > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbdanger > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #ff1744;
+}
+div.hcb-content.hcb-block.hcbbug > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbbug > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #f50057;
+}
+div.hcb-content.hcb-block.hcbexample > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbexample > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #7c4dff;
+}
+div.hcb-content.hcb-block.hcbquote > p.hcb-content.hcb-block-title > i, details.hcb-content.box.hcbquote > summary > i {
+  margin: 0 0.6rem 0 0.6rem;
+  color: #9e9e9e;
+}
+details.hcb-content.box.hcbnote > summary > div.hcb-box-open-button,details.hcb-content.box.hcbabstract > summary > div.hcb-box-open-button,details.hcb-content.box.hcbinfo > summary > div.hcb-box-open-button,details.hcb-content.box.hcbtip > summary > div.hcb-box-open-button,details.hcb-content.box.hcbsuccess > summary > div.hcb-box-open-button,details.hcb-content.box.hcbquestion > summary > div.hcb-box-open-button,details.hcb-content.box.hcbwarning > summary > div.hcb-box-open-button,details.hcb-content.box.hcbfailure > summary > div.hcb-box-open-button,details.hcb-content.box.hcbdanger > summary > div.hcb-box-open-button,details.hcb-content.box.hcbbug > summary > div.hcb-box-open-button,details.hcb-content.box.hcbexample > summary > div.hcb-box-open-button,details.hcb-content.box.hcbquote > summary > div.hcb-box-open-button {
+  float: right;
+}
+details.hcb-content.box.hcbnote > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbabstract > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbinfo > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbtip > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbsuccess > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbquestion > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbwarning > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbfailure > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbdanger > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbbug > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbexample > summary > div.hcb-box-open-button > i,details.hcb-content.box.hcbquote > summary > div.hcb-box-open-button > i {
+  margin: 0 0.6rem 0 0.6rem;
+  font-size: 0.7rem;
+  transition: transform 250ms
+}
+details.hcb-content.box.hcbnote:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbabstract:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbinfo:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbtip:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbsuccess:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquestion:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbwarning:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbfailure:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbdanger:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbbug:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbexample:not([open]) > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquote:not([open]) > summary > div.hcb-box-open-button i {
+  transform: rotate(270deg);
+}
+details.hcb-content.box.hcbnote[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbabstract[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbinfo[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbtip[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbsuccess[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquestion[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbwarning[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbfailure[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbdanger[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbbug[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbexample[open] > summary > div.hcb-box-open-button i,details.hcb-content.box.hcbquote[open] > summary > div.hcb-box-open-button i {
+  transform: rotate(180deg);
+}
+details.hcb-content.box.hcbnote summary div.hcb-box-open-button i {
+  color: #9e9e9e;
+}
+details.hcb-content.box.hcbabstract summary div.hcb-box-open-button i {
+  color: #00b0ff;
+}
+details.hcb-content.box.hcbinfo summary div.hcb-box-open-button i {
+  color: #00b8d4;
+}
+details.hcb-content.box.hcbtip summary div.hcb-box-open-button i {
+  color: #00bfa5;
+}
+details.hcb-content.box.hcbsuccess summary div.hcb-box-open-button i {
+  color: #00c853;
+}
+details.hcb-content.box.hcbquestion summary div.hcb-box-open-button i {
+  color: #64dd17;
+}
+details.hcb-content.box.hcbwarning summary div.hcb-box-open-button i {
+  color: #ff9100;
+}
+details.hcb-content.box.hcbfailure summary div.hcb-box-open-button i {
+  color: #ff5252;
+}
+details.hcb-content.box.hcbdanger summary div.hcb-box-open-button i {
+  color: #ff1744;
+}
+details.hcb-content.box.hcbbug summary div.hcb-box-open-button i {
+  color: #f50057;
+}
+details.hcb-content.box.hcbexample summary div.hcb-box-open-button i {
+  color: #7c4dff;
+}
+details.hcb-content.box.hcbquote summary div.hcb-box-open-button i {
+  color: #9e9e9e;
+}
+div.hcb-content.hcb-cards * {
+  box-sizing: border-box;
+}
+input.hcb-content.hcb-cards-input {
+  display: none;
+}
+div.hcb-content.hcb-cards-labels {
+  position: relative;
+  box-shadow: 0 -0.05rem #00000012 inset;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+div.hcb-content.hcb-cards-labels:before {
+  background: var(--cards-color);
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: translateX(var(--md-indicator-x));
+  transition: width 225ms, transform 250ms;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  width: var(--md-indicator-width);
+}
+label.hcb-content.hcb-cards-label {
+  border-bottom: 0.1rem solid #0000;
+  border-radius: 0.1rem 0.1rem 0 0;
+  cursor: pointer;
+  color: #0000008a;
+  font-size: 0.92em;
+  font-weight: 700;
+  padding: 0 1.25rem 0.625rem;
+  transition: color 250ms;
+}
+label.hcb-content.hcb-cards-label.active, label.hcb-content.hcb-cards-label:hover {
+  color: var(--cards-color);
+}
+div.hcb-content.hcb-cards-content {
+  display: none;
+}
+div.hcb-content.hcb-cards-content.active {
+  display: block;
+}
+</style>
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在網頁或是 App 中，如果我們希望使用者輸入某些資料，例如登入帳號、搜尋關鍵字、發送留言等，就需要一個表單 (form) 來收集這些資料。HTML 中的 &lt;form&gt; 標籤就是專門用來建立表單的容器，裡面可以放輸入框、下拉選單、按鈕等元素。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask 筆記 | 表單">
+<meta property="og:url" content="https://www.yueswater.com/flask-form/index.html">
+<meta property="og:site_name" content="岳氏礦泉水">
+<meta property="og:description" content="在網頁或是 App 中，如果我們希望使用者輸入某些資料，例如登入帳號、搜尋關鍵字、發送留言等，就需要一個表單 (form) 來收集這些資料。HTML 中的 &lt;form&gt; 標籤就是專門用來建立表單的容器，裡面可以放輸入框、下拉選單、按鈕等元素。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-demo.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-demo-success.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-demo-name.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-demo-name-success.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-demo-name-variable.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-squared.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-squared-result.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-squared-result.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-login.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/form-login-insecure.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/wtf-login.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/wtf-login-success.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/upload.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/upload-wtf.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/form/upload-wtf-invalid.png">
+<meta property="article:published_time" content="2025-08-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-09T16:00:00.000Z">
+<meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="flask">
+<meta property="article:tag" content="表單">
+<meta property="article:tag" content="WTForms">
+<meta property="article:tag" content="Flask-WTF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yueswater.com/images/flask-learning/form/form-demo.png">
+
+<link rel="canonical" href="https://www.yueswater.com/flask-form/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Flask 筆記 | 表單 | 岳氏礦泉水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">岳氏礦泉水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">泉源思緒，細品人生</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>網站地圖</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/flask-form/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flask 筆記 | 表單
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-08-09 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-09T00:00:00+08:00">2025-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2025-08-10 00:00:00" itemprop="dateModified" datetime="2025-08-10T00:00:00+08:00">2025-08-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">程式語言筆記</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/flask-form/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/flask-form/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1:06</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在網頁或是 App 中，如果我們希望使用者輸入某些資料，例如登入帳號、搜尋關鍵字、發送留言等，就需要一個<strong>表單 (form)</strong> 來收集這些資料。HTML 中的 <code>&lt;form&gt;</code> 標籤就是專門用來建立表單的容器，裡面可以放輸入框、下拉選單、按鈕等元素。</p>
+<span id="more"></span>
+
+<h2 id="基礎處理：GET-方法"><a href="#基礎處理：GET-方法" class="headerlink" title="基礎處理：GET 方法"></a>基礎處理：GET 方法</h2><p>表單的結構必須包含表單容器（用 <code>&lt;form&gt;</code> 包住）以及輸入欄位與送出按鈕。一個最簡單的表單結構為：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/目標路由&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>按鈕文字<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="簡易表單"><a href="#簡易表單" class="headerlink" title="簡易表單"></a>簡易表單</h3><p>延伸之前的根頁面，我們在裡面新增表單：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/show&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>點擊送出表單<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接著在主程式建立路由：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/show&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;成功送出表單&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>執行程式後打開頁面，即可看到表單裡面的按鈕：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-demo.png" alt="表單頁面">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：表單頁面範例</p>
+</div>
+
+<p>按下按鈕後，就會跳轉到 <code>/show</code> 路徑，並且<strong>帶上查詢字串</strong>：<code>http://127.0.0.1:5000/show?</code>，只是此時尚未設定變數，因此查詢字串為空。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-demo-success.png" alt="表單送出結果">
+  <p style="font-size: 0.8em; color: #999999;">圖 2：表單送出結果</p>
+</div>
+
+<p>可以觀察一下後端的狀況，當點擊按鈕後，前端會發送一個 GET 請求，並且成功打到 <code>/show</code> 這個路徑：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> * Running on http://127.0.0.1:5000</span><br><span class="line">INFO:werkzeug:Press CTRL+C to quit</span><br><span class="line">INFO:werkzeug:127.0.0.1 - - [09/Aug/2025 12:01:32] <span class="string">&quot;GET / HTTP/1.1&quot;</span> 200 -</span><br><span class="line">INFO:werkzeug:127.0.0.1 - - [09/Aug/2025 12:02:10] <span class="string">&quot;GET /show HTTP/1.1&quot;</span> 200 -</span><br></pre></td></tr></table></figure>
+
+<h3 id="帶參數的表單"><a href="#帶參數的表單" class="headerlink" title="帶參數的表單"></a>帶參數的表單</h3><p>正如上面提到的，按下送出按鈕後，前端會帶著表單打到目標路徑。因此我們這時後可以設定輸入區，一個以 <code>input</code> 標籤包住的區域，並指定變數名稱為何。輸入區的基本語法為：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;變數名稱&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>type</code>：欄位類型（常見有 <code>text</code>、<code>password</code>、<code>number</code> 等）</li>
+<li><code>name</code>：送出時的參數名稱</li>
+<li><code>value</code>：欄位預設值</li>
+</ul>
+<p>例如我們可以設定輸入姓名欄位：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">姓名 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>打開網站後，即可看到文字與輸入區：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-demo-name.png" alt="表單輸入區範例">
+  <p style="font-size: 0.8em; color: #999999;">圖 3：表單輸入區範例</p>
+</div>
+
+<p>輸入 <code>Anthony</code> 後，點擊按鈕觀察到網址的變化，可以發現此時它成功帶著參數 <code>name</code> 過去，網址變成 <code>http://127.0.0.1:5000/show?name=Anthony</code>。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-demo-name-success.png" alt="表單輸入區送出結果">
+  <p style="font-size: 0.8em; color: #999999;">圖 4：表單輸入區送出結果</p>
+</div>
+
+<p>當然我們可以對傳入的參數進行一些操作，例如在點擊後，在成功訊息後面加上姓名：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/show&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show</span>():</span><br><span class="line">    name = request.args.get(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;成功送出表單，&quot;</span> + name</span><br></pre></td></tr></table></figure>
+
+<p>執行後即可成功看到結果：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-demo-name-variable.png" alt="表單輸入區變數">
+  <p style="font-size: 0.8em; color: #999999;">圖 5：表單輸入區變數</p>
+</div>
+
+<p>另一個範例是允許使用者輸入數字，由後端計算平方後回傳至前端。首先我們需要建立一個表單：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/getSquared&quot;</span>&gt;</span></span><br><span class="line">    數字 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;number&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>計算平方<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接著設定對應的路由 <code>/getSquared</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/getSquared&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getSquared</span>():</span><br><span class="line">    number = <span class="built_in">int</span>(request.args.get(<span class="string">&quot;number&quot;</span>, <span class="string">&quot;&quot;</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;<span class="subst">&#123;number&#125;</span> 的平方為 <span class="subst">&#123;number ** <span class="number">2</span>&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>執行後即可看到數字的輸入區：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-squared.png" alt="平方數字範例">
+  <p style="font-size: 0.8em; color: #999999;">圖 6：平方數字範例</p>
+</div>
+
+<p>輸入 <code>15</code> 後便可看到結果為 <code>225</code>。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-squared-result.png" alt="平方數字結果">
+  <p style="font-size: 0.8em; color: #999999;">圖 7：平方數字結果</p>
+</div>
+
+<h3 id="使用渲染樣板"><a href="#使用渲染樣板" class="headerlink" title="使用渲染樣板"></a>使用渲染樣板</h3><p>由於表單會帶參數至後端的特性，我們也可以善用此特點，將表單傳入樣板中。將上面計算平方邏輯修改一下，回傳至 <code>show.html</code> 這份樣板中，並帶入變數 <code>result</code>，為使用者輸入數字之平方：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/getSquared&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getSquared</span>():</span><br><span class="line">    number = <span class="built_in">int</span>(request.args.get(<span class="string">&quot;number&quot;</span>, <span class="string">&quot;&quot;</span>))</span><br><span class="line">    result = number ** <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;show.html&quot;</span>, result=result)</span><br></pre></td></tr></table></figure>
+
+<p>然後建立 <code>show.html</code> 樣板，並用兩層 <code>&#123;&#125;</code> 包住變數：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>平方結果<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>計算結果為<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; result &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>執行程式、輸入文字並按下送出後，可以看到此時會顯示 <code>show.html</code> 樣板的文字，而非單純的字串：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-squared-result.png" alt="平方數字使用渲染樣板">
+  <p style="font-size: 0.8em; color: #999999;">圖 8：平方數字使用渲染樣板</p>
+</div>
+
+<h2 id="基礎處理：POST-方法"><a href="#基礎處理：POST-方法" class="headerlink" title="基礎處理：POST 方法"></a>基礎處理：POST 方法</h2><p>前面的處理都是預設表單為 GET 方法，因此使用 <code>request.args.get()</code> 從網址的查詢字串取得參數。如果我們改用 <strong>POST 方法</strong>送出表單，資料就不會出現在網址中，而是放在 HTTP 請求的<strong>主體 (body)</strong>，這時後端就要改用 <code>request.form</code> 來讀取。</p>
+<table>
+<thead>
+<tr>
+<th>取得方法</th>
+<th>適用情況</th>
+<th>資料來源位置</th>
+<th>資料會不會出現在網址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>request.args</code></td>
+<td>GET</td>
+<td>URL 的查詢字串（<code>?</code> 後面）</td>
+<td>會</td>
+</tr>
+<tr>
+<td><code>request.form</code></td>
+<td>POST</td>
+<td>HTTP 主體</td>
+<td>不會</td>
+</tr>
+</tbody></table>
+<p>至於為何我們那麼在意資料是否會出現在網址中，用以下的範例便可知一二。假設我們有一個登入頁面 <code>login.html</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>登入頁面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login&quot;</span>&gt;</span></span><br><span class="line">        帳號 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        密碼 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>登入<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在主程式中直接使用 <code>request.args</code> 取得資料：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/login&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">login</span>():</span><br><span class="line">    username = request.args.get(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">    password = request.args.get(<span class="string">&quot;password&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;login.html&quot;</span>, username=username, password=password)</span><br></pre></td></tr></table></figure>
+
+<p>開啟頁面後即可看到登入畫面</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-login.png" alt="登入頁面">
+  <p style="font-size: 0.8em; color: #999999;">圖 9：登入頁面</p>
+</div>
+
+<p>但是當我們輸入帳號密碼並按下登入按鈕後，可怕的事情發生了：帳密出現在網址！</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/form-login-insecure.png" alt="登入頁面含有隱私資訊">
+  <p style="font-size: 0.8em; color: #999999;">圖 10：登入頁面含有隱私資訊</p>
+</div>
+
+<p>因此如同前面所說的，<code>request.args</code> 的資料會出現在網址，密碼等敏感資訊會被記錄在瀏覽器歷史與伺服器日誌中，非常不安全。所以我們需要使用 <code>request.form</code> 來處理這類需要隱藏敏感資訊的問題。使用方法其實很簡單，只要將 <code>login.html</code> 裡面表單的請求方法改為 POST：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">    帳號 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    密碼 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>登入<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>後端加上允許 POST 請求方法<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="預設是 GET 方法。">[1]</span></a></sup>，並判斷請求方法是否為 POST，最後重新導向至首頁：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/login&quot;</span>, methods=[<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;POST&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">login</span>():</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        username = request.form.get(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">        password = request.form.get(<span class="string">&quot;password&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">        logging.debug(<span class="string">f&quot;帳號: <span class="subst">&#123;username&#125;</span>，密碼: <span class="subst">&#123;password&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&quot;/&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>此時重新輸入帳號密碼，按下送出後，在後端可以看到確實接收到帳號密碼，且請求方法為 POST：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> * Running on http://127.0.0.1:5000</span><br><span class="line">INFO:werkzeug:Press CTRL+C to quit</span><br><span class="line">DEBUG:root:帳號: anthony，密碼: abc123</span><br><span class="line">INFO:werkzeug:127.0.0.1 - - [09/Aug/2025 13:56:01] <span class="string">&quot;POST /login HTTP/1.1&quot;</span> 302 -</span><br><span class="line">INFO:werkzeug:127.0.0.1 - - [09/Aug/2025 13:56:01] <span class="string">&quot;GET / HTTP/1.1&quot;</span> 200 -</span><br></pre></td></tr></table></figure>
+
+<h2 id="表單驗證"><a href="#表單驗證" class="headerlink" title="表單驗證"></a>表單驗證</h2><p>如果我們每支路由都自己 <code>request.form.get()</code>、自己檢查必填、長度、格式，久了程式碼會變得很亂。WTForms 就是為了這件事生的：它讓你用 Python 類別定義表單，每個欄位是欄位物件，驗證是驗證器，送出時幫你<strong>綁定資料 + 驗證 + 提供錯誤訊息</strong>；Flask‑WTF 則是把 WTForms 跟 Flask 牽起來的擴充套件，讓它變得更好用。</p>
+<h3 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h3><p>在開始前我們需要安裝 <code>flaks-wtf</code> 以及 <code>wtforms</code>。如果使用 <code>pip</code>，可以使用以下方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-wtf wtforms</span><br></pre></td></tr></table></figure>
+
+<p>如果用 Poetry 之類的專案管理，則使用以下方式安裝：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">poetry add flask-wtf wtforms</span><br></pre></td></tr></table></figure>
+
+<p>安裝完畢後，要在 <code>app.py</code> 中加上以下這行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.config[<span class="string">&quot;SECRET_KEY&quot;</span>] = <span class="string">&quot;dev-secret-change-me&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>目的是設定 Flask 應用的<strong>祕密金鑰 (secret key)</strong>，Flask 內部多個機制都要靠它來簽名資料，避免被竄改。</p>
+<h3 id="WTForms"><a href="#WTForms" class="headerlink" title="WTForms"></a>WTForms</h3><p>正如前面所言，WTForms 的本質與 Flask 無直接關聯，但是正是因為其核心設計理念，大大解決了複雜化的表單建立問題：</p>
+<ol>
+<li><p><strong>欄位類別化</strong>：WTForms 將每一個表單欄位抽象成 Python 物件，並根據欄位性質提供不同的類別：</p>
+<ul>
+<li><code>StringField</code>：文字輸入框</li>
+<li><code>PasswordField</code>：密碼框</li>
+<li><code>IntegerField</code>：整數輸入</li>
+<li><code>SubmitField</code>：送出按鈕</li>
+</ul>
+<p> 這種做法的好處是：開發者在程式碼中可以像定義資料模型一樣定義表單，欄位的型態與規格清楚明確，後續維護時只要檢視 class 定義就能了解整份表單的結構與需求。
+ </p>
+</li>
+<li><p><strong>驗證器 (validators)</strong>：每個欄位都能直接綁定一組或多組驗證規則，例如：</p>
+<ul>
+<li><code>DataRequired()</code>：必填</li>
+<li><code>Length(min, max)</code>：長度限制</li>
+<li><code>Email()</code>：格式必須是 Email</li>
+</ul>
+<p> 驗證器會在表單送出後自動執行，<strong>避免開發者在每個路由中重複撰寫檢查程式</strong>，並且讓驗證邏輯與欄位定義緊密結合。
+ </p>
+</li>
+<li><p><strong>錯誤訊息統一管理</strong>：當某個欄位的驗證失敗時，WTForms 會將對應的錯誤訊息收集到表單物件的 <code>errors</code> 屬性中，並以字典的方式存放。這樣不僅方便在後端進行除錯，也方便在前端模板中直接依照欄位名稱顯示錯誤提示，保持使用者體驗一致。</p>
+</li>
+<li><p><strong>與模板整合</strong>：WTForms 與 Jinja2 模板引擎結合緊密，欄位物件本身就能直接輸出 HTML 代碼。例如：</p>
+<ul>
+<li><code>&#123;&#123; form.username.label &#125;&#125;</code>：生成對應的 <code>&lt;label&gt;</code> 標籤</li>
+<li><code>&#123;&#123; form.username() &#125;&#125;</code>：生成 <code>&lt;input&gt;</code> 標籤及其屬性</li>
+</ul>
+<p> 這樣一來，表單的後端定義與前端輸出保持一致，就可減少 HTML 與 Python 之間的重複定義與同步問題。</p>
+</li>
+</ol>
+<p>例如以下是一個 WTForms 的範例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wtforms <span class="keyword">import</span> Form, StringField, PasswordField, validators</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LoginForm</span>(<span class="title class_ inherited__">Form</span>):</span><br><span class="line">    username = StringField(<span class="string">&#x27;使用者名稱&#x27;</span>, [validators.DataRequired(), validators.Length(<span class="built_in">min</span>=<span class="number">4</span>, <span class="built_in">max</span>=<span class="number">25</span>)])</span><br><span class="line">    password = PasswordField(<span class="string">&#x27;密碼&#x27;</span>, [validators.DataRequired()])</span><br></pre></td></tr></table></figure>
+
+<p>這段程式碼定義了一個表單 <code>LoginForm</code>，有 <code>username</code> 與 <code>password</code> 兩個欄位，各欄位綁定了驗證規則，包含必填與長度限制。</p>
+<h3 id="Flask-WTF"><a href="#Flask-WTF" class="headerlink" title="Flask-WTF"></a>Flask-WTF</h3><p>Flask-WTF 解決了幾個 WTForms 沒有，但是與網站開發相關的工作：</p>
+<ol>
+<li><p><strong>自動 CSRF 保護</strong>：WTForms 本身不知道什麼是 CSRF，但 Flask-WTF 會在表單中自動加入隱藏欄位 <code>csrf_token</code>。這個 token 在送出表單時會自動驗證，防止跨站請求偽造攻擊。</p>
+</li>
+<li><p><strong>與 Flask Request 整合</strong>：在 WTForms 中，我們必須手動將 <code>request.form</code> 的資料傳進表單物件。但是 Flask-WTF 會在建立表單時自動綁定 <code>request.form</code>（POST）或 <code>request.args</code>（GET）的資料，讓我們可以直接檢查。</p>
+</li>
+<li><p><strong>簡化驗證流程</strong>：提供 <code>validate_on_submit()</code> 方法，一次檢查「是不是 POST 請求」和「所有驗證器都通過」，等價於以下寫法：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.method == <span class="string">&quot;POST&quot;</span> <span class="keyword">and</span> form.validate()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="實際操作"><a href="#實際操作" class="headerlink" title="實際操作"></a>實際操作</h3><p>首先定義帳密表單 <code>LoginForm</code>，將欄位結構與驗證規則集中在一個類別裡，以後任何路由或樣板要用同一份帳密表單都引用這個類別，不會重複寫驗證邏輯。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定義帳密表單</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LoginForm</span>(<span class="title class_ inherited__">FlaskForm</span>):</span><br><span class="line">    username = StringField(<span class="string">&quot;帳號&quot;</span>, validators=[DataRequired()])</span><br><span class="line">    password = PasswordField(<span class="string">&quot;密碼&quot;</span>, validators=[DataRequired()])</span><br><span class="line">    submit = SubmitField(<span class="string">&quot;登入&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>接著撰寫登入路由，在這邊我們將路徑設定為根頁面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span>, methods=[<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;POST&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">login</span>():</span><br><span class="line">    form = LoginForm()</span><br><span class="line">    <span class="keyword">if</span> form.validate_on_submit():   <span class="comment"># 自動檢查 POST 與驗證</span></span><br><span class="line">        <span class="keyword">if</span> form.username.data == <span class="string">&quot;anthony&quot;</span> <span class="keyword">and</span> form.password.data == <span class="string">&quot;abc123&quot;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;登入成功&quot;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;帳號密碼錯誤&quot;</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;login.html&quot;</span>, form=form)</span><br></pre></td></tr></table></figure>
+
+<p>Flask‑WTF 會在建立 <code>form = LoginForm()</code> 時，自動把 <code>request.form</code> 綁到欄位（POST 時）。</p>
+<p><code>form.validate()</code> 會逐一執行欄位 validators（此例為 <code>DataRequired()</code>），任何一個失敗就回傳 <code>False</code>，錯誤訊息存在 <code>form.&lt;欄位&gt;.errors</code>。而在 <code>login.html</code> 樣板中，需要處理 CSRF token：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>登入頁面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>登入<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">        &#123;&#123; form.hidden_tag() &#125;&#125;  <span class="comment">&lt;!-- CSRF Token --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.username.label &#125;&#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.username(size=20) &#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.password.label &#125;&#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.password(size=20) &#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; form.submit() &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>hidden_tag()</code>用於輸出隱藏欄位（含 CSRF token），沒有它的話 <code>validate_on_submit()</code> 會因 CSRF 驗證失敗而回傳 <code>False</code>。最後執行程式，開啟首頁後，即可看到以下登入頁面：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/wtf-login.png" alt="使用 WTForms & Flask-WTF 的登入頁面">
+  <p style="font-size: 0.8em; color: #999999;">圖 11：使用 WTForms & Flask-WTF 的登入頁面</p>
+</div>
+
+<p>輸入帳號密碼並登入後，即可看到成功訊息，並且在瀏覽器網址列看不到帳密等隱私資訊，相較於原先使用原生表單的做法安全。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/wtf-login-success.png" alt="使用 WTForms & Flask-WTF 的登入成功頁面">
+  <p style="font-size: 0.8em; color: #999999;">圖 12：使用 WTForms & Flask-WTF 的登入成功頁面</p>
+</div>
+
+<h2 id="文件上傳"><a href="#文件上傳" class="headerlink" title="文件上傳"></a>文件上傳</h2><p>在許多 Web 應用中，使用者不僅會輸入文字或選擇選項，還會需要<strong>上傳檔案</strong>，例如上傳頭像、附件、照片或報表。Flask 內建對檔案上傳的支援，核心機制是透過 <code>request.files</code> 來存取上傳的檔案物件，並由開發者決定要如何驗證、儲存與處理。在 Flask 中，我們可以用兩種方式實作檔案上傳：</p>
+<ul>
+<li><strong>原生 Flask</strong>：直接使用 <code>request.files</code> 搭配自訂驗證邏輯，靈活但需要自行處理安全檢查與錯誤訊息</li>
+<li><strong>WTForms &amp; Flask-WTF</strong>：將檔案上傳欄位與驗證器定義在表單類別中，與其他欄位共用一致的驗證流程與錯誤管理</li>
+</ul>
+<h3 id="原生-Flask"><a href="#原生-Flask" class="headerlink" title="原生 Flask"></a>原生 Flask</h3><p>如果只是要快速實作檔案上傳功能，而不需要與 WTForms 整合，我們可以使用原生 Flask，直接透過 <code>request.files</code> 存取上傳檔案。雖然這種方式比較靈活、容易上手，但同時需要<strong>自行處理檔案驗證與安全性</strong>，否則可能會讓應用暴露在風險之下。HTML 端必須使用 <code>POST</code> 方法，並將表單的 <code>enctype</code> 屬性設為 <code>multipart/form-data</code>，這是瀏覽器在上傳檔案時必須使用的編碼方式，否則檔案資料不會被送到後端。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>上傳檔案<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/upload&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;file&quot;</span>&gt;</span>選擇檔案<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上傳&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;input type=&quot;file&quot; name=&quot;file&quot;&gt;</code> 的 <code>name</code> 屬性很重要，這個值會成為後端 <code>request.files</code> 的索引鍵</li>
+<li><code>enctype=&quot;multipart/form-data&quot;</code> 必須設定，否則檔案內容不會被包含在請求中</li>
+</ul>
+<p>在後端，我們可以從 <code>request.files</code> 取出檔案物件，檢查它是否存在，然後將它儲存到指定目錄。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> werkzeug.utils <span class="keyword">import</span> secure_filename</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/upload&quot;</span>, methods=[<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;POST&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">upload</span>():</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        file = request.files.get(<span class="string">&quot;file&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> file <span class="keyword">and</span> file.filename:</span><br><span class="line">            <span class="comment"># 避免惡意檔名導致覆蓋系統檔案</span></span><br><span class="line">            filename = secure_filename(file.filename)</span><br><span class="line">            filepath = os.path.join(app.config[<span class="string">&quot;UPLOAD_FOLDER&quot;</span>], filename)</span><br><span class="line">            file.save(filepath)     <span class="comment"># 儲存檔案</span></span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">&quot;upload&quot;</span>))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            logging.debug(<span class="string">&quot;沒有選擇檔案或檔名無效&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;upload.html&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意到我們使用 <code>secure_filename()</code> 來處理檔案名稱，因為如果直接使用 <code>file.filename</code> 可能存在安全風險，例如攻擊者上傳名為 <code>../../app.py</code> 的檔案，可能會覆蓋後端檔案；<code>secure_filename()</code> 會將檔名中不安全的字元移除或替換，並保證只留下安全的檔名。</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/upload.png" alt="上傳頁面">
+  <p style="font-size: 0.8em; color: #999999;">圖 13：上傳頁面</p>
+</div>
+
+<p>點擊上傳後，可以看到後端出現 POST 到 <code>/upload</code> 的要求，表示成功上傳。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO:werkzeug:127.0.0.1 - - [10/Aug/2025 15:04:56] <span class="string">&quot;POST /upload HTTP/1.1&quot;</span> 302 -</span><br></pre></td></tr></table></figure>
+
+<p>如果想要檢查檔案是否為特定類型，可以定義一個函式 <code>allowed_file</code>，判斷其是否有 <code>.</code> 與副檔名是否在允許的類型內：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ALLOWED_EXTENSIONS = &#123;<span class="string">&quot;png&quot;</span>, <span class="string">&quot;jpg&quot;</span>, <span class="string">&quot;jpeg&quot;</span>, <span class="string">&quot;pdf&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">allowed_file</span>(<span class="params">filename: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;.&quot;</span> <span class="keyword">in</span> filename <span class="keyword">and</span> filename.rsplit(<span class="string">&quot;.&quot;</span>, <span class="number">1</span>)[<span class="number">1</span>].lower() <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br></pre></td></tr></table></figure>
+
+<p>接著在 <code>file.save()</code> 前檢查一遍：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 檢查檔案類型</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> allowed_file(filename):</span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;檔案類型不允許&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="WTForms-Flask-WTF"><a href="#WTForms-Flask-WTF" class="headerlink" title="WTForms &amp; Flask-WTF"></a>WTForms &amp; Flask-WTF</h3><p>相比原生 Flask 用 <code>request.files</code> 處理檔案上傳，WTForms + Flask-WTF 能將欄位定義、驗證規則、錯誤訊息集中管理，還自動整合 CSRF 保護。樣板其實與原生 Flask 相差不大，只是需要加上 CSRF 防護機制而已，並且善用 Flask-WTF 生成標籤的功能：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>上傳檔案 (WTF)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/upload_wtf&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">        &#123;&#123; form.hidden_tag() &#125;&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.file.label &#125;&#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.file() &#125;&#125;</span><br><span class="line">            &#123;% for err in form.file.errors %&#125;</span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;error&quot;</span>&gt;</span>&#123;&#123; err &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            &#123;% endfor %&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; form.submit() &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接著需要定義可重複使用的上傳表單類別 <code>UploadForm</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_wtf <span class="keyword">import</span> FlaskForm</span><br><span class="line"><span class="keyword">from</span> flask_wtf.file <span class="keyword">import</span> FileField, FileRequired, FileAllowed</span><br><span class="line"><span class="keyword">from</span> wtforms <span class="keyword">import</span> SubmitField</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定義上傳表單</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UploadForm</span>(<span class="title class_ inherited__">FlaskForm</span>):</span><br><span class="line">    file = FileField(</span><br><span class="line">        label=<span class="string">&quot;選擇檔案&quot;</span>,</span><br><span class="line">        validators=[</span><br><span class="line">            FileRequired(message=<span class="string">&quot;請選擇要上傳的檔案&quot;</span>),</span><br><span class="line">            FileAllowed([<span class="string">&quot;jpg,&quot;</span> <span class="string">&quot;jpeg&quot;</span>, <span class="string">&quot;png&quot;</span>, <span class="string">&quot;gif&quot;</span>, <span class="string">&quot;pdf&quot;</span>], <span class="string">&quot;只允許圖片或 PDF&quot;</span>)</span><br><span class="line">        ]</span><br><span class="line">    )</span><br><span class="line">    submit = SubmitField(<span class="string">&quot;上傳&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>定義上傳頁面路由：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/upload_wtf&quot;</span>, methods=[<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;POST&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">upload_wtf</span>():</span><br><span class="line">    form = UploadForm()</span><br><span class="line">    <span class="keyword">if</span> form.validate_on_submit():</span><br><span class="line">        file = form.file.data</span><br><span class="line">        filename = secure_filename(file.filename)</span><br><span class="line">        filepath = os.path.join(app.config[<span class="string">&quot;UPLOAD_FOLDER&quot;</span>], filename)</span><br><span class="line">        file.save(filepath)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">&quot;upload_wtf&quot;</span>))</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;upload_wtf.html&quot;</span>, form=form)</span><br></pre></td></tr></table></figure>
+
+<p>執行程式後打開 <code>/upload_wtf</code> 頁面即可看到選擇檔檔案區與上傳按鈕：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/upload-wtf.png" alt="使用 WTForms & Flask-WTF 的上傳頁面">
+  <p style="font-size: 0.8em; color: #999999;">圖 14：使用 WTForms & Flask-WTF 的上傳頁面</p>
+</div>
+
+<p>如果上傳允許的檔案類型，則會出現 302 代碼：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> * Running on http://127.0.0.1:5000</span><br><span class="line">INFO:werkzeug:Press CTRL+C to quit</span><br><span class="line">INFO:werkzeug:127.0.0.1 - - [10/Aug/2025 15:56:13] <span class="string">&quot;POST /upload_wtf HTTP/1.1&quot;</span> 302 -</span><br><span class="line">INFO:werkzeug:127.0.0.1 - - [10/Aug/2025 15:56:13] <span class="string">&quot;GET /upload_wtf HTTP/1.1&quot;</span> 200 -</span><br></pre></td></tr></table></figure>
+
+<p>但如果上傳不允許的檔案類型，頁面會顯示錯誤提示：</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/form/upload-wtf-invalid.png" alt="上傳檔案類型不被允許">
+  <p style="font-size: 0.8em; color: #999999;">圖 15：上傳檔案類型不被允許</p>
+</div>
+
+<p>而且後端不會出現 302 代碼，而是出現正常的 200 代碼，因為重新導向至上傳頁面，要求使用者重新上傳：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO:werkzeug:127.0.0.1 - - [10/Aug/2025 15:56:34] <span class="string">&quot;POST /upload_wtf HTTP/1.1&quot;</span> 200 -</span><br><span class="line">INFO:werkzeug:127.0.0.1 - - [10/Aug/2025 15:56:55] <span class="string">&quot;GET /upload_wtf HTTP/1.1&quot;</span> 200 -</span><br></pre></td></tr></table></figure>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">預設是 GET 方法。<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/flask/" rel="tag"><i class="fa fa-tag"></i> flask</a>
+              <a href="/tags/%E8%A1%A8%E5%96%AE/" rel="tag"><i class="fa fa-tag"></i> 表單</a>
+              <a href="/tags/WTForms/" rel="tag"><i class="fa fa-tag"></i> WTForms</a>
+              <a href="/tags/Flask-WTF/" rel="tag"><i class="fa fa-tag"></i> Flask-WTF</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/flask-template-engine/" rel="prev" title="Flask 筆記 | 樣板引擎">
+      <i class="fa fa-chevron-left"></i> Flask 筆記 | 樣板引擎
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A4%8E%E8%99%95%E7%90%86%EF%BC%9AGET-%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">基礎處理：GET 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B0%A1%E6%98%93%E8%A1%A8%E5%96%AE"><span class="nav-number">1.1.</span> <span class="nav-text">簡易表單</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B6%E5%8F%83%E6%95%B8%E7%9A%84%E8%A1%A8%E5%96%AE"><span class="nav-number">1.2.</span> <span class="nav-text">帶參數的表單</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B8%B2%E6%9F%93%E6%A8%A3%E6%9D%BF"><span class="nav-number">1.3.</span> <span class="nav-text">使用渲染樣板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A4%8E%E8%99%95%E7%90%86%EF%BC%9APOST-%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">基礎處理：POST 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E5%96%AE%E9%A9%97%E8%AD%89"><span class="nav-number">3.</span> <span class="nav-text">表單驗證</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E8%88%87%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.1.</span> <span class="nav-text">安裝與設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WTForms"><span class="nav-number">3.2.</span> <span class="nav-text">WTForms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flask-WTF"><span class="nav-number">3.3.</span> <span class="nav-text">Flask-WTF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%A6%E9%9A%9B%E6%93%8D%E4%BD%9C"><span class="nav-number">3.4.</span> <span class="nav-text">實際操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E5%82%B3"><span class="nav-number">4.</span> <span class="nav-text">文件上傳</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%94%9F-Flask"><span class="nav-number">4.1.</span> <span class="nav-text">原生 Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WTForms-Flask-WTF"><span class="nav-number">4.2.</span> <span class="nav-text">WTForms &amp; Flask-WTF</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Anthony Sung"
+      src="/images/profile.svg">
+  <p class="site-author-name" itemprop="name">Anthony Sung</p>
+  <div class="site-description" itemprop="description">對生活抱持好奇心的學習者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaolong70701" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaolong70701" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sungpinyue@gmail.com" title="E-Mail → mailto:sungpinyue@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yueswater/" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yueswater&#x2F;" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>Facebook</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/yues_19_water/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;yues_19_water&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">&copy; Anthony 部落格原站：<a href="https://xiaolong70701.github.io/blog/" target="_blank">Yueswater Blog</a>；若要轉載文章，麻煩請保留原作者名稱與原始連結。
+</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌙',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yueswater.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/flask-form/";
+    this.page.identifier = "/flask-form/";
+    this.page.title = "Flask 筆記 | 表單";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+<script src="/js/injector.js"></script>
+</body>
+</html>
