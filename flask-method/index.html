@@ -319,17 +319,24 @@ div.hcb-content.hcb-cards-content.active {
     var CONFIG = {"hostname":"www.yueswater.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="對生活抱持好奇心的學習者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="岳氏礦泉水">
-<meta property="og:url" content="https://www.yueswater.com/tags/WTForms/index.html">
+  <meta name="description" content="請求方法 (method) 是瀏覽器或前端應用程式用來向伺服器溝通的動作類型，例如：「我要拿資料」、「我要新增資料」、「我要刪掉某筆東西」。每一種方法都有它的「語意」，告訴伺服器該怎麼處理這次的請求。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask 筆記 | 請求方法">
+<meta property="og:url" content="https://www.yueswater.com/flask-method/index.html">
 <meta property="og:site_name" content="岳氏礦泉水">
-<meta property="og:description" content="對生活抱持好奇心的學習者">
+<meta property="og:description" content="請求方法 (method) 是瀏覽器或前端應用程式用來向伺服器溝通的動作類型，例如：「我要拿資料」、「我要新增資料」、「我要刪掉某筆東西」。每一種方法都有它的「語意」，告訴伺服器該怎麼處理這次的請求。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/method/method-home.png">
+<meta property="og:image" content="https://www.yueswater.com/images/flask-learning/method/method-home.png">
+<meta property="article:published_time" content="2025-08-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-28T16:00:00.000Z">
 <meta property="article:author" content="Anthony Sung">
+<meta property="article:tag" content="flask">
+<meta property="article:tag" content="請求方法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yueswater.com/images/flask-learning/method/method-home.png">
 
-<link rel="canonical" href="https://www.yueswater.com/tags/WTForms/">
+<link rel="canonical" href="https://www.yueswater.com/flask-method/">
 
 
 <script id="page-configurations">
@@ -337,12 +344,12 @@ div.hcb-content.hcb-cards-content.active {
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>標籤: WTForms | 岳氏礦泉水</title>
+  <title>Flask 筆記 | 請求方法 | 岳氏礦泉水</title>
   
 
 
@@ -490,57 +497,215 @@ div.hcb-content.hcb-cards-content.active {
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.yueswater.com/flask-method/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.svg">
+      <meta itemprop="name" content="Anthony Sung">
+      <meta itemprop="description" content="對生活抱持好奇心的學習者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="岳氏礦泉水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flask 筆記 | 請求方法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-29T00:00:00+08:00">2025-08-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">程式語言筆記</span></a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">WTForms
-          <small>標籤</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/flask-method/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="/flask-method/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>9 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong>請求方法 (method)</strong> 是瀏覽器或前端應用程式用來<strong>向伺服器溝通的動作類型</strong>，例如：「我要拿資料」、「我要新增資料」、「我要刪掉某筆東西」。每一種方法都有它的「語意」，告訴伺服器該怎麼處理這次的請求。</p>
+<span id="more"></span>
+
+
+<h2 id="常見請求方法"><a href="#常見請求方法" class="headerlink" title="常見請求方法"></a>常見請求方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>英文全名</th>
+<th>說明</th>
+<th>常見用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET</code></td>
+<td>Get Resource</td>
+<td><strong>取得資料</strong>，不會改變伺服器的狀態</td>
+<td>打開網頁、搜尋資料</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>Post Resource</td>
+<td><strong>送出資料</strong>，通常是新增或登入</td>
+<td>表單送出、註冊</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>Put Resource</td>
+<td><strong>取代整筆資料</strong></td>
+<td>編輯整個使用者資料</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>Patch Resource</td>
+<td><strong>修改部分資料</strong></td>
+<td>更新 email、密碼</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>Delete Resource</td>
+<td><strong>刪除資料</strong></td>
+<td>刪除留言、刪除帳戶</td>
+</tr>
+</tbody></table>
+<p>而前後端的互動可以參考以下流程圖：</p>
+<div align="center">
+<pre class="mermaid">graph TD
+    A["使用者發出請求"] --> B["請求中包含請求方法與目標網址"]
+    B --> C["瀏覽器送出 HTTP 請求"]
+    C --> D["收到請求並比對路由與方法是否相符"]
+    D --> E{"是否有對應處理函式？"}
+    E -- 有 --> F["執行對應函式"]
+    E -- 沒有 --> X["回傳錯誤訊息"]
+    F --> G["後端從 request 讀取對應資料來源"]
+    G --> H["處理業務邏輯"]
+    H --> I["回傳回應"]</pre>
+</div>
+
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>Flask 預設請求方法為 <code>GET</code>，毋需特別設定，Flask 都會以 <code>GET</code> 方法處理資料。以首頁為例，打開首頁後，可以看到後端顯示成功的訊息外，還顯示了請求方法為 <code>GET</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* Running on http://127.0.0.1:5000</span><br><span class="line">INFO:werkzeug:Press CTRL+C to quit</span><br><span class="line">INFO:werkzeug:127.0.0.1 - - [29/Aug/2025 16:31:03] <span class="string">&quot;GET / HTTP/1.1&quot;</span> 200 -</span><br></pre></td></tr></table></figure>
+
+<div style="text-align:center">
+  <img src="/images/flask-learning/method/method-home.png"  alt="首頁畫面">
+  <p style="font-size: 0.8em; color: #999999;">圖 1：首頁畫面</p>
+</div>
+
+<p>延續之前計算數字平方的功能，我們將數字 <code>20</code> 輸入在輸入框後按下按鈕，也可以看到使用的方法為 <code>GET</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO:werkzeug:127.0.0.1 - - [29/Aug/2025 16:32:12] <span class="string">&quot;GET /getSquared?number=20 HTTP/1.1&quot;</span> 200 -</span><br></pre></td></tr></table></figure>
+
+<p>但如果直接在前端將表單請求方法修改為 <code>POST</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/getSquared&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">    數字 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;number&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>計算平方<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>重新按下按鈕後會出現以下化</p>
+<div style="text-align:center">
+  <img src="/images/flask-learning/method/method-home.png"  alt="方法錯誤訊息">
+  <p style="font-size: 0.8em; color: #999999;">圖 2：方法錯誤訊息</p>
+</div>
+
+<p>後端同樣也會跳出 405 錯誤訊息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO:werkzeug:127.0.0.1 - - [29/Aug/2025 16:32:44] <span class="string">&quot;POST /getSquared HTTP/1.1&quot;</span> 405 -</span><br></pre></td></tr></table></figure>
+
+<p>原因在於後端並沒有設定是以 <code>POST</code> 方法處理資料因而報錯。那麼此時如果直接修改：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/getSquared&quot;</span>, methods=[<span class="string">&quot;POST&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getSquared</span>():</span><br><span class="line">    number = <span class="built_in">int</span>(request.args.get(<span class="string">&quot;number&quot;</span>, <span class="string">&quot;&quot;</span>))</span><br><span class="line">    result = number**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;show.html&quot;</span>, result=result)</span><br></pre></td></tr></table></figure>
+
+<p>這樣也會出現問題，原因在於如果使用 <code>POST</code> 後，取得要求字串的方法就必須用 <code>request.form.get</code> 而非  <code>request.args.get</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/getSquared&quot;</span>, methods=[<span class="string">&quot;POST&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getSquared</span>():</span><br><span class="line">    number = <span class="built_in">int</span>(request.form.get(<span class="string">&quot;number&quot;</span>, <span class="string">&quot;&quot;</span>))</span><br><span class="line">    result = number**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;show.html&quot;</span>, result=result)</span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-08-09T00:00:00+08:00"
-              content="2025-08-09">
-          08-09
-        </time>
-      </div>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/flask/" rel="tag"><i class="fa fa-tag"></i> flask</a>
+              <a href="/tags/%E8%AB%8B%E6%B1%82%E6%96%B9%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 請求方法</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/flask-form/" itemprop="url">
-            <span itemprop="name">Flask 筆記 | 表單</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/flask-form/" rel="prev" title="Flask 筆記 | 表單">
+      <i class="fa fa-chevron-left"></i> Flask 筆記 | 表單
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
   
 
   
-
-
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -587,6 +752,7 @@ div.hcb-content.hcb-cards-content.active {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A6%8B%E8%AB%8B%E6%B1%82%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">常見請求方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">使用方式</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -764,6 +930,27 @@ darkmode.showWidget();
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.yueswater.com/flask-method/";
+    this.page.identifier = "/flask-method/";
+    this.page.title = "Flask 筆記 | 請求方法";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yueswater.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 <div class="moon-menu">
   <div class="moon-menu-items">
